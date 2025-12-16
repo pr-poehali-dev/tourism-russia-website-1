@@ -74,7 +74,7 @@ const ToursSection = () => {
           <p className="text-lg text-muted-foreground">Выберите своё следующее приключение</p>
         </div>
         <Tabs defaultValue="all" className="w-full mb-12">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-4">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-4 border-2 border-primary">
             <TabsTrigger value="all">Все</TabsTrigger>
             <TabsTrigger value="easy">Россия</TabsTrigger>
             <TabsTrigger value="medium">Зарубеж</TabsTrigger>
