@@ -77,9 +77,9 @@ const GuidesSection = () => {
     <>
       <section id="guides" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">С кем вы пойдёте в поход или тур</h2>
-            <p className="text-lg text-muted-foreground">Профессионалы с многолетним опытом</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">С кем вы пойдёте в поход или тур</h2>
+            <p className="text-base md:text-lg text-muted-foreground">Профессионалы с многолетним опытом</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {guides.map((guide, index) => (
@@ -92,8 +92,8 @@ const GuidesSection = () => {
                   />
                 </div>
                 <CardHeader className="text-center pb-3">
-                  <CardTitle className="font-heading text-2xl">{guide.name}</CardTitle>
-                  <CardDescription className="text-sm">{guide.specialization}</CardDescription>
+                  <CardTitle className="font-heading text-xl md:text-2xl">{guide.name}</CardTitle>
+                  <CardDescription className="text-xs md:text-sm">{guide.specialization}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   <div className="flex items-center justify-between py-2 text-sm border-b">
@@ -104,14 +104,14 @@ const GuidesSection = () => {
                     <span className="text-muted-foreground text-xs">Проведено туров</span>
                     <span className="font-semibold text-sm">{guide.tours}</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 mt-4">
-                    <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
+                    <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm">
                       <Icon name="FileText" size={14} className="mr-1" />
                       Достижения
                     </Button>
-                    <Button variant="outline" size="sm" onClick={() => handleContactClick(index)}>
+                    <Button variant="outline" size="sm" onClick={() => handleContactClick(index)} className="text-xs md:text-sm">
                       <Icon name="MessageCircle" size={14} className="mr-1" />
-                      Связаться с гидом
+                      Связаться
                     </Button>
                   </div>
                 </CardContent>

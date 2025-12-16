@@ -70,9 +70,9 @@ const ReviewsGallerySection = () => {
     <>
       <section id="gallery" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Галерея</h2>
-            <p className="text-lg text-muted-foreground">Моменты из наших путешествий</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Галерея</h2>
+            <p className="text-base md:text-lg text-muted-foreground">Моменты из наших путешествий</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
@@ -103,9 +103,9 @@ const ReviewsGallerySection = () => {
 
       <section id="reviews" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Отзывы</h2>
-            <p className="text-lg text-muted-foreground">Что говорят наши путешественники</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Отзывы</h2>
+            <p className="text-base md:text-lg text-muted-foreground">Что говорят наши путешественники</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
@@ -140,8 +140,8 @@ const ReviewsGallerySection = () => {
                 )}
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <CardTitle className="font-heading text-xl">{review.name}</CardTitle>
+                    <div className="flex items-center gap-1 sm:gap-2">
+                      <CardTitle className="font-heading text-base sm:text-lg md:text-xl">{review.name}</CardTitle>
                       {review.link && (
                         <a href={review.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 transition-colors">
                           {review.link.includes('vk.') ? (
@@ -158,10 +158,10 @@ const ReviewsGallerySection = () => {
                       ))}
                     </div>
                   </div>
-                  <CardDescription>Тур: {review.tour}</CardDescription>
+                  <CardDescription className="text-xs sm:text-sm">Тур: {review.tour}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground italic">"{review.text}"</p>
+                  <p className="text-sm md:text-base text-muted-foreground italic">"{review.text}"</p>
                 </CardContent>
               </Card>
             ))}
@@ -171,9 +171,9 @@ const ReviewsGallerySection = () => {
 
       <section id="about" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Почему мы?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Почему мы?</h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Мы создаём незабываемые путешествия по России уже 15 лет
             </p>
           </div>
@@ -184,10 +184,10 @@ const ReviewsGallerySection = () => {
                   <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
                     <Icon name={benefit.icon} size={32} className="text-primary" />
                   </div>
-                  <CardTitle className="font-heading">{benefit.title}</CardTitle>
+                  <CardTitle className="font-heading text-base md:text-lg">{benefit.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base">{benefit.description}</CardDescription>
+                  <CardDescription className="text-sm md:text-base">{benefit.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
@@ -197,9 +197,9 @@ const ReviewsGallerySection = () => {
 
       <section id="contacts" className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Свяжитесь с нами</h2>
-            <p className="text-lg text-muted-foreground">Мы ответим на все ваши вопросы</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Свяжитесь с нами</h2>
+            <p className="text-base md:text-lg text-muted-foreground">Мы ответим на все ваши вопросы</p>
           </div>
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             <div className="space-y-6">

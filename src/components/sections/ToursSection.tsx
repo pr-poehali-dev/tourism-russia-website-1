@@ -69,16 +69,16 @@ const ToursSection = () => {
   return (
     <section id="tours" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Наши лучшие туры</h2>
-          <p className="text-lg text-muted-foreground">Выберите своё следующее приключение</p>
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Наши лучшие туры</h2>
+          <p className="text-base md:text-lg text-muted-foreground">Выберите своё следующее приключение</p>
         </div>
         <Tabs defaultValue="all" className="w-full mb-12">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-4 border-2 border-primary">
-            <TabsTrigger value="all">Все</TabsTrigger>
-            <TabsTrigger value="easy">Россия</TabsTrigger>
-            <TabsTrigger value="medium">Зарубеж</TabsTrigger>
-            <TabsTrigger value="hard">Урал</TabsTrigger>
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 sm:grid-cols-4 border-2 border-primary">
+            <TabsTrigger value="all" className="text-xs sm:text-sm">Все</TabsTrigger>
+            <TabsTrigger value="easy" className="text-xs sm:text-sm">Россия</TabsTrigger>
+            <TabsTrigger value="medium" className="text-xs sm:text-sm">Зарубеж</TabsTrigger>
+            <TabsTrigger value="hard" className="text-xs sm:text-sm">Урал</TabsTrigger>
           </TabsList>
           {["all", "easy", "medium", "hard"].map((tab) => (
             <TabsContent key={tab} value={tab} className="mt-8">
@@ -96,8 +96,8 @@ const ToursSection = () => {
                       </Badge>
                     </div>
                     <CardHeader>
-                      <CardTitle className="font-heading text-2xl">{tour.title}</CardTitle>
-                      <CardDescription className="text-base">{tour.description}</CardDescription>
+                      <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
+                      <CardDescription className="text-sm md:text-base">{tour.description}</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="flex items-center justify-between text-sm">
