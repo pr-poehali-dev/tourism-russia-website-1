@@ -153,25 +153,44 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-20 bg-muted/30">
+      <section id="guides" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Почему мы?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Мы создаём незабываемые путешествия по России уже 15 лет
-            </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Наши гиды</h2>
+            <p className="text-lg text-muted-foreground">Профессионалы с многолетним опытом</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardHeader>
-                  <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Icon name={benefit.icon} size={32} className="text-primary" />
-                  </div>
-                  <CardTitle className="font-heading">{benefit.title}</CardTitle>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {guides.map((guide, index) => (
+              <Card key={index} className="hover:shadow-xl transition-shadow">
+                <CardHeader className="text-center">
+                  <img
+                    src={guide.image}
+                    alt={guide.name}
+                    className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-primary/20"
+                  />
+                  <CardTitle className="font-heading text-2xl">{guide.name}</CardTitle>
+                  <CardDescription className="text-base">{guide.specialization}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">{benefit.description}</CardDescription>
+                <CardContent className="space-y-3">
+                  <div className="flex items-center justify-between py-2 border-b">
+                    <span className="text-muted-foreground">Опыт работы</span>
+                    <span className="font-semibold">{guide.experience}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2 border-b">
+                    <span className="text-muted-foreground">Проведено туров</span>
+                    <span className="font-semibold">{guide.tours}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-muted-foreground">Рейтинг</span>
+                    <div className="flex items-center gap-1">
+                      <Icon name="Star" size={18} className="text-yellow-500 fill-yellow-500" />
+                      <span className="font-semibold">{guide.rating}</span>
+                    </div>
+                  </div>
+                  <Button className="w-full mt-4" variant="outline">
+                    <Icon name="MessageCircle" size={18} className="mr-2" />
+                    Связаться с гидом
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -229,52 +248,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="guides" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Наши гиды</h2>
-            <p className="text-lg text-muted-foreground">Профессионалы с многолетним опытом</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {guides.map((guide, index) => (
-              <Card key={index} className="hover:shadow-xl transition-shadow">
-                <CardHeader className="text-center">
-                  <img
-                    src={guide.image}
-                    alt={guide.name}
-                    className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-primary/20"
-                  />
-                  <CardTitle className="font-heading text-2xl">{guide.name}</CardTitle>
-                  <CardDescription className="text-base">{guide.specialization}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Опыт работы</span>
-                    <span className="font-semibold">{guide.experience}</span>
-                  </div>
-                  <div className="flex items-center justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Проведено туров</span>
-                    <span className="font-semibold">{guide.tours}</span>
-                  </div>
-                  <div className="flex items-center justify-between py-2">
-                    <span className="text-muted-foreground">Рейтинг</span>
-                    <div className="flex items-center gap-1">
-                      <Icon name="Star" size={18} className="text-yellow-500 fill-yellow-500" />
-                      <span className="font-semibold">{guide.rating}</span>
-                    </div>
-                  </div>
-                  <Button className="w-full mt-4" variant="outline">
-                    <Icon name="MessageCircle" size={18} className="mr-2" />
-                    Связаться с гидом
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="gallery" className="py-20">
+      <section id="gallery" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Галерея</h2>
@@ -329,6 +303,32 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground italic">"{review.text}"</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Почему мы?</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Мы создаём незабываемые путешествия по России уже 15 лет
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardHeader>
+                  <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Icon name={benefit.icon} size={32} className="text-primary" />
+                  </div>
+                  <CardTitle className="font-heading">{benefit.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base">{benefit.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
