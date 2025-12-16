@@ -107,7 +107,7 @@ const GuidesSection = () => {
                     </Button>
                     <Button variant="outline" size="sm" onClick={() => handleContactClick(index)}>
                       <Icon name="MessageCircle" size={14} className="mr-1" />
-                      Связаться
+                      Связаться с гидом
                     </Button>
                   </div>
                 </CardContent>
