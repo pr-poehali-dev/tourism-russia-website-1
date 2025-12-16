@@ -236,7 +236,7 @@ const ReviewsGallerySection = () => {
               <div className="space-y-2 text-sm">
                 <p>+7 965 561-51-53</p>
                 <p>rukzaklife@mail.ru</p>
-                <p>г. Москва</p>
+                <p>г. Пермь  г. Уфа</p>
               </div>
             </div>
             <div>
