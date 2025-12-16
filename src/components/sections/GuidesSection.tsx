@@ -41,7 +41,7 @@ const GuidesSection = () => {
       tours: 200,
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
-      phone: "+7 965 561-51-53",
+      phone: "+7 996 083-71-57",
       achievements: [
         "Восхождение на г. Эльбрус 2017 и 2023 годы",
         "Восхождение на г. Демавенд",
@@ -58,7 +58,7 @@ const GuidesSection = () => {
       tours: 180,
       rating: 4.9,
       image: "https://cdn.poehali.dev/files/IMG_9242.jpg",
-      phone: "+7 965 561-51-53",
+      phone: "+7 987 255-84-99",
       achievements: [
         "Алтай велопоход 3 к.с. (2012 г.)",
         "Кавказ велопоход 2 к.с. (2013 г.)",
