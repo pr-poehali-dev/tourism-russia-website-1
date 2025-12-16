@@ -16,6 +16,13 @@ import {
 
 const Index = () => {
   const [selectedGuide, setSelectedGuide] = React.useState<number | null>(null);
+  const [showContactForm, setShowContactForm] = React.useState(false);
+  const [contactGuideIndex, setContactGuideIndex] = React.useState<number | null>(null);
+
+  const handleContactClick = (index: number) => {
+    setContactGuideIndex(index);
+    setShowContactForm(true);
+  };
   const tours = [
     {
       id: 1,
@@ -213,7 +220,7 @@ const Index = () => {
                       <Icon name="FileText" size={14} className="mr-1" />
                       Достижения
                     </Button>
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" onClick={() => handleContactClick(index)}>
                       <Icon name="MessageCircle" size={14} className="mr-1" />
                       Связаться
                     </Button>
@@ -278,13 +285,56 @@ const Index = () => {
                     <div className="text-xs text-muted-foreground">Рейтинг</div>
                   </div>
                 </div>
-                <Button className="w-full" size="lg">
+                <Button className="w-full" size="lg" onClick={() => handleContactClick(selectedGuide)}>
                   <Icon name="MessageCircle" size={18} className="mr-2" />
                   Связаться с гидом
                 </Button>
               </div>
             </>
           )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showContactForm} onOpenChange={setShowContactForm}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-heading">
+              Связаться с гидом
+            </DialogTitle>
+            <DialogDescription>
+              {contactGuideIndex !== null && `Отправьте сообщение ${guides[contactGuideIndex].name}`}
+            </DialogDescription>
+          </DialogHeader>
+          <form className="space-y-4" onSubmit={(e) => {
+            e.preventDefault();
+            alert('Спасибо! Ваше сообщение отправлено.');
+            setShowContactForm(false);
+          }}>
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Ваше имя</label>
+              <Input placeholder="Иван Иванов" required />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Телефон</label>
+              <Input type="tel" placeholder="+7 (999) 123-45-67" required />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Email</label>
+              <Input type="email" placeholder="ivan@example.com" required />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Сообщение</label>
+              <Textarea 
+                placeholder="Расскажите о ваших пожеланиях к туру..."
+                className="min-h-[100px]"
+                required
+              />
+            </div>
+            <Button type="submit" className="w-full" size="lg">
+              <Icon name="Send" size={18} className="mr-2" />
+              Отправить сообщение
+            </Button>
+          </form>
         </DialogContent>
       </Dialog>
 
