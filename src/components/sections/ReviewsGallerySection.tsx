@@ -100,7 +100,7 @@ const ReviewsGallerySection = () => {
               <Card key={index} className="hover:shadow-lg transition-shadow overflow-hidden">
                 {review.images && review.images.length > 0 && (
                   <div 
-                    className="relative h-48 w-full overflow-hidden cursor-pointer group"
+                    className="relative h-64 w-full overflow-hidden cursor-pointer group"
                     onClick={() => {
                       if (review.images && review.images.length > 1) {
                         const currentIndex = imageIndices[index] || 0;
