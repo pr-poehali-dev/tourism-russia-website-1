@@ -3,13 +3,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
+import React from "react";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/ui/dialog";
 
 interface Review {
   name: string;
   tour: string;
   rating: number;
   text: string;
-  image?: string;
+  images?: string[];
 }
 
 interface Benefit {
@@ -19,13 +24,20 @@ interface Benefit {
 }
 
 const ReviewsGallerySection = () => {
+  const [selectedImage, setSelectedImage] = React.useState<number | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  const [reviewImages, setReviewImages] = React.useState<string[]>([]);
+
   const reviews: Review[] = [
     {
       name: "Александр С.",
       tour: "Колыма 2025г",
       rating: 5,
       text: "Отличное путешествие на Колыму, на озеро Джека Лондона. Гиды Антон и Эмиль настоящие профессионалы своего дела и очень приятные и интересные люди. Общение с ними доставило не меньше восхитительных эмоций, чем умопомрачительная природа Колымы! Всем рекомендую!",
-      image: "https://cdn.poehali.dev/files/IMG_4222.jpg",
+      images: [
+        "https://cdn.poehali.dev/files/IMG_4222.jpg",
+        "https://cdn.poehali.dev/files/IMG_4420.jpg",
+      ],
     },
     {
       name: "Игорь В.",
@@ -92,13 +104,28 @@ const ReviewsGallerySection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow overflow-hidden">
-                {review.image && (
-                  <div className="relative h-48 w-full overflow-hidden">
+                {review.images && review.images.length > 0 && (
+                  <div 
+                    className="relative h-48 w-full overflow-hidden cursor-pointer group"
+                    onClick={() => {
+                      setReviewImages(review.images!);
+                      setCurrentImageIndex(0);
+                      setSelectedImage(index);
+                    }}
+                  >
                     <img
-                      src={review.image}
+                      src={review.images[0]}
                       alt={`${review.name} - ${review.tour}`}
                       className="w-full h-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Icon name="ZoomIn" size={32} className="text-white" />
+                    </div>
+                    {review.images.length > 1 && (
+                      <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                        +{review.images.length - 1} фото
+                      </div>
+                    )}
                   </div>
                 )}
                 <CardHeader>
@@ -262,6 +289,37 @@ const ReviewsGallerySection = () => {
           </div>
         </div>
       </footer>
+
+      <Dialog open={selectedImage !== null} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] p-0">
+          <div className="relative">
+            <img
+              src={reviewImages[currentImageIndex]}
+              alt="Фото из отзыва"
+              className="w-full h-auto max-h-[80vh] object-contain"
+            />
+            {reviewImages.length > 1 && (
+              <>
+                <button
+                  onClick={() => setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : reviewImages.length - 1))}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
+                >
+                  <Icon name="ChevronLeft" size={24} />
+                </button>
+                <button
+                  onClick={() => setCurrentImageIndex((prev) => (prev < reviewImages.length - 1 ? prev + 1 : 0))}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
+                >
+                  <Icon name="ChevronRight" size={24} />
+                </button>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                  {currentImageIndex + 1} / {reviewImages.length}
+                </div>
+              </>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
