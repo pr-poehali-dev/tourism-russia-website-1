@@ -78,7 +78,7 @@ const ToursSection = () => {
             <TabsTrigger value="all">Все</TabsTrigger>
             <TabsTrigger value="easy">Россия</TabsTrigger>
             <TabsTrigger value="medium">Зарубеж</TabsTrigger>
-            <TabsTrigger value="hard">Пермский край</TabsTrigger>
+            <TabsTrigger value="hard">Урал</TabsTrigger>
           </TabsList>
           {["all", "easy", "medium", "hard"].map((tab) => (
             <TabsContent key={tab} value={tab} className="mt-8">
