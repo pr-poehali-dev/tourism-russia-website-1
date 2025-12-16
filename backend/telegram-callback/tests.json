@@ -1,0 +1,22 @@
+{
+  "tests": [
+    {
+      "name": "Test callback request",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "phone": "+7 999 123-45-67",
+        "timePreference": "10:00 - 18:00",
+        "comment": "Интересует поход на Алтай",
+        "guideName": "Антон Немчинов",
+        "guidePhone": "+7 965 561-51-53"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
