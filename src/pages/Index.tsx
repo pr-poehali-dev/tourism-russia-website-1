@@ -5,8 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import React from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const Index = () => {
+  const [selectedGuide, setSelectedGuide] = React.useState<number | null>(null);
   const tours = [
     {
       id: 1,
@@ -45,6 +54,13 @@ const Index = () => {
       tours: 200,
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
+      achievements: [
+        "Руководитель экспедиций на Алтай (2010-2024)",
+        "Восхождения на Белуху (5 раз)",
+        "Опыт работы с группами до 25 человек",
+        "Сертифицированный горный гид",
+        "Автор 12 туристических маршрутов",
+      ],
     },
     {
       name: "Эмиль Газизов",
@@ -53,6 +69,17 @@ const Index = () => {
       tours: 180,
       rating: 4.9,
       image: "https://cdn.poehali.dev/files/IMG_9242.jpg",
+      achievements: [
+        "Алтай велопоход 3 к.с. (2012 г.)",
+        "Кавказ велопоход 2 к.с. (2013 г.)",
+        "Кольский полуостров, лыжный поход 3 к.с. (2015 г.)",
+        "Киргизия, горный поход 2 к.с. (2016 г.)",
+        "Казахстан, Сайрам, горный поход 3 к.с. (2017 г.)",
+        "Восхождение на Эльбрус с Востока (2014 г.)",
+        "Южный Урал, водный 2 к.с. (2017 г.)",
+        "Забайкалье, лыжный поход 4 к.с. с первопрохождением (2019 г.)",
+        "Западные Саяны, лыжный поход 4 к.с. с первопрохождениями (2020 г.)",
+      ],
     },
   ];
 
@@ -181,16 +208,85 @@ const Index = () => {
                       <span className="font-semibold text-sm">{guide.rating}</span>
                     </div>
                   </div>
-                  <Button className="w-full mt-3" variant="outline">
-                    <Icon name="MessageCircle" size={16} className="mr-2" />
-                    Связаться с гидом
-                  </Button>
+                  <div className="grid grid-cols-2 gap-2 mt-3">
+                    <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)}>
+                      <Icon name="FileText" size={14} className="mr-1" />
+                      Достижения
+                    </Button>
+                    <Button variant="outline" size="sm">
+                      <Icon name="MessageCircle" size={14} className="mr-1" />
+                      Связаться
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </section>
+
+      <Dialog open={selectedGuide !== null} onOpenChange={() => setSelectedGuide(null)}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          {selectedGuide !== null && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <img
+                    src={guides[selectedGuide].image}
+                    alt={guides[selectedGuide].name}
+                    className="w-20 h-20 rounded-full object-cover border-4 border-primary/20"
+                  />
+                  <div>
+                    <DialogTitle className="text-2xl font-heading">
+                      {guides[selectedGuide].name}
+                    </DialogTitle>
+                    <DialogDescription className="text-base">
+                      {guides[selectedGuide].specialization}
+                    </DialogDescription>
+                  </div>
+                </div>
+              </DialogHeader>
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                    <Icon name="Award" size={20} className="text-primary" />
+                    Спортивные достижения
+                  </h3>
+                  <ul className="space-y-2">
+                    {guides[selectedGuide].achievements.map((achievement, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="grid grid-cols-3 gap-4 pt-4 border-t">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">{guides[selectedGuide].experience}</div>
+                    <div className="text-xs text-muted-foreground">Опыт работы</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">{guides[selectedGuide].tours}</div>
+                    <div className="text-xs text-muted-foreground">Проведено туров</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary flex items-center justify-center gap-1">
+                      {guides[selectedGuide].rating}
+                      <Icon name="Star" size={18} className="text-yellow-500 fill-yellow-500" />
+                    </div>
+                    <div className="text-xs text-muted-foreground">Рейтинг</div>
+                  </div>
+                </div>
+                <Button className="w-full" size="lg">
+                  <Icon name="MessageCircle" size={18} className="mr-2" />
+                  Связаться с гидом
+                </Button>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <section id="tours" className="py-20">
         <div className="container mx-auto px-4">
