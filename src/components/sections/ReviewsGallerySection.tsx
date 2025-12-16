@@ -179,15 +179,19 @@ const ReviewsGallerySection = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card 
+                key={index} 
+                className="text-center border-2 border-primary cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-slide-up group" 
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <CardHeader>
-                  <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Icon name={benefit.icon} size={32} className="text-primary" />
+                  <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 group-hover:bg-primary-foreground/20 rounded-full flex items-center justify-center transition-colors duration-300">
+                    <Icon name={benefit.icon} size={32} className="text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                   </div>
                   <CardTitle className="font-heading text-base md:text-lg">{benefit.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-sm md:text-base">{benefit.description}</CardDescription>
+                  <CardDescription className="text-sm md:text-base group-hover:text-primary-foreground/90 transition-colors duration-300">{benefit.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
