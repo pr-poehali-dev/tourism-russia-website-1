@@ -112,18 +112,21 @@ const Index = () => {
             <a href="#about" className="hover:text-primary transition-colors">О нас</a>
             <a href="#contacts" className="hover:text-primary transition-colors">Контакты</a>
           </nav>
-          <div className="hidden lg:flex flex-col gap-1 text-sm">
-            <a href="tel:+79655615153" className="flex items-center gap-2 hover:text-primary transition-colors text-black">
-              <Icon name="Phone" size={16} />
+          <div className="hidden lg:flex flex-col gap-2 text-sm">
+            <a href="tel:+79655615153" className="flex items-center gap-2 hover:text-primary transition-colors text-black font-semibold text-base">
+              <Icon name="Phone" size={18} />
               +7 965 561-51-53
             </a>
             <a href="mailto:rukzaklife@mail.ru" className="flex items-center gap-2 hover:text-primary transition-colors text-black">
               <Icon name="Mail" size={16} />
               rukzaklife@mail.ru
             </a>
-            <div className="flex items-center gap-2 text-black">
-              <Icon name="Clock" size={16} />
-              Пн-Пт 08:00-22:00, Сб-Вс 10:00-20:00
+            <div className="flex items-start gap-2 text-black">
+              <Icon name="Clock" size={16} className="mt-0.5" />
+              <div className="flex flex-col leading-tight">
+                <span>Пн-Пт 08:00-22:00</span>
+                <span>Сб-Вс 10:00-20:00</span>
+              </div>
             </div>
           </div>
         </div>
@@ -141,14 +144,10 @@ const Index = () => {
         <div className="relative z-10 text-center text-white px-4 animate-fade-in">
           <h1 className="md:text-7xl font-heading font-bold mb-6 text-6xl">Уникальные туры по России</h1>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">С профессиональными гидами</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8">
-              <Icon name="Compass" size={20} className="mr-2" />
+          <div className="flex justify-center">
+            <Button size="lg" className="text-xl px-12 py-6 bg-green-600 hover:bg-green-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+              <Icon name="Compass" size={24} className="mr-3" />
               Выбрать тур
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 backdrop-blur border-white text-white hover:bg-white/20">
-              <Icon name="Play" size={20} className="mr-2" />
-              Смотреть видео
             </Button>
           </div>
         </div>
