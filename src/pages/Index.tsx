@@ -153,34 +153,36 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {guides.map((guide, index) => (
-              <Card key={index} className="hover:shadow-xl transition-shadow">
-                <CardHeader className="text-center">
+              <Card key={index} className="hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="relative h-80 overflow-hidden">
                   <img
                     src={guide.image}
                     alt={guide.name}
-                    className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-primary/20"
+                    className="w-full h-full object-cover"
                   />
+                </div>
+                <CardHeader className="text-center pb-3">
                   <CardTitle className="font-heading text-2xl">{guide.name}</CardTitle>
-                  <CardDescription className="text-base">{guide.specialization}</CardDescription>
+                  <CardDescription className="text-sm">{guide.specialization}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Опыт работы</span>
-                    <span className="font-semibold">{guide.experience}</span>
+                <CardContent className="space-y-2">
+                  <div className="flex items-center justify-between py-1 text-sm">
+                    <span className="text-muted-foreground text-xs">Опыт работы</span>
+                    <span className="font-semibold text-sm">{guide.experience}</span>
                   </div>
-                  <div className="flex items-center justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Проведено туров</span>
-                    <span className="font-semibold">{guide.tours}</span>
+                  <div className="flex items-center justify-between py-1 text-sm">
+                    <span className="text-muted-foreground text-xs">Проведено туров</span>
+                    <span className="font-semibold text-sm">{guide.tours}</span>
                   </div>
-                  <div className="flex items-center justify-between py-2">
-                    <span className="text-muted-foreground">Рейтинг</span>
+                  <div className="flex items-center justify-between py-1 text-sm">
+                    <span className="text-muted-foreground text-xs">Рейтинг</span>
                     <div className="flex items-center gap-1">
-                      <Icon name="Star" size={18} className="text-yellow-500 fill-yellow-500" />
-                      <span className="font-semibold">{guide.rating}</span>
+                      <Icon name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                      <span className="font-semibold text-sm">{guide.rating}</span>
                     </div>
                   </div>
-                  <Button className="w-full mt-4" variant="outline">
-                    <Icon name="MessageCircle" size={18} className="mr-2" />
+                  <Button className="w-full mt-3" variant="outline">
+                    <Icon name="MessageCircle" size={16} className="mr-2" />
                     Связаться с гидом
                   </Button>
                 </CardContent>
