@@ -47,20 +47,12 @@ const Index = () => {
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alexander",
     },
     {
-      name: "Елена Петрова",
-      experience: "8 лет",
-      specialization: "Культурные туры, Золотое Кольцо",
-      tours: 120,
-      rating: 4.8,
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
-    },
-    {
-      name: "Дмитрий Смирнов",
+      name: "Антон Немчинов",
       experience: "15 лет",
-      specialization: "Экстремальные туры, Байкал",
+      specialization: "Горные экспедиции, Алтай, Байкал",
       tours: 200,
       rating: 5.0,
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dmitry",
+      image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
     },
   ];
 
@@ -159,7 +151,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">С кем вы пойдёте в поход или тур</h2>
             <p className="text-lg text-muted-foreground">Профессионалы с многолетним опытом</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {guides.map((guide, index) => (
               <Card key={index} className="hover:shadow-xl transition-shadow">
                 <CardHeader className="text-center">
