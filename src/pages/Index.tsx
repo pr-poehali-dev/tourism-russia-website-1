@@ -127,12 +127,8 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30" />
         </div>
         <div className="relative z-10 text-center text-white px-4 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6">
-            Откройте для себя Россию
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Уникальные туры по самым живописным уголкам нашей страны с профессиональными гидами
-          </p>
+          <h1 className="md:text-7xl font-heading font-bold mb-6 text-6xl">Уникальные туры по России</h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">С профессиональными гидами</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8">
               <Icon name="Compass" size={20} className="mr-2" />
