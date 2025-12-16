@@ -189,7 +189,7 @@ const ReviewsGallerySection = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg">г. Москва, ул. Примерная, д. 123</p>
+                  <p className="text-lg">г. Пермь     г. Уфа</p>
                 </CardContent>
               </Card>
             </div>
