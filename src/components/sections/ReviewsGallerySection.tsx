@@ -112,7 +112,7 @@ const ReviewsGallerySection = () => {
                     <img
                       src={review.images[imageIndices[index] || 0]}
                       alt={`${review.name} - ${review.tour}`}
-                      className="w-full h-full object-cover transition-opacity duration-300"
+                      className="w-full h-full object-contain bg-muted transition-opacity duration-300"
                     />
                     {review.images.length > 1 && (
                       <>
