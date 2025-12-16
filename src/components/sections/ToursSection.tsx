@@ -70,7 +70,7 @@ const ToursSection = () => {
     <section id="tours" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Популярные туры</h2>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Наши лучшие туры</h2>
           <p className="text-lg text-muted-foreground">Выберите своё следующее приключение</p>
         </div>
         <Tabs defaultValue="all" className="w-full mb-12">
