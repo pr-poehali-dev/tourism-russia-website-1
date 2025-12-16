@@ -200,22 +200,15 @@ const Index = () => {
                   <CardDescription className="text-sm">{guide.specialization}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <div className="flex items-center justify-between py-1 text-sm">
+                  <div className="flex items-center justify-between py-2 text-sm border-b">
                     <span className="text-muted-foreground text-xs">Опыт работы</span>
                     <span className="font-semibold text-sm">{guide.experience}</span>
                   </div>
-                  <div className="flex items-center justify-between py-1 text-sm">
+                  <div className="flex items-center justify-between py-2 text-sm">
                     <span className="text-muted-foreground text-xs">Проведено туров</span>
                     <span className="font-semibold text-sm">{guide.tours}</span>
                   </div>
-                  <div className="flex items-center justify-between py-1 text-sm">
-                    <span className="text-muted-foreground text-xs">Рейтинг</span>
-                    <div className="flex items-center gap-1">
-                      <Icon name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
-                      <span className="font-semibold text-sm">{guide.rating}</span>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 mt-3">
+                  <div className="grid grid-cols-2 gap-2 mt-4">
                     <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)}>
                       <Icon name="FileText" size={14} className="mr-1" />
                       Достижения
