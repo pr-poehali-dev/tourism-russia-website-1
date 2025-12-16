@@ -75,7 +75,7 @@ const ToursSection = () => {
         </div>
         <Tabs defaultValue="all" className="w-full mb-12">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-4">
-            <TabsTrigger value="all">Пермский край</TabsTrigger>
+            <TabsTrigger value="all">Все</TabsTrigger>
             <TabsTrigger value="easy">Россия</TabsTrigger>
             <TabsTrigger value="medium">Зарубежные</TabsTrigger>
             <TabsTrigger value="hard">Сложные</TabsTrigger>
