@@ -123,7 +123,7 @@ const Index = () => {
             </a>
             <div className="flex items-center gap-2 text-black">
               <Icon name="Clock" size={16} />
-              Пн-Пт 08:00-22:00
+              Пн-Пт 08:00-22:00, Сб-Вс 10:00-20:00
             </div>
           </div>
         </div>
@@ -353,8 +353,8 @@ const Index = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <a href="tel:+79991234567" className="text-lg hover:text-primary transition-colors">
-                    +7 (999) 123-45-67
+                  <a href="tel:+79655615153" className="text-lg hover:text-primary transition-colors">
+                    +7 965 561-51-53
                   </a>
                 </CardContent>
               </Card>
@@ -366,8 +366,8 @@ const Index = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <a href="mailto:info@rustur.ru" className="text-lg hover:text-primary transition-colors">
-                    info@rustur.ru
+                  <a href="mailto:rukzaklife@mail.ru" className="text-lg hover:text-primary transition-colors">
+                    rukzaklife@mail.ru
                   </a>
                 </CardContent>
               </Card>
@@ -414,13 +414,33 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Icon name="Mountain" size={28} />
-                <span className="text-2xl font-heading font-bold">РусТур</span>
+              <div className="flex items-start gap-3 mb-4">
+                <img src="https://cdn.poehali.dev/files/68572a0b1c5f5eacb47f025aa04b05e4.jpg" alt="Логотип" className="w-10 h-10 object-cover rounded-lg" />
+                <div className="flex flex-col">
+                  <span className="font-heading font-bold text-white text-lg leading-tight">Жизнь с рюкзаком</span>
+                  <span className="text-white/80 text-xs leading-tight">авторские туры</span>
+                </div>
               </div>
-              <p className="text-primary-foreground/80">
+              <p className="text-primary-foreground/80 mb-4">
                 Путешествия по России с душой и профессионализмом
               </p>
+              <div className="space-y-2 text-sm text-primary-foreground/90">
+                <a href="tel:+79655615153" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Icon name="Phone" size={16} />
+                  +7 965 561-51-53
+                </a>
+                <a href="mailto:rukzaklife@mail.ru" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Icon name="Mail" size={16} />
+                  rukzaklife@mail.ru
+                </a>
+                <div className="flex items-center gap-2">
+                  <Icon name="Clock" size={16} />
+                  <div>
+                    <div>Пн-Пт 08:00-22:00</div>
+                    <div>Сб-Вс 10:00-20:00</div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div>
               <h3 className="font-heading font-bold mb-4">Навигация</h3>
