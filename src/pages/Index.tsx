@@ -39,20 +39,20 @@ const Index = () => {
 
   const guides = [
     {
-      name: "Александр Иванов",
-      experience: "12 лет",
-      specialization: "Горные походы, Алтай",
-      tours: 150,
-      rating: 4.9,
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alexander",
-    },
-    {
       name: "Антон Немчинов",
       experience: "15 лет",
       specialization: "Горные экспедиции, Алтай, Байкал",
       tours: 200,
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
+    },
+    {
+      name: "Эмиль Газизов",
+      experience: "10+ лет",
+      specialization: "1-й спортивный разряд (горный, лыжный, велотуризм). Алтай, Кавказ, Кольский, Киргизия, Казахстан, Эльбрус, Урал, Забайкалье, Саяны.",
+      tours: 180,
+      rating: 4.9,
+      image: "https://cdn.poehali.dev/files/IMG_9242.jpg",
     },
   ];
 
