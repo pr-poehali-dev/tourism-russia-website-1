@@ -9,6 +9,7 @@ interface Review {
   tour: string;
   rating: number;
   text: string;
+  image?: string;
 }
 
 interface Benefit {
@@ -20,10 +21,11 @@ interface Benefit {
 const ReviewsGallerySection = () => {
   const reviews: Review[] = [
     {
-      name: "Мария К.",
-      tour: "Золотое Кольцо",
+      name: "Александр С.",
+      tour: "Колыма 2025г",
       rating: 5,
-      text: "Невероятное путешествие! Гид Елена показала нам места, о которых мы даже не знали. Организация на высшем уровне.",
+      text: "Отличное путешествие на Колыму, на озеро Джека Лондона. Гиды Антон и Эмиль настоящие профессионалы своего дела и очень приятные и интересные люди. Общение с ними доставило не меньше восхитительных эмоций, чем умопомрачительная природа Колымы! Всем рекомендую!",
+      image: "https://cdn.poehali.dev/files/IMG_4222.jpg",
     },
     {
       name: "Игорь В.",
@@ -89,7 +91,16 @@ const ReviewsGallerySection = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-lg transition-shadow overflow-hidden">
+                {review.image && (
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <img
+                      src={review.image}
+                      alt={`${review.name} - ${review.tour}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
                     <CardTitle className="font-heading text-xl">{review.name}</CardTitle>
