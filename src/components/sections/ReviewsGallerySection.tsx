@@ -258,7 +258,7 @@ const ReviewsGallerySection = () => {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-primary-foreground/20 text-center text-sm opacity-75">
-            <p>© 2024 Жизнь с рюкзаком. Все права защищены.</p>
+            <p>© 2020 Жизнь с рюкзаком. Все права защищены.</p>
           </div>
         </div>
       </footer>
