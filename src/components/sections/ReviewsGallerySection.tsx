@@ -71,7 +71,7 @@ const ReviewsGallerySection = () => {
       <section id="reviews" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Отзывы</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Отзывы </h2>
             <p className="text-base md:text-lg text-muted-foreground">Что говорят наши путешественники</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
