@@ -37,7 +37,7 @@ const GuidesSection = () => {
     {
       name: "Антон Немчинов",
       experience: "15 лет",
-      specialization: "Горные экспедиции, Алтай, Байкал",
+      specialization: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Полярный Урал, Кольский полуостров",
       tours: 200,
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
