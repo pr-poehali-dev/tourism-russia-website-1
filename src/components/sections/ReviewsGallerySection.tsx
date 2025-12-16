@@ -45,6 +45,7 @@ const ReviewsGallerySection = () => {
         "https://cdn.poehali.dev/files/photo_2025-12-16_23-16-04.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-16_23-16-01.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-16_23-12-17.jpg",
+        "https://cdn.poehali.dev/files/IMG_3977.jpg",
       ],
     },
     {
