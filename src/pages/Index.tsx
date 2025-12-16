@@ -96,8 +96,8 @@ const Index = () => {
     <div className="min-h-screen">
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Icon name="Mountain" size={32} className="text-primary" />
+          <div className="flex items-center gap-3">
+            <img src="https://cdn.poehali.dev/files/68572a0b1c5f5eacb47f025aa04b05e4.jpg" alt="Логотип" className="w-10 h-10 object-cover rounded-lg" />
             <span className="font-heading font-bold text-[#000000] text-base">Жизнь с рюкзаком
 </span>
           </div>
