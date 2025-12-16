@@ -20,6 +20,7 @@ interface Guide {
   rating: number;
   image: string;
   achievements: string[];
+  phone: string;
 }
 
 const GuidesSection = () => {
@@ -40,6 +41,7 @@ const GuidesSection = () => {
       tours: 200,
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
+      phone: "+7 965 561-51-53",
       achievements: [
         "Руководитель экспедиций на Алтай (2010-2024)",
         "Восхождения на Белуху (5 раз)",
@@ -55,6 +57,7 @@ const GuidesSection = () => {
       tours: 180,
       rating: 4.9,
       image: "https://cdn.poehali.dev/files/IMG_9242.jpg",
+      phone: "+7 965 561-51-53",
       achievements: [
         "Алтай велопоход 3 к.с. (2012 г.)",
         "Кавказ велопоход 2 к.с. (2013 г.)",
@@ -184,15 +187,22 @@ const GuidesSection = () => {
         <DialogContent className="max-w-md">
           <DialogHeader>
             <DialogTitle className="text-2xl font-heading">
-              Связаться с гидом
+              Обратный звонок
             </DialogTitle>
             <DialogDescription>
-              {contactGuideIndex !== null && `Отправьте сообщение ${guides[contactGuideIndex].name}`}
+              {contactGuideIndex !== null && (
+                <>
+                  <span className="block">Связаться с гидом {guides[contactGuideIndex].name}</span>
+                  <a href={`tel:${guides[contactGuideIndex].phone}`} className="block mt-2 text-primary font-semibold text-lg hover:underline">
+                    {guides[contactGuideIndex].phone}
+                  </a>
+                </>
+              )}
             </DialogDescription>
           </DialogHeader>
           <form className="space-y-4" onSubmit={(e) => {
             e.preventDefault();
-            alert('Спасибо! Ваше сообщение отправлено.');
+            alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
             setShowContactForm(false);
           }}>
             <div className="space-y-2">
@@ -200,24 +210,23 @@ const GuidesSection = () => {
               <Input placeholder="Иван Иванов" required />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Телефон</label>
+              <label className="text-sm font-medium">Ваш телефон</label>
               <Input type="tel" placeholder="+7 (999) 123-45-67" required />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Email</label>
-              <Input type="email" placeholder="ivan@example.com" required />
+              <label className="text-sm font-medium">Удобное время для звонка</label>
+              <Input type="text" placeholder="Например: 10:00 - 18:00" />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Сообщение</label>
+              <label className="text-sm font-medium">Комментарий (необязательно)</label>
               <Textarea 
-                placeholder="Расскажите о ваших пожеланиях к туру..."
-                className="min-h-[100px]"
-                required
+                placeholder="Расскажите о ваших пожеланиях..."
+                className="min-h-[80px]"
               />
             </div>
             <Button type="submit" className="w-full" size="lg">
-              <Icon name="Send" size={18} className="mr-2" />
-              Отправить сообщение
+              <Icon name="Phone" size={18} className="mr-2" />
+              Заказать звонок
             </Button>
           </form>
         </DialogContent>
