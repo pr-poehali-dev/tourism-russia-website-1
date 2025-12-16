@@ -20,8 +20,8 @@ const Index = () => {
             <a href="#home" className="hover:text-primary transition-colors text-[#000000]">Главная</a>
             <a href="#guides" className="hover:text-primary transition-colors">Гиды</a>
             <a href="#tours" className="hover:text-primary transition-colors">Туры</a>
-            <a href="#gallery" className="hover:text-primary transition-colors">Галерея</a>
             <a href="#reviews" className="hover:text-primary transition-colors">Отзывы</a>
+            <a href="#gallery" className="hover:text-primary transition-colors">Галерея</a>
             <a href="#about" className="hover:text-primary transition-colors">О нас</a>
             <a href="#contacts" className="hover:text-primary transition-colors">Контакты</a>
           </nav>

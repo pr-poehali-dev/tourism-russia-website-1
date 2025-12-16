@@ -40,7 +40,7 @@ const ReviewsGallerySection = () => {
       name: "Елизавета С.",
       tour: "Гора Пабаку 2023г",
       rating: 5,
-      text: "Не первый и не последний раз хожу с Антоном и Эмилем в походы. За что обожаю именно Антона, за его любовь к местам, куда он нас водит. Он знает про жизнь людей, знает истории и с удовольствием с нами этим делиться. Из путешествий я возвращаюсь не только с впечатлениями от места, но и с горой знаний ❤️. Эмиль всегда найдет подход к каждому участнику, ты никогда не останешься без помощи и без совета. А еще эти душевные вечерние разговоры, Эмиль ты мастер и глубоко видишь людей ❤️",
+      text: "Не первый и не последний раз хожу с Антоном и Эмилём в походы. За что обожаю именно Антона, за его любовь к местам, куда он нас водит. Он знает про жизнь людей, знает истории и с удовольствием с нами этим делиться. Из путешествий я возвращаюсь не только с впечатлениями от места, но и с горой знаний ❤️. Эмиль всегда найдет подход к каждому участнику, ты никогда не останешься без помощи и без совета. А еще эти душевные вечерние разговоры, Эмиль ты мастер и глубоко видишь людей ❤️",
       link: "https://vk.ru/elizavetaspirit",
       images: [
         "https://cdn.poehali.dev/files/photo_2025-12-16_23-15-55.jpg",
@@ -68,39 +68,6 @@ const ReviewsGallerySection = () => {
 
   return (
     <>
-      <section id="gallery" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Галерея</h2>
-            <p className="text-base md:text-lg text-muted-foreground">Моменты из наших путешествий</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/852468b8-1916-478c-b088-c33868a24865.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/b25ede9a-bb7c-4b9c-9e2b-b0baa7ac497b.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1d1b6b17-c299-4be3-bbe7-08c4f7b7d05d.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/852468b8-1916-478c-b088-c33868a24865.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/b25ede9a-bb7c-4b9c-9e2b-b0baa7ac497b.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1d1b6b17-c299-4be3-bbe7-08c4f7b7d05d.jpg",
-            ].map((img, index) => (
-              <div
-                key={index}
-                className="relative aspect-square overflow-hidden rounded-lg group cursor-pointer"
-              >
-                <img
-                  src={img}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Icon name="ZoomIn" size={32} className="text-white" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="reviews" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
@@ -164,6 +131,39 @@ const ReviewsGallerySection = () => {
                   <p className="text-sm md:text-base text-muted-foreground italic">"{review.text}"</p>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Галерея</h2>
+            <p className="text-base md:text-lg text-muted-foreground">Моменты из наших путешествий</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/852468b8-1916-478c-b088-c33868a24865.jpg",
+              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/b25ede9a-bb7c-4b9c-9e2b-b0baa7ac497b.jpg",
+              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1d1b6b17-c299-4be3-bbe7-08c4f7b7d05d.jpg",
+              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/852468b8-1916-478c-b088-c33868a24865.jpg",
+              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/b25ede9a-bb7c-4b9c-9e2b-b0baa7ac497b.jpg",
+              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1d1b6b17-c299-4be3-bbe7-08c4f7b7d05d.jpg",
+            ].map((img, index) => (
+              <div
+                key={index}
+                className="relative aspect-square overflow-hidden rounded-lg group cursor-pointer"
+              >
+                <img
+                  src={img}
+                  alt={`Gallery ${index + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <Icon name="ZoomIn" size={32} className="text-white" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
