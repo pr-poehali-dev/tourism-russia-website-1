@@ -112,10 +112,20 @@ const Index = () => {
             <a href="#about" className="hover:text-primary transition-colors">О нас</a>
             <a href="#contacts" className="hover:text-primary transition-colors">Контакты</a>
           </nav>
-          <Button className="hidden md:flex">
-            <Icon name="Phone" size={18} className="mr-2" />
-            Связаться
-          </Button>
+          <div className="hidden lg:flex flex-col gap-1 text-sm">
+            <a href="tel:+79655615153" className="flex items-center gap-2 hover:text-primary transition-colors text-black">
+              <Icon name="Phone" size={16} />
+              +7 965 561-51-53
+            </a>
+            <a href="mailto:rukzaklife@mail.ru" className="flex items-center gap-2 hover:text-primary transition-colors text-black">
+              <Icon name="Mail" size={16} />
+              rukzaklife@mail.ru
+            </a>
+            <div className="flex items-center gap-2 text-black">
+              <Icon name="Clock" size={16} />
+              Пн-Пт 08:00-22:00
+            </div>
+          </div>
         </div>
       </header>
 
