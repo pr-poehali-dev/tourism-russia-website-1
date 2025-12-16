@@ -157,7 +157,7 @@ const GuidesSection = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="grid grid-cols-3 gap-4 pt-4 border-t">
+                <div className="grid grid-cols-2 gap-4 pt-4 border-t">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-primary">{guides[selectedGuide].experience}</div>
                     <div className="text-xs text-muted-foreground">Опыт работы</div>
@@ -165,13 +165,6 @@ const GuidesSection = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-primary">{guides[selectedGuide].tours}</div>
                     <div className="text-xs text-muted-foreground">Проведено туров</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary flex items-center justify-center gap-1">
-                      {guides[selectedGuide].rating}
-                      <Icon name="Star" size={18} className="text-yellow-500 fill-yellow-500" />
-                    </div>
-                    <div className="text-xs text-muted-foreground">Рейтинг</div>
                   </div>
                 </div>
                 <Button className="w-full" size="lg" onClick={() => handleContactClick(selectedGuide)}>
