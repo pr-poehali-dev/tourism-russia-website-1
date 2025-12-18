@@ -109,7 +109,11 @@ const GuidesSection = () => {
                       <Icon name="FileText" size={14} className="mr-1" />
                       Достижения
                     </Button>
-                    <Button variant="outline" size="sm" onClick={() => handleContactClick(index)} className="text-xs md:text-sm">
+                    <Button 
+                      size="sm" 
+                      onClick={() => handleContactClick(index)} 
+                      className="text-xs md:text-sm bg-green-500 hover:bg-green-600 text-white hover:scale-105 transition-all duration-300"
+                    >
                       <Icon name="MessageCircle" size={14} className="mr-1" />
                       Связаться
                     </Button>
@@ -167,7 +171,11 @@ const GuidesSection = () => {
                     <div className="text-xs text-muted-foreground">Проведено туров</div>
                   </div>
                 </div>
-                <Button className="w-full" size="lg" onClick={() => handleContactClick(selectedGuide)}>
+                <Button 
+                  className="w-full bg-green-500 hover:bg-green-600 text-white hover:scale-105 transition-all duration-300" 
+                  size="lg" 
+                  onClick={() => handleContactClick(selectedGuide)}
+                >
                   <Icon name="MessageCircle" size={18} className="mr-2" />
                   Связаться с гидом
                 </Button>
