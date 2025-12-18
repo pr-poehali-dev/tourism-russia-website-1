@@ -112,7 +112,7 @@ const GuidesSection = () => {
                     <Button 
                       size="sm" 
                       onClick={() => handleContactClick(index)} 
-                      className="text-xs md:text-sm bg-green-500 hover:bg-green-600 text-white hover:scale-105 transition-all duration-300"
+                      className="text-xs md:text-sm bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300"
                     >
                       <Icon name="MessageCircle" size={14} className="mr-1" />
                       Связаться
@@ -172,7 +172,7 @@ const GuidesSection = () => {
                   </div>
                 </div>
                 <Button 
-                  className="w-full bg-green-500 hover:bg-green-600 text-white hover:scale-105 transition-all duration-300" 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300" 
                   size="lg" 
                   onClick={() => handleContactClick(selectedGuide)}
                 >
