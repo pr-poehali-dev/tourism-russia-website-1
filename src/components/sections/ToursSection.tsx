@@ -129,7 +129,10 @@ const ToursSection = () => {
                           <span>{tour.price}</span>
                         </div>
                       </div>
-                      <Button className="w-full">
+                      <Button 
+                        variant="outline" 
+                        className="w-full bg-white hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 border-2 border-primary"
+                      >
                         <Icon name="ArrowRight" size={16} className="mr-2" />
                         Подробнее
                       </Button>
