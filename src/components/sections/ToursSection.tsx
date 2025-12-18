@@ -3,6 +3,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import React from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Tour {
   id: number;
@@ -15,6 +32,8 @@ interface Tour {
 }
 
 const ToursSection = () => {
+  const [showBookingForm, setShowBookingForm] = React.useState(false);
+
   const tours: Tour[] = [
     {
       id: 1,
@@ -121,7 +140,70 @@ const ToursSection = () => {
             </TabsContent>
           ))}
         </Tabs>
+        <div className="text-center mt-12">
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300 text-lg px-8 py-6"
+            onClick={() => setShowBookingForm(true)}
+          >
+            <Icon name="Calendar" size={20} className="mr-2" />
+            Забронировать тур
+          </Button>
+        </div>
       </div>
+
+      <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-heading">
+              Забронировать тур
+            </DialogTitle>
+            <DialogDescription>
+              Заполните форму, и мы свяжемся с вами в ближайшее время
+            </DialogDescription>
+          </DialogHeader>
+          <form className="space-y-4">
+            <div>
+              <label className="text-sm font-medium mb-2 block">Ваше имя</label>
+              <Input placeholder="Иван Иванов" />
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Телефон</label>
+              <Input type="tel" placeholder="+7 999 999-99-99" />
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Email</label>
+              <Input type="email" placeholder="ivan@example.com" />
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Выберите тур</label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Выберите тур из списка" />
+                </SelectTrigger>
+                <SelectContent>
+                  {tours.map((tour) => (
+                    <SelectItem key={tour.id} value={tour.id.toString()}>
+                      {tour.title} - {tour.price}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Комментарий</label>
+              <Textarea placeholder="Укажите желаемые даты, количество человек и другие пожелания" rows={4} />
+            </div>
+            <Button 
+              type="submit" 
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              size="lg"
+            >
+              Отправить заявку
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
