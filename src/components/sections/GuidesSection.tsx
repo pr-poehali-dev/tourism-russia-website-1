@@ -115,7 +115,7 @@ const GuidesSection = () => {
                       className="text-xs md:text-sm bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300"
                     >
                       <Icon name="MessageCircle" size={14} className="mr-1" />
-                      Связаться с {guide.name.split(' ')[0]}
+                      Связаться с {guide.name.split(' ')[0]}ом
                     </Button>
                   </div>
                 </CardContent>
