@@ -95,8 +95,8 @@ const ToursSection = () => {
         <Tabs defaultValue="all" className="w-full mb-12">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 sm:grid-cols-4 border-2 border-primary">
             <TabsTrigger value="all" className="text-xs sm:text-sm">Все</TabsTrigger>
-            <TabsTrigger value="easy" className="text-xs sm:text-sm">Россия</TabsTrigger>
-            <TabsTrigger value="medium" className="text-xs sm:text-sm">Зарубеж</TabsTrigger>
+            <TabsTrigger value="easy" className="text-xs sm:text-sm">Байкал</TabsTrigger>
+            <TabsTrigger value="medium" className="text-xs sm:text-sm">Камчатка</TabsTrigger>
             <TabsTrigger value="hard" className="text-xs sm:text-sm">Урал</TabsTrigger>
           </TabsList>
           {["all", "easy", "medium", "hard"].map((tab) => (
