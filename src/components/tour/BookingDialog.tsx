@@ -41,11 +41,8 @@ const BookingDialog = ({
   isSubmitting 
 }: BookingDialogProps) => {
   const tourDates = [
-    "14 - 20 февраля 2025",
-    "21 - 27 февраля 2025",
-    "28 февраля - 6 марта 2025",
-    "7 - 13 марта 2025",
-    "14 - 20 марта 2025"
+    "16-22 февраля",
+    "6-12 марта"
   ];
 
   return (

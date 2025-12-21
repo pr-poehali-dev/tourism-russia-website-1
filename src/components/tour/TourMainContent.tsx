@@ -135,7 +135,7 @@ const TourMainContent = ({ tourInfo, reasons, program, included, notIncluded, eq
 
         <Card className="bg-primary/5 border-2 border-primary">
           <CardContent className="p-6 text-center">
-            <p className="text-3xl font-bold text-primary mb-2">59 000 ₽</p>
+            <p className="text-3xl font-bold text-primary mb-2">75 000 ₽</p>
             <p className="text-muted-foreground">за человека</p>
           </CardContent>
         </Card>

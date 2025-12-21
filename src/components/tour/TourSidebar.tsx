@@ -8,11 +8,8 @@ interface TourSidebarProps {
 
 const TourSidebar = ({ onBookingClick }: TourSidebarProps) => {
   const tourDates = [
-    "14 - 20 февраля 2025",
-    "21 - 27 февраля 2025",
-    "28 февраля - 6 марта 2025",
-    "7 - 13 марта 2025",
-    "14 - 20 марта 2025"
+    "16-22 февраля",
+    "6-12 марта"
   ];
 
   return (
@@ -20,7 +17,7 @@ const TourSidebar = ({ onBookingClick }: TourSidebarProps) => {
       <Card className="border-2 border-primary shadow-lg">
         <CardContent className="p-6 space-y-6">
           <div className="text-center">
-            <p className="text-3xl font-bold text-primary mb-2">59 000 ₽</p>
+            <p className="text-3xl font-bold text-primary mb-2">75 000 ₽</p>
             <p className="text-muted-foreground text-sm">за человека</p>
           </div>
 
