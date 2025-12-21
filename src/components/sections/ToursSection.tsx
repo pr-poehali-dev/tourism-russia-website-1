@@ -48,10 +48,10 @@ const ToursSection = () => {
   const tours: Tour[] = [
     {
       id: 1,
-      title: "Золотое Кольцо",
-      description: "8 древних городов за 7 дней",
+      title: "Байкал летом",
+      description: "Прозрачная вода и горные пейзажи",
       duration: "7 дней",
-      price: "45 000 ₽",
+      price: "65 000 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1d1b6b17-c299-4be3-bbe7-08c4f7b7d05d.jpg",
     },
