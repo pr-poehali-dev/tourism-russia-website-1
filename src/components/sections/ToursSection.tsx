@@ -49,8 +49,8 @@ const ToursSection = () => {
     {
       id: 1,
       title: "Коньковый поход по зимнему Байкалу",
-      description: "16-22 февраля, 6-11 марта",
-      duration: "7 дней",
+      description: "16-22 февраля, 6-12 марта • 75 000 ₽",
+      duration: "За 7 дней мы преодолеем несколько десятков километров по льду и познакомимся с достопримечательностями острова Ольхон: мысом Хобой, скалами Три Брата и Шаманка, буддийской ступой на острове Огой и многим другим!\n\nПередвигаться будем на коньках, пешком и автомобилях повышенной проходимости. Все ночёвки запланированы на тёплых турбазах.",
       price: "75 000 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/files/2z7a6771.jpg",
@@ -124,17 +124,11 @@ const ToursSection = () => {
                     </div>
                     <CardHeader>
                       <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
-                      <CardDescription className="text-sm md:text-base">{tour.description}</CardDescription>
+                      <CardDescription className="text-sm md:text-base font-semibold">{tour.description}</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                      <div className="flex items-center justify-between text-sm">
-                        <div className="flex items-center gap-2">
-                          <Icon name="Calendar" size={16} />
-                          <span>{tour.duration}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-primary font-bold text-lg">
-                          <span>{tour.price}</span>
-                        </div>
+                      <div className="text-sm leading-relaxed whitespace-pre-line">
+                        <p className="font-medium">{tour.duration}</p>
                       </div>
                       <Button 
                         variant="outline" 
