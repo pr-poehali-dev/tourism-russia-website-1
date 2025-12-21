@@ -7,7 +7,7 @@ import ReviewsGallerySection from "@/components/sections/ReviewsGallerySection";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-50 bg-muted backdrop-blur border-b">
+      <header className="sticky top-0 z-50 bg-white backdrop-blur border-b">
         <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
           <div className="flex items-start gap-2 md:gap-3">
             <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
