@@ -473,7 +473,7 @@ const TourDetails = () => {
                   </div>
                   <Button
                     size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:scale-105 hover:shadow-lg"
                     onClick={() => setShowBookingForm(true)}
                   >
                     <Icon name="Calendar" size={20} className="mr-2" />

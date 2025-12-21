@@ -478,7 +478,7 @@ const TourTents = () => {
 
                 <Button 
                   onClick={() => setShowBookingForm(true)}
-                  className="w-full"
+                  className="w-full transition-all hover:scale-105 hover:shadow-lg"
                   size="lg"
                 >
                   Забронировать тур
