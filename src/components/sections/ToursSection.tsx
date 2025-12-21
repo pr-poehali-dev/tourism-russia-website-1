@@ -71,21 +71,13 @@ const ToursSection = () => {
     },
     {
       id: 3,
-      title: "Байкал зимой",
-      description: "Прозрачный лёд и снежные пики",
-      duration: "10 дней",
-      price: "89 000 ₽",
+      title: "Поход к Белухе",
+      subtitle: "с конным сопровождением",
+      description: "12 дней по самым красивым местам Алтая",
+      duration: "За 12 дней похода увидим Аккемское озеро, Кучерлинские озера, гору <strong>Белуха</strong>, посетим озеро Горных духов, Семиозерье, огромный Аккемский ледник и уютную деревянную часовню среди величественных пейзажей.\n\n<strong>Лошади будут нести ваши личные вещи и общественное снаряжение, а мы будем ходить в треккинги с небольшим рюкзаком, гулять по кедровым лесам и наслаждаться рассветами!</strong>",
+      price: "78 800 ₽",
       difficulty: "Средний",
-      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/b25ede9a-bb7c-4b9c-9e2b-b0baa7ac497b.jpg",
-    },
-    {
-      id: 4,
-      title: "Осенний Алтай",
-      description: "Золотые леса и горные вершины",
-      duration: "6 дней",
-      price: "52 000 ₽",
-      difficulty: "Средний",
-      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/852468b8-1916-478c-b088-c33868a24865.jpg",
+      image: "https://cdn.poehali.dev/files/852468b8-1916-478c-b088-c33868a24865.jpg",
     },
   ];
 
@@ -102,11 +94,10 @@ const ToursSection = () => {
     }
   };
 
-  const filterTours = (difficulty: string) => {
-    if (difficulty === "all") return tours;
-    if (difficulty === "easy") return tours.filter(t => t.difficulty === "Легкий");
-    if (difficulty === "medium") return tours.filter(t => t.difficulty === "Средний");
-    if (difficulty === "hard") return tours.filter(t => t.difficulty === "Сложный");
+  const filterTours = (tab: string) => {
+    if (tab === "all") return tours;
+    if (tab === "baikal") return tours.filter(t => t.id === 1 || t.id === 2);
+    if (tab === "altai") return tours.filter(t => t.id === 3);
     return tours;
   };
 
@@ -117,14 +108,13 @@ const ToursSection = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Наши туры</h2>
           <p className="text-base md:text-lg text-muted-foreground">Выберите своё следующее приключение</p>
         </div>
-        <Tabs defaultValue="easy" className="w-full mb-12">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 sm:grid-cols-4 border-2 border-primary">
-            <TabsTrigger value="easy" className="text-xs sm:text-sm">Байкал</TabsTrigger>
-            <TabsTrigger value="medium" className="text-xs sm:text-sm">Камчатка</TabsTrigger>
-            <TabsTrigger value="hard" className="text-xs sm:text-sm">Урал</TabsTrigger>
+        <Tabs defaultValue="baikal" className="w-full mb-12">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 border-2 border-primary">
+            <TabsTrigger value="baikal" className="text-xs sm:text-sm">Байкал</TabsTrigger>
+            <TabsTrigger value="altai" className="text-xs sm:text-sm">Алтай</TabsTrigger>
             <TabsTrigger value="all" className="text-xs sm:text-sm">Все</TabsTrigger>
           </TabsList>
-          {["easy", "medium", "hard", "all"].map((tab) => (
+          {["baikal", "altai", "all"].map((tab) => (
             <TabsContent key={tab} value={tab} className="mt-8">
               <div className="grid md:grid-cols-2 gap-6">
                 {filterTours(tab).map((tour) => (
@@ -158,6 +148,8 @@ const ToursSection = () => {
                             navigate('/tour/baikal-skating');
                           } else if (tour.id === 2) {
                             navigate('/tour/baikal-tents');
+                          } else if (tour.id === 3) {
+                            navigate('/tour/altai-belukha');
                           }
                         }}
                       >
