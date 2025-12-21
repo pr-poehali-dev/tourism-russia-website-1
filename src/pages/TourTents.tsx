@@ -50,27 +50,32 @@ const TourTents = () => {
     },
     {
       day: "3 день",
-      title: "мыс Хобой – мыс Шунтэ правый, 17 км",
+      distance: "17 км",
+      title: "мыс Хобой – мыс Шунтэ правый",
       description: "Идём по льду или едем на коньках (как повезёт, потому что лед не везде ровный и гладкий) вдоль острова Ольхон. Готовим, вкусно едим и ночуем в палатках."
     },
     {
       day: "4 день",
-      title: "мыс Шунтэ правый – мыс Хара Хуштун, 19 км",
+      distance: "19 км",
+      title: "мыс Шунтэ правый – мыс Хара Хуштун",
       description: "Продолжаем передвигаться по льду. Помним, что вещи мы не тащим на себе. Это делают наши сани-волокуши. Вам остается только смотреть по сторонам и наслаждаться красотами. Вечером вкусный ужин под аккомпанемент собственных песен и гул Байкала. Ночуем и сладко спим в палатках."
     },
     {
       day: "5 день",
-      title: "мыс Хуштун – мыс Ухан, 16 км",
+      distance: "16 км",
+      title: "мыс Хуштун – мыс Ухан",
       description: "И опять по льду. Мы с вами уже тертые калачи. Двигаемся по льду на коньках или без (как повезет). Любуемся байкальскими красотами и делаем яркие фотки на льду. Ужим и сон по расписанию (ночуем в палатках). К гулу мы уже привыкшие, поэтому вторим уму дружным храпом."
     },
     {
       day: "6 день",
-      title: "мыс Ухан, 19 км",
+      distance: "19 км",
+      title: "мыс Ухан",
       description: "Нет точной точки, до которой надо дойти. Вот такой вот день, да! Обсудим с вами, как далеко захотим зайти в этом деле! Просто прикинем по километражу, где будет удобнее встать."
     },
     {
       day: "7 день",
-      title: "Сахюрта, 20 км",
+      distance: "20 км",
+      title: "Сахюрта",
       description: "В этот день возвращаемся в цивилизацию. Представляете! Уже, да! Уснуть будет непросто, без ставшего родным голоса волшебного Байкала. Но что делать! Ужинаем и ночуем в с. Сахюрта на базе отдыха."
     },
     {
@@ -262,8 +267,15 @@ const TourTents = () => {
                 <div className="space-y-6">
                   {program.map((day, index) => (
                     <div key={index} className="border-l-4 border-primary pl-6 py-2">
-                      <h3 className="font-heading font-bold text-xl mb-2">{day.day}</h3>
-                      <p className="text-sm font-semibold text-muted-foreground mb-2">{day.title}</p>
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="font-heading font-bold text-xl">{day.day}</h3>
+                        {day.distance && (
+                          <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
+                            Дистанция: {day.distance}
+                          </span>
+                        )}
+                      </div>
+                      {day.title && <p className="text-sm font-semibold text-muted-foreground mb-2">{day.title}</p>}
                       <p className="text-muted-foreground leading-relaxed">{day.description}</p>
                     </div>
                   ))}
