@@ -49,8 +49,8 @@ const ToursSection = () => {
     {
       id: 1,
       title: "Коньковый поход по зимнему Байкалу",
-      description: "16-22 февраля, 6-12 марта",
-      duration: "За 7 дней мы преодолеем несколько десятков километров по льду и познакомимся с достопримечательностями острова <strong>Ольхон</strong>: мысом <strong>Хобой</strong>, скалами <strong>Три Брата</strong> и <strong>Шаманка</strong>, буддийской ступой на острове <strong>Огой</strong> и многим другим!\n\nПередвигаться будем на <strong>коньках</strong>, <strong>пешком</strong> и <strong>автомобилях повышенной проходимости</strong>. Все ночёвки запланированы на тёплых турбазах.",
+      description: "16-22 февраля<br>6-12 марта",
+      duration: "За 7 дней мы преодолеем несколько десятков километров по льду и познакомимся с достопримечательностями острова <strong>Ольхон</strong>: мысом <strong>Хобой</strong>, скалами <strong>Три Брата</strong> и <strong>Шаманка</strong>, буддийской ступой на острове <strong>Огой</strong> и многим другим!\n\n<strong>Передвигаться будем на коньках, пешком и автомобилях повышенной проходимости. Все ночёвки запланированы на тёплых турбазах.</strong>",
       price: "75 000 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/files/2z7a6771.jpg",
@@ -124,8 +124,8 @@ const ToursSection = () => {
                     </div>
                     <CardHeader>
                       <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
-                      <div className="flex items-center justify-between mt-2">
-                        <CardDescription className="text-sm md:text-base">{tour.description}</CardDescription>
+                      <div className="flex items-start justify-between mt-2">
+                        <CardDescription className="text-sm md:text-base" dangerouslySetInnerHTML={{ __html: tour.description }} />
                         <div className="text-primary font-bold text-xl md:text-2xl whitespace-nowrap ml-4">
                           {tour.price}
                         </div>
