@@ -201,394 +201,355 @@ const TourTents = () => {
     <div className="min-h-screen bg-gray-50">
       <header className="sticky top-0 z-50 bg-white backdrop-blur border-b">
         <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+          <div className="flex items-start gap-2 md:gap-3">
+            <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+            <div className="flex flex-col">
+              <span className="font-heading font-bold text-black text-sm sm:text-base md:text-lg leading-tight">Жизнь с рюкзаком</span>
+              <span className="text-black text-xs leading-tight">авторские туры</span>
+            </div>
+          </div>
+          <button
+            onClick={() => navigate('/')}
+            className="flex items-center gap-2 hover:text-primary transition-colors"
+          >
+            <Icon name="Home" size={20} />
+            <span className="hidden sm:inline">На главную</span>
+          </button>
           <Button
             variant="ghost"
             onClick={() => navigate('/')}
             className="flex items-center gap-2"
           >
             <Icon name="ArrowLeft" size={20} />
-            <span className="hidden sm:inline">Назад к турам</span>
+            <span className="hidden sm:inline">Назад</span>
           </Button>
-          <h1 className="text-lg md:text-xl font-bold text-primary">Байкал в палатках</h1>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-8">
+      <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
+        <img
+          src="https://cdn.poehali.dev/files/IMG_5107.jpg"
+          alt="Байкал в палатках"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+          <div className="container mx-auto">
+            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">
+              Байкал в палатках
+            </h1>
+            <p className="text-lg md:text-xl text-white/90">комфортные отапливаемые палатки</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-12">
-            <section>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {tourInfo.map((item, idx) => (
-                  <Card key={idx} className="border-2 hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6 flex flex-col items-center text-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Icon name={item.icon} size={24} className="text-primary" />
-                      </div>
+          <div className="lg:col-span-2 space-y-8">
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">О путешествии</h2>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {tourInfo.map((info, index) => (
+                    <div key={index} className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                      <Icon name={info.icon as any} size={24} className="text-primary flex-shrink-0 mt-1" />
                       <div>
-                        <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
-                        <p className="font-semibold text-sm">{item.value}</p>
+                        <div className="font-bold text-sm text-muted-foreground mb-1">{info.label}</div>
+                        <div className="font-semibold">{info.value}</div>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary flex items-center gap-3">
-                <Icon name="Map" size={28} />
-                Программа тура
-              </h2>
-              <div className="space-y-6">
-                {program.map((day, idx) => (
-                  <Card key={idx} className="border-l-4 border-l-primary">
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-bold text-primary mb-2">{day.day}</h3>
-                      <p className="text-sm font-semibold text-gray-600 mb-3">{day.title}</p>
-                      <p className="text-gray-700 leading-relaxed">{day.description}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">Программа тура</h2>
+                <div className="space-y-6">
+                  {program.map((day, index) => (
+                    <div key={index} className="border-l-4 border-primary pl-6 py-2">
+                      <h3 className="font-heading font-bold text-xl mb-2">{day.day}</h3>
+                      <p className="text-sm font-semibold text-muted-foreground mb-2">{day.title}</p>
+                      <p className="text-muted-foreground leading-relaxed">{day.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary flex items-center gap-3">
-                <Icon name="DollarSign" size={28} />
-                Стоимость тура
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <Card className="border-2 border-green-500">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-green-700">
-                      <Icon name="Check" size={24} />
-                      Включено в стоимость
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">Стоимость тура</h2>
+                <div className="bg-primary/5 p-6 rounded-lg mb-6">
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">61 000 ₽</div>
+                  <p className="text-muted-foreground">за человека</p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                      <Icon name="Check" className="text-green-600" size={20} />
+                      В стоимость входит:
                     </h3>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       {included.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <Icon name="Plus" size={16} className="text-green-600 mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
+                          <Icon name="Check" size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
                         </li>
                       ))}
                     </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-2 border-orange-500">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-orange-700">
-                      <Icon name="X" size={24} />
-                      Не включено в стоимость
-                    </h3>
-                    <ul className="space-y-2">
-                      {notIncluded.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Icon name="Minus" size={16} className="text-orange-600 mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <Card className="bg-primary/5 border-2 border-primary mb-8">
-                <CardContent className="p-6 text-center">
-                  <p className="text-3xl font-bold text-primary mb-2">61 000 ₽</p>
-                  <p className="text-muted-foreground">за человека</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-blue-50 border-blue-200 mb-6">
-                <CardContent className="p-6">
-                  <h3 className="font-bold text-lg mb-3 text-blue-900">Как забронировать</h3>
-                  <p className="text-sm text-gray-700 mb-4">
-                    Для бронирования места в группе нужно внести оплату в размере 10% от стоимости тура.
-                  </p>
-                  <h3 className="font-bold text-lg mb-3 text-blue-900">Билеты</h3>
-                  <p className="text-sm text-gray-700 mb-2">
-                    <strong>Важно!</strong> Согласовывайте покупку билетов с гидами.
-                  </p>
-                  <p className="text-sm text-gray-700 mb-2">
-                    Стоимость перелёта Москва-Иркутск примерно 30 000 рублей туда-обратно. Обратите внимание, что в цену перелёта обязательно должен быть включён багаж.
-                  </p>
-                  <p className="text-sm text-gray-700 mb-2">
-                    Встреча участников состоится в 09:00 в первый день программы на площади у Иркутского ж/д вокзала. Прибытие (на поезде) можно пристроить к этому времени, на самолёте – минимум за 2 часа до отправления. В Иркутск также можно прилететь за день до начала путешествия, чтобы погулять по городу, докупить недостающее снаряжение и хорошо выспаться перед отправлением на Байкал.
-                  </p>
-                  <p className="text-sm text-gray-700">
-                    Обратные билеты нужно брать не раньше 19:00 в заключительный день программы.
-                  </p>
-                </CardContent>
-              </Card>
-            </section>
-
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary flex items-center gap-3">
-                <Icon name="Backpack" size={28} />
-                Что взять с собой
-              </h2>
-              
-              <Card className="bg-yellow-50 border-yellow-200 mb-6">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-3">
-                    <Icon name="AlertTriangle" size={24} className="text-yellow-600 flex-shrink-0 mt-1" />
-                    <div className="text-sm text-gray-700">
-                      <p className="font-semibold mb-2 text-yellow-900">Важно!</p>
-                      <p>Каждый элемент в списке вещей имеет огромное значение в походе. Если ваше снаряжение не будет соответствовать этому перечню, инструктор, для сохранения вашей безопасности, может отстранить вас от маршрута или его части.</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                      <Icon name="Shirt" size={20} className="text-primary" />
-                      Одежда
-                    </h3>
-                    <ul className="space-y-2">
-                      {equipment.clothes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Icon name="Dot" size={16} className="text-primary mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                      <Icon name="Wrench" size={20} className="text-primary" />
-                      Снаряжение
-                    </h3>
-                    <ul className="space-y-2">
-                      {equipment.gear.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Icon name="Dot" size={16} className="text-primary mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                      <Icon name="Package" size={20} className="text-primary" />
-                      Упаковка вещей
-                    </h3>
-                    <ul className="space-y-2">
-                      {equipment.packing.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Icon name="Dot" size={16} className="text-primary mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                      <Icon name="HeartPulse" size={20} className="text-primary" />
-                      Аптечка
-                    </h3>
-                    <ul className="space-y-2">
-                      {equipment.medicine.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Icon name="Dot" size={16} className="text-primary mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                      <Icon name="Sparkles" size={20} className="text-primary" />
-                      Личная гигиена
-                    </h3>
-                    <ul className="space-y-2">
-                      {equipment.hygiene.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Icon name="Dot" size={16} className="text-primary mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                      <Icon name="FileText" size={20} className="text-primary" />
-                      Документы и разное
-                    </h3>
-                    <ul className="space-y-2">
-                      {equipment.documents.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Icon name="Dot" size={16} className="text-primary mt-1 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <Card className="bg-orange-50 border-orange-200 mt-6">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-3">
-                    <Icon name="AlertCircle" size={24} className="text-orange-600 flex-shrink-0 mt-1" />
-                    <div className="text-sm text-gray-700">
-                      <p className="font-semibold mb-2 text-orange-900">Внимание!</p>
-                      <p>План похода может измениться из-за неблагоприятных погодных условий, общего физического состояния группы и других непредвиденных факторов, препятствующих прохождению маршрута.</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-          </div>
-
-          <div className="lg:col-span-1">
-            <div className="space-y-6 lg:sticky lg:top-24">
-              <Card className="border-2 border-primary shadow-lg">
-                <CardContent className="p-6 space-y-6">
-                  <div className="text-center">
-                    <p className="text-3xl font-bold text-primary mb-2">61 000 ₽</p>
-                    <p className="text-muted-foreground text-sm">за человека</p>
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
-                      <Icon name="Calendar" size={20} className="text-primary" />
-                      Дата заезда
+                    <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                      <Icon name="X" className="text-red-600" size={20} />
+                      Не входит в стоимость:
                     </h3>
-                    <p className="text-sm">25 февраля – 4 марта 2026 года</p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {notIncluded.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Icon name="X" size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
+                </div>
 
-                  <Button 
-                    onClick={() => setShowBookingForm(true)}
-                    className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
-                    size="lg"
-                  >
-                    <Icon name="Calendar" size={20} className="mr-2" />
-                    Забронировать место
-                  </Button>
-
-                  <div className="border-t pt-4">
-                    <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
-                      <Icon name="Phone" size={20} className="text-primary" />
-                      Контакты
-                    </h3>
-                    <div className="space-y-2 text-sm">
-                      <a href="tel:+79149345678" className="flex items-center gap-2 hover:text-primary transition-colors">
-                        <Icon name="Phone" size={16} />
-                        +7 (914) 934-56-78
-                      </a>
-                      <a href="mailto:info@baykal-tours.ru" className="flex items-center gap-2 hover:text-primary transition-colors">
-                        <Icon name="Mail" size={16} />
-                        info@baykal-tours.ru
-                      </a>
-                    </div>
+                <div className="space-y-4 pt-6 border-t text-sm text-muted-foreground">
+                  <div>
+                    <h3 className="font-bold text-base mb-2 text-foreground">Как забронировать</h3>
+                    <p>Для бронирования места в группе нужно внести оплату в размере 10% от стоимости тура.</p>
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    <h3 className="font-bold text-base mb-2 text-foreground">Билеты</h3>
+                    <p className="mb-2"><strong>Важно!</strong> Согласовывайте покупку билетов с гидами.</p>
+                    <p className="mb-2">Стоимость перелёта Москва-Иркутск примерно 30 000 рублей туда-обратно. Обратите внимание, что в цену перелёта обязательно должен быть включён багаж.</p>
+                    <p className="mb-2">Встреча участников состоится в 09:00 в первый день программы на площади у Иркутского ж/д вокзала.</p>
+                    <p>Обратные билеты нужно брать не раньше 19:00 в заключительный день программы.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-              <Card className="bg-blue-50 border-blue-200">
-                <CardContent className="p-6">
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">Что взять с собой</h2>
+              
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
-                    <Icon name="Info" size={24} className="text-blue-600 flex-shrink-0 mt-1" />
-                    <div className="text-sm text-gray-700">
-                      <p className="font-semibold mb-2 text-blue-900">Важная информация</p>
-                      <p>Для бронирования необходима предоплата 10% от стоимости тура.</p>
+                    <Icon name="AlertTriangle" size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
+                    <div className="text-sm text-muted-foreground">
+                      <p className="font-semibold mb-1 text-foreground">Важно!</p>
+                      <p>Каждый элемент в списке вещей имеет огромное значение в походе.</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                      <Icon name="Shirt" size={18} className="text-primary" />
+                      Одежда
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.clothes.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                      <Icon name="Wrench" size={18} className="text-primary" />
+                      Снаряжение
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.gear.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                      <Icon name="Package" size={18} className="text-primary" />
+                      Упаковка вещей
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.packing.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                      <Icon name="HeartPulse" size={18} className="text-primary" />
+                      Аптечка
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.medicine.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                      <Icon name="Sparkles" size={18} className="text-primary" />
+                      Личная гигиена
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.hygiene.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                      <Icon name="FileText" size={18} className="text-primary" />
+                      Документы и разное
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.documents.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mt-6">
+                  <div className="flex items-start gap-3">
+                    <Icon name="AlertCircle" size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
+                    <div className="text-sm text-muted-foreground">
+                      <p className="font-semibold mb-1 text-foreground">Внимание!</p>
+                      <p>План похода может измениться из-за неблагоприятных погодных условий.</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="lg:col-span-1">
+            <Card className="lg:sticky lg:top-24">
+              <CardContent className="p-6 md:p-8 space-y-6">
+                <div>
+                  <div className="text-sm text-muted-foreground mb-2">Стоимость тура</div>
+                  <div className="text-4xl font-bold text-primary mb-4">61 000 ₽</div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Calendar" size={16} className="text-muted-foreground" />
+                      <span className="text-muted-foreground">8 дней / 7 ночей</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Icon name="MapPin" size={16} className="text-muted-foreground" />
+                      <span className="text-muted-foreground">25 февраля – 4 марта 2026 года</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Button 
+                  onClick={() => setShowBookingForm(true)}
+                  className="w-full"
+                  size="lg"
+                >
+                  Забронировать тур
+                </Button>
+
+                <div className="border-t pt-6 space-y-3 text-sm">
+                  <div className="flex items-center gap-3">
+                    <Icon name="Phone" size={18} className="text-primary" />
+                    <a href="tel:+79655615153" className="hover:text-primary transition-colors">
+                      +7 965 561-51-53
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Icon name="Mail" size={18} className="text-primary" />
+                    <a href="mailto:rukzaklife@mail.ru" className="hover:text-primary transition-colors">
+                      rukzaklife@mail.ru
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </main>
 
       <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-2xl">Забронировать тур</DialogTitle>
+            <DialogTitle className="text-2xl font-heading">
+              Забронировать тур
+            </DialogTitle>
             <DialogDescription>
               Заполните форму, и мы свяжемся с вами в ближайшее время
             </DialogDescription>
           </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
-              <label className="text-sm font-medium mb-2 block">Ваше имя *</label>
-              <Input
-                placeholder="Иван Иванов"
+              <label className="text-sm font-medium mb-2 block">Ваше имя</label>
+              <Input 
+                placeholder="Иван Иванов" 
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
                 required
               />
             </div>
-            
             <div>
-              <label className="text-sm font-medium mb-2 block">Телефон *</label>
-              <Input
-                type="tel"
-                placeholder="+7 (999) 123-45-67"
+              <label className="text-sm font-medium mb-2 block">Телефон</label>
+              <Input 
+                type="tel" 
+                placeholder="+7 (999) 123-45-67" 
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={(e) => setFormData({...formData, phone: e.target.value})}
                 required
               />
             </div>
-
             <div>
-              <label className="text-sm font-medium mb-2 block">Email *</label>
-              <Input
-                type="email"
-                placeholder="example@mail.ru"
+              <label className="text-sm font-medium mb-2 block">Email</label>
+              <Input 
+                type="email" 
+                placeholder="example@mail.ru" 
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
                 required
               />
             </div>
-
             <div>
-              <label className="text-sm font-medium mb-2 block">Комментарий</label>
-              <Textarea
-                placeholder="Дополнительная информация или вопросы..."
+              <label className="text-sm font-medium mb-2 block">Комментарий (необязательно)</label>
+              <Textarea 
+                placeholder="Расскажите о ваших пожеланиях..." 
+                className="min-h-[80px]"
                 value={formData.comment}
-                onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-                rows={4}
+                onChange={(e) => setFormData({...formData, comment: e.target.value})}
               />
             </div>
-
-            <Button 
-              type="submit" 
-              className="w-full" 
-              size="lg"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <>
-                  <Icon name="Loader2" size={20} className="mr-2 animate-spin" />
-                  Отправка...
-                </>
-              ) : (
-                <>
-                  <Icon name="Send" size={20} className="mr-2" />
-                  Отправить заявку
-                </>
-              )}
+            <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+              {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
             </Button>
           </form>
         </DialogContent>
