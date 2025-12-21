@@ -121,9 +121,6 @@ const ToursSection = () => {
                         alt={tour.title}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
-                      <Badge className={`absolute top-4 right-4 ${getDifficultyColor(tour.difficulty)}`}>
-                        {tour.difficulty}
-                      </Badge>
                     </div>
                     <CardHeader>
                       <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
