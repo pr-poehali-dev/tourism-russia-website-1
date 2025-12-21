@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "Valid booking request",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Петров",
+        "phone": "+7 999 123-45-67",
+        "email": "test@example.com",
+        "tour": "Золотое Кольцо - 45 000 ₽",
+        "comment": "Хочу поехать в июне, 2 человека"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест"
+      },
+      "expectedStatus": 422
+    }
+  ]
+}
