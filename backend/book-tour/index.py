@@ -105,10 +105,15 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     msg.attach(MIMEText(html_body, 'html', 'utf-8'))
     
-    with smtplib.SMTP(email_host, email_port) as server:
-        server.starttls()
-        server.login(email_user, email_password)
-        server.send_message(msg)
+    if email_port == 465:
+        with smtplib.SMTP_SSL(email_host, email_port) as server:
+            server.login(email_user, email_password)
+            server.send_message(msg)
+    else:
+        with smtplib.SMTP(email_host, email_port) as server:
+            server.starttls()
+            server.login(email_user, email_password)
+            server.send_message(msg)
     
     return {
         'statusCode': 200,
