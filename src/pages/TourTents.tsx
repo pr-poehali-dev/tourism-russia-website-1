@@ -208,20 +208,13 @@ const TourTents = () => {
               <span className="text-black text-xs leading-tight">авторские туры</span>
             </div>
           </div>
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 hover:text-primary transition-colors"
-          >
-            <Icon name="Home" size={20} />
-            <span className="hidden sm:inline">На главную</span>
-          </button>
           <Button
             variant="ghost"
             onClick={() => navigate('/')}
             className="flex items-center gap-2"
           >
             <Icon name="ArrowLeft" size={20} />
-            <span className="hidden sm:inline">Назад</span>
+            <span className="hidden sm:inline">На главную</span>
           </Button>
         </div>
       </header>
@@ -497,7 +490,8 @@ const TourTents = () => {
             </Card>
           </div>
         </div>
-      </main>
+      </div>
+    </div>
 
       <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
         <DialogContent className="max-w-md">
