@@ -16,7 +16,11 @@ const HeroSection = () => {
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-4 md:mb-6">Уникальные туры по России</h1>
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-2xl mx-auto">С профессиональными гидами</p>
         <div className="flex justify-center">
-          <Button size="lg" className="text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-12 py-4 md:py-6 bg-green-600 hover:bg-green-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
+          <Button 
+            size="lg" 
+            className="text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-12 py-4 md:py-6 bg-green-600 hover:bg-green-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl"
+            onClick={() => document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             <Icon name="Compass" size={20} className="mr-2 sm:mr-3" />
             Выбрать тур
           </Button>
