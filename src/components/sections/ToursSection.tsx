@@ -103,14 +103,14 @@ const ToursSection = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Наши туры</h2>
           <p className="text-base md:text-lg text-muted-foreground">Выберите своё следующее приключение</p>
         </div>
-        <Tabs defaultValue="all" className="w-full mb-12">
+        <Tabs defaultValue="easy" className="w-full mb-12">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 sm:grid-cols-4 border-2 border-primary">
-            <TabsTrigger value="all" className="text-xs sm:text-sm">Все</TabsTrigger>
             <TabsTrigger value="easy" className="text-xs sm:text-sm">Байкал</TabsTrigger>
             <TabsTrigger value="medium" className="text-xs sm:text-sm">Камчатка</TabsTrigger>
             <TabsTrigger value="hard" className="text-xs sm:text-sm">Урал</TabsTrigger>
+            <TabsTrigger value="all" className="text-xs sm:text-sm">Все</TabsTrigger>
           </TabsList>
-          {["all", "easy", "medium", "hard"].map((tab) => (
+          {["easy", "medium", "hard", "all"].map((tab) => (
             <TabsContent key={tab} value={tab} className="mt-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filterTours(tab).map((tour) => (
