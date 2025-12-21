@@ -129,44 +129,42 @@ const ToursSection = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 {filterTours(tab).map((tour) => (
                   <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="relative w-full md:w-1/2 h-56 md:h-auto overflow-hidden">
-                        <img
-                          src={tour.image}
-                          alt={tour.title}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                        />
-                      </div>
-                      <div className="w-full md:w-1/2 p-6 flex flex-col justify-between">
-                        <div>
-                          <h3 className="font-heading font-bold text-xl md:text-2xl mb-2">{tour.title}</h3>
-                          {tour.subtitle && (
-                            <p className="text-sm text-muted-foreground mb-3">{tour.subtitle}</p>
-                          )}
-                          <div className="text-sm mb-3" dangerouslySetInnerHTML={{ __html: tour.description }} />
-                          <div className="text-sm leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
-                        </div>
-                        <div className="space-y-3">
-                          <div className="text-primary font-bold text-2xl">
-                            {tour.price}
-                          </div>
-                          <Button 
-                            variant="outline" 
-                            className="w-full bg-white hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 border-2 border-primary"
-                            onClick={() => {
-                              if (tour.id === 1) {
-                                navigate('/tour/baikal-skating');
-                              } else if (tour.id === 2) {
-                                navigate('/tour/baikal-tents');
-                              }
-                            }}
-                          >
-                            <Icon name="ArrowRight" size={16} className="mr-2" />
-                            Подробнее
-                          </Button>
-                        </div>
-                      </div>
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={tour.image}
+                        alt={tour.title}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      />
                     </div>
+                    <CardHeader>
+                      <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
+                      {tour.subtitle && (
+                        <p className="text-sm md:text-base text-muted-foreground mt-1">{tour.subtitle}</p>
+                      )}
+                      <div className="flex items-start justify-between mt-2">
+                        <CardDescription className="text-sm md:text-base text-left" dangerouslySetInnerHTML={{ __html: tour.description }} />
+                        <div className="text-primary font-bold text-xl md:text-2xl whitespace-nowrap ml-4">
+                          {tour.price}
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
+                      <Button 
+                        variant="outline" 
+                        className="w-full bg-white hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 border-2 border-primary"
+                        onClick={() => {
+                          if (tour.id === 1) {
+                            navigate('/tour/baikal-skating');
+                          } else if (tour.id === 2) {
+                            navigate('/tour/baikal-tents');
+                          }
+                        }}
+                      >
+                        <Icon name="ArrowRight" size={16} className="mr-2" />
+                        Подробнее
+                      </Button>
+                    </CardContent>
                   </Card>
                 ))}
               </div>
