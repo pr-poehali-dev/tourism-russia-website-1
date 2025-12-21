@@ -1,6 +1,8 @@
 import json
 import smtplib
 import os
+import urllib.request
+import urllib.parse
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from typing import Dict, Any
@@ -23,9 +25,21 @@ class BookingRequest(BaseModel):
         return v
 
 
+def send_telegram_message(bot_token: str, chat_id: str, message: str) -> None:
+    url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
+    data = urllib.parse.urlencode({
+        'chat_id': chat_id,
+        'text': message,
+        'parse_mode': 'HTML'
+    }).encode('utf-8')
+    
+    req = urllib.request.Request(url, data=data)
+    urllib.request.urlopen(req)
+
+
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
-    Отправляет заявку на бронирование тура на email
+    Отправляет заявку на бронирование тура на email и в Telegram
     '''
     method: str = event.get('httpMethod', 'GET')
     
@@ -114,6 +128,22 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             server.starttls()
             server.login(email_user, email_password)
             server.send_message(msg)
+    
+    telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN')
+    telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    
+    if telegram_token and telegram_chat_id:
+        telegram_message = f'''🎒 <b>Новая заявка на бронирование</b>
+
+<b>Имя:</b> {booking.name}
+<b>Телефон:</b> {booking.phone}
+<b>Email:</b> {booking.email}
+<b>Тур:</b> {booking.tour}
+<b>Комментарий:</b> {booking.comment if booking.comment else 'Не указан'}
+
+📞 Свяжитесь с клиентом в ближайшее время!'''
+        
+        send_telegram_message(telegram_token, telegram_chat_id, telegram_message)
     
     return {
         'statusCode': 200,
