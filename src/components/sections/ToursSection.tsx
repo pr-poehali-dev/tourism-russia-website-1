@@ -125,7 +125,7 @@ const ToursSection = () => {
                     <CardHeader>
                       <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
                       <div className="flex items-start justify-between mt-2">
-                        <CardDescription className="text-sm md:text-base" dangerouslySetInnerHTML={{ __html: tour.description }} />
+                        <CardDescription className="text-sm md:text-base text-left" dangerouslySetInnerHTML={{ __html: tour.description }} />
                         <div className="text-primary font-bold text-xl md:text-2xl whitespace-nowrap ml-4">
                           {tour.price}
                         </div>
