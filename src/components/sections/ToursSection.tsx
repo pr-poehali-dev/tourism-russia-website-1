@@ -49,8 +49,8 @@ const ToursSection = () => {
     {
       id: 1,
       title: "Коньковый поход по зимнему Байкалу",
-      description: "16-22 февраля, 6-12 марта • 75 000 ₽",
-      duration: "За 7 дней мы преодолеем несколько десятков километров по льду и познакомимся с достопримечательностями острова Ольхон: мысом Хобой, скалами Три Брата и Шаманка, буддийской ступой на острове Огой и многим другим!\n\nПередвигаться будем на коньках, пешком и автомобилях повышенной проходимости. Все ночёвки запланированы на тёплых турбазах.",
+      description: "16-22 февраля, 6-12 марта",
+      duration: "За 7 дней мы преодолеем несколько десятков километров по льду и познакомимся с достопримечательностями острова <strong>Ольхон</strong>: мысом <strong>Хобой</strong>, скалами <strong>Три Брата</strong> и <strong>Шаманка</strong>, буддийской ступой на острове <strong>Огой</strong> и многим другим!\n\nПередвигаться будем на <strong>коньках</strong>, <strong>пешком</strong> и <strong>автомобилях повышенной проходимости</strong>. Все ночёвки запланированы на тёплых турбазах.",
       price: "75 000 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/files/2z7a6771.jpg",
@@ -124,12 +124,15 @@ const ToursSection = () => {
                     </div>
                     <CardHeader>
                       <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
-                      <CardDescription className="text-sm md:text-base font-semibold">{tour.description}</CardDescription>
+                      <div className="flex items-center justify-between mt-2">
+                        <CardDescription className="text-sm md:text-base">{tour.description}</CardDescription>
+                        <div className="text-primary font-bold text-xl md:text-2xl whitespace-nowrap ml-4">
+                          {tour.price}
+                        </div>
+                      </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                      <div className="text-sm leading-relaxed whitespace-pre-line">
-                        <p className="font-medium">{tour.duration}</p>
-                      </div>
+                      <div className="text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
                       <Button 
                         variant="outline" 
                         className="w-full bg-white hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 border-2 border-primary"
