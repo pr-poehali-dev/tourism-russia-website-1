@@ -30,8 +30,6 @@ interface Tour {
   price: string;
   difficulty: string;
   image: string;
-  highlights?: string[];
-  included?: string[];
 }
 
 const ToursSection = () => {
@@ -56,20 +54,6 @@ const ToursSection = () => {
       price: "75 000 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/files/2z7a6771.jpg",
-      highlights: [
-        "Остров Ольхон и его легенды",
-        "Мыс Хобой — северная точка острова",
-        "Скалы Три Брата и Шаманка",
-        "Буддийская ступа на острове Огой",
-        "Катание на коньках по прозрачному льду"
-      ],
-      included: [
-        "Проживание на турбазах",
-        "Трёхразовое питание",
-        "Все трансферы и переезды",
-        "Услуги профессионального гида",
-        "Прокат коньков и снаряжения"
-      ]
     },
     {
       id: 2,
@@ -149,41 +133,6 @@ const ToursSection = () => {
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
-                      
-                      {tour.highlights && tour.highlights.length > 0 && (
-                        <div className="space-y-2">
-                          <h4 className="font-semibold text-sm flex items-center gap-2">
-                            <Icon name="MapPin" size={16} className="text-primary" />
-                            Маршрут включает:
-                          </h4>
-                          <ul className="text-xs space-y-1">
-                            {tour.highlights.map((highlight, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <Icon name="Check" size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
-                                <span>{highlight}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      
-                      {tour.included && tour.included.length > 0 && (
-                        <div className="space-y-2">
-                          <h4 className="font-semibold text-sm flex items-center gap-2">
-                            <Icon name="Package" size={16} className="text-primary" />
-                            В стоимость входит:
-                          </h4>
-                          <ul className="text-xs space-y-1">
-                            {tour.included.map((item, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <Icon name="Check" size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      
                       <Button 
                         variant="outline" 
                         className="w-full bg-white hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 border-2 border-primary"
