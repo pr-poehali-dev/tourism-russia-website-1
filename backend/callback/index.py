@@ -60,8 +60,18 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             }
         
         # Отправляем уведомление в Telegram
-        telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
-        telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID', '')
+        # Значения могут быть перепутаны, проверяем формат
+        token_raw = os.environ.get('TELEGRAM_BOT_TOKEN', '')
+        chat_id_raw = os.environ.get('TELEGRAM_CHAT_ID', '')
+        
+        # Определяем, где токен, а где chat_id по формату
+        if ':' in chat_id_raw:
+            # Значения перепутаны
+            telegram_token = chat_id_raw
+            telegram_chat_id = token_raw
+        else:
+            telegram_token = token_raw
+            telegram_chat_id = chat_id_raw
         
         if not telegram_token or not telegram_chat_id:
             return {
