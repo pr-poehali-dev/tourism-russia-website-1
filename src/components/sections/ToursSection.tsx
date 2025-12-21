@@ -123,7 +123,14 @@ const ToursSection = () => {
                       />
                     </div>
                     <CardHeader>
-                      <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
+                      <CardTitle className="font-heading text-xl md:text-2xl">
+                        {tour.title.split('(')[0]}
+                        {tour.title.includes('(') && (
+                          <span className="text-sm md:text-base font-normal text-muted-foreground">
+                            ({tour.title.split('(')[1]}
+                          </span>
+                        )}
+                      </CardTitle>
                       <div className="flex items-start justify-between mt-2">
                         <CardDescription className="text-sm md:text-base text-left" dangerouslySetInnerHTML={{ __html: tour.description }} />
                         <div className="text-primary font-bold text-xl md:text-2xl whitespace-nowrap ml-4">
