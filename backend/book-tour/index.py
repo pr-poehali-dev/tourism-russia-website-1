@@ -119,21 +119,35 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     msg.attach(MIMEText(html_body, 'html', 'utf-8'))
     
-    if email_port == 465:
-        with smtplib.SMTP_SSL(email_host, email_port) as server:
-            server.login(email_user, email_password)
-            server.send_message(msg)
-    else:
-        with smtplib.SMTP(email_host, email_port) as server:
-            server.starttls()
-            server.login(email_user, email_password)
-            server.send_message(msg)
+    email_sent = False
+    email_error = None
+    
+    try:
+        if email_port == 465:
+            with smtplib.SMTP_SSL(email_host, email_port) as server:
+                server.login(email_user, email_password)
+                server.send_message(msg)
+        else:
+            with smtplib.SMTP(email_host, email_port) as server:
+                server.starttls()
+                server.login(email_user, email_password)
+                server.send_message(msg)
+        email_sent = True
+        print(f"✅ Email успешно отправлен на {email_to}")
+    except Exception as e:
+        email_error = str(e)
+        print(f"❌ Ошибка отправки email: {email_error}")
+        print(f"Email настройки: host={email_host}, port={email_port}, user={email_user}")
     
     telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN')
     telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID')
     
+    telegram_sent = False
+    telegram_error = None
+    
     if telegram_token and telegram_chat_id:
-        telegram_message = f'''🎒 <b>Новая заявка на бронирование</b>
+        try:
+            telegram_message = f'''🎒 <b>Новая заявка на бронирование</b>
 
 <b>Имя:</b> {booking.name}
 <b>Телефон:</b> {booking.phone}
@@ -142,12 +156,26 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 <b>Комментарий:</b> {booking.comment if booking.comment else 'Не указан'}
 
 📞 Свяжитесь с клиентом в ближайшее время!'''
-        
-        send_telegram_message(telegram_token, telegram_chat_id, telegram_message)
+            
+            send_telegram_message(telegram_token, telegram_chat_id, telegram_message)
+            telegram_sent = True
+            print(f"✅ Telegram сообщение отправлено в чат {telegram_chat_id}")
+        except Exception as e:
+            telegram_error = str(e)
+            print(f"❌ Ошибка отправки в Telegram: {telegram_error}")
+    
+    response_data = {
+        'success': email_sent or telegram_sent,
+        'message': 'Заявка успешно отправлена',
+        'details': {
+            'email': {'sent': email_sent, 'error': email_error},
+            'telegram': {'sent': telegram_sent, 'error': telegram_error}
+        }
+    }
     
     return {
         'statusCode': 200,
         'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-        'body': json.dumps({'success': True, 'message': 'Заявка успешно отправлена'}),
+        'body': json.dumps(response_data),
         'isBase64Encoded': False
     }
