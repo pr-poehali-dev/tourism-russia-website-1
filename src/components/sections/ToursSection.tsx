@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -34,6 +35,7 @@ interface Tour {
 }
 
 const ToursSection = () => {
+  const navigate = useNavigate();
   const [showBookingForm, setShowBookingForm] = React.useState(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const { toast } = useToast();
@@ -141,6 +143,11 @@ const ToursSection = () => {
                       <Button 
                         variant="outline" 
                         className="w-full bg-white hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 border-2 border-primary"
+                        onClick={() => {
+                          if (tour.id === 1) {
+                            navigate('/tour/baikal-skating');
+                          }
+                        }}
                       >
                         <Icon name="ArrowRight" size={16} className="mr-2" />
                         Подробнее
