@@ -27,10 +27,50 @@ const GuidesSection = () => {
   const [selectedGuide, setSelectedGuide] = React.useState<number | null>(null);
   const [showContactForm, setShowContactForm] = React.useState(false);
   const [contactGuideIndex, setContactGuideIndex] = React.useState<number | null>(null);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    clientName: '',
+    clientPhone: '',
+    preferredTime: '',
+    comment: ''
+  });
 
   const handleContactClick = (index: number) => {
     setContactGuideIndex(index);
     setShowContactForm(true);
+    setFormData({ clientName: '', clientPhone: '', preferredTime: '', comment: '' });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (contactGuideIndex === null) return;
+
+    setIsSubmitting(true);
+    const guide = guides[contactGuideIndex];
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/8182ae3f-befc-4f6f-b59a-12a2a2b88b6c', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          guideName: guide.name,
+          guidePhone: guide.phone,
+          ...formData
+        })
+      });
+
+      if (response.ok) {
+        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+        setShowContactForm(false);
+        setFormData({ clientName: '', clientPhone: '', preferredTime: '', comment: '' });
+      } else {
+        alert('Произошла ошибка. Попробуйте позже или позвоните напрямую.');
+      }
+    } catch (error) {
+      alert('Произошла ошибка. Попробуйте позже или позвоните напрямую.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const guides: Guide[] = [
@@ -202,33 +242,51 @@ const GuidesSection = () => {
               )}
             </DialogDescription>
           </DialogHeader>
-          <form className="space-y-4" onSubmit={(e) => {
-            e.preventDefault();
-            alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-            setShowContactForm(false);
-          }}>
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label className="text-sm font-medium">Ваше имя</label>
-              <Input placeholder="Иван Иванов" required />
+              <Input 
+                placeholder="Иван Иванов" 
+                required 
+                value={formData.clientName}
+                onChange={(e) => setFormData({...formData, clientName: e.target.value})}
+                disabled={isSubmitting}
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Ваш телефон</label>
-              <Input type="tel" placeholder="+7 (999) 123-45-67" required />
+              <Input 
+                type="tel" 
+                placeholder="+7 (999) 123-45-67" 
+                required 
+                value={formData.clientPhone}
+                onChange={(e) => setFormData({...formData, clientPhone: e.target.value})}
+                disabled={isSubmitting}
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Удобное время для звонка</label>
-              <Input type="text" placeholder="Например: 10:00 - 18:00" />
+              <Input 
+                type="text" 
+                placeholder="Например: 10:00 - 18:00" 
+                value={formData.preferredTime}
+                onChange={(e) => setFormData({...formData, preferredTime: e.target.value})}
+                disabled={isSubmitting}
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Комментарий (необязательно)</label>
               <Textarea 
                 placeholder="Расскажите о ваших пожеланиях..."
                 className="min-h-[80px]"
+                value={formData.comment}
+                onChange={(e) => setFormData({...formData, comment: e.target.value})}
+                disabled={isSubmitting}
               />
             </div>
-            <Button type="submit" className="w-full" size="lg">
+            <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
               <Icon name="Phone" size={18} className="mr-2" />
-              Заказать звонок
+              {isSubmitting ? 'Отправка...' : 'Заказать звонок'}
             </Button>
           </form>
         </DialogContent>
