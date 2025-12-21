@@ -136,7 +136,6 @@ const ToursSection = () => {
                           <span>{tour.duration}</span>
                         </div>
                         <div className="flex items-center gap-2 text-primary font-bold text-lg">
-                          <Icon name="DollarSign" size={18} />
                           <span>{tour.price}</span>
                         </div>
                       </div>
