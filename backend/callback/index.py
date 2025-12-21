@@ -1,15 +1,15 @@
 import json
 import os
-import psycopg2
 import urllib.request
 import urllib.parse
 from typing import Dict, Any
+from datetime import datetime
 
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
     Обработка заявок на обратный звонок от клиентов
-    Сохраняет заявку в базу данных и отправляет уведомление в Telegram
+    Отправляет уведомление в Telegram
     '''
     method: str = event.get('httpMethod', 'GET')
     
@@ -59,47 +59,50 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'isBase64Encoded': False
             }
         
-        # Сохраняем в базу данных
-        conn = psycopg2.connect(os.environ['DATABASE_URL'])
-        cursor = conn.cursor()
-        
-        cursor.execute(
-            "INSERT INTO callback_requests (guide_name, guide_phone, client_name, client_phone, preferred_time, comment) "
-            "VALUES (%s, %s, %s, %s, %s, %s) RETURNING id",
-            (guide_name, guide_phone, client_name, client_phone, preferred_time, comment)
-        )
-        
-        request_id = cursor.fetchone()[0]
-        conn.commit()
-        cursor.close()
-        conn.close()
-        
         # Отправляем уведомление в Telegram
         telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
         telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID', '')
         
-        if telegram_token and telegram_chat_id:
-            message = f"""🔔 Новая заявка на обратный звонок №{request_id}
+        if not telegram_token or not telegram_chat_id:
+            return {
+                'statusCode': 500,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({'error': 'Telegram не настроен. Добавьте TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID в секреты проекта'}),
+                'isBase64Encoded': False
+            }
+        
+        now = datetime.now().strftime('%d.%m.%Y %H:%M')
+        
+        message = f"""🔔 <b>Новая заявка на обратный звонок!</b>
 
-👤 Клиент: {client_name}
-📞 Телефон клиента: {client_phone}
-⏰ Удобное время: {preferred_time or 'Не указано'}
-💬 Комментарий: {comment or 'Нет'}
+👤 <b>Гид:</b> {guide_name}
+📱 <b>Телефон гида:</b> {guide_phone}
 
-🎯 Гид: {guide_name}
-📱 Телефон гида: {guide_phone}"""
-            
-            telegram_url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
-            telegram_data = urllib.parse.urlencode({
-                'chat_id': telegram_chat_id,
-                'text': message,
-                'parse_mode': 'HTML'
-            }).encode('utf-8')
-            
-            try:
-                urllib.request.urlopen(telegram_url, data=telegram_data)
-            except Exception:
-                pass  # Не критично, если уведомление не отправилось
+━━━━━━━━━━━━━━━━━━━━
+<b>Данные клиента:</b>
+
+<b>Имя:</b> {client_name}
+<b>Телефон:</b> {client_phone}"""
+        
+        if preferred_time:
+            message += f"\n<b>Удобное время:</b> {preferred_time}"
+        
+        if comment:
+            message += f"\n<b>Комментарий:</b> {comment}"
+        
+        message += f"\n\n⏰ <b>Время заявки:</b> {now}"
+        
+        telegram_url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
+        telegram_data = urllib.parse.urlencode({
+            'chat_id': telegram_chat_id,
+            'text': message,
+            'parse_mode': 'HTML'
+        }).encode('utf-8')
+        
+        urllib.request.urlopen(telegram_url, data=telegram_data)
         
         return {
             'statusCode': 200,
@@ -109,8 +112,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             },
             'body': json.dumps({
                 'success': True,
-                'message': 'Заявка успешно отправлена',
-                'requestId': request_id
+                'message': 'Заявка успешно отправлена'
             }),
             'isBase64Encoded': False
         }
