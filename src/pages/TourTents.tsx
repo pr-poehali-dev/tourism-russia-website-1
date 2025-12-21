@@ -491,7 +491,6 @@ const TourTents = () => {
           </div>
         </div>
       </div>
-    </div>
 
       <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
         <DialogContent className="max-w-md">
