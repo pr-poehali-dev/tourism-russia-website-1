@@ -411,49 +411,55 @@ const TourKamchatka = () => {
           </div>
 
           <aside className="lg:col-span-1">
-            <div className="sticky top-24 space-y-6">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div>
-                      <p className="text-sm text-muted-foreground mb-1">Стоимость тура</p>
-                      <p className="text-3xl font-bold text-primary">83 200 ₽</p>
-                      <p className="text-sm text-muted-foreground">за человека</p>
+            <Card className="lg:sticky lg:top-24">
+              <CardContent className="p-6 md:p-8 space-y-6">
+                <div>
+                  <div className="text-sm text-muted-foreground mb-2">Стоимость тура</div>
+                  <div className="text-4xl font-bold text-primary mb-4">83 200 ₽</div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Calendar" size={16} className="text-muted-foreground" />
+                      <span className="text-muted-foreground">15-23 августа 2026</span>
                     </div>
-                    <div className="pt-4 border-t">
-                      <p className="text-sm text-muted-foreground mb-1">Предоплата</p>
-                      <p className="text-xl font-bold">8 320 ₽</p>
+                    <div className="flex items-center gap-2">
+                      <Icon name="Moon" size={16} className="text-muted-foreground" />
+                      <span className="text-muted-foreground">9 дней / 8 ночей</span>
                     </div>
-                    <Button 
-                      className="w-full" 
-                      size="lg"
-                      onClick={() => setShowBookingForm(true)}
-                    >
-                      Забронировать место
-                    </Button>
-                    <p className="text-xs text-muted-foreground text-center">
-                      Количество мест ограничено
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <Icon name="MapPin" size={16} className="text-muted-foreground" />
+                      <span className="text-muted-foreground">Петропавловск-Камчатский</span>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
 
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-bold mb-4">Контакты</h3>
-                  <div className="space-y-3 text-sm">
-                    <a href="tel:+79991234567" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
-                      <Icon name="Phone" size={16} />
-                      <span>+7 (999) 123-45-67</span>
-                    </a>
-                    <a href="mailto:info@example.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
-                      <Icon name="Mail" size={16} />
-                      <span>info@example.com</span>
+                <Button 
+                  onClick={() => setShowBookingForm(true)}
+                  className="w-full transition-all hover:scale-105 hover:shadow-lg"
+                  size="lg"
+                >
+                  Забронировать тур
+                </Button>
+                <div className="text-center">
+                  <div className="text-sm text-muted-foreground">Предоплата всего 10%</div>
+                  <div className="font-bold text-lg text-primary">8 320 ₽</div>
+                </div>
+
+                <div className="border-t pt-6 space-y-3 text-sm">
+                  <div className="flex items-center gap-3">
+                    <Icon name="Phone" size={18} className="text-primary" />
+                    <a href="tel:+79991234567" className="hover:text-primary transition-colors">
+                      +7 (999) 123-45-67
                     </a>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <div className="flex items-center gap-3">
+                    <Icon name="Mail" size={18} className="text-primary" />
+                    <a href="mailto:info@example.com" className="hover:text-primary transition-colors">
+                      info@example.com
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </aside>
         </div>
       </div>
