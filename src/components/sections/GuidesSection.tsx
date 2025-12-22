@@ -97,6 +97,7 @@ const GuidesSection = () => {
         "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-44.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-47.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-51.jpg",
+        "https://cdn.poehali.dev/files/photo_2025-12-22_17-04-39.jpg",
       ],
     },
     {
