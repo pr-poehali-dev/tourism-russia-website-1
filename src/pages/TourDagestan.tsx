@@ -354,7 +354,7 @@ const TourDagestan = () => {
 
                 <Button 
                   onClick={() => setShowBookingForm(true)}
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg transition-all hover:scale-105 hover:shadow-lg"
                   size="lg"
                 >
                   <Icon name="Calendar" size={20} className="mr-2" />
