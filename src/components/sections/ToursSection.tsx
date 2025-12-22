@@ -131,6 +131,7 @@ const ToursSection = () => {
     if (tab === "kamchatka") return tours.filter(t => t.id === 4);
     if (tab === "kolyma") return tours.filter(t => t.id === 5);
     if (tab === "dagestan") return tours.filter(t => t.id === 6);
+    if (tab === "ural") return tours.filter(t => false);
     return tours;
   };
 
@@ -148,9 +149,9 @@ const ToursSection = () => {
             <TabsTrigger value="kamchatka" className="text-xs sm:text-sm">Камчатка</TabsTrigger>
             <TabsTrigger value="kolyma" className="text-xs sm:text-sm">Колыма</TabsTrigger>
             <TabsTrigger value="dagestan" className="text-xs sm:text-sm">Дагестан</TabsTrigger>
-            <TabsTrigger value="all" className="text-xs sm:text-sm">Все</TabsTrigger>
+            <TabsTrigger value="ural" className="text-xs sm:text-sm">Урал</TabsTrigger>
           </TabsList>
-          {["baikal", "altai", "kamchatka", "kolyma", "dagestan", "all"].map((tab) => (
+          {["baikal", "altai", "kamchatka", "kolyma", "dagestan", "ural"].map((tab) => (
             <TabsContent key={tab} value={tab} className="mt-8">
               <div className="grid md:grid-cols-2 gap-6">
                 {filterTours(tab).map((tour) => (
