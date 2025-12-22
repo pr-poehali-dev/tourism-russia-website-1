@@ -161,410 +161,352 @@ const TourKamchatka = () => {
       "Капли от насморка",
       "Таблетки от горла и кашля",
       "Средства от хронических заболеваний"
-    ],
-    hygiene: [
-      "Гигиеническая помада",
-      "Солнцезащитный крем SPF 50",
-      "Зубная щетка",
-      "Влажные салфетки",
-      "Бумажные салфетки",
-      "Зубная паста",
-      "Расчёска",
-      "Мыло",
-      "Шампунь",
-      "Туалетная бумага",
-      "Полотенце"
-    ],
-    documents: [
-      "Паспорт",
-      "Деньги и карточка",
-      "Телефон",
-      "Медицинская страховка",
-      "Билеты",
-      "Перекус до 500г"
     ]
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    
     try {
-      const response = await fetch('https://poehali-backend.claude-code.app/api/bookings', {
+      const response = await fetch('https://functions.poehali.dev/a929cb91-0eec-4a5d-8515-46159925b0a2', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit booking');
+      
+      if (response.ok) {
+        toast({
+          title: "Заявка отправлена!",
+          description: "Мы свяжемся с вами в ближайшее время",
+        });
+        setShowBookingForm(false);
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          tour: 'Камчатка - три вулкана',
+          comment: ''
+        });
       }
-
-      toast({
-        title: "Заявка отправлена!",
-        description: "Мы свяжемся с вами в ближайшее время.",
-      });
-
-      setShowBookingForm(false);
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        tour: 'Камчатка - три вулкана',
-        comment: ''
-      });
     } catch (error) {
       toast({
         title: "Ошибка",
-        description: "Не удалось отправить заявку. Попробуйте позже.",
-        variant: "destructive",
+        description: "Не удалось отправить заявку. Попробуйте позже",
+        variant: "destructive"
       });
-    } finally {
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <div className="relative h-[60vh] min-h-[500px]">
+    <div className="min-h-screen bg-gray-50">
+      <header className="sticky top-0 z-50 bg-white backdrop-blur border-b">
+        <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+          <div className="flex items-start gap-2 md:gap-3">
+            <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+            <div className="flex flex-col">
+              <span className="font-heading font-bold text-black text-sm sm:text-base md:text-lg leading-tight">Жизнь с рюкзаком</span>
+              <span className="text-black text-xs leading-tight">авторские туры</span>
+            </div>
+          </div>
+          <Button
+            variant="ghost"
+            onClick={() => navigate('/')}
+            className="flex items-center gap-2"
+          >
+            <Icon name="ArrowLeft" size={20} />
+            <span className="hidden sm:inline">На главную</span>
+          </Button>
+        </div>
+      </header>
+
+      <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <img
           src="https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/f69f3837-399c-401e-9bbc-11624839b9e9.jpg"
           alt="Камчатка - три вулкана"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute top-8 left-8 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
-        >
-          <Icon name="ArrowLeft" className="w-6 h-6" />
-        </button>
-
-        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Камчатка — три вулкана
-            </h1>
-            <p className="text-2xl md:text-3xl mb-6 text-white/90">
-              Мутновский, Горелый и Авачинский
-            </p>
-            <div className="flex flex-wrap gap-6 text-lg">
-              <div className="flex items-center gap-2">
-                <Icon name="Calendar" className="w-5 h-5" />
-                <span>15-23 августа 2026 года</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold">83 200 ₽</span>
-                <span className="text-white/80">(предоплата 8 320 ₽)</span>
-              </div>
-            </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+          <div className="container mx-auto">
+            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">Камчатка — три вулкана</h1>
+            <p className="text-lg md:text-xl text-white/90">Мутновский, Горелый и Авачинский</p>
           </div>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16">
-        {/* Tour Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {tourInfo.map((info, index) => (
-            <Card key={index} className="border-2">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Icon name={info.icon as any} className="w-6 h-6 text-primary" />
+      <div className="container mx-auto px-4 py-8 md:py-12">
+        <div className="grid lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-8">
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">О путешествии</h2>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {tourInfo.map((info, index) => (
+                    <div key={index} className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                      <Icon name={info.icon as any} size={24} className="text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <div className="font-bold text-sm text-muted-foreground mb-1">{info.label}</div>
+                        <div className="font-semibold">{info.value}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
+                  <p>Камчатка — это край действующих вулканов, дымящихся фумарол и невероятных природных явлений. Этот тур даст вам уникальную возможность взойти на три самых известных вулкана полуострова и увидеть марсианские пейзажи, кислотные озера и термальные источники.</p>
+                  <p>Маршрут включает восхождения на вулканы Горелый и Мутновский с их разноцветными кратерами, посещение каньона Опасный с высочайшим водопадом Камчатки, а также финальный подъем на знаменитый Авачинский вулкан высотой 2741 метр.</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">Программа тура</h2>
+                <div className="space-y-6">
+                  {program.map((day, index) => (
+                    <div key={index} className="border-l-4 border-primary pl-6 py-2">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="font-heading font-bold text-xl">{day.day}</h3>
+                        {day.distance && (
+                          <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
+                            Дистанция: {day.distance}
+                          </span>
+                        )}
+                      </div>
+                      {day.title && <p className="text-sm font-semibold text-muted-foreground mb-2">{day.title}</p>}
+                      <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: day.description }} />
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">Стоимость тура</h2>
+                <div className="bg-primary/5 p-6 rounded-lg mb-6">
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">83 200 ₽</div>
+                  <p className="text-muted-foreground">за человека</p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                      <Icon name="Check" className="text-green-600" size={20} />
+                      В стоимость входит:
+                    </h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {included.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Icon name="Check" size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                    <p className="font-semibold text-sm leading-tight">{info.value}</p>
+
+                  <div>
+                    <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                      <Icon name="X" className="text-red-600" size={20} />
+                      Не входит в стоимость:
+                    </h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {notIncluded.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Icon name="X" size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="space-y-4 pt-6 border-t text-sm text-muted-foreground">
+                  <div>
+                    <h3 className="font-bold text-base mb-2 text-foreground">Даты проведения</h3>
+                    <p>Тур проводится с 15 по 23 августа 2026 года (9 дней / 8 ночей).</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-base mb-2 text-foreground">Как забронировать</h3>
+                    <p>Для бронирования места в группе необходимо внести предоплату 8 320 ₽ (10% от стоимости).</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-base mb-2 text-foreground">Билеты</h3>
+                    <p className="mb-2"><strong>Важно!</strong> Согласовывайте покупку билетов с инструктором.</p>
+                    <p>Встреча участников состоится в первый день похода утром в Петропавловске-Камчатском.</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-          ))}
-        </div>
 
-        {/* CTA Button */}
-        <div className="mb-16 text-center">
-          <Button
-            size="lg"
-            className="text-lg px-8 py-6 h-auto"
-            onClick={() => setShowBookingForm(true)}
-          >
-            Забронировать место
-          </Button>
-        </div>
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">Что взять с собой</h2>
+                
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                      <Icon name="ShirtIcon" size={20} className="text-primary" />
+                      Одежда
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.clothes.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-        {/* Program */}
-        <section className="mb-16">
-          <h2 className="text-4xl font-bold mb-8">Программа тура</h2>
-          <div className="space-y-6">
-            {program.map((day, index) => (
-              <Card key={index} className="border-2">
-                <CardContent className="p-8">
-                  <div className="flex flex-col md:flex-row md:items-start gap-6">
-                    <div className="md:w-32 flex-shrink-0">
-                      <div className="inline-block px-4 py-2 bg-primary/10 rounded-full">
-                        <span className="font-bold text-primary">{day.day}</span>
-                      </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                      <Icon name="Backpack" size={20} className="text-primary" />
+                      Снаряжение
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.gear.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                      <Icon name="Package" size={20} className="text-primary" />
+                      Упаковка и прочее
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.packing.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                      <Icon name="Pill" size={20} className="text-primary" />
+                      Аптечка
+                    </h3>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      {equipment.firstAid.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <aside className="lg:col-span-1">
+            <div className="sticky top-24 space-y-6">
+              <Card>
+                <CardContent className="p-6">
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-1">Стоимость тура</p>
+                      <p className="text-3xl font-bold text-primary">83 200 ₽</p>
+                      <p className="text-sm text-muted-foreground">за человека</p>
                     </div>
-                    <div className="flex-1">
-                      {day.distance && (
-                        <div className="flex items-center gap-2 mb-2 text-sm text-muted-foreground">
-                          <Icon name="Route" className="w-4 h-4" />
-                          <span>{day.distance}</span>
-                        </div>
-                      )}
-                      <h3 className="text-xl font-bold mb-3">{day.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {day.description}
-                      </p>
+                    <div className="pt-4 border-t">
+                      <p className="text-sm text-muted-foreground mb-1">Предоплата</p>
+                      <p className="text-xl font-bold">8 320 ₽</p>
                     </div>
+                    <Button 
+                      className="w-full" 
+                      size="lg"
+                      onClick={() => setShowBookingForm(true)}
+                    >
+                      Забронировать место
+                    </Button>
+                    <p className="text-xs text-muted-foreground text-center">
+                      Количество мест ограничено
+                    </p>
                   </div>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </section>
 
-        {/* What's Included */}
-        <section className="mb-16">
-          <h2 className="text-4xl font-bold mb-8">Что входит в стоимость</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-2">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <Icon name="CheckCircle2" className="w-6 h-6 text-green-600" />
-                  Включено
-                </h3>
-                <ul className="space-y-3">
-                  {included.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <Icon name="Check" className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <Icon name="XCircle" className="w-6 h-6 text-red-600" />
-                  Не включено
-                </h3>
-                <ul className="space-y-3">
-                  {notIncluded.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <Icon name="X" className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Equipment */}
-        <section className="mb-16">
-          <h2 className="text-4xl font-bold mb-8">Список снаряжения</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-2">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Icon name="ShirtIcon" className="w-5 h-5 text-primary" />
-                  Одежда
-                </h3>
-                <ul className="space-y-2">
-                  {equipment.clothes.map((item, index) => (
-                    <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Icon name="Backpack" className="w-5 h-5 text-primary" />
-                  Снаряжение
-                </h3>
-                <ul className="space-y-2">
-                  {equipment.gear.map((item, index) => (
-                    <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Icon name="Package" className="w-5 h-5 text-primary" />
-                  Упаковка
-                </h3>
-                <ul className="space-y-2 mb-6">
-                  {equipment.packing.map((item, index) => (
-                    <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Icon name="Pill" className="w-5 h-5 text-primary" />
-                  Аптечка
-                </h3>
-                <ul className="space-y-2">
-                  {equipment.firstAid.map((item, index) => (
-                    <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Icon name="Sparkles" className="w-5 h-5 text-primary" />
-                  Личная гигиена
-                </h3>
-                <ul className="space-y-2">
-                  {equipment.hygiene.map((item, index) => (
-                    <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Icon name="FileText" className="w-5 h-5 text-primary" />
-                  Документы
-                </h3>
-                <ul className="space-y-2">
-                  {equipment.documents.map((item, index) => (
-                    <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <div className="text-center">
-          <Card className="border-2 bg-primary/5">
-            <CardContent className="p-12">
-              <h2 className="text-3xl font-bold mb-4">Готовы к приключению?</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Забронируйте место в группе прямо сейчас
-              </p>
-              <Button
-                size="lg"
-                className="text-lg px-8 py-6 h-auto"
-                onClick={() => setShowBookingForm(true)}
-              >
-                Забронировать за 8 320 ₽
-              </Button>
-            </CardContent>
-          </Card>
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-bold mb-4">Контакты</h3>
+                  <div className="space-y-3 text-sm">
+                    <a href="tel:+79991234567" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
+                      <Icon name="Phone" size={16} />
+                      <span>+7 (999) 123-45-67</span>
+                    </a>
+                    <a href="mailto:info@example.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
+                      <Icon name="Mail" size={16} />
+                      <span>info@example.com</span>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </aside>
         </div>
       </div>
 
-      {/* Booking Form Dialog */}
       <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle className="text-2xl">Бронирование тура</DialogTitle>
+            <DialogTitle>Забронировать тур</DialogTitle>
             <DialogDescription>
-              Камчатка - три вулкана, 15-23 августа 2026 года
+              Заполните форму, и мы свяжемся с вами для подтверждения бронирования
             </DialogDescription>
           </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="name" className="text-sm font-medium mb-2 block">
-                Ваше имя *
-              </label>
               <Input
-                id="name"
                 name="name"
+                placeholder="Ваше имя"
                 value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Иван Иванов"
+                onChange={(e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))}
                 required
               />
             </div>
             <div>
-              <label htmlFor="phone" className="text-sm font-medium mb-2 block">
-                Телефон *
-              </label>
               <Input
-                id="phone"
                 name="phone"
                 type="tel"
+                placeholder="Телефон"
                 value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="+7 (999) 123-45-67"
+                onChange={(e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))}
                 required
               />
             </div>
             <div>
-              <label htmlFor="email" className="text-sm font-medium mb-2 block">
-                Email *
-              </label>
               <Input
-                id="email"
                 name="email"
                 type="email"
+                placeholder="Email"
                 value={formData.email}
-                onChange={handleInputChange}
-                placeholder="ivan@example.com"
+                onChange={(e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))}
                 required
               />
             </div>
             <div>
-              <label htmlFor="comment" className="text-sm font-medium mb-2 block">
-                Комментарий
-              </label>
               <Textarea
-                id="comment"
                 name="comment"
+                placeholder="Комментарий (необязательно)"
                 value={formData.comment}
-                onChange={handleInputChange}
-                placeholder="Дополнительная информация..."
-                rows={4}
+                onChange={(e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))}
+                rows={3}
               />
             </div>
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Отправка..." : "Отправить заявку"}
+              {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
             </Button>
           </form>
         </DialogContent>
