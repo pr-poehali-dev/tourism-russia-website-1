@@ -10,6 +10,7 @@ import TourTents from "./pages/TourTents";
 import TourAltai from "./pages/TourAltai";
 import TourKamchatka from "./pages/TourKamchatka";
 import TourKolyma from "./pages/TourKolyma";
+import TourDagestan from "./pages/TourDagestan";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/tour/altai-belukha" element={<TourAltai />} />
           <Route path="/tour/kamchatka" element={<TourKamchatka />} />
           <Route path="/tour/kolyma" element={<TourKolyma />} />
+          <Route path="/tour/dagestan" element={<TourDagestan />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
