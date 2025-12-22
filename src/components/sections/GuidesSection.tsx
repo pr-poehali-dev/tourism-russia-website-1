@@ -117,9 +117,9 @@ const GuidesSection = () => {
         "https://cdn.poehali.dev/files/04 Удостоверение 1.jpg",
         "https://cdn.poehali.dev/files/01 Удостоверение 1.jpg",
         "https://cdn.poehali.dev/files/01 Удостоверение 2.jpg",
-        "https://cdn.poehali.dev/files/03.jpg",
+        "https://cdn.poehali.dev/files/01.jpg|rotate-left",
         "https://cdn.poehali.dev/files/02.jpg",
-        "https://cdn.poehali.dev/files/01.jpg",
+        "https://cdn.poehali.dev/files/03.jpg|rotate-right",
       ],
     },
   ];
@@ -220,24 +220,29 @@ const GuidesSection = () => {
                       Сертификаты и документы
                     </h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      {guides[selectedGuide].certificates!.map((cert, idx) => (
-                        <a
-                          key={idx}
-                          href={cert}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative aspect-[3/4] overflow-hidden rounded-lg border-2 border-muted hover:border-primary transition-all duration-300 hover:shadow-lg"
-                        >
-                          <img
-                            src={cert}
-                            alt={`Сертификат ${idx + 1}`}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                            <Icon name="ZoomIn" size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          </div>
-                        </a>
-                      ))}
+                      {guides[selectedGuide].certificates!.map((certData, idx) => {
+                        const [certUrl, rotation] = certData.split('|');
+                        const rotationClass = rotation === 'rotate-right' ? 'rotate-90' : rotation === 'rotate-left' ? '-rotate-90' : '';
+                        
+                        return (
+                          <a
+                            key={idx}
+                            href={certUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative aspect-[3/4] overflow-hidden rounded-lg border-2 border-muted hover:border-primary transition-all duration-300 hover:shadow-lg"
+                          >
+                            <img
+                              src={certUrl}
+                              alt={`Сертификат ${idx + 1}`}
+                              className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${rotationClass}`}
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                              <Icon name="ZoomIn" size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
+                          </a>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
