@@ -486,9 +486,18 @@ const ReviewsGallerySection = () => {
             <div>
               <h4 className="font-heading font-semibold mb-4">Контакты</h4>
               <div className="space-y-2 text-sm">
-                <p>+7 965 561-51-53</p>
-                <p>rukzaklife@mail.ru</p>
-                <p>г. Пермь, ул. Монастырская 117-28</p>
+                <p className="flex items-center gap-2">
+                  <Icon name="Phone" size={16} />
+                  +7 965 561-51-53
+                </p>
+                <p className="flex items-center gap-2">
+                  <Icon name="Mail" size={16} />
+                  rukzaklife@mail.ru
+                </p>
+                <p className="flex items-center gap-2">
+                  <Icon name="MapPin" size={16} />
+                  г. Пермь, ул. Монастырская 117-28
+                </p>
               </div>
             </div>
             <div>
