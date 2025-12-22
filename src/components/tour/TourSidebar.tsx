@@ -51,13 +51,13 @@ const TourSidebar = ({ onBookingClick }: TourSidebarProps) => {
               Контакты
             </h3>
             <div className="space-y-2 text-sm">
-              <a href="tel:+79149345678" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="tel:+79655615153" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Icon name="Phone" size={16} />
-                +7 (914) 934-56-78
+                +7 965 561-51-53
               </a>
-              <a href="mailto:info@baykal-tours.ru" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="mailto:rukzaklife@mail.ru" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Icon name="Mail" size={16} />
-                info@baykal-tours.ru
+                rukzaklife@mail.ru
               </a>
             </div>
           </div>
