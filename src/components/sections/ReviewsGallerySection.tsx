@@ -32,6 +32,7 @@ const ReviewsGallerySection = () => {
   const [selectedBenefit, setSelectedBenefit] = React.useState<number | null>(null);
   const [expandedReviews, setExpandedReviews] = React.useState<{[key: number]: boolean}>({});
   const [selectedReview, setSelectedReview] = React.useState<Review | null>(null);
+  const [reviewsStartIndex, setReviewsStartIndex] = React.useState(0);
 
   const reviews: Review[] = [
     {
@@ -74,10 +75,18 @@ const ReviewsGallerySection = () => {
       ],
     },
     {
-      name: "Ольга Н.",
-      tour: "Осенний Алтай",
+      name: "Анна Мочалова",
+      tour: "Камчатка 2020г",
       rating: 5,
-      text: "Александр - лучший гид! Знает каждую тропу, каждую историю. Тур превзошёл все ожидания.",
+      text: "Прошло всё просто бомбически, как говорит Антон) Маршрут был насыщенным, и каждым днём Камчатка открывалась под другим углом: и туман, и дождь, и солнце, и снег, и гольцы. Сложно, хотя это и был мой первый настоящий горный поход (правда я не думала, что будут вулканцы после каждого подъёма))), после подъёмов возвращалась шоколадки, но лучше бы больше орехов набрала😁 (хотя и эти не без влияния, он нас всегда подбадривал шутками и рассказами, когда что-то было совсем сложно и ты думала, что сил уже ни на что не останется, помогал и объяснял) Благодаря судьбе, что с Камчаткой показывал именно он, я бы с Антоном пошла ещё в поход, и не раз! В итоге завалилась туда мы две взрослая но подружились. Вышли серьёзными и лису, подглядели голубыше, морских котиков и лису. В очень довольная первым походом и рада, что ходила именно в нашй! Спасибо организатором горе и моей дружеской компании, повысить в такой коллективе стопроцентно😘🫶",
+      link: "https://vk.com/mochalova_am",
+      images: [
+        "https://cdn.poehali.dev/files/photo_2025-12-22_14-36-26.jpg",
+        "https://cdn.poehali.dev/files/photo_2025-12-22_14-36-22.jpg",
+        "https://cdn.poehali.dev/files/photo_2025-12-22_14-36-18.jpg",
+        "https://cdn.poehali.dev/files/photo_2025-12-22_14-36-12.jpg",
+        "https://cdn.poehali.dev/files/photo_2025-12-22_14-35-50.jpg",
+      ],
     },
   ];
 
@@ -96,22 +105,23 @@ const ReviewsGallerySection = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Отзывы </h2>
             <p className="text-base md:text-lg text-muted-foreground">Что говорят наши путешественники</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow overflow-hidden">
+          <div className="relative">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {reviews.slice(reviewsStartIndex, reviewsStartIndex + 3).map((review, index) => (
+              <Card key={reviewsStartIndex + index} className="hover:shadow-lg transition-shadow overflow-hidden">
                 {review.images && review.images.length > 0 && (
                   <div 
                     className="relative h-64 w-full overflow-hidden cursor-pointer group"
                     onClick={() => {
                       if (review.images && review.images.length > 1) {
-                        const currentIndex = imageIndices[index] || 0;
+                        const currentIndex = imageIndices[reviewsStartIndex + index] || 0;
                         const nextIndex = (currentIndex + 1) % review.images.length;
-                        setImageIndices({...imageIndices, [index]: nextIndex});
+                        setImageIndices({...imageIndices, [reviewsStartIndex + index]: nextIndex});
                       }
                     }}
                   >
                     <img
-                      src={review.images[imageIndices[index] || 0]}
+                      src={review.images[imageIndices[reviewsStartIndex + index] || 0]}
                       alt={`${review.name} - ${review.tour}`}
                       className="w-full h-full object-contain bg-muted transition-opacity duration-300"
                     />
@@ -121,7 +131,7 @@ const ReviewsGallerySection = () => {
                           <Icon name="ChevronRight" size={48} className="text-white" />
                         </div>
                         <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
-                          {(imageIndices[index] || 0) + 1} / {review.images.length}
+                          {(imageIndices[reviewsStartIndex + index] || 0) + 1} / {review.images.length}
                         </div>
                       </>
                     )}
@@ -158,6 +168,32 @@ const ReviewsGallerySection = () => {
                 </CardContent>
               </Card>
             ))}
+            </div>
+            
+            {reviews.length > 3 && (
+              <div className="flex justify-center mt-8 gap-4">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setReviewsStartIndex(Math.max(0, reviewsStartIndex - 3))}
+                  disabled={reviewsStartIndex === 0}
+                  className="flex items-center gap-2"
+                >
+                  <Icon name="ChevronLeft" size={20} />
+                  Предыдущие
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setReviewsStartIndex(Math.min(reviews.length - 3, reviewsStartIndex + 3))}
+                  disabled={reviewsStartIndex + 3 >= reviews.length}
+                  className="flex items-center gap-2"
+                >
+                  Следующие
+                  <Icon name="ChevronRight" size={20} />
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </section>
