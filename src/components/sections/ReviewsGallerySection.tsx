@@ -228,7 +228,19 @@ const ReviewsGallerySection = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {reviews.slice(reviewsStartIndex, reviewsStartIndex + 3).map((review, index) => (
               <Card key={reviewsStartIndex + index} className="hover:shadow-lg transition-shadow overflow-hidden">
-                {review.images && review.images.length > 0 && (
+                {review.videoUrl ? (
+                  <div className="relative h-64 w-full overflow-hidden">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={review.videoUrl.replace('youtu.be/', 'www.youtube.com/embed/').split('?')[0]}
+                      title="YouTube video"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                ) : review.images && review.images.length > 0 ? (
                   <div 
                     className="relative h-64 w-full overflow-hidden cursor-pointer group"
                     onClick={() => {
@@ -255,7 +267,7 @@ const ReviewsGallerySection = () => {
                       </>
                     )}
                   </div>
-                )}
+                ) : null}
                 <CardHeader>
                   <div className="flex items-center gap-1 sm:gap-2 mb-2">
                     <CardTitle className="font-heading text-base sm:text-lg md:text-xl">{review.name}</CardTitle>
