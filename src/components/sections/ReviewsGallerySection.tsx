@@ -229,16 +229,31 @@ const ReviewsGallerySection = () => {
               {reviews.slice(reviewsStartIndex, reviewsStartIndex + 3).map((review, index) => (
               <Card key={reviewsStartIndex + index} className="hover:shadow-lg transition-shadow overflow-hidden">
                 {review.videoUrl ? (
-                  <div className="relative h-64 w-full overflow-hidden">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={review.videoUrl.replace('youtu.be/', 'www.youtube.com/embed/').split('?')[0]}
-                      title="YouTube video"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+                  <div 
+                    className="relative h-64 w-full overflow-hidden cursor-pointer group bg-muted"
+                    onClick={() => window.open(review.videoUrl, '_blank')}
+                  >
+                    {review.images && review.images[0] ? (
+                      <>
+                        <img
+                          src={review.images[0]}
+                          alt={`${review.name} - ${review.tour}`}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <div className="bg-red-600 rounded-full p-4 group-hover:scale-110 transition-transform">
+                            <Icon name="Play" size={32} className="text-white ml-1" />
+                          </div>
+                        </div>
+                        <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                          ВИДЕО
+                        </div>
+                      </>
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Icon name="Video" size={48} className="text-muted-foreground" />
+                      </div>
+                    )}
                   </div>
                 ) : review.images && review.images.length > 0 ? (
                   <div 
