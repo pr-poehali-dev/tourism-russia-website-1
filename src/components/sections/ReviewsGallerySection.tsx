@@ -30,6 +30,8 @@ interface Benefit {
 const ReviewsGallerySection = () => {
   const [imageIndices, setImageIndices] = React.useState<{[key: number]: number}>({});
   const [selectedBenefit, setSelectedBenefit] = React.useState<number | null>(null);
+  const [expandedReviews, setExpandedReviews] = React.useState<{[key: number]: boolean}>({});
+  const [selectedReview, setSelectedReview] = React.useState<Review | null>(null);
 
   const reviews: Review[] = [
     {
@@ -141,7 +143,18 @@ const ReviewsGallerySection = () => {
                   <CardDescription className="text-xs sm:text-sm">Тур: {review.tour}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm md:text-base text-muted-foreground italic">"{review.text}"</p>
+                  <p className="text-sm md:text-base text-muted-foreground italic">
+                    "{review.text.length > 200 ? review.text.substring(0, 200) + '...' : review.text}"
+                  </p>
+                  {review.text.length > 200 && (
+                    <Button 
+                      variant="link" 
+                      className="mt-2 p-0 h-auto text-primary"
+                      onClick={() => setSelectedReview(review)}
+                    >
+                      Читать весь отзыв
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -328,6 +341,51 @@ const ReviewsGallerySection = () => {
           </div>
         </div>
       </footer>
+
+      <Dialog open={selectedReview !== null} onOpenChange={() => setSelectedReview(null)}>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          {selectedReview && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <DialogTitle className="text-2xl font-heading">
+                    {selectedReview.name}
+                  </DialogTitle>
+                  {selectedReview.link && (
+                    <a href={selectedReview.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 transition-colors">
+                      {selectedReview.link.includes('vk.') ? (
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.15 14.63h-1.43c-.51 0-.67-.42-1.58-1.33-.8-.76-1.15-.86-1.35-.86-.28 0-.36.08-.36.46v1.21c0 .33-.1.52-1.01.52-1.49 0-3.14-.9-4.3-2.57-1.76-2.37-2.24-4.15-2.24-4.51 0-.2.08-.39.46-.39h1.43c.35 0 .48.16.61.53.71 2.05 1.91 3.85 2.4 3.85.18 0 .27-.09.27-.55v-2.14c-.06-.98-.57-1.06-.57-1.41 0-.16.13-.32.35-.32h2.24c.29 0 .4.16.4.5v2.89c0 .3.13.4.22.4.18 0 .33-.1.67-.44 1.04-1.17 1.79-2.97 1.79-2.97.1-.21.26-.39.61-.39h1.43c.43 0 .53.22.43.52-.16.73-1.97 3.44-1.97 3.44-.15.24-.2.35 0 .62.14.2.61.59 1.12 1.13.59.62.95 1.14 1.06 1.5.11.36-.08.54-.49.54z"/></svg>
+                      ) : (
+                        <Icon name="Send" size={24} />
+                      )}
+                    </a>
+                  )}
+                </div>
+                <DialogDescription className="text-base">
+                  Тур: {selectedReview.tour}
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4 mt-4">
+                {selectedReview.images && selectedReview.images.length > 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                    {selectedReview.images.map((img, idx) => (
+                      <img 
+                        key={idx}
+                        src={img} 
+                        alt={`${selectedReview.name} - фото ${idx + 1}`}
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                    ))}
+                  </div>
+                )}
+                <p className="text-base leading-relaxed text-muted-foreground italic">
+                  "{selectedReview.text}"
+                </p>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Dialog open={selectedBenefit !== null} onOpenChange={() => setSelectedBenefit(null)}>
         <DialogContent className="max-w-2xl">
