@@ -441,7 +441,7 @@ const ReviewsGallerySection = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg">г. Пермь     г. Уфа</p>
+                  <p className="text-lg">г. Пермь, ул. Монастырская 117-28</p>
                 </CardContent>
               </Card>
             </div>
@@ -488,7 +488,7 @@ const ReviewsGallerySection = () => {
               <div className="space-y-2 text-sm">
                 <p>+7 965 561-51-53</p>
                 <p>rukzaklife@mail.ru</p>
-                <p>г. Пермь  г. Уфа</p>
+                <p>г. Пермь, ул. Монастырская 117-28</p>
               </div>
             </div>
             <div>
