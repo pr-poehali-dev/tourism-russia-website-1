@@ -79,6 +79,16 @@ const ToursSection = () => {
       difficulty: "Средний",
       image: "https://cdn.poehali.dev/files/ozz-q6fkgwprn4f2igi58odrec2ov3kk0uj0u7w4k4es9c.jpg",
     },
+    {
+      id: 4,
+      title: "Камчатка — три вулкана",
+      subtitle: "Мутновский, Горелый и Авачинский",
+      description: "15-23 августа 2026 года",
+      duration: "За 9 дней вы поднимитесь на вулканы <strong>Мутновский</strong>, <strong>Горелый</strong> и <strong>Авачинский</strong>, увидите лавовые потоки, фумаролы, кратерные озёра и ледовые пещеры!\n\n<strong>Термальные источники «Дачные» в малой долине гейзеров, уха из свежей красной рыбки, икра и чай из трав. Идеально для тех, кто любит природу!</strong>",
+      price: "83 200 ₽",
+      difficulty: "Средний",
+      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/f69f3837-399c-401e-9bbc-11624839b9e9.jpg",
+    },
   ];
 
   const getDifficultyColor = (difficulty: string) => {
@@ -98,6 +108,7 @@ const ToursSection = () => {
     if (tab === "all") return tours;
     if (tab === "baikal") return tours.filter(t => t.id === 1 || t.id === 2);
     if (tab === "altai") return tours.filter(t => t.id === 3);
+    if (tab === "kamchatka") return tours.filter(t => t.id === 4);
     return tours;
   };
 
@@ -109,12 +120,13 @@ const ToursSection = () => {
           <p className="text-base md:text-lg text-muted-foreground">Выберите своё следующее приключение</p>
         </div>
         <Tabs defaultValue="baikal" className="w-full mb-12">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 border-2 border-primary">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 border-2 border-primary">
             <TabsTrigger value="baikal" className="text-xs sm:text-sm">Байкал</TabsTrigger>
             <TabsTrigger value="altai" className="text-xs sm:text-sm">Алтай</TabsTrigger>
+            <TabsTrigger value="kamchatka" className="text-xs sm:text-sm">Камчатка</TabsTrigger>
             <TabsTrigger value="all" className="text-xs sm:text-sm">Все</TabsTrigger>
           </TabsList>
-          {["baikal", "altai", "all"].map((tab) => (
+          {["baikal", "altai", "kamchatka", "all"].map((tab) => (
             <TabsContent key={tab} value={tab} className="mt-8">
               <div className="grid md:grid-cols-2 gap-6">
                 {filterTours(tab).map((tour) => (
@@ -150,6 +162,8 @@ const ToursSection = () => {
                             navigate('/tour/baikal-tents');
                           } else if (tour.id === 3) {
                             navigate('/tour/altai-belukha');
+                          } else if (tour.id === 4) {
+                            navigate('/tour/kamchatka');
                           }
                         }}
                       >
