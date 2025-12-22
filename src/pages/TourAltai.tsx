@@ -259,7 +259,7 @@ const TourAltai = () => {
 
       <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <img
-          src="https://cdn.poehali.dev/files/852468b8-1916-478c-b088-c33868a24865.jpg"
+          src="https://cdn.poehali.dev/files/ozz-q6fkgwprn4f2igi58odrec2ov3kk0uj0u7w4k4es9c.jpg"
           alt="Поход к Белухе"
           className="w-full h-full object-cover"
         />
