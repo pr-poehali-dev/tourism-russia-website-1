@@ -234,32 +234,39 @@ const TourKolyma = () => {
 
   return (
     <div className="min-h-screen">
-      <div 
-        className="relative h-[50vh] md:h-[60vh] bg-cover bg-center"
-        style={{
-          backgroundImage: "url('https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/e797ea11-ed16-4e31-8d30-80278ba3334e.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Путешествие за золотом Колымы
-            </h1>
-            <p className="text-lg md:text-xl lg:text-2xl">
-              Поход вокруг озера Джека Лондона
-            </p>
+      <header className="bg-white border-b sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+          <div className="flex items-start gap-2 md:gap-3">
+            <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+            <div className="flex flex-col">
+              <span className="font-heading font-bold text-black text-sm sm:text-base md:text-lg leading-tight">Жизнь с рюкзаком</span>
+              <span className="text-black text-xs leading-tight">авторские туры</span>
+            </div>
+          </div>
+          <Button
+            variant="ghost"
+            onClick={() => navigate('/')}
+            className="flex items-center gap-2"
+          >
+            <Icon name="ArrowLeft" size={20} />
+            <span className="hidden sm:inline">На главную</span>
+          </Button>
+        </div>
+      </header>
+
+      <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
+        <img
+          src="https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/e797ea11-ed16-4e31-8d30-80278ba3334e.jpg"
+          alt="Путешествие за золотом Колымы"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+          <div className="container mx-auto">
+            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">Путешествие за золотом Колымы</h1>
+            <p className="text-lg md:text-xl text-white/90">Поход вокруг озера Джека Лондона</p>
           </div>
         </div>
-        
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-4 left-4 text-white hover:bg-white/20"
-          onClick={() => navigate(-1)}
-        >
-          <Icon name="ArrowLeft" size={24} />
-        </Button>
       </div>
 
       <div className="container mx-auto px-4 py-12">
