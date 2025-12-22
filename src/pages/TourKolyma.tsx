@@ -237,7 +237,7 @@ const TourKolyma = () => {
       <div 
         className="relative h-[50vh] md:h-[60vh] bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/kolyma-hero.jpg')",
+          backgroundImage: "url('https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/e797ea11-ed16-4e31-8d30-80278ba3334e.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/40" />
