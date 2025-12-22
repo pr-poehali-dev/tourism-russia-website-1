@@ -21,6 +21,7 @@ interface Guide {
   image: string;
   achievements: string[];
   phone: string;
+  certificates?: string[];
 }
 
 const GuidesSection = () => {
@@ -110,6 +111,13 @@ const GuidesSection = () => {
         "Забайкалье, лыжный поход 4 к.с. с первопрохождением (2019 г.)",
         "Западные Саяны, лыжный поход 4 к.с. с первопрохождениями (2020 г.)",
       ],
+      certificates: [
+        "https://cdn.poehali.dev/files/01 Удостоверение 1.jpg",
+        "https://cdn.poehali.dev/files/01 Удостоверение 2.jpg",
+        "https://cdn.poehali.dev/files/01.jpg",
+        "https://cdn.poehali.dev/files/02.jpg",
+        "https://cdn.poehali.dev/files/03.jpg",
+      ],
     },
   ];
 
@@ -186,7 +194,7 @@ const GuidesSection = () => {
                   </div>
                 </div>
               </DialogHeader>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
                     <Icon name="Award" size={20} className="text-primary" />
@@ -201,6 +209,35 @@ const GuidesSection = () => {
                     ))}
                   </ul>
                 </div>
+                
+                {guides[selectedGuide].certificates && guides[selectedGuide].certificates!.length > 0 && (
+                  <div>
+                    <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                      <Icon name="FileCheck" size={20} className="text-primary" />
+                      Сертификаты и документы
+                    </h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                      {guides[selectedGuide].certificates!.map((cert, idx) => (
+                        <a
+                          key={idx}
+                          href={cert}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative aspect-[3/4] overflow-hidden rounded-lg border-2 border-muted hover:border-primary transition-all duration-300 hover:shadow-lg"
+                        >
+                          <img
+                            src={cert}
+                            alt={`Сертификат ${idx + 1}`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                            <Icon name="ZoomIn" size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-primary">{guides[selectedGuide].experience}</div>
