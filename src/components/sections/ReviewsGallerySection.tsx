@@ -414,19 +414,7 @@ const ReviewsGallerySection = () => {
                   Тур: {selectedReview.tour}
                 </DialogDescription>
               </DialogHeader>
-              <div className="space-y-4 mt-4">
-                {selectedReview.images && selectedReview.images.length > 0 && (
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                    {selectedReview.images.map((img, idx) => (
-                      <img 
-                        key={idx}
-                        src={img} 
-                        alt={`${selectedReview.name} - фото ${idx + 1}`}
-                        className="w-full h-48 object-cover rounded-lg"
-                      />
-                    ))}
-                  </div>
-                )}
+              <div className="mt-4">
                 <p className="text-base leading-relaxed text-muted-foreground italic">
                   "{selectedReview.text}"
                 </p>
