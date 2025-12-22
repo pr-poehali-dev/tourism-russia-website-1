@@ -323,10 +323,10 @@ const TourKolyma = () => {
                 <div className="space-y-6">
                   {program.map((day, index) => (
                     <div key={index} className="border-l-4 border-primary pl-6 pb-6 last:pb-0">
-                      <div className="flex flex-wrap items-baseline gap-2 mb-2">
-                        <h3 className="text-xl font-bold text-primary">{day.day}</h3>
-                        <span className="text-sm text-muted-foreground">• {day.distance}</span>
-                      </div>
+                      <h3 className="text-xl font-bold text-primary mb-1">{day.day}</h3>
+                      {day.distance && (
+                        <p className="text-sm text-muted-foreground mb-2">Дистанция: {day.distance}</p>
+                      )}
                       <h4 className="font-semibold text-lg mb-2">{day.title}</h4>
                       <p className="text-muted-foreground whitespace-pre-line">{day.description}</p>
                     </div>
