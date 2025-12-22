@@ -228,34 +228,7 @@ const ReviewsGallerySection = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {reviews.slice(reviewsStartIndex, reviewsStartIndex + 3).map((review, index) => (
               <Card key={reviewsStartIndex + index} className="hover:shadow-lg transition-shadow overflow-hidden">
-                {review.videoUrl ? (
-                  <div 
-                    className="relative h-64 w-full overflow-hidden cursor-pointer group bg-muted"
-                    onClick={() => window.open(review.videoUrl, '_blank')}
-                  >
-                    {review.images && review.images[0] ? (
-                      <>
-                        <img
-                          src={review.images[0]}
-                          alt={`${review.name} - ${review.tour}`}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <div className="bg-red-600 rounded-full p-4 group-hover:scale-110 transition-transform">
-                            <Icon name="Play" size={32} className="text-white ml-1" />
-                          </div>
-                        </div>
-                        <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold">
-                          ВИДЕО
-                        </div>
-                      </>
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Icon name="Video" size={48} className="text-muted-foreground" />
-                      </div>
-                    )}
-                  </div>
-                ) : review.images && review.images.length > 0 ? (
+                {review.images && review.images.length > 0 && (
                   <div 
                     className="relative h-64 w-full overflow-hidden cursor-pointer group"
                     onClick={() => {
@@ -281,8 +254,14 @@ const ReviewsGallerySection = () => {
                         </div>
                       </>
                     )}
+                    {review.videoUrl && (
+                      <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1">
+                        <Icon name="Video" size={14} />
+                        ВИДЕО
+                      </div>
+                    )}
                   </div>
-                ) : null}
+                )}
                 <CardHeader>
                   <div className="flex items-center gap-1 sm:gap-2 mb-2">
                     <CardTitle className="font-heading text-base sm:text-lg md:text-xl">{review.name}</CardTitle>
@@ -302,13 +281,13 @@ const ReviewsGallerySection = () => {
                   <p className="text-sm md:text-base text-muted-foreground italic">
                     "{review.text.length > 200 ? review.text.substring(0, 200) + '...' : review.text}"
                   </p>
-                  {review.text.length > 200 && (
+                  {(review.text.length > 200 || review.videoUrl) && (
                     <Button 
                       variant="link" 
                       className="mt-2 p-0 h-auto text-primary"
                       onClick={() => setSelectedReview(review)}
                     >
-                      Читать весь отзыв
+                      {review.videoUrl ? 'Читать отзыв и смотреть видео' : 'Читать весь отзыв'}
                     </Button>
                   )}
                 </CardContent>
