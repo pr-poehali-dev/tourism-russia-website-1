@@ -215,7 +215,7 @@ const TourTents = () => {
           </div>
           <Button
             variant="ghost"
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/#tours')}
             className="flex items-center gap-2"
           >
             <Icon name="ArrowLeft" size={20} />
