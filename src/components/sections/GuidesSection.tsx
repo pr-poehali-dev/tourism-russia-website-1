@@ -112,11 +112,14 @@ const GuidesSection = () => {
         "Западные Саяны, лыжный поход 4 к.с. с первопрохождениями (2020 г.)",
       ],
       certificates: [
+        "https://cdn.poehali.dev/files/04 Удостоверение 2.jpg",
+        "https://cdn.poehali.dev/files/04 Удостоверение 3.jpg",
+        "https://cdn.poehali.dev/files/04 Удостоверение 1.jpg",
         "https://cdn.poehali.dev/files/01 Удостоверение 1.jpg",
         "https://cdn.poehali.dev/files/01 Удостоверение 2.jpg",
-        "https://cdn.poehali.dev/files/01.jpg",
-        "https://cdn.poehali.dev/files/02.jpg",
         "https://cdn.poehali.dev/files/03.jpg",
+        "https://cdn.poehali.dev/files/02.jpg",
+        "https://cdn.poehali.dev/files/01.jpg",
       ],
     },
   ];
