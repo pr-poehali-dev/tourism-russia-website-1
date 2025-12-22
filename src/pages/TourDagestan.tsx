@@ -24,7 +24,7 @@ const TourDagestan = () => {
     name: '',
     phone: '',
     email: '',
-    tour: 'Дагестан - Кавказская сказка',
+    tour: 'Дагестан: Кавказская тропа по краю башен',
     comment: ''
   });
 
@@ -171,7 +171,7 @@ const TourDagestan = () => {
         name: '',
         phone: '',
         email: '',
-        tour: 'Дагестан - Кавказская сказка',
+        tour: 'Дагестан: Кавказская тропа по краю башен',
         comment: ''
       });
     } catch (error) {
@@ -210,13 +210,13 @@ const TourDagestan = () => {
       <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <img
           src="https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/8abd3883-dad7-485d-b216-96a0bd8932b2.jpg"
-          alt="Дагестан - Кавказская сказка"
+          alt="Дагестан: Кавказская тропа по краю башен"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
           <div className="container mx-auto">
-            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">Дагестан — Кавказская сказка</h1>
+            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">Дагестан: Кавказская тропа по краю башен</h1>
             <p className="text-lg md:text-xl text-white/90">Горы, каньоны и древние аулы</p>
           </div>
         </div>
