@@ -226,7 +226,7 @@ const TourTents = () => {
 
       <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <img
-          src="https://cdn.poehali.dev/files/IMG_5107.jpg"
+          src="https://cdn.poehali.dev/files/photo_2025-12-23_10-13-45.jpg"
           alt="Байкал в палатках"
           className="w-full h-full object-cover"
         />

@@ -223,7 +223,7 @@ const TourKamchatka = () => {
 
       <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <img
-          src="https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/f69f3837-399c-401e-9bbc-11624839b9e9.jpg"
+          src="https://cdn.poehali.dev/files/photo_2025-12-23_11-41-12.jpg"
           alt="Камчатка - три вулкана"
           className="w-full h-full object-cover"
         />
