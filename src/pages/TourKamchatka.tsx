@@ -447,14 +447,14 @@ const TourKamchatka = () => {
                 <div className="border-t pt-6 space-y-3 text-sm">
                   <div className="flex items-center gap-3">
                     <Icon name="Phone" size={18} className="text-primary" />
-                    <a href="tel:+79991234567" className="hover:text-primary transition-colors">
-                      +7 (999) 123-45-67
+                    <a href="tel:+79655615153" className="hover:text-primary transition-colors">
+                      +7 965 561-51-53
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Icon name="Mail" size={18} className="text-primary" />
-                    <a href="mailto:info@example.com" className="hover:text-primary transition-colors">
-                      info@example.com
+                    <a href="mailto:rukzaklife@mail.ru" className="hover:text-primary transition-colors">
+                      rukzaklife@mail.ru
                     </a>
                   </div>
                 </div>

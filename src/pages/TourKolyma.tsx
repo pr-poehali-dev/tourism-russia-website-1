@@ -469,7 +469,7 @@ const TourKolyma = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <Icon name="Mail" size={18} className="text-primary" />
-                    <a href="mailto:info@example.com" className="hover:text-primary transition-colors">rukzaklife@mail.ru</a>
+                    <a href="mailto:rukzaklife@mail.ru" className="hover:text-primary transition-colors">rukzaklife@mail.ru</a>
                   </div>
                 </div>
               </CardContent>
