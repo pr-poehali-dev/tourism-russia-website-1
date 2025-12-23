@@ -230,6 +230,10 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-00.jpg", alt: "Селфи группы туристов на склоне в Дагестане" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-06.jpg", alt: "Группа из четырех человек на перевале с панорамой гор" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-11.jpg", alt: "Весеннее ущелье с ручьем и цветущими деревьями в Дагестане" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-13.jpg", alt: "Светящаяся палатка ночью на фоне горного села Дагестана" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-18.jpg", alt: "Закат в лагере с силуэтом туриста и палаткой" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-29.jpg", alt: "Туристка с рюкзаком на лесной тропе в Дагестане" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-36.jpg", alt: "Группа туристов на привале с панорамой гор Дагестана" },
       ],
     },
   ];
