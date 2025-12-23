@@ -343,12 +343,12 @@ const ReviewsGallerySection = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/852468b8-1916-478c-b088-c33868a24865.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/b25ede9a-bb7c-4b9c-9e2b-b0baa7ac497b.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1d1b6b17-c299-4be3-bbe7-08c4f7b7d05d.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/852468b8-1916-478c-b088-c33868a24865.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/b25ede9a-bb7c-4b9c-9e2b-b0baa7ac497b.jpg",
-              "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1d1b6b17-c299-4be3-bbe7-08c4f7b7d05d.jpg",
+              "https://cdn.poehali.dev/files/photo_2025-12-23_10-01-44.jpg",
+              "https://cdn.poehali.dev/files/photo_2025-12-23_09-55-33.jpg",
+              "https://cdn.poehali.dev/files/photo_2025-12-23_09-55-39.jpg",
+              "https://cdn.poehali.dev/files/photo_2025-12-23_09-56-04.jpg",
+              "https://cdn.poehali.dev/files/photo_2025-12-23_09-56-15.jpg",
+              "https://cdn.poehali.dev/files/photo_2025-12-23_09-56-26.jpg",
             ].map((img, index) => (
               <div
                 key={index}
