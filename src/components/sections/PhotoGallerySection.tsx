@@ -154,6 +154,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-30.jpg", alt: "Гид с треккинговыми палками на закате" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-32 (2).jpg", alt: "На вершине холма с панорамой Камчатки" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-32 (3).jpg", alt: "Турист на склоне вулканической долины" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-32 (4).jpg", alt: "Одинокая береза на склоне холма с туристом" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-32.jpg", alt: "Отдых на вершине с панорамой Камчатки" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-39-58.jpg", alt: "Группа у высокого водопада в каньоне" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-03.jpg", alt: "Красная палатка на фоне вулкана в тумане" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-10.jpg", alt: "Лагерь в ущелье с паром от горячих источников" },
       ],
     },
     {
