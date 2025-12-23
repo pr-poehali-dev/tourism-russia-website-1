@@ -191,6 +191,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-31.jpg", alt: "Озеро с горным хребтом и лучами солнца сквозь облака" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-32 (2).jpg", alt: "Группа туристов на каменистой вершине с панорамой Колымы" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-32 (3).jpg", alt: "Панорама горных пиков над озером и лесами лиственниц" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-32 (4).jpg", alt: "Живописное озеро в окружении гор и осенних лиственниц" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-32 (5).jpg", alt: "Туристка в розовом пуховике у лагеря на берегу озера" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-32 (6).jpg", alt: "Светящиеся палатки под звездным небом с гирляндами" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-32 (7).jpg", alt: "Силуэт рыбака на фоне гор и озера" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-32 (8).jpg", alt: "Гид на песчаном берегу озера с видом на горы" },
       ],
     },
     {
