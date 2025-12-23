@@ -159,6 +159,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-39-58.jpg", alt: "Группа у высокого водопада в каньоне" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-03.jpg", alt: "Красная палатка на фоне вулкана в тумане" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-10.jpg", alt: "Лагерь в ущелье с паром от горячих источников" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-16.jpg", alt: "Пара туристов жарят зефир на вершине вулкана" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-22.jpg", alt: "Большая группа туристов с гидом на фоне леса" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-30.jpg", alt: "Гид у костра с бутербродом в руках" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-37.jpg", alt: "Группа у высокого водопада в скалах на закате" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-45.jpg", alt: "Команда на снежнике перед водопадом" },
       ],
     },
     {
