@@ -220,6 +220,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-13.jpg", alt: "Вид на реку Сулак в глубоком ущелье с солнцем в облаках" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-18.jpg", alt: "Туристка в салатовом пуховике на горном плато" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-25.jpg", alt: "Сурок на краю обрыва у дагестанского села" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-27.jpg", alt: "Туристка в розовой куртке на фоне гор Дагестана" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-30.jpg", alt: "Турист на скале спиной к камере с видом на заснеженные горы" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-35.jpg", alt: "Двое туристов на краю обрыва с панорамой долины" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-40.jpg", alt: "Лошади на пастбище через цветущие ветки яблони" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-48.jpg", alt: "Туристка в красной флиске с большим рюкзаком среди цветущих яблонь" },
       ],
     },
   ];
