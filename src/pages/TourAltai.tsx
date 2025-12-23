@@ -502,6 +502,10 @@ const TourAltai = () => {
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center gap-2">
                       <Icon name="Calendar" size={16} className="text-muted-foreground" />
+                      <span className="text-muted-foreground">5-16 июля 2026 года</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Icon name="Clock" size={16} className="text-muted-foreground" />
                       <span className="text-muted-foreground">12 дней / 11 ночей</span>
                     </div>
                     <div className="flex items-center gap-2">
