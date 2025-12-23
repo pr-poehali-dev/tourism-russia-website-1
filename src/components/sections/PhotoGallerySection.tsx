@@ -179,8 +179,14 @@ const PhotoGallerySection = () => {
     {
       id: "kolyma",
       title: "Путешествие за золотом Колымы",
-      coverImage: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/ec9cfc09-8cdb-435c-b12e-2a0bae6f1bf6.jpg",
-      images: [],
+      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_11-45-08.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-45-08.jpg", alt: "Селфи группы на вершине с геодезическим знаком" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-44-56.jpg", alt: "Утренний туман над замерзшим озером и горами" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-44-57.jpg", alt: "Светящаяся палатка в темноте ночи" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-45-04.jpg", alt: "Группа на песчаном берегу озера с горами" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-45-14.jpg", alt: "Четверо у деревянного знака на вершине" },
+      ],
     },
     {
       id: "dagestan",
