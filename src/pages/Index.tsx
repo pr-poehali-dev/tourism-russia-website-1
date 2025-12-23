@@ -2,6 +2,7 @@ import Icon from "@/components/ui/icon";
 import HeroSection from "@/components/sections/HeroSection";
 import GuidesSection from "@/components/sections/GuidesSection";
 import ToursSection from "@/components/sections/ToursSection";
+import PhotoGallerySection from "@/components/sections/PhotoGallerySection";
 import ReviewsGallerySection from "@/components/sections/ReviewsGallerySection";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -101,6 +102,7 @@ const Index = () => {
       <HeroSection />
       <GuidesSection />
       <ToursSection />
+      <PhotoGallerySection />
       <ReviewsGallerySection />
     </div>
   );
