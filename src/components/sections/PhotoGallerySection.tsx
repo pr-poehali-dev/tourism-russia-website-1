@@ -204,10 +204,10 @@ const PhotoGallerySection = () => {
                   )}
                 </div>
 
-                <div className="bg-gray-900 border-t border-gray-800 flex-shrink-0">
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-heading font-bold text-lg text-white">
+                <div className="bg-gray-900 border-t border-gray-800 flex-shrink-0 max-h-[200px]">
+                  <div className="px-4 py-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-heading font-bold text-base text-white">
                         {selectedGallery.title}
                       </h3>
                       <span className="text-gray-300 text-sm font-medium">
@@ -216,15 +216,15 @@ const PhotoGallerySection = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-2 overflow-x-auto px-4 pb-4 scrollbar-hide">
+                  <div className="flex gap-2 overflow-x-auto overflow-y-hidden px-4 pb-3 h-[88px]">
                     {selectedGallery.images.map((img, idx) => (
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        className={`flex-shrink-0 w-16 h-16 rounded overflow-hidden border-2 transition-all ${
+                        className={`flex-shrink-0 w-20 h-20 rounded overflow-hidden border-2 transition-all ${
                           idx === currentImageIndex
-                            ? "border-white ring-2 ring-white"
-                            : "border-gray-700 opacity-50 hover:opacity-100"
+                            ? "border-white ring-2 ring-white scale-105"
+                            : "border-gray-600 opacity-60 hover:opacity-100 hover:border-gray-400"
                         }`}
                       >
                         <img
