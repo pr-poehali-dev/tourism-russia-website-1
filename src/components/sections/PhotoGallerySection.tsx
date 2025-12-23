@@ -206,6 +206,7 @@ const PhotoGallerySection = () => {
                       </button>
                     </>
                   )}
+                </div>
               </div>
 
               <div className="bg-gray-900 border-t border-gray-800">
