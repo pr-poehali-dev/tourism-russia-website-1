@@ -1,11 +1,7 @@
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import React from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface GalleryImage {
@@ -161,87 +157,90 @@ const PhotoGallerySection = () => {
         </div>
       </section>
 
-      <Dialog open={selectedGallery !== null} onOpenChange={closeGallery}>
-        <DialogContent className="max-w-[95vw] w-[95vw] max-h-[95vh] p-0 bg-black [&>button]:hidden overflow-hidden">
-          {selectedGallery && selectedGallery.images.length > 0 && (
-            <div className="flex flex-col h-full">
-              <VisuallyHidden>
-                <DialogTitle>{selectedGallery.title}</DialogTitle>
-              </VisuallyHidden>
-              
-              <button
-                onClick={closeGallery}
-                className="absolute top-3 right-3 z-50 bg-white hover:bg-gray-100 p-2 rounded-full transition-all shadow-lg"
-                aria-label="Закрыть галерею"
-              >
-                <Icon name="X" size={24} className="text-black" />
-              </button>
-
-              <div className="relative flex-1 flex items-center justify-center bg-black min-h-0">
-                <img
-                  key={currentImageIndex}
-                  src={selectedGallery.images[currentImageIndex].url}
-                  alt={selectedGallery.images[currentImageIndex].alt}
-                  className="max-w-full max-h-full w-auto h-auto object-contain"
-                />
+      <DialogPrimitive.Root open={selectedGallery !== null} onOpenChange={closeGallery}>
+        <DialogPrimitive.Portal>
+          <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/95" />
+          <DialogPrimitive.Content className="fixed left-0 top-0 z-50 w-screen h-screen flex flex-col bg-black">
+            {selectedGallery && selectedGallery.images.length > 0 && (
+              <>
+                <VisuallyHidden>
+                  <DialogPrimitive.Title>{selectedGallery.title}</DialogPrimitive.Title>
+                </VisuallyHidden>
                 
-                {selectedGallery.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
-                      aria-label="Предыдущее фото"
-                    >
-                      <Icon name="ChevronLeft" size={32} className="text-black" />
-                    </button>
-                    
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
-                      aria-label="Следующее фото"
-                    >
-                      <Icon name="ChevronRight" size={32} className="text-black" />
-                    </button>
-                  </>
-                )}
-              </div>
+                <button
+                  onClick={closeGallery}
+                  className="absolute top-4 right-4 z-50 bg-white hover:bg-gray-100 p-2 rounded-full transition-all shadow-lg"
+                  aria-label="Закрыть галерею"
+                >
+                  <Icon name="X" size={24} className="text-black" />
+                </button>
 
-              <div className="bg-gray-900 border-t border-gray-800">
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-heading font-bold text-lg text-white">
-                      {selectedGallery.title}
-                    </h3>
-                    <span className="text-gray-300 text-sm font-medium">
-                      {currentImageIndex + 1} / {selectedGallery.images.length}
-                    </span>
+                <div className="flex-1 flex items-center justify-center px-20 py-4">
+                  <img
+                    key={currentImageIndex}
+                    src={selectedGallery.images[currentImageIndex].url}
+                    alt={selectedGallery.images[currentImageIndex].alt}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                  
+                  {selectedGallery.images.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
+                        aria-label="Предыдущее фото"
+                      >
+                        <Icon name="ChevronLeft" size={36} className="text-black" />
+                      </button>
+                      
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
+                        aria-label="Следующее фото"
+                      >
+                        <Icon name="ChevronRight" size={36} className="text-black" />
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                <div className="bg-gray-900 border-t border-gray-800 flex-shrink-0">
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="font-heading font-bold text-lg text-white">
+                        {selectedGallery.title}
+                      </h3>
+                      <span className="text-gray-300 text-sm font-medium">
+                        {currentImageIndex + 1} / {selectedGallery.images.length}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2 overflow-x-auto px-4 pb-4 scrollbar-hide">
+                    {selectedGallery.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentImageIndex(idx)}
+                        className={`flex-shrink-0 w-16 h-16 rounded overflow-hidden border-2 transition-all ${
+                          idx === currentImageIndex
+                            ? "border-white ring-2 ring-white"
+                            : "border-gray-700 opacity-50 hover:opacity-100"
+                        }`}
+                      >
+                        <img
+                          src={img.url}
+                          alt={img.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
                   </div>
                 </div>
-
-                <div className="flex gap-2 overflow-x-auto px-4 pb-4 scrollbar-hide">
-                  {selectedGallery.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`flex-shrink-0 w-16 h-16 rounded overflow-hidden border-2 transition-all ${
-                        idx === currentImageIndex
-                          ? "border-white ring-2 ring-white"
-                          : "border-gray-700 opacity-50 hover:opacity-100"
-                      }`}
-                    >
-                      <img
-                        src={img.url}
-                        alt={img.alt}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+              </>
+            )}
+          </DialogPrimitive.Content>
+        </DialogPrimitive.Portal>
+      </DialogPrimitive.Root>
     </>
   );
 };
