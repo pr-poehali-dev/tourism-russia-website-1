@@ -20,38 +20,50 @@ const BenefitsSection = () => {
   const [selectedBenefit, setSelectedBenefit] = React.useState<number | null>(null);
 
   const benefits: Benefit[] = [
-    { icon: "Shield", title: "Безопасность", description: "Проверенные маршруты и опытные гиды" },
-    { icon: "Users", title: "Малые группы", description: "До 12 человек для комфорта каждого" },
-    { icon: "Award", title: "15 лет опыта", description: "Более 5000 довольных туристов" },
-    { icon: "Video", title: "Видео", description: "Интересные моменты из путешествий" },
+    { 
+      icon: "Users", 
+      title: "Тёплая, почти семейная атмосфера", 
+      description: "Мы создаём дружескую обстановку, где каждый участник чувствует себя частью команды. Вечерние посиделки у костра, общие песни и истории делают путешествие незабываемым." 
+    },
+    { 
+      icon: "Shield", 
+      title: "Гиды, которым можно доверять на все 100%", 
+      description: "Наши инструкторы — профессионалы с многолетним опытом и сертификатами. Они знают маршруты как свои пять пальцев и всегда готовы помочь." 
+    },
+    { 
+      icon: "Heart", 
+      title: "Индивидуальный подход к каждому", 
+      description: "Мы учитываем физическую подготовку и пожелания каждого участника. Никого не оставим позади, всегда поможем и поддержим." 
+    },
   ];
 
   return (
     <>
-      <section id="about" className="py-20 bg-muted/30">
+      <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16 animate-fade-in">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Почему мы?</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4">Почему выбирают нас</h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Мы создаём незабываемые путешествия по России уже 15 лет
+              То, что делает наши туры особенными
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {benefits.map((benefit, index) => (
               <Card 
                 key={index} 
-                className="text-center border-2 border-primary cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-slide-up group" 
+                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up" 
                 style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedBenefit(index)}
               >
-                <CardHeader>
-                  <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 group-hover:bg-primary-foreground/20 rounded-full flex items-center justify-center transition-colors duration-300">
-                    <Icon name={benefit.icon} size={32} className="text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                <CardContent className="p-8">
+                  <div className="flex flex-col items-start gap-4">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name={benefit.icon} size={32} className="text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl mb-3">{benefit.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+                    </div>
                   </div>
-                  <CardTitle className="font-heading text-base md:text-lg">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-sm md:text-base group-hover:text-primary-foreground/90 transition-colors duration-300">{benefit.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
