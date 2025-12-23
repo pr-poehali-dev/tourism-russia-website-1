@@ -215,6 +215,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-26-44.jpg", alt: "Закат над горами Дагестана с желтыми цветами на переднем плане" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-26-49.jpg", alt: "Река в зеленой долине между гор на закате" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-26-56.jpg", alt: "Глубокое горное ущелье с рекой в Дагестане" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-06.jpg", alt: "Турист на краю скалы над глубоким каньоном" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-10.jpg", alt: "Туристка в красной шапке на вершине с панорамой долины" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-13.jpg", alt: "Вид на реку Сулак в глубоком ущелье с солнцем в облаках" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-18.jpg", alt: "Туристка в салатовом пуховике на горном плато" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-25.jpg", alt: "Сурок на краю обрыва у дагестанского села" },
       ],
     },
   ];
