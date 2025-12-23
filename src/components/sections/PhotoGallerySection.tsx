@@ -26,13 +26,53 @@ const PhotoGallerySection = () => {
     {
       id: "baikal-skating",
       title: "Коньковый поход по Байкалу",
-      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_10-01-44.jpg",
+      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_09-55-33.jpg",
       images: [
-        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-01-44.jpg", alt: "Группа на льду Байкала" },
-        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_09-55-33.jpg", alt: "Буддийские столбы на Байкале" },
-        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_09-55-39.jpg", alt: "Скала Огой на Байкале" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_09-55-33.jpg", alt: "Группа у буддийских столбов на Байкале" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_09-55-39.jpg", alt: "Скала Огой на льду Байкала" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_09-56-04.jpg", alt: "Ледяной грот на Байкале" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_09-56-15.jpg", alt: "Закат над зимним Байкалом" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_09-56-26.jpg", alt: "Встреча рассвета на льду" },
+      ],
+    },
+    {
+      id: "baikal-tents",
+      title: "Байкал в палатках",
+      coverImage: "https://cdn.poehali.dev/files/2z7a6771.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/2z7a6771.jpg", alt: "Палаточный лагерь на Байкале" },
+      ],
+    },
+    {
+      id: "altai-belukha",
+      title: "Поход к горе Белухе",
+      coverImage: "https://cdn.poehali.dev/files/belukha-main.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/belukha-main.jpg", alt: "Гора Белуха" },
+      ],
+    },
+    {
+      id: "kamchatka",
+      title: "Камчатка",
+      coverImage: "https://cdn.poehali.dev/files/kamchatka-main.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/kamchatka-main.jpg", alt: "Вулканы Камчатки" },
+      ],
+    },
+    {
+      id: "kolyma",
+      title: "Колыма",
+      coverImage: "https://cdn.poehali.dev/files/kolyma-main.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/kolyma-main.jpg", alt: "Озеро Джека Лондона" },
+      ],
+    },
+    {
+      id: "dagestan",
+      title: "Дагестан",
+      coverImage: "https://cdn.poehali.dev/files/dagestan-main.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/dagestan-main.jpg", alt: "Горы Дагестана" },
       ],
     },
   ];
@@ -63,14 +103,14 @@ const PhotoGallerySection = () => {
 
   return (
     <>
-      <section id="gallery" className="py-20 bg-white">
+      <section id="gallery" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">
-              Фотогалерея
+              Галерея
             </h2>
             <p className="text-base md:text-lg text-muted-foreground">
-              Наши путешествия в фотографиях
+              Моменты из наших путешествий
             </p>
           </div>
 
@@ -115,21 +155,25 @@ const PhotoGallerySection = () => {
                   className="w-full h-full object-contain"
                 />
                 
-                <button
-                  onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors"
-                  aria-label="Предыдущее фото"
-                >
-                  <Icon name="ChevronLeft" size={24} className="text-white" />
-                </button>
-                
-                <button
-                  onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors"
-                  aria-label="Следующее фото"
-                >
-                  <Icon name="ChevronRight" size={24} className="text-white" />
-                </button>
+                {selectedGallery.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors"
+                      aria-label="Предыдущее фото"
+                    >
+                      <Icon name="ChevronLeft" size={24} className="text-white" />
+                    </button>
+                    
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors"
+                      aria-label="Следующее фото"
+                    >
+                      <Icon name="ChevronRight" size={24} className="text-white" />
+                    </button>
+                  </>
+                )}
               </div>
 
               <div className="p-4 bg-black/50 backdrop-blur">
@@ -144,25 +188,27 @@ const PhotoGallerySection = () => {
                 </div>
               </div>
 
-              <div className="flex gap-2 overflow-x-auto p-4 bg-black/50">
-                {selectedGallery.images.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentImageIndex(idx)}
-                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      idx === currentImageIndex
-                        ? "border-primary scale-105"
-                        : "border-transparent opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    <img
-                      src={img.url}
-                      alt={img.alt}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
+              {selectedGallery.images.length > 1 && (
+                <div className="flex gap-2 overflow-x-auto p-4 bg-black/50">
+                  {selectedGallery.images.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                        idx === currentImageIndex
+                          ? "border-primary scale-105"
+                          : "border-transparent opacity-60 hover:opacity-100"
+                      }`}
+                    >
+                      <img
+                        src={img.url}
+                        alt={img.alt}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </DialogContent>
