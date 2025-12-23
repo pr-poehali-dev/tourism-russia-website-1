@@ -209,8 +209,13 @@ const PhotoGallerySection = () => {
     {
       id: "dagestan",
       title: "Дагестан: Кавказская тропа",
-      coverImage: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/61d12ccc-7a24-446a-8342-96f46f102626.jpg",
-      images: [],
+      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_11-26-36.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-26-36.jpg", alt: "Турист с маком в волосах на фоне зеленой долины Дагестана" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-26-44.jpg", alt: "Закат над горами Дагестана с желтыми цветами на переднем плане" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-26-49.jpg", alt: "Река в зеленой долине между гор на закате" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-26-56.jpg", alt: "Глубокое горное ущелье с рекой в Дагестане" },
+      ],
     },
   ];
 
