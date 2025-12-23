@@ -257,7 +257,7 @@ const TourKolyma = () => {
 
       <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <img
-          src="https://cdn.poehali.dev/files/photo_2025-12-23_11-46-33.jpg"
+          src="https://cdn.poehali.dev/files/IMG_4203.jpg"
           alt="Путешествие за золотом Колымы"
           className="w-full h-full object-cover"
         />
