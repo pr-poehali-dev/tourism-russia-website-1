@@ -73,6 +73,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-42.jpg", alt: "Светящиеся палатки на ночном льду Байкала" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-51.jpg", alt: "Велосипедисты в деревне по дороге на Байкал" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-55.jpg", alt: "Туристы на велосипедах в весеннем селе" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-00.jpg", alt: "Двое велосипедистов в яркой экипировке" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-03.jpg", alt: "Отдых на прозрачном льду Байкала" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-06.jpg", alt: "На фоне ледяных гротов Байкала" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-10.jpg", alt: "У ледяной скалы на льду озера" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-12.jpg", alt: "Команда на льду Байкала в ярких куртках" },
       ],
     },
     {
