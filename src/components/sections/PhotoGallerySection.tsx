@@ -201,6 +201,9 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-33.jpg", alt: "Селфи двух туристов на фоне озера и гор Колымы" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-34.jpg", alt: "Турист отдыхает на каменистой вершине с рюкзаком" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-45.jpg", alt: "Осенняя лиственница на фоне озера с отражением облаков" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-53.jpg", alt: "Каменистый берег озера с осенними лиственницами и горами" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-47-01.jpg", alt: "Перекус на вершине с панорамой Колымы" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-47-03.jpg", alt: "Двое туристов у костра ночью с палатками на фоне" },
       ],
     },
     {
