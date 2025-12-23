@@ -88,6 +88,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-40.jpg", alt: "Костер на льду Байкала в сумерках" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-44.jpg", alt: "Двое туристов с санями на прозрачном льду" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-48.jpg", alt: "Путь по зеркальному льду Байкала с рюкзаком" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-50.jpg", alt: "Группа с санями в пути по льду" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-54.jpg", alt: "Остановка на маршруте у скал" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-14-57.jpg", alt: "Двое идут по узорчатому льду с санями" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-15-01.jpg", alt: "Подъем по заснеженному склону в лесу" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-15-08.jpg", alt: "Туристы на перевале среди сосен" },
       ],
     },
     {
