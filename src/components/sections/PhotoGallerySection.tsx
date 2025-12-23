@@ -234,6 +234,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-18.jpg", alt: "Закат в лагере с силуэтом туриста и палаткой" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-29.jpg", alt: "Туристка с рюкзаком на лесной тропе в Дагестане" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-36.jpg", alt: "Группа туристов на привале с панорамой гор Дагестана" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-42.jpg", alt: "Селфи группы на солнечном склоне с видом на село в долине" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-44.jpg", alt: "Турист отдыхает у костра ночью в горах Дагестана" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-52.jpg", alt: "Турист с большим рюкзаком переходит каменистое русло реки" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-29-04.jpg", alt: "Трое друзей на горной тропе с панорамой Дагестана" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-29-15.jpg", alt: "Древняя каменная арка с туристами в красном у входа" },
       ],
     },
   ];
