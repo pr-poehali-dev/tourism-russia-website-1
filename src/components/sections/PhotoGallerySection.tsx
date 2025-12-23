@@ -134,6 +134,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-23.jpg", alt: "Вся группа на вершине горы" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-28.jpg", alt: "Селфи на вершине с видом на долину" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-31.jpg", alt: "Гид на фоне горного озера и вершин" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-37.jpg", alt: "Вид на гору Белуху с долины реки" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-44.jpg", alt: "Деревянная часовня на фоне ледников Белухи" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-49.jpg", alt: "Турист на каменистом плато перед ледником" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-54.jpg", alt: "Три туристки у горного озера босиком" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-58.jpg", alt: "Привал группы на зеленом холме" },
       ],
     },
     {
