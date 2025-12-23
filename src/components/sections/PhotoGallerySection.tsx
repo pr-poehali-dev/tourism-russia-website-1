@@ -66,8 +66,14 @@ const PhotoGallerySection = () => {
     {
       id: "baikal-tents",
       title: "Байкал в палатках",
-      coverImage: "https://cdn.poehali.dev/files/IMG_5107.jpg",
-      images: [],
+      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-45.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-45.jpg", alt: "Палатка на льду Байкала на закате" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-41.jpg", alt: "Ночной лагерь с палатками под звездным небом" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-42.jpg", alt: "Светящиеся палатки на ночном льду Байкала" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-51.jpg", alt: "Велосипедисты в деревне по дороге на Байкал" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_10-13-55.jpg", alt: "Туристы на велосипедах в весеннем селе" },
+      ],
     },
     {
       id: "altai-belukha",
