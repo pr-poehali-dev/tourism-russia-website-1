@@ -112,8 +112,14 @@ const PhotoGallerySection = () => {
     {
       id: "altai-belukha",
       title: "Поход к горе Белухе",
-      coverImage: "https://cdn.poehali.dev/files/ozz-q6fkgwprn4f2igi58odrec2ov3kk0uj0u7w4k4es9c.jpg",
-      images: [],
+      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_11-31-38.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-31-38.jpg", alt: "Группа туристов на горной тропе Алтая" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-08.jpg", alt: "Вид на бирюзовое озеро с горами" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-12.jpg", alt: "Отдых группы на зеленых альпийских лугах" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-30.jpg", alt: "Вьючные лошади в сосновом лесу" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-34.jpg", alt: "Караван с лошадьми на высокогорном перевале" },
+      ],
     },
     {
       id: "kamchatka",
