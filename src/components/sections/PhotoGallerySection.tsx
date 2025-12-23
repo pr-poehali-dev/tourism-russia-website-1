@@ -147,8 +147,14 @@ const PhotoGallerySection = () => {
     {
       id: "kamchatka",
       title: "Камчатка — три вулкана",
-      coverImage: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/f69f3837-399c-401e-9bbc-11624839b9e9.jpg",
-      images: [],
+      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_11-41-12.jpg",
+      images: [
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-41-12.jpg", alt: "Селфи на вершине вулкана над облаками" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-29.jpg", alt: "Туристка на фоне горных хребтов Камчатки" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-30.jpg", alt: "Гид с треккинговыми палками на закате" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-32 (2).jpg", alt: "На вершине холма с панорамой Камчатки" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-36-32 (3).jpg", alt: "Турист на склоне вулканической долины" },
+      ],
     },
     {
       id: "kolyma",
