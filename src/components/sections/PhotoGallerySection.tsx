@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
@@ -301,6 +302,12 @@ const PhotoGallerySection = () => {
                 </div>
               </Card>
             ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button size="lg" asChild className="text-lg px-8 py-6">
+              <a href="#contact">Забронировать тур</a>
+            </Button>
           </div>
         </div>
       </section>
