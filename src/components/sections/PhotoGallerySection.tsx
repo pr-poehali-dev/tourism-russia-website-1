@@ -162,78 +162,80 @@ const PhotoGallerySection = () => {
       </section>
 
       <Dialog open={selectedGallery !== null} onOpenChange={closeGallery}>
-        <DialogContent className="max-w-6xl p-0 bg-black/95 [&>button]:hidden">
-          {selectedGallery && (
+        <DialogContent className="max-w-[95vw] h-[95vh] p-0 bg-black/95 [&>button]:hidden">
+          {selectedGallery && selectedGallery.images.length > 0 && (
             <>
               <VisuallyHidden>
                 <DialogTitle>{selectedGallery.title}</DialogTitle>
               </VisuallyHidden>
-              <div className="relative">
+              <div className="relative h-full flex flex-col">
                 <button
                   onClick={closeGallery}
-                  className="absolute top-2 right-2 z-50 bg-white/30 hover:bg-white/50 backdrop-blur-sm p-2.5 rounded-full transition-all shadow-xl hover:scale-110"
+                  className="absolute top-4 right-4 z-50 bg-white/90 hover:bg-white backdrop-blur-sm p-3 rounded-full transition-all shadow-2xl hover:scale-110"
                   aria-label="Закрыть галерею"
                 >
-                  <Icon name="X" size={28} className="text-white" />
+                  <Icon name="X" size={32} className="text-black" />
                 </button>
 
-                <div className="relative aspect-video w-full">
+                <div className="relative flex-1 flex items-center justify-center p-4 pt-16 pb-20">
                   <img
                     src={selectedGallery.images[currentImageIndex].url}
                     alt={selectedGallery.images[currentImageIndex].alt}
-                    className="w-full h-full object-contain"
+                    className="max-w-full max-h-full object-contain"
                   />
                   
                   {selectedGallery.images.length > 1 && (
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 backdrop-blur-sm p-3 md:p-4 rounded-full transition-all shadow-xl hover:scale-110"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white backdrop-blur-sm p-4 rounded-full transition-all shadow-2xl hover:scale-110"
                         aria-label="Предыдущее фото"
                       >
-                        <Icon name="ChevronLeft" size={36} className="text-white" />
+                        <Icon name="ChevronLeft" size={40} className="text-black" />
                       </button>
                       
                       <button
                         onClick={nextImage}
-                        className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 backdrop-blur-sm p-3 md:p-4 rounded-full transition-all shadow-xl hover:scale-110"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white backdrop-blur-sm p-4 rounded-full transition-all shadow-2xl hover:scale-110"
                         aria-label="Следующее фото"
                       >
-                        <Icon name="ChevronRight" size={36} className="text-white" />
+                        <Icon name="ChevronRight" size={40} className="text-black" />
                       </button>
                     </>
                   )}
                 </div>
 
-                <div className="p-4 bg-black/50 backdrop-blur">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-heading font-bold text-xl text-white">
-                      {selectedGallery.title}
-                    </h3>
-                    <span className="text-white/80 text-lg font-medium">
-                      {currentImageIndex + 1} / {selectedGallery.images.length}
-                    </span>
+                <div className="absolute bottom-0 left-0 right-0 bg-black/80 backdrop-blur">
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="font-heading font-bold text-xl text-white">
+                        {selectedGallery.title}
+                      </h3>
+                      <span className="text-white/80 text-lg font-medium">
+                        {currentImageIndex + 1} / {selectedGallery.images.length}
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex gap-2 overflow-x-auto p-4 bg-black/50 scrollbar-hide">
-                  {selectedGallery.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                        idx === currentImageIndex
-                          ? "border-primary scale-105"
-                          : "border-transparent opacity-60 hover:opacity-100"
-                      }`}
-                    >
-                      <img
-                        src={img.url}
-                        alt={img.alt}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
+                  <div className="flex gap-2 overflow-x-auto px-4 pb-4 scrollbar-hide">
+                    {selectedGallery.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentImageIndex(idx)}
+                        className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                          idx === currentImageIndex
+                            ? "border-white scale-105"
+                            : "border-transparent opacity-60 hover:opacity-100"
+                        }`}
+                      >
+                        <img
+                          src={img.url}
+                          alt={img.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </>
