@@ -139,6 +139,9 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-49.jpg", alt: "Турист на каменистом плато перед ледником" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-54.jpg", alt: "Три туристки у горного озера босиком" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-58.jpg", alt: "Привал группы на зеленом холме" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-33-05.jpg", alt: "Переход через горную реку с видом на Белуху" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-33-08.jpg", alt: "Переправа через горный ручей по деревянному мостику" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-33-12.jpg", alt: "Вечер у костра всей группой в тумане" },
       ],
     },
     {
