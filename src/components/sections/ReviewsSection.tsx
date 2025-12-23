@@ -9,6 +9,16 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 
 interface Review {
   name: string;
@@ -24,6 +34,17 @@ const ReviewsSection = () => {
   const [imageIndices, setImageIndices] = React.useState<{[key: number]: number}>({});
   const [selectedReview, setSelectedReview] = React.useState<Review | null>(null);
   const [reviewsStartIndex, setReviewsStartIndex] = React.useState(0);
+  const [showBookingForm, setShowBookingForm] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const { toast } = useToast();
+  
+  const [formData, setFormData] = React.useState({
+    name: '',
+    phone: '',
+    email: '',
+    tour: '',
+    comment: ''
+  });
 
   const reviews: Review[] = [
     {
@@ -317,8 +338,13 @@ const ReviewsSection = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" asChild className="text-lg px-8 py-6">
-              <a href="#contacts">Забронировать тур</a>
+            <Button 
+              size="lg" 
+              className="text-lg px-8 py-6"
+              onClick={() => setShowBookingForm(true)}
+            >
+              <Icon name="Calendar" size={20} className="mr-2" />
+              Забронировать тур
             </Button>
           </div>
         </div>
@@ -372,6 +398,113 @@ const ReviewsSection = () => {
               </div>
             </>
           )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-heading">
+              Забронировать тур
+            </DialogTitle>
+            <DialogDescription>
+              Заполните форму, и мы свяжемся с вами в ближайшее время
+            </DialogDescription>
+          </DialogHeader>
+          <form className="space-y-4" onSubmit={async (e) => {
+            e.preventDefault();
+            setIsSubmitting(true);
+            
+            try {
+              const response = await fetch('https://functions.poehali.dev/a929cb91-0eec-4a5d-8515-46159925b0a2', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+              });
+              
+              if (response.ok) {
+                toast({
+                  title: "Заявка отправлена!",
+                  description: "Мы свяжемся с вами в ближайшее время",
+                });
+                setShowBookingForm(false);
+                setFormData({ name: '', phone: '', email: '', tour: '', comment: '' });
+              } else {
+                throw new Error('Ошибка отправки');
+              }
+            } catch (error) {
+              toast({
+                title: "Ошибка",
+                description: "Не удалось отправить заявку. Попробуйте позже",
+                variant: "destructive"
+              });
+            } finally {
+              setIsSubmitting(false);
+            }
+          }}>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Ваше имя</label>
+              <Input 
+                placeholder="Иван Иванов" 
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                required
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Телефон</label>
+              <Input 
+                type="tel" 
+                placeholder="+7 999 999-99-99" 
+                value={formData.phone}
+                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                required
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Email</label>
+              <Input 
+                type="email" 
+                placeholder="ivan@example.com" 
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                required
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Выберите тур</label>
+              <Select value={formData.tour} onValueChange={(value) => setFormData({...formData, tour: value})} required>
+                <SelectTrigger>
+                  <SelectValue placeholder="Выберите тур из списка" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Коньковый поход по зимнему Байкалу - 75 000 ₽">Коньковый поход по зимнему Байкалу - 75 000 ₽</SelectItem>
+                  <SelectItem value="Байкал в палатках - 61 000 ₽">Байкал в палатках - 61 000 ₽</SelectItem>
+                  <SelectItem value="Поход к горе Белухе - 78 800 ₽">Поход к горе Белухе - 78 800 ₽</SelectItem>
+                  <SelectItem value="Камчатка — три вулкана - 83 200 ₽">Камчатка — три вулкана - 83 200 ₽</SelectItem>
+                  <SelectItem value="Путешествие за золотом Колымы - 92 000 ₽">Путешествие за золотом Колымы - 92 000 ₽</SelectItem>
+                  <SelectItem value="Дагестан: Кавказская тропа по краю башен - 54 900 ₽">Дагестан: Кавказская тропа по краю башен - 54 900 ₽</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block">Комментарий</label>
+              <Textarea 
+                placeholder="Укажите желаемые даты, количество человек и другие пожелания" 
+                rows={4}
+                value={formData.comment}
+                onChange={(e) => setFormData({...formData, comment: e.target.value})}
+              />
+            </div>
+            <Button 
+              type="submit" 
+              className="w-full"
+              size="lg"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
+            </Button>
+          </form>
         </DialogContent>
       </Dialog>
     </>
