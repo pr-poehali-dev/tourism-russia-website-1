@@ -225,6 +225,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-35.jpg", alt: "Двое туристов на краю обрыва с панорамой долины" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-40.jpg", alt: "Лошади на пастбище через цветущие ветки яблони" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-48.jpg", alt: "Туристка в красной флиске с большим рюкзаком среди цветущих яблонь" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-51.jpg", alt: "Турист в салатовой шапке на фоне гор Дагестана с ручьем в долине" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-27-56.jpg", alt: "Мальчик и женщина с треккинговыми палками на горном плато" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-00.jpg", alt: "Селфи группы туристов на склоне в Дагестане" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-06.jpg", alt: "Группа из четырех человек на перевале с панорамой гор" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-11.jpg", alt: "Весеннее ущелье с ручьем и цветущими деревьями в Дагестане" },
       ],
     },
   ];
