@@ -164,6 +164,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-30.jpg", alt: "Гид у костра с бутербродом в руках" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-37.jpg", alt: "Группа у высокого водопада в скалах на закате" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-45.jpg", alt: "Команда на снежнике перед водопадом" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-50.jpg", alt: "Две туристки в тумане улыбаются" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-40-59.jpg", alt: "Вся команда на вулканическом плато над облаками" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-41-07.jpg", alt: "Красный вулканический хребет над облаками с вулканом вдали" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-41-15.jpg", alt: "Заснеженный вулкан на закате" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-41-18.jpg", alt: "Группа на вершине вулкана с паром и видом на другой вулкан" },
       ],
     },
     {
