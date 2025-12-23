@@ -818,6 +818,14 @@ const ReviewsGallerySection = () => {
         <DialogContent className="max-w-6xl p-0 bg-black/95">
           {selectedGallery && (
             <div className="relative">
+              <button
+                onClick={closeGallery}
+                className="absolute top-4 right-4 z-50 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-colors"
+                aria-label="Закрыть галерею"
+              >
+                <Icon name="X" size={32} className="text-white" />
+              </button>
+
               <div className="relative aspect-video w-full">
                 <img
                   src={selectedGallery.images[currentImageIndex].url}
@@ -829,30 +837,29 @@ const ReviewsGallerySection = () => {
                   <>
                     <button
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-4 rounded-full transition-colors shadow-lg"
                       aria-label="Предыдущее фото"
                     >
-                      <Icon name="ChevronLeft" size={24} className="text-white" />
+                      <Icon name="ChevronLeft" size={40} className="text-white" />
                     </button>
                     
                     <button
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-4 rounded-full transition-colors shadow-lg"
                       aria-label="Следующее фото"
                     >
-                      <Icon name="ChevronRight" size={24} className="text-white" />
+                      <Icon name="ChevronRight" size={40} className="text-white" />
                     </button>
                   </>
                 )}
               </div>
 
               <div className="p-4 bg-black/50 backdrop-blur">
-                <h3 className="font-heading font-bold text-xl text-white mb-2">
-                  {selectedGallery.title}
-                </h3>
-                <div className="flex items-center justify-between text-white/60 text-sm">
-                  <span>{selectedGallery.images[currentImageIndex].alt}</span>
-                  <span>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-heading font-bold text-xl text-white">
+                    {selectedGallery.title}
+                  </h3>
+                  <span className="text-white/80 text-lg font-medium">
                     {currentImageIndex + 1} / {selectedGallery.images.length}
                   </span>
                 </div>
