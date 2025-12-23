@@ -162,9 +162,9 @@ const PhotoGallerySection = () => {
       </section>
 
       <Dialog open={selectedGallery !== null} onOpenChange={closeGallery}>
-        <DialogContent className="max-w-[90vw] w-[90vw] p-0 bg-black [&>button]:hidden">
+        <DialogContent className="max-w-[95vw] w-[95vw] max-h-[95vh] p-0 bg-black [&>button]:hidden overflow-hidden">
           {selectedGallery && selectedGallery.images.length > 0 && (
-            <>
+            <div className="flex flex-col h-full">
               <VisuallyHidden>
                 <DialogTitle>{selectedGallery.title}</DialogTitle>
               </VisuallyHidden>
@@ -177,36 +177,33 @@ const PhotoGallerySection = () => {
                 <Icon name="X" size={24} className="text-black" />
               </button>
 
-              <div className="relative bg-black">
-                <div className="relative flex items-center justify-center bg-black" style={{ height: '70vh' }}>
-                  <img
-                    key={currentImageIndex}
-                    src={selectedGallery.images[currentImageIndex].url}
-                    alt={selectedGallery.images[currentImageIndex].alt}
-                    style={{ maxWidth: 'calc(90vw - 120px)', maxHeight: '70vh' }}
-                    className="object-contain"
-                  />
-                  
-                  {selectedGallery.images.length > 1 && (
-                    <>
-                      <button
-                        onClick={prevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
-                        aria-label="Предыдущее фото"
-                      >
-                        <Icon name="ChevronLeft" size={32} className="text-black" />
-                      </button>
-                      
-                      <button
-                        onClick={nextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
-                        aria-label="Следующее фото"
-                      >
-                        <Icon name="ChevronRight" size={32} className="text-black" />
-                      </button>
-                    </>
-                  )}
-                </div>
+              <div className="relative flex-1 flex items-center justify-center bg-black min-h-0">
+                <img
+                  key={currentImageIndex}
+                  src={selectedGallery.images[currentImageIndex].url}
+                  alt={selectedGallery.images[currentImageIndex].alt}
+                  className="max-w-full max-h-full w-auto h-auto object-contain"
+                />
+                
+                {selectedGallery.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
+                      aria-label="Предыдущее фото"
+                    >
+                      <Icon name="ChevronLeft" size={32} className="text-black" />
+                    </button>
+                    
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
+                      aria-label="Следующее фото"
+                    >
+                      <Icon name="ChevronRight" size={32} className="text-black" />
+                    </button>
+                  </>
+                )}
               </div>
 
               <div className="bg-gray-900 border-t border-gray-800">
@@ -241,7 +238,7 @@ const PhotoGallerySection = () => {
                   ))}
                 </div>
               </div>
-            </>
+            </div>
           )}
         </DialogContent>
       </Dialog>
