@@ -3,6 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const ContactsSection = () => {
   return (
@@ -69,6 +76,22 @@ const ContactsSection = () => {
                 <div>
                   <label className="text-sm font-medium mb-2 block">Телефон</label>
                   <Input type="tel" placeholder="+7 (999) 123-45-67" />
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Выберите тур (необязательно)</label>
+                  <Select>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Выберите тур из списка" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Коньковый поход по зимнему Байкалу - 75 000 ₽">Коньковый поход по зимнему Байкалу - 75 000 ₽</SelectItem>
+                      <SelectItem value="Байкал в палатках - 61 000 ₽">Байкал в палатках - 61 000 ₽</SelectItem>
+                      <SelectItem value="Поход к горе Белухе - 78 800 ₽">Поход к горе Белухе - 78 800 ₽</SelectItem>
+                      <SelectItem value="Камчатка — три вулкана - 83 200 ₽">Камчатка — три вулкана - 83 200 ₽</SelectItem>
+                      <SelectItem value="Путешествие за золотом Колымы - 92 000 ₽">Путешествие за золотом Колымы - 92 000 ₽</SelectItem>
+                      <SelectItem value="Дагестан: Кавказская тропа по краю башен - 54 900 ₽">Дагестан: Кавказская тропа по краю башен - 54 900 ₽</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Сообщение</label>
