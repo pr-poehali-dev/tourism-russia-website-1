@@ -162,48 +162,43 @@ const PhotoGallerySection = () => {
       </section>
 
       <Dialog open={selectedGallery !== null} onOpenChange={closeGallery}>
-        <DialogContent className="max-w-[100vw] w-[100vw] h-[100vh] max-h-[100vh] p-0 bg-black/95 [&>button]:hidden overflow-hidden">
+        <DialogContent className="max-w-[90vw] w-[90vw] h-[90vh] p-0 bg-black/95 [&>button]:hidden">
           {selectedGallery && selectedGallery.images.length > 0 && (
             <>
               <VisuallyHidden>
                 <DialogTitle>{selectedGallery.title}</DialogTitle>
               </VisuallyHidden>
-              <div className="relative w-full h-full flex flex-col">
-                <button
-                  onClick={closeGallery}
-                  className="absolute top-4 right-4 z-50 bg-white/90 hover:bg-white backdrop-blur-sm p-3 rounded-full transition-all shadow-2xl hover:scale-110"
-                  aria-label="Закрыть галерею"
-                >
-                  <Icon name="X" size={32} className="text-black" />
-                </button>
+              
+              <button
+                onClick={closeGallery}
+                className="absolute top-4 right-4 z-50 bg-white/90 hover:bg-white backdrop-blur-sm p-3 rounded-full transition-all shadow-2xl hover:scale-110"
+                aria-label="Закрыть галерею"
+              >
+                <Icon name="X" size={32} className="text-black" />
+              </button>
 
-                <div className="flex-1 relative flex items-center justify-center" style={{ height: 'calc(100vh - 180px)' }}>
+              <div className="relative w-full h-full flex flex-col">
+                <div className="flex-1 relative flex items-center justify-center px-20 pt-16 pb-4">
                   <img
                     key={currentImageIndex}
                     src={selectedGallery.images[currentImageIndex].url}
                     alt={selectedGallery.images[currentImageIndex].alt}
-                    className="max-w-full max-h-full w-auto h-auto object-contain"
+                    className="max-w-full max-h-full object-contain"
                   />
                   
                   {selectedGallery.images.length > 1 && (
                     <>
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          prevImage();
-                        }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white backdrop-blur-sm p-4 rounded-full transition-all shadow-2xl hover:scale-110 z-40"
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white backdrop-blur-sm p-4 rounded-full transition-all shadow-2xl hover:scale-110"
                         aria-label="Предыдущее фото"
                       >
                         <Icon name="ChevronLeft" size={40} className="text-black" />
                       </button>
                       
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          nextImage();
-                        }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white backdrop-blur-sm p-4 rounded-full transition-all shadow-2xl hover:scale-110 z-40"
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white backdrop-blur-sm p-4 rounded-full transition-all shadow-2xl hover:scale-110"
                         aria-label="Следующее фото"
                       >
                         <Icon name="ChevronRight" size={40} className="text-black" />
@@ -212,7 +207,7 @@ const PhotoGallerySection = () => {
                   )}
                 </div>
 
-                <div className="flex-shrink-0 bg-black/80 backdrop-blur">
+                <div className="bg-black/80 backdrop-blur border-t border-white/10">
                   <div className="p-4">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="font-heading font-bold text-xl text-white">
