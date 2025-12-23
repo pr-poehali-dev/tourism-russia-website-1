@@ -119,6 +119,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-12.jpg", alt: "Отдых группы на зеленых альпийских лугах" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-30.jpg", alt: "Вьючные лошади в сосновом лесу" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-34.jpg", alt: "Караван с лошадьми на высокогорном перевале" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-38.jpg", alt: "Переправа через горный ручей" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-42.jpg", alt: "Гид рассказывает о каменных пирамидах" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-44.jpg", alt: "Вечер у костра в горах" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-48.jpg", alt: "Группа на фоне горного озера" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-31-46.jpg", alt: "Бирюзовое озеро с отражением гор" },
       ],
     },
     {
