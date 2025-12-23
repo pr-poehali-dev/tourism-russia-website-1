@@ -175,7 +175,7 @@ const PhotoGallerySection = () => {
                   <Icon name="X" size={24} className="text-black" />
                 </button>
 
-                <div className="flex-1 flex items-center justify-center px-20 py-4">
+                <div className="flex-1 flex items-center justify-center px-20 py-4 relative" style={{ maxHeight: 'calc(100vh - 200px)' }}>
                   <img
                     key={currentImageIndex}
                     src={selectedGallery.images[currentImageIndex].url}
