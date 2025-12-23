@@ -107,7 +107,7 @@ const ToursSection = () => {
       duration: "За 8 дней вы увидите <strong>Сулакский каньон</strong>, бархан <strong>Сарыкум</strong>, древние аулы <strong>Чох и Гамсутль</strong>, побываете на Каспийском море и познакомитесь с гостеприимством дагестанцев!\n\n<strong>Водопады, горные озёра, национальная кухня и невероятные панорамы Кавказских гор — всё это Дагестан!</strong>",
       price: "54 900 ₽",
       difficulty: "Легкий",
-      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/61d12ccc-7a24-446a-8342-96f46f102626.jpg",
+      image: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-42.jpg",
     },
   ];
 

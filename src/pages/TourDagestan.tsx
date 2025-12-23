@@ -209,7 +209,7 @@ const TourDagestan = () => {
 
       <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <img
-          src="https://cdn.poehali.dev/files/photo_2025-12-23_11-26-36.jpg"
+          src="https://cdn.poehali.dev/files/photo_2025-12-23_11-28-42.jpg"
           alt="Дагестан: Кавказская тропа по краю башен"
           className="w-full h-full object-cover"
         />
