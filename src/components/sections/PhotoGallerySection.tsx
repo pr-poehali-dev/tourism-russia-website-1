@@ -177,33 +177,34 @@ const PhotoGallerySection = () => {
                 <Icon name="X" size={24} className="text-black" />
               </button>
 
-              <div className="relative bg-black" style={{ minHeight: '500px' }}>
-                <div className="flex items-center justify-center p-4" style={{ height: '70vh', maxHeight: '700px' }}>
-                  <img
-                    key={currentImageIndex}
-                    src={selectedGallery.images[currentImageIndex].url}
-                    alt={selectedGallery.images[currentImageIndex].alt}
-                    className="max-w-full max-h-full w-auto h-auto object-contain"
-                    style={{ maxWidth: '100%', maxHeight: '100%' }}
-                  />
+              <div className="relative bg-black w-full">
+                <div className="w-full flex items-center justify-center" style={{ height: '65vh', minHeight: '400px', maxHeight: '650px' }}>
+                  <div className="w-full h-full flex items-center justify-center px-20">
+                    <img
+                      key={currentImageIndex}
+                      src={selectedGallery.images[currentImageIndex].url}
+                      alt={selectedGallery.images[currentImageIndex].alt}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
                 </div>
                 
                 {selectedGallery.images.length > 1 && (
                   <>
                     <button
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-10"
+                      className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-2 md:p-3 rounded-full transition-all shadow-lg z-20"
                       aria-label="Предыдущее фото"
                     >
-                      <Icon name="ChevronLeft" size={32} className="text-black" />
+                      <Icon name="ChevronLeft" size={28} className="text-black" />
                     </button>
                     
                     <button
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-10"
+                      className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-2 md:p-3 rounded-full transition-all shadow-lg z-20"
                       aria-label="Следующее фото"
                     >
-                      <Icon name="ChevronRight" size={32} className="text-black" />
+                      <Icon name="ChevronRight" size={28} className="text-black" />
                     </button>
                   </>
                 )}
