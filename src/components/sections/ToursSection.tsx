@@ -97,7 +97,7 @@ const ToursSection = () => {
       duration: "Уникальный 11-дневный тур по одному из самых живописных уголков Магаданской области в самый разгар золотой осени. Переходы через перевалы, переправы через реки, баня на <strong>Косе Биологов</strong> и вид на массив <strong>Пила</strong>!\n\n<strong>Лодочная переправа, озера с танцующими хариусами и панорамы хребта Черского — всё это ждёт вас на Колыме!</strong>",
       price: "92 000 ₽",
       difficulty: "Сложный",
-      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/ec9cfc09-8cdb-435c-b12e-2a0bae6f1bf6.jpg",
+      image: "https://cdn.poehali.dev/files/photo_2025-12-23_11-46-33.jpg",
     },
     {
       id: 6,
