@@ -256,6 +256,36 @@ const ReviewsGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_09-56-26.jpg", alt: "Встреча рассвета на льду" },
       ],
     },
+    {
+      id: "baikal-tents",
+      title: "Байкал в палатках",
+      coverImage: "https://cdn.poehali.dev/files/IMG_5107.jpg",
+      images: [],
+    },
+    {
+      id: "altai-belukha",
+      title: "Поход к горе Белухе",
+      coverImage: "https://cdn.poehali.dev/files/ozz-q6fkgwprn4f2igi58odrec2ov3kk0uj0u7w4k4es9c.jpg",
+      images: [],
+    },
+    {
+      id: "kamchatka",
+      title: "Камчатка — три вулкана",
+      coverImage: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/f69f3837-399c-401e-9bbc-11624839b9e9.jpg",
+      images: [],
+    },
+    {
+      id: "kolyma",
+      title: "Путешествие за золотом Колымы",
+      coverImage: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/ec9cfc09-8cdb-435c-b12e-2a0bae6f1bf6.jpg",
+      images: [],
+    },
+    {
+      id: "dagestan",
+      title: "Дагестан: Кавказская тропа",
+      coverImage: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/61d12ccc-7a24-446a-8342-96f46f102626.jpg",
+      images: [],
+    },
   ];
 
   const openGallery = (gallery: PhotoGallery) => {
