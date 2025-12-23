@@ -124,6 +124,11 @@ const PhotoGallerySection = () => {
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-44.jpg", alt: "Вечер у костра в горах" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-30-48.jpg", alt: "Группа на фоне горного озера" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-31-46.jpg", alt: "Бирюзовое озеро с отражением гор" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-31-50.jpg", alt: "Река молочного цвета в хвойной долине" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-31-57.jpg", alt: "Турист на берегу озера с горными вершинами" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-01.jpg", alt: "Лагерь на берегу реки среди зеленых холмов" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-05.jpg", alt: "Спокойная гладь озера с затопленными деревьями" },
+        { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-32-09.jpg", alt: "Каменистый берег горного озера" },
       ],
     },
     {
