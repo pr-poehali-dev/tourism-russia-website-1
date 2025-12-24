@@ -20,15 +20,15 @@ const HeroSection = () => {
             КОМФОРТНАЯ СХЕМА ОПЛАТЫ
           </h2>
           
-          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-3">
-            <div className="bg-gradient-to-br from-green-300 to-green-400 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
-              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Взнос</div>
-              <div className="text-xl md:text-2xl font-bold">10%</div>
+          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-3 items-center">
+            <div className="bg-gradient-to-br from-green-300 to-green-400 rounded-full w-14 h-14 md:w-16 md:h-16 flex flex-col items-center justify-center shadow-lg mx-auto">
+              <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Взнос</div>
+              <div className="text-base md:text-lg font-bold">10%</div>
             </div>
             
-            <div className="bg-gradient-to-br from-green-400 to-green-500 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
-              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">30 дней до тура</div>
-              <div className="text-xl md:text-2xl font-bold">30%</div>
+            <div className="bg-gradient-to-br from-green-400 to-green-500 rounded-full w-16 h-16 md:w-20 md:h-20 flex flex-col items-center justify-center shadow-lg mx-auto">
+              <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">30 дней до тура</div>
+              <div className="text-lg md:text-xl font-bold">30%</div>
             </div>
             
             <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
