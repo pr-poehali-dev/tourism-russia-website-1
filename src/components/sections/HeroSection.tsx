@@ -17,22 +17,22 @@ const HeroSection = () => {
         
         <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 max-w-2xl mx-auto border border-white/20">
           <h2 className="text-sm md:text-base font-bold mb-2">
-            РАССРОЧКА <span className="text-primary">0%</span>
+            КОМФОРТНАЯ СХЕМА ОПЛАТЫ
           </h2>
           
           <div className="grid grid-cols-3 gap-3 md:gap-4 mb-3">
-            <div className="bg-gradient-to-br from-primary to-secondary rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
+            <div className="bg-gradient-to-br from-green-300 to-green-400 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
               <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Взнос</div>
               <div className="text-xl md:text-2xl font-bold">10%</div>
             </div>
             
-            <div className="bg-gradient-to-br from-secondary to-accent rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
-              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">За месяц до</div>
+            <div className="bg-gradient-to-br from-green-400 to-green-500 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
+              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">За месяц до тура</div>
               <div className="text-xl md:text-2xl font-bold">30%</div>
             </div>
             
-            <div className="bg-gradient-to-br from-accent to-primary rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
-              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">1-й день</div>
+            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
+              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">1-й день тура</div>
               <div className="text-xl md:text-2xl font-bold">50%</div>
             </div>
           </div>
