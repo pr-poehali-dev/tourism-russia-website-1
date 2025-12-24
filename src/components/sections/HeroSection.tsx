@@ -27,7 +27,7 @@ const HeroSection = () => {
             </div>
             
             <div className="bg-gradient-to-br from-green-400 to-green-500 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
-              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">За месяц до тура</div>
+              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">30 дней до тура</div>
               <div className="text-xl md:text-2xl font-bold">30%</div>
             </div>
             
