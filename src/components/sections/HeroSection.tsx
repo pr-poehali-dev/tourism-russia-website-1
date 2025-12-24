@@ -15,25 +15,25 @@ const HeroSection = () => {
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-4 md:mb-6">Душевные туры по России</h1>
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl mx-auto">Путешествия с Антоном и Эмилем</p>
         
-        <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 max-w-lg mx-auto border border-white/20">
-          <h2 className="text-sm md:text-base font-bold mb-1">
+        <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 max-w-2xl mx-auto border border-white/20">
+          <h2 className="text-sm md:text-base font-bold mb-2">
             РАССРОЧКА <span className="text-primary">0%</span>
           </h2>
           
-          <div className="grid grid-cols-3 gap-2 mb-3">
-            <div className="bg-gradient-to-br from-cyan-600 to-cyan-700 rounded-full aspect-square flex flex-col items-center justify-center p-2 shadow-lg">
-              <div className="text-[8px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight">Взнос</div>
-              <div className="text-lg md:text-2xl font-bold">20%</div>
+          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-3">
+            <div className="bg-gradient-to-br from-primary to-secondary rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
+              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Взнос</div>
+              <div className="text-xl md:text-2xl font-bold">10%</div>
             </div>
             
-            <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-full aspect-square flex flex-col items-center justify-center p-2 shadow-lg">
-              <div className="text-[8px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight">Месяц</div>
-              <div className="text-lg md:text-2xl font-bold">30%</div>
+            <div className="bg-gradient-to-br from-secondary to-accent rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
+              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">За месяц до</div>
+              <div className="text-xl md:text-2xl font-bold">30%</div>
             </div>
             
-            <div className="bg-gradient-to-br from-amber-600 to-amber-700 rounded-full aspect-square flex flex-col items-center justify-center p-2 shadow-lg">
-              <div className="text-[8px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight">1 день</div>
-              <div className="text-lg md:text-2xl font-bold">50%</div>
+            <div className="bg-gradient-to-br from-accent to-primary rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
+              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">1-й день</div>
+              <div className="text-xl md:text-2xl font-bold">50%</div>
             </div>
           </div>
           
