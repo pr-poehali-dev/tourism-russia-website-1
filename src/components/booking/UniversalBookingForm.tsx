@@ -86,7 +86,8 @@ const UniversalBookingForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <>
+      <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label className="text-sm font-medium mb-2 block">Ваше имя *</label>
         <Input
@@ -167,9 +168,9 @@ const UniversalBookingForm = ({
           </>
         )}
       </Button>
-
+      </form>
       <SuccessDialog open={showSuccess} onOpenChange={setShowSuccess} />
-    </form>
+    </>
   );
 };
 

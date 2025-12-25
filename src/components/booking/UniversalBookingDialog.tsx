@@ -91,14 +91,15 @@ const UniversalBookingDialog = ({
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl">Забронировать тур</DialogTitle>
-          <DialogDescription>
-            Заполните форму, и мы свяжемся с вами в ближайшее время
-          </DialogDescription>
-        </DialogHeader>
+    <>
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">Забронировать тур</DialogTitle>
+            <DialogDescription>
+              Заполните форму, и мы свяжемся с вами в ближайшее время
+            </DialogDescription>
+          </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="text-sm font-medium mb-2 block">Ваше имя *</label>
@@ -181,9 +182,10 @@ const UniversalBookingDialog = ({
             )}
           </Button>
         </form>
-      </DialogContent>
+        </DialogContent>
+      </Dialog>
       <SuccessDialog open={showSuccess} onOpenChange={setShowSuccess} />
-    </Dialog>
+    </>
   );
 };
 
