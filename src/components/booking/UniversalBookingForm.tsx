@@ -152,7 +152,7 @@ const UniversalBookingForm = ({
 
       <Button 
         type="submit" 
-        className="w-full" 
+        className="w-full hover:scale-105 transition-all duration-300 hover:shadow-lg" 
         size="lg"
         disabled={isSubmitting}
       >
