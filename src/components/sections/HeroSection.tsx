@@ -33,7 +33,7 @@ const HeroSection = () => {
             
             <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
               <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">1-й день тура</div>
-              <div className="text-xl md:text-2xl font-bold">50%</div>
+              <div className="text-xl md:text-2xl font-bold">60%</div>
             </div>
           </div>
           
