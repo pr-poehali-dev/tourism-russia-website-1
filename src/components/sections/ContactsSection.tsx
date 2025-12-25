@@ -1,17 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { useState } from "react";
+import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 const ContactsSection = () => {
+  const [showBookingForm, setShowBookingForm] = useState(false);
+
   return (
     <>
       <section id="contacts" className="py-20">
@@ -62,44 +57,19 @@ const ContactsSection = () => {
             </div>
             <Card>
               <CardHeader>
-                <CardTitle className="font-heading">Напишите нам</CardTitle>
+                <CardTitle className="font-heading">Забронировать тур</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Ваше имя</label>
-                  <Input placeholder="Иван Иванов" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Email</label>
-                  <Input type="email" placeholder="ivan@example.com" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Телефон</label>
-                  <Input type="tel" placeholder="+7 (999) 123-45-67" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Выберите тур (необязательно)</label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Выберите тур из списка" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Коньковый поход по зимнему Байкалу - 75 000 ₽">Коньковый поход по зимнему Байкалу - 75 000 ₽</SelectItem>
-                      <SelectItem value="Байкал в палатках - 61 000 ₽">Байкал в палатках - 61 000 ₽</SelectItem>
-                      <SelectItem value="Поход к горе Белухе - 78 800 ₽">Поход к горе Белухе - 78 800 ₽</SelectItem>
-                      <SelectItem value="Камчатка — три вулкана - 83 200 ₽">Камчатка — три вулкана - 83 200 ₽</SelectItem>
-                      <SelectItem value="Путешествие за золотом Колымы - 92 000 ₽">Путешествие за золотом Колымы - 92 000 ₽</SelectItem>
-                      <SelectItem value="Дагестан: Кавказская тропа по краю башен - 54 900 ₽">Дагестан: Кавказская тропа по краю башен - 54 900 ₽</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Сообщение</label>
-                  <Textarea placeholder="Расскажите о ваших планах..." className="min-h-[120px]" />
-                </div>
-                <Button className="w-full" size="lg">
+                <p className="text-muted-foreground">
+                  Оставьте заявку, и мы свяжемся с вами в ближайшее время для уточнения деталей путешествия
+                </p>
+                <Button 
+                  className="w-full" 
+                  size="lg"
+                  onClick={() => setShowBookingForm(true)}
+                >
                   <Icon name="Send" size={18} className="mr-2" />
-                  Отправить
+                  Оставить заявку
                 </Button>
               </CardContent>
             </Card>
@@ -154,6 +124,11 @@ const ContactsSection = () => {
           </div>
         </div>
       </footer>
+
+      <UniversalBookingDialog 
+        open={showBookingForm} 
+        onOpenChange={setShowBookingForm}
+      />
     </>
   );
 };

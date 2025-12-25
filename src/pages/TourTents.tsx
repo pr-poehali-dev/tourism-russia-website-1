@@ -3,30 +3,11 @@ import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 const TourTents = () => {
   const navigate = useNavigate();
   const [showBookingForm, setShowBookingForm] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    tour: 'Байкал в палатках',
-    comment: ''
-  });
 
   const tourInfo = [
     { icon: "Calendar", label: "Длительность тура", value: "8 ДНЕЙ" },
@@ -180,32 +161,7 @@ const TourTents = () => {
     ]
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // Отправка цели в Яндекс.Метрику
-    if (typeof window !== 'undefined' && (window as any).ym) {
-      (window as any).ym(106027453, 'reachGoal', 'tour_booking_submit');
-    }
-
-    toast({
-      title: "Заявка отправлена!",
-      description: "Мы свяжемся с вами в ближайшее время",
-    });
-
-    setShowBookingForm(false);
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      tour: 'Байкал в палатках',
-      comment: ''
-    });
-    setIsSubmitting(false);
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">

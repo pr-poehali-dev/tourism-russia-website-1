@@ -3,30 +3,11 @@ import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 const TourKamchatka = () => {
   const navigate = useNavigate();
   const [showBookingForm, setShowBookingForm] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    tour: 'Камчатка - три вулкана',
-    comment: ''
-  });
 
   const tourInfo = [
     { icon: "Calendar", label: "Длительность тура", value: "9 ДНЕЙ" },
@@ -176,10 +157,7 @@ const TourKamchatka = () => {
       });
       
       if (response.ok) {
-        // Отправка цели в Яндекс.Метрику
-        if (typeof window !== 'undefined' && (window as any).ym) {
-          (window as any).ym(106027453, 'reachGoal', 'tour_booking_submit');
-        }
+
         
         toast({
           title: "Заявка отправлена!",

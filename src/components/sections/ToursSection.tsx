@@ -1,27 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
+import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 interface Tour {
   id: number;
@@ -37,16 +20,6 @@ interface Tour {
 const ToursSection = () => {
   const navigate = useNavigate();
   const [showBookingForm, setShowBookingForm] = React.useState(false);
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const { toast } = useToast();
-  
-  const [formData, setFormData] = React.useState({
-    name: '',
-    phone: '',
-    email: '',
-    tour: '',
-    comment: ''
-  });
 
   const tours: Tour[] = [
     {
@@ -218,111 +191,10 @@ const ToursSection = () => {
         </div>
       </div>
 
-      <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-heading">
-              Забронировать тур
-            </DialogTitle>
-            <DialogDescription>
-              Заполните форму, и мы свяжемся с вами в ближайшее время
-            </DialogDescription>
-          </DialogHeader>
-          <form className="space-y-4" onSubmit={async (e) => {
-            e.preventDefault();
-            setIsSubmitting(true);
-            
-            try {
-              const response = await fetch('https://functions.poehali.dev/a929cb91-0eec-4a5d-8515-46159925b0a2', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-              });
-              
-              if (response.ok) {
-                toast({
-                  title: "Заявка отправлена!",
-                  description: "Мы свяжемся с вами в ближайшее время",
-                });
-                setShowBookingForm(false);
-                setFormData({ name: '', phone: '', email: '', tour: '', comment: '' });
-              } else {
-                throw new Error('Ошибка отправки');
-              }
-            } catch (error) {
-              toast({
-                title: "Ошибка",
-                description: "Не удалось отправить заявку. Попробуйте позже",
-                variant: "destructive"
-              });
-            } finally {
-              setIsSubmitting(false);
-            }
-          }}>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Ваше имя</label>
-              <Input 
-                placeholder="Иван Иванов" 
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Телефон</label>
-              <Input 
-                type="tel" 
-                placeholder="+7 999 999-99-99" 
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Email</label>
-              <Input 
-                type="email" 
-                placeholder="ivan@example.com" 
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Выберите тур</label>
-              <Select value={formData.tour} onValueChange={(value) => setFormData({...formData, tour: value})} required>
-                <SelectTrigger>
-                  <SelectValue placeholder="Выберите тур из списка" />
-                </SelectTrigger>
-                <SelectContent>
-                  {tours.map((tour) => (
-                    <SelectItem key={tour.id} value={`${tour.title} - ${tour.price}`}>
-                      {tour.title} - {tour.price}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Комментарий</label>
-              <Textarea 
-                placeholder="Укажите желаемые даты, количество человек и другие пожелания" 
-                rows={4}
-                value={formData.comment}
-                onChange={(e) => setFormData({...formData, comment: e.target.value})}
-              />
-            </div>
-            <Button 
-              type="submit" 
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-              size="lg"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <UniversalBookingDialog 
+        open={showBookingForm} 
+        onOpenChange={setShowBookingForm}
+      />
     </section>
   );
 };

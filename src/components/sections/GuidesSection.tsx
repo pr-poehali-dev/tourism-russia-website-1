@@ -67,11 +67,6 @@ const GuidesSection = () => {
       });
 
       if (response.ok) {
-        // Отправка цели в Яндекс.Метрику при успешной отправке
-        if (typeof window !== 'undefined' && (window as any).ym) {
-          (window as any).ym(106027453, 'reachGoal', 'callback_form_submit');
-        }
-        
         alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
         setShowContactForm(false);
         setFormData({ clientName: '', clientPhone: '', preferredTime: '', comment: '' });
