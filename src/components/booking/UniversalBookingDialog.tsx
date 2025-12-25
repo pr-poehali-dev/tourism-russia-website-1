@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import SuccessDialog from "./SuccessDialog";
 
 interface UniversalBookingDialogProps {
   open: boolean;
@@ -32,6 +33,7 @@ const UniversalBookingDialog = ({
 }: UniversalBookingDialogProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -65,11 +67,6 @@ const UniversalBookingDialog = ({
           (window as any).ym(106027453, 'reachGoal', 'booking_submit');
         }
 
-        toast({
-          title: "Заявка отправлена!",
-          description: "Мы свяжемся с вами в ближайшее время",
-        });
-
         onOpenChange(false);
         setFormData({
           name: '',
@@ -78,6 +75,7 @@ const UniversalBookingDialog = ({
           tour: defaultTour,
           comment: ''
         });
+        setShowSuccess(true);
       } else {
         throw new Error('Network error');
       }
@@ -184,6 +182,7 @@ const UniversalBookingDialog = ({
           </Button>
         </form>
       </DialogContent>
+      <SuccessDialog open={showSuccess} onOpenChange={setShowSuccess} />
     </Dialog>
   );
 };

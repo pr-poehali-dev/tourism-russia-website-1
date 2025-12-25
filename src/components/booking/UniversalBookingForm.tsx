@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import SuccessDialog from "./SuccessDialog";
 
 interface UniversalBookingFormProps {
   defaultTour?: string;
@@ -23,6 +24,7 @@ const UniversalBookingForm = ({
 }: UniversalBookingFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -56,11 +58,6 @@ const UniversalBookingForm = ({
           (window as any).ym(106027453, 'reachGoal', 'booking_submit');
         }
 
-        toast({
-          title: "Заявка отправлена!",
-          description: "Мы свяжемся с вами в ближайшее время",
-        });
-
         setFormData({
           name: '',
           phone: '',
@@ -68,6 +65,8 @@ const UniversalBookingForm = ({
           tour: defaultTour,
           comment: ''
         });
+
+        setShowSuccess(true);
 
         if (onSuccess) {
           onSuccess();
@@ -168,6 +167,8 @@ const UniversalBookingForm = ({
           </>
         )}
       </Button>
+
+      <SuccessDialog open={showSuccess} onOpenChange={setShowSuccess} />
     </form>
   );
 };

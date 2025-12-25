@@ -11,6 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import SuccessDialog from "@/components/booking/SuccessDialog";
 
 interface Guide {
   name: string;
@@ -30,6 +31,7 @@ const GuidesSection = () => {
   const [contactGuideIndex, setContactGuideIndex] = React.useState<number | null>(null);
   const [selectedCertificate, setSelectedCertificate] = React.useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [showSuccess, setShowSuccess] = React.useState(false);
   const [formData, setFormData] = React.useState({
     clientName: '',
     clientPhone: '',
@@ -67,9 +69,9 @@ const GuidesSection = () => {
       });
 
       if (response.ok) {
-        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
         setShowContactForm(false);
         setFormData({ clientName: '', clientPhone: '', preferredTime: '', comment: '' });
+        setShowSuccess(true);
       } else {
         alert('Произошла ошибка. Попробуйте позже или позвоните напрямую.');
       }
@@ -369,6 +371,8 @@ const GuidesSection = () => {
           )}
         </DialogContent>
       </Dialog>
+
+      <SuccessDialog open={showSuccess} onOpenChange={setShowSuccess} />
     </>
   );
 };
