@@ -461,62 +461,11 @@ const TourKolyma = () => {
         </div>
       </div>
 
-      <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>Забронировать тур</DialogTitle>
-            <DialogDescription>
-              Заполните форму, и мы свяжемся с вами в ближайшее время
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <Input
-                placeholder="Ваше имя"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-              />
-            </div>
-            <div>
-              <Input
-                type="tel"
-                placeholder="Телефон"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                required
-              />
-            </div>
-            <div>
-              <Input
-                type="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-              />
-            </div>
-            <div>
-              <Input
-                value={formData.tour}
-                readOnly
-                className="bg-muted"
-              />
-            </div>
-            <div>
-              <Textarea
-                placeholder="Комментарий (необязательно)"
-                value={formData.comment}
-                onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-                rows={3}
-              />
-            </div>
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Отправка..." : "Отправить заявку"}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <UniversalBookingDialog
+        open={showBookingForm}
+        onOpenChange={setShowBookingForm}
+        defaultTour="Путешествие за золотом Колымы - 92 000 ₽"
+      />
     </div>
   );
 };

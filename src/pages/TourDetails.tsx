@@ -3,37 +3,11 @@ import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
+import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 const TourDetails = () => {
   const navigate = useNavigate();
   const [showBookingForm, setShowBookingForm] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    tour: 'Коньковый поход по зимнему Байкалу',
-    comment: ''
-  });
 
   const tourInfo = [
     { icon: "Calendar", label: "Длительность тура", value: "7 ДНЕЙ" },
@@ -506,95 +480,11 @@ const TourDetails = () => {
         </div>
       </div>
 
-      <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-heading">
-              Забронировать тур
-            </DialogTitle>
-            <DialogDescription>
-              Заполните форму, и мы свяжемся с вами в ближайшее время
-            </DialogDescription>
-          </DialogHeader>
-          <form className="space-y-4" onSubmit={async (e) => {
-            e.preventDefault();
-            setIsSubmitting(true);
-            
-            try {
-              const response = await fetch('https://functions.poehali.dev/a929cb91-0eec-4a5d-8515-46159925b0a2', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-              });
-              
-              if (response.ok) {
-                toast({
-                  title: "Заявка отправлена!",
-                  description: "Мы свяжемся с вами в ближайшее время",
-                });
-                setShowBookingForm(false);
-                setFormData({ name: '', phone: '', email: '', tour: 'Коньковый поход по зимнему Байкалу', comment: '' });
-              } else {
-                throw new Error('Ошибка отправки');
-              }
-            } catch (error) {
-              toast({
-                title: "Ошибка",
-                description: "Не удалось отправить заявку. Попробуйте позже",
-                variant: "destructive"
-              });
-            } finally {
-              setIsSubmitting(false);
-            }
-          }}>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Ваше имя</label>
-              <Input 
-                placeholder="Иван Иванов" 
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Телефон</label>
-              <Input 
-                type="tel" 
-                placeholder="+7 (999) 123-45-67" 
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Email</label>
-              <Input 
-                type="email" 
-                placeholder="example@mail.ru" 
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Комментарий</label>
-              <Textarea 
-                placeholder="Дополнительная информация" 
-                value={formData.comment}
-                onChange={(e) => setFormData({...formData, comment: e.target.value})}
-                rows={3}
-              />
-            </div>
-            <Button 
-              type="submit" 
-              className="w-full" 
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <UniversalBookingDialog
+        open={showBookingForm}
+        onOpenChange={setShowBookingForm}
+        defaultTour="Коньковый поход по зимнему Байкалу - 75 000 ₽"
+      />
     </div>
   );
 };

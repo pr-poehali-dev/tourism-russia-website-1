@@ -469,61 +469,11 @@ const TourTents = () => {
         </div>
       </div>
 
-      <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-heading">
-              Забронировать тур
-            </DialogTitle>
-            <DialogDescription>
-              Заполните форму, и мы свяжемся с вами в ближайшее время
-            </DialogDescription>
-          </DialogHeader>
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Ваше имя</label>
-              <Input 
-                placeholder="Иван Иванов" 
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Телефон</label>
-              <Input 
-                type="tel" 
-                placeholder="+7 (999) 123-45-67" 
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Email</label>
-              <Input 
-                type="email" 
-                placeholder="example@mail.ru" 
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                required
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Комментарий (необязательно)</label>
-              <Textarea 
-                placeholder="Расскажите о ваших пожеланиях..." 
-                className="min-h-[80px]"
-                value={formData.comment}
-                onChange={(e) => setFormData({...formData, comment: e.target.value})}
-              />
-            </div>
-            <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-              {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <UniversalBookingDialog
+        open={showBookingForm}
+        onOpenChange={setShowBookingForm}
+        defaultTour="Байкал в палатках - 61 000 ₽"
+      />
     </div>
   );
 };

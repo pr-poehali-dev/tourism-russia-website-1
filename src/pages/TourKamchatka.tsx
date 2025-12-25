@@ -447,59 +447,11 @@ const TourKamchatka = () => {
         </div>
       </div>
 
-      <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="sm:max-w-[500px]">
-          <DialogHeader>
-            <DialogTitle>Забронировать тур</DialogTitle>
-            <DialogDescription>
-              Заполните форму, и мы свяжемся с вами для подтверждения бронирования
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <Input
-                name="name"
-                placeholder="Ваше имя"
-                value={formData.name}
-                onChange={(e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))}
-                required
-              />
-            </div>
-            <div>
-              <Input
-                name="phone"
-                type="tel"
-                placeholder="Телефон"
-                value={formData.phone}
-                onChange={(e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))}
-                required
-              />
-            </div>
-            <div>
-              <Input
-                name="email"
-                type="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={(e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))}
-                required
-              />
-            </div>
-            <div>
-              <Textarea
-                name="comment"
-                placeholder="Комментарий (необязательно)"
-                value={formData.comment}
-                onChange={(e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))}
-                rows={3}
-              />
-            </div>
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <UniversalBookingDialog
+        open={showBookingForm}
+        onOpenChange={setShowBookingForm}
+        defaultTour="Камчатка — три вулкана - 83 200 ₽"
+      />
     </div>
   );
 };

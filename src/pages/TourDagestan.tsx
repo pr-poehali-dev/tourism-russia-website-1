@@ -336,67 +336,11 @@ const TourDagestan = () => {
         </div>
       </div>
 
-      <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-heading">Забронировать тур</DialogTitle>
-            <DialogDescription>
-              Заполните форму, и мы свяжемся с вами для подтверждения брони
-            </DialogDescription>
-          </DialogHeader>
-          
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="text-sm font-medium mb-2 block">Имя *</label>
-              <Input
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                placeholder="Ваше имя"
-              />
-            </div>
-            
-            <div>
-              <label className="text-sm font-medium mb-2 block">Телефон *</label>
-              <Input
-                required
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                placeholder="+7 (999) 123-45-67"
-              />
-            </div>
-            
-            <div>
-              <label className="text-sm font-medium mb-2 block">Email</label>
-              <Input
-                type="email"
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                placeholder="your@email.com"
-              />
-            </div>
-            
-            <div>
-              <label className="text-sm font-medium mb-2 block">Комментарий</label>
-              <Textarea
-                value={formData.comment}
-                onChange={(e) => setFormData({...formData, comment: e.target.value})}
-                placeholder="Ваши пожелания или вопросы"
-                rows={3}
-              />
-            </div>
-            
-            <Button 
-              type="submit" 
-              className="w-full"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Отправка..." : "Отправить заявку"}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <UniversalBookingDialog
+        open={showBookingForm}
+        onOpenChange={setShowBookingForm}
+        defaultTour="Дагестан: Кавказская тропа по краю башен - 54 900 ₽"
+      />
     </div>
   );
 };
