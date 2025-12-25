@@ -1,12 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import { useState } from "react";
-import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
+import UniversalBookingForm from "@/components/booking/UniversalBookingForm";
 
 const ContactsSection = () => {
-  const [showBookingForm, setShowBookingForm] = useState(false);
-
   return (
     <>
       <section id="contacts" className="py-20">
@@ -59,18 +55,8 @@ const ContactsSection = () => {
               <CardHeader>
                 <CardTitle className="font-heading">Забронировать тур</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Оставьте заявку, и мы свяжемся с вами в ближайшее время для уточнения деталей путешествия
-                </p>
-                <Button 
-                  className="w-full" 
-                  size="lg"
-                  onClick={() => setShowBookingForm(true)}
-                >
-                  <Icon name="Send" size={18} className="mr-2" />
-                  Оставить заявку
-                </Button>
+              <CardContent>
+                <UniversalBookingForm />
               </CardContent>
             </Card>
           </div>
@@ -124,11 +110,6 @@ const ContactsSection = () => {
           </div>
         </div>
       </footer>
-
-      <UniversalBookingDialog 
-        open={showBookingForm} 
-        onOpenChange={setShowBookingForm}
-      />
     </>
   );
 };
