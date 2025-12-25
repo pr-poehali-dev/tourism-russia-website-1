@@ -176,6 +176,11 @@ const TourKamchatka = () => {
       });
       
       if (response.ok) {
+        // Отправка цели в Яндекс.Метрику
+        if (typeof window !== 'undefined' && (window as any).ym) {
+          (window as any).ym(106027453, 'reachGoal', 'tour_booking_submit');
+        }
+        
         toast({
           title: "Заявка отправлена!",
           description: "Мы свяжемся с вами в ближайшее время",
