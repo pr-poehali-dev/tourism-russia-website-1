@@ -28,6 +28,7 @@ const GuidesSection = () => {
   const [selectedGuide, setSelectedGuide] = React.useState<number | null>(null);
   const [showContactForm, setShowContactForm] = React.useState(false);
   const [contactGuideIndex, setContactGuideIndex] = React.useState<number | null>(null);
+  const [selectedCertificate, setSelectedCertificate] = React.useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [formData, setFormData] = React.useState({
     clientName: '',
@@ -234,11 +235,9 @@ const GuidesSection = () => {
                         const rotationClass = rotation === 'rotate-right' ? 'rotate-90' : rotation === 'rotate-left' ? '-rotate-90' : '';
                         
                         return (
-                          <a
+                          <button
                             key={idx}
-                            href={certUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            onClick={() => setSelectedCertificate(certData)}
                             className="group relative aspect-[3/4] overflow-hidden rounded-lg border-2 border-muted hover:border-primary transition-all duration-300 hover:shadow-lg"
                           >
                             <img
@@ -249,7 +248,7 @@ const GuidesSection = () => {
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
                               <Icon name="ZoomIn" size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </div>
-                          </a>
+                          </button>
                         );
                       })}
                     </div>
@@ -343,6 +342,26 @@ const GuidesSection = () => {
               {isSubmitting ? 'Отправка...' : 'Заказать звонок'}
             </Button>
           </form>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={selectedCertificate !== null} onOpenChange={() => setSelectedCertificate(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] p-0">
+          {selectedCertificate && (
+            <div className="relative w-full h-full flex items-center justify-center bg-black/95 rounded-lg overflow-hidden">
+              {(() => {
+                const [certUrl, rotation] = selectedCertificate.split('|');
+                const rotationClass = rotation === 'rotate-right' ? 'rotate-90' : rotation === 'rotate-left' ? '-rotate-90' : '';
+                return (
+                  <img
+                    src={certUrl}
+                    alt="Сертификат"
+                    className={`max-w-full max-h-[85vh] object-contain ${rotationClass}`}
+                  />
+                );
+              })()}
+            </div>
+          )}
         </DialogContent>
       </Dialog>
     </>
