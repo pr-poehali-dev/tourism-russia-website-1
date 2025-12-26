@@ -43,11 +43,6 @@ const GuidesSection = () => {
     setContactGuideIndex(index);
     setShowContactForm(true);
     setFormData({ clientName: '', clientPhone: '', preferredTime: '', comment: '' });
-    
-    // Отправка цели в Яндекс.Метрику
-    if (typeof window !== 'undefined' && (window as any).ym) {
-      (window as any).ym(106027453, 'reachGoal', 'contact_guide_click');
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
