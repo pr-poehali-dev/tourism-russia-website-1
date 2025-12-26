@@ -54,8 +54,12 @@ const UniversalBookingForm = ({
       });
 
       if (response.ok) {
+        console.log('✅ Форма успешно отправлена');
         if (typeof window !== 'undefined' && (window as any).ym) {
+          console.log('✅ Отправка цели в Метрику: booking_submit');
           (window as any).ym(106027453, 'reachGoal', 'booking_submit');
+        } else {
+          console.warn('⚠️ Яндекс.Метрика не загружена при отправке формы');
         }
 
         setFormData({

@@ -463,9 +463,13 @@ const TourAltai = () => {
 
                 <Button 
                   onClick={() => {
+                    console.log('🎯 Клик на кнопку бронирования');
                     setShowBookingForm(true);
                     if (typeof window !== 'undefined' && (window as any).ym) {
+                      console.log('✅ Отправка цели в Метрику: booking_button_click');
                       (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
+                    } else {
+                      console.warn('⚠️ Яндекс.Метрика не загружена');
                     }
                   }}
                   className="w-full transition-all hover:scale-105 hover:shadow-lg"
