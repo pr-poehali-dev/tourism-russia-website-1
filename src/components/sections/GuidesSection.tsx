@@ -69,6 +69,14 @@ const GuidesSection = () => {
       });
 
       if (response.ok) {
+        console.log('✅ Форма обратного звонка отправлена');
+        if (typeof window !== 'undefined' && (window as any).ym) {
+          console.log('✅ Отправка цели в Метрику: callback_submit');
+          (window as any).ym(106027453, 'reachGoal', 'callback_submit');
+        } else {
+          console.warn('⚠️ Яндекс.Метрика не загружена при отправке формы обратного звонка');
+        }
+        
         setShowContactForm(false);
         setFormData({ clientName: '', clientPhone: '', preferredTime: '', comment: '' });
         setShowSuccess(true);
