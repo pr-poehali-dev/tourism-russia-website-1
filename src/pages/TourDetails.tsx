@@ -448,7 +448,12 @@ const TourDetails = () => {
                   <Button
                     size="lg"
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:scale-105 hover:shadow-lg"
-                    onClick={() => setShowBookingForm(true)}
+                    onClick={() => {
+                      setShowBookingForm(true);
+                      if (typeof window !== 'undefined' && (window as any).ym) {
+                        (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
+                      }
+                    }}
                   >
                     <Icon name="Calendar" size={20} className="mr-2" />
                     Забронировать место

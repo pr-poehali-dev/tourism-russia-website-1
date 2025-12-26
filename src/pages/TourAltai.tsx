@@ -462,7 +462,12 @@ const TourAltai = () => {
                 </div>
 
                 <Button 
-                  onClick={() => setShowBookingForm(true)}
+                  onClick={() => {
+                    setShowBookingForm(true);
+                    if (typeof window !== 'undefined' && (window as any).ym) {
+                      (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
+                    }
+                  }}
                   className="w-full transition-all hover:scale-105 hover:shadow-lg"
                   size="lg"
                 >
