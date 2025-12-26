@@ -321,7 +321,7 @@ const ReviewsSection = () => {
           <div className="text-center mt-12">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6"
+              className="text-lg px-8 py-6 hover:scale-105 hover:shadow-lg transition-all duration-300"
               onClick={() => {
                 setShowBookingForm(true);
                 if (typeof window !== 'undefined' && (window as any).ym) {
