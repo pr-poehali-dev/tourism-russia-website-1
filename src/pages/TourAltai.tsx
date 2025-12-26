@@ -203,11 +203,11 @@ const TourAltai = () => {
         </div>
       </header>
 
-      <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
+      <div className="relative h-[40vh] md:h-[60vh] overflow-hidden bg-gray-900">
         <img
           src="https://cdn.poehali.dev/files/photo_2025-12-23_11-31-38.jpg"
           alt="Поход к Белухе"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
