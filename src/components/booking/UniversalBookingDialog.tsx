@@ -19,6 +19,7 @@ import Icon from "@/components/ui/icon";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import SuccessDialog from "./SuccessDialog";
+import InputMask from "react-input-mask";
 
 interface UniversalBookingDialogProps {
   open: boolean;
@@ -113,13 +114,20 @@ const UniversalBookingDialog = ({
           
           <div>
             <label className="text-sm font-medium mb-2 block">Телефон *</label>
-            <Input
-              type="tel"
-              placeholder="+7 (999) 123-45-67"
+            <InputMask
+              mask="+7 (999) 999-99-99"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              required
-            />
+            >
+              {(inputProps: any) => (
+                <Input
+                  {...inputProps}
+                  type="tel"
+                  placeholder="+7 (999) 123-45-67"
+                  required
+                />
+              )}
+            </InputMask>
           </div>
 
           <div>

@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import InputMask from "react-input-mask";
 
 interface GalleryImage {
   url: string;
@@ -490,13 +491,20 @@ const PhotoGallerySection = () => {
             </div>
             <div>
               <label className="text-sm font-medium mb-2 block">Телефон</label>
-              <Input 
-                type="tel" 
-                placeholder="+7 999 999-99-99" 
+              <InputMask
+                mask="+7 (999) 999-99-99"
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                required
-              />
+              >
+                {(inputProps: any) => (
+                  <Input 
+                    {...inputProps}
+                    type="tel" 
+                    placeholder="+7 (999) 123-45-67" 
+                    required
+                  />
+                )}
+              </InputMask>
             </div>
             <div>
               <label className="text-sm font-medium mb-2 block">Email</label>

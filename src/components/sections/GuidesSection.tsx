@@ -12,6 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import SuccessDialog from "@/components/booking/SuccessDialog";
+import InputMask from "react-input-mask";
 
 interface Guide {
   name: string;
@@ -318,14 +319,21 @@ const GuidesSection = () => {
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Ваш телефон</label>
-              <Input 
-                type="tel" 
-                placeholder="+7 (999) 123-45-67" 
-                required 
+              <InputMask
+                mask="+7 (999) 999-99-99"
                 value={formData.clientPhone}
                 onChange={(e) => setFormData({...formData, clientPhone: e.target.value})}
                 disabled={isSubmitting}
-              />
+              >
+                {(inputProps: any) => (
+                  <Input 
+                    {...inputProps}
+                    type="tel" 
+                    placeholder="+7 (999) 123-45-67" 
+                    required
+                  />
+                )}
+              </InputMask>
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Удобное время для звонка</label>
