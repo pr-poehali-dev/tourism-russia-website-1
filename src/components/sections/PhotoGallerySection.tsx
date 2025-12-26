@@ -452,6 +452,14 @@ const PhotoGallerySection = () => {
               });
               
               if (response.ok) {
+                console.log('✅ Форма бронирования из галереи отправлена');
+                if (typeof window !== 'undefined' && (window as any).ym) {
+                  console.log('✅ Отправка цели в Метрику: booking_submit');
+                  (window as any).ym(106027453, 'reachGoal', 'booking_submit');
+                } else {
+                  console.warn('⚠️ Яндекс.Метрика не загружена при отправке формы из галереи');
+                }
+                
                 toast({
                   title: "Заявка отправлена!",
                   description: "Мы свяжемся с вами в ближайшее время",
