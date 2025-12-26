@@ -469,8 +469,8 @@ const TourAltai = () => {
                   Забронировать тур
                 </Button>
                 <div className="text-center">
-                  <div className="text-sm text-muted-foreground">Предоплата всего 30%</div>
-                  <div className="font-bold text-lg text-primary">23 640 ₽</div>
+                  <div className="text-sm text-muted-foreground">Предоплата всего 10%</div>
+                  <div className="font-bold text-lg text-primary">7 880 ₽</div>
                 </div>
 
                 <div className="border-t pt-6 space-y-3 text-sm">
