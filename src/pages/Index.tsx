@@ -61,8 +61,8 @@ const Index = () => {
                 <Icon name="Menu" size={24} />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-6 mt-8">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
+              <div className="flex flex-col gap-6 mt-8 pb-8">
                 <nav className="flex flex-col gap-4">
                   {menuItems.map((item) => (
                     <a
