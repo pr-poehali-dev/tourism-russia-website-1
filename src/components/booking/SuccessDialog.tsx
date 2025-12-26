@@ -23,13 +23,6 @@ const SuccessDialog = ({ open, onOpenChange }: SuccessDialogProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg p-0 overflow-hidden border-4 border-primary">
         <div className="relative bg-gradient-to-br from-primary/10 via-white to-primary/5 p-8 md:p-12">
-          <button
-            onClick={handleClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-          >
-            <Icon name="X" size={20} className="text-primary" />
-          </button>
-
           <div className="flex flex-col items-center text-center space-y-6">
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary/20 flex items-center justify-center animate-bounce">
               <Icon name="CheckCircle" size={48} className="text-primary" />
