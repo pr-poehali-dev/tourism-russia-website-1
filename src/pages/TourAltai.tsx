@@ -308,7 +308,7 @@ const TourAltai = () => {
                 <div className="space-y-4 pt-6 border-t text-sm text-muted-foreground">
                   <div>
                     <h3 className="font-bold text-base mb-2 text-foreground">Как забронировать</h3>
-                    <p>Для бронирования места в группе нужно внести оплату в размере 30%.</p>
+                    <p>Для бронирования места в группе нужно внести оплату в размере 10%.</p>
                   </div>
                   <div>
                     <h3 className="font-bold text-base mb-2 text-foreground">Билеты</h3>
