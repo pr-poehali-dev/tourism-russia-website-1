@@ -187,7 +187,7 @@ const TourDetails = () => {
         <img
           src="https://cdn.poehali.dev/files/photo_2025-12-23_10-01-44.jpg"
           alt="Коньковый поход по зимнему Байкалу"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[center_30%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
