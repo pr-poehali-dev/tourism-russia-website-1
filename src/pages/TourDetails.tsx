@@ -178,7 +178,7 @@ const TourDetails = () => {
             className="flex items-center gap-2"
           >
             <Icon name="ArrowLeft" size={20} />
-            <span className="hidden sm:inline">На главную</span>
+            <span className="hidden sm:inline">Все туры</span>
           </Button>
         </div>
       </header>
