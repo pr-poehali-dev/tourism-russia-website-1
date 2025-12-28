@@ -178,23 +178,21 @@ const TourDetails = () => {
             className="flex items-center gap-2"
           >
             <Icon name="ArrowLeft" size={20} />
-            <span className="hidden sm:inline">Все туры</span>
+            <span className="hidden sm:inline">На главную</span>
           </Button>
         </div>
       </header>
 
-      <div className="relative h-[50vh] md:h-[70vh] overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://cdn.poehali.dev/files/2025-12-28_12-32-05.png)',
-            backgroundPosition: 'center 25%'
-          }}
+      <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
+        <img
+          src="https://cdn.poehali.dev/files/photo_2025-12-23_10-01-44.jpg"
+          alt="Коньковый поход по зимнему Байкалу"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-        <div className="absolute inset-0 flex items-end">
-          <div className="container mx-auto px-6 md:px-12 pb-12 md:pb-16">
-            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-3">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+          <div className="container mx-auto">
+            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">
               Коньковый поход по зимнему Байкалу
             </h1>
             <p className="text-lg md:text-xl text-white/90">можно пешком, если нет желания на коньках</p>
