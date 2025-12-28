@@ -188,7 +188,7 @@ const TourDetails = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'url(https://cdn.poehali.dev/files/2025-12-28_12-32-05.png)',
-            backgroundPosition: 'center 40%'
+            backgroundPosition: 'center 25%'
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
