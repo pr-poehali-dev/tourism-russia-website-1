@@ -185,9 +185,9 @@ const TourDetails = () => {
 
       <div className="relative h-[40vh] md:h-[60vh] overflow-hidden">
         <img
-          src="https://cdn.poehali.dev/files/photo_2025-12-23_10-01-44.jpg"
+          src="https://cdn.poehali.dev/files/2025-12-28_12-32-05.png"
           alt="Коньковый поход по зимнему Байкалу"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_35%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
