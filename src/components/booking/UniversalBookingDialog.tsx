@@ -94,10 +94,10 @@ const UniversalBookingDialog = ({
   return (
     <>
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
           <DialogHeader>
-            <DialogTitle className="text-2xl">Оставить заявку на тур и получить сертификат на 5000р!</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-lg sm:text-2xl leading-tight">Оставить заявку на тур и получить сертификат на 5000р!</DialogTitle>
+            <DialogDescription className="text-sm">
               Заполните форму, и мы свяжемся с вами в ближайшее время
             </DialogDescription>
           </DialogHeader>
