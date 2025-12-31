@@ -431,16 +431,16 @@ const PhotoGallerySection = () => {
       </DialogPrimitive.Root>
 
       <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="max-w-md w-[95vw] sm:w-full max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-md w-[95vw] sm:w-full max-h-[95vh] overflow-y-auto p-4 sm:p-6">
           <DialogHeader>
-            <DialogTitle className="text-lg sm:text-2xl font-heading leading-tight">
+            <DialogTitle className="text-base sm:text-2xl font-heading leading-tight">
               Забронировать тур
             </DialogTitle>
             <DialogDescription className="text-sm">
               Заполните форму, и мы свяжемся с вами в ближайшее время
             </DialogDescription>
           </DialogHeader>
-          <form className="space-y-4" onSubmit={async (e) => {
+          <form className="space-y-3 sm:space-y-4" onSubmit={async (e) => {
             e.preventDefault();
             setIsSubmitting(true);
             

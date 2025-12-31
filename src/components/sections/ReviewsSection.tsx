@@ -318,18 +318,19 @@ const ReviewsSection = () => {
             )}
           </div>
           
-          <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-6 hover:scale-105 hover:shadow-lg transition-all duration-300"
+          <div className="text-center mt-12 px-4">
+            <button 
               onClick={() => {
                 setShowBookingForm(true);
                 if (typeof window !== 'undefined' && (window as any).ym) {
                   (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
                 }
               }}
-              className="text-sm sm:text-lg"
-            >Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</Button>
+              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2 mx-auto"
+            >
+              <Icon name="Ticket" size={16} className="flex-shrink-0" />
+              <span className="leading-tight">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
+            </button>
           </div>
         </div>
       </section>

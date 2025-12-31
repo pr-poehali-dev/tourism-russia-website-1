@@ -47,7 +47,7 @@ const BookingDialog = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
+      <DialogContent className="max-w-md max-h-[95vh] overflow-y-auto w-[95vw] sm:w-full p-4 sm:p-6">
         <DialogHeader>
           <DialogTitle className="text-base sm:text-2xl leading-tight">Оставить заявку на тур 🎁</DialogTitle>
           <DialogDescription className="text-sm">

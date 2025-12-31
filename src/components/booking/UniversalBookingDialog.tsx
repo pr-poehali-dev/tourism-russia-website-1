@@ -94,16 +94,16 @@ const UniversalBookingDialog = ({
   return (
     <>
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
+        <DialogContent className="max-w-md max-h-[95vh] overflow-y-auto w-[95vw] sm:w-full p-4 sm:p-6">
           <DialogHeader>
             <DialogTitle className="text-base sm:text-2xl leading-tight">Оставить заявку на тур 🎁</DialogTitle>
             <DialogDescription className="text-sm">
               Заполните форму, и мы свяжемся с вами в ближайшее время
             </DialogDescription>
           </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           <div>
-            <label className="text-sm font-medium mb-2 block">Ваше имя *</label>
+            <label className="text-sm font-medium mb-1.5 block">Ваше имя *</label>
             <Input
               placeholder="Иван Иванов"
               value={formData.name}
@@ -113,7 +113,7 @@ const UniversalBookingDialog = ({
           </div>
           
           <div>
-            <label className="text-sm font-medium mb-2 block">Телефон *</label>
+            <label className="text-sm font-medium mb-1.5 block">Телефон *</label>
             <InputMask
               mask="+7 (999) 999-99-99"
               value={formData.phone}
@@ -131,7 +131,7 @@ const UniversalBookingDialog = ({
           </div>
 
           <div>
-            <label className="text-sm font-medium mb-2 block">Email *</label>
+            <label className="text-sm font-medium mb-1.5 block">Email *</label>
             <Input
               type="email"
               placeholder="example@mail.ru"
@@ -142,7 +142,7 @@ const UniversalBookingDialog = ({
           </div>
 
           <div>
-            <label className="text-sm font-medium mb-2 block">Выберите тур *</label>
+            <label className="text-sm font-medium mb-1.5 block">Выберите тур *</label>
             <Select 
               value={formData.tour} 
               onValueChange={(value) => setFormData({ ...formData, tour: value })}
@@ -162,19 +162,20 @@ const UniversalBookingDialog = ({
           </div>
 
           <div>
-            <label className="text-sm font-medium mb-2 block">Комментарий</label>
+            <label className="text-sm font-medium mb-1.5 block">Комментарий</label>
             <Textarea
               placeholder="Дополнительная информация или вопросы..."
               value={formData.comment}
               onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-              rows={4}
+              rows={2}
+              className="min-h-[60px]"
             />
           </div>
 
           <Button 
             type="submit" 
             className="w-full" 
-            size="lg"
+            size="default"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
