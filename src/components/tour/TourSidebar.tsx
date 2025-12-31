@@ -41,8 +41,8 @@ const TourSidebar = ({ onBookingClick }: TourSidebarProps) => {
             className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
             size="lg"
           >
-            <Icon name="Calendar" size={20} className="mr-2" />
-            Забронировать место
+            <Icon name="Ticket" size={20} className="mr-2" />
+            Оставить заявку на тур и получить сертификат на 5000р!
           </Button>
 
           <div className="border-t pt-4">

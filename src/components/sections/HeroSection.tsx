@@ -38,11 +38,11 @@ const HeroSection = () => {
           </div>
           
           <button 
-            onClick={() => document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full font-bold text-sm transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2"
           >
-            <Icon name="Compass" size={16} />
-            Подобрать тур
+            <Icon name="Ticket" size={16} />
+            Оставить заявку на тур и получить сертификат на 5000р!
           </button>
         </div>
       </div>
