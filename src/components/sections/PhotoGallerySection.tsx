@@ -429,12 +429,12 @@ const PhotoGallerySection = () => {
       </DialogPrimitive.Root>
 
       <Dialog open={showBookingForm} onOpenChange={setShowBookingForm}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-md w-[95vw] sm:w-full max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-heading">
+            <DialogTitle className="text-lg sm:text-2xl font-heading leading-tight">
               Забронировать тур
             </DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-sm">
               Заполните форму, и мы свяжемся с вами в ближайшее время
             </DialogDescription>
           </DialogHeader>

@@ -21,7 +21,7 @@ const SuccessDialog = ({ open, onOpenChange }: SuccessDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg p-0 overflow-hidden border-4 border-primary">
+      <DialogContent className="max-w-lg p-0 overflow-hidden border-4 border-primary w-[95vw] sm:w-full">
         <div className="relative bg-gradient-to-br from-primary/10 via-white to-primary/5 p-8 md:p-12">
           <div className="flex flex-col items-center text-center space-y-6">
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary/20 flex items-center justify-center animate-bounce">

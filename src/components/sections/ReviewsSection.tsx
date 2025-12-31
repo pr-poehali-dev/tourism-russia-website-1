@@ -328,13 +328,17 @@ const ReviewsSection = () => {
                   (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
                 }
               }}
-            >Оставить заявку на тур и получить сертификат на 5 000р🎁</Button>
+              className="text-sm sm:text-lg"
+            >
+              <Icon name="Ticket" size={20} className="mr-2" />
+              Оставить заявку и получить сертификат 5000р!
+            </Button>
           </div>
         </div>
       </section>
 
       <Dialog open={selectedReview !== null} onOpenChange={() => setSelectedReview(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
           {selectedReview && (
             <>
               <DialogHeader>

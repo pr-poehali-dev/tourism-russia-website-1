@@ -77,7 +77,7 @@ const BenefitsSection = () => {
       </section>
 
       <Dialog open={selectedBenefit !== null} onOpenChange={() => setSelectedBenefit(null)}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl w-[95vw] sm:w-full max-h-[90vh] overflow-y-auto">
           {selectedBenefit !== null && (
             <>
               <DialogHeader>
