@@ -134,6 +134,22 @@ const ToursSection = () => {
                         alt={tour.title}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
+                      {(tour.id === 1 || tour.id === 2) && (
+                        <div className="absolute top-0 left-0 flex flex-col gap-2 z-10">
+                          <div className="relative bg-red-500 text-white px-4 py-2 font-bold text-sm uppercase shadow-lg"
+                               style={{
+                                 clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)'
+                               }}>
+                            Хит продаж
+                          </div>
+                          <div className="relative bg-orange-500 text-white px-4 py-2 font-bold text-sm shadow-lg"
+                               style={{
+                                 clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0 100%)'
+                               }}>
+                            Осталось 7 мест
+                          </div>
+                        </div>
+                      )}
                     </div>
                     <CardHeader>
                       <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
