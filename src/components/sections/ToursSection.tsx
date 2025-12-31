@@ -152,12 +152,10 @@ const ToursSection = () => {
                       )}
                       {tour.id === 2 && (
                         <div className="absolute top-0 left-0 flex flex-col gap-2 z-10">
-                          <div className="relative bg-red-500 text-white px-4 py-2 font-bold text-sm uppercase shadow-lg"
+                          <div className="relative text-white px-4 py-2 font-bold text-sm uppercase shadow-lg bg-green-600"
                                style={{
                                  clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)'
-                               }}>
-                            Самый душевный тур
-                          </div>
+                               }}>самый душевный тур</div>
                           <div className="relative bg-orange-500 text-white px-4 py-2 font-bold text-sm shadow-lg"
                                style={{
                                  clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0 100%)'
