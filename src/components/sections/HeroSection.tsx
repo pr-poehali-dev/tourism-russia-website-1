@@ -40,7 +40,7 @@ const HeroSection = () => {
             
             <p className="text-xs md:text-sm text-center font-medium flex items-center justify-center gap-2">
               При 100% оплате тура Вы получаете сертификат на одежду и снаряжение на 5000р!
-              <Icon name="Gift" size={20} className="text-red-500 flex-shrink-0" />
+              <span className="text-xl">🎁</span>
             </p>
           </div>
           
