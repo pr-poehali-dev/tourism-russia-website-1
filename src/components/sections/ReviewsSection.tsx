@@ -328,10 +328,7 @@ const ReviewsSection = () => {
                   (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
                 }
               }}
-            >
-              <Icon name="Calendar" size={20} className="mr-2" />
-              Забронировать тур
-            </Button>
+            >Забронировать тур и получить сертификат на 5 000р</Button>
           </div>
         </div>
       </section>
