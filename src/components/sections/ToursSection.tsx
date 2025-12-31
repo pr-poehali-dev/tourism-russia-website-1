@@ -162,7 +162,7 @@ const ToursSection = () => {
                                style={{
                                  clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0 100%)'
                                }}>
-                            Осталось 7 мест
+                            Осталось 9 мест
                           </div>
                         </div>
                       )}
