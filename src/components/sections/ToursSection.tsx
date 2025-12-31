@@ -209,14 +209,13 @@ const ToursSection = () => {
           ))}
         </Tabs>
         <div className="text-center mt-12 px-4">
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300 text-base md:text-lg px-4 md:px-8 py-4 md:py-6 w-full sm:w-auto"
+          <button 
             onClick={() => setShowBookingForm(true)}
+            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2 mx-auto"
           >
-            <span className="hidden sm:inline">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
-            <span className="sm:hidden">Оставить заявку 🎁</span>
-          </Button>
+            <Icon name="Ticket" size={16} className="flex-shrink-0" />
+            <span className="leading-tight">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
+          </button>
         </div>
       </div>
 

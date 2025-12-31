@@ -36,15 +36,13 @@ const TourSidebar = ({ onBookingClick }: TourSidebarProps) => {
             </ul>
           </div>
 
-          <Button 
+          <button 
             onClick={onBookingClick}
-            className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 md:py-6 text-sm md:text-lg leading-tight"
-            size="lg"
+            className="w-full bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-4 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2"
           >
-            <Icon name="Ticket" size={20} className="mr-2 flex-shrink-0" />
-            <span className="hidden sm:inline">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
-            <span className="sm:hidden">Оставить заявку 🎁</span>
-          </Button>
+            <Icon name="Ticket" size={16} className="flex-shrink-0" />
+            <span className="leading-tight">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
+          </button>
 
           <div className="border-t pt-4">
             <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
