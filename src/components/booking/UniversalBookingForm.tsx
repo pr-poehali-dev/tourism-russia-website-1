@@ -92,9 +92,9 @@ const UniversalBookingForm = ({
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
       <div>
-        <label className="text-sm font-medium mb-2 block">Ваше имя *</label>
+        <label className="text-sm font-medium mb-1.5 block">Ваше имя *</label>
         <Input
           placeholder="Иван Иванов"
           value={formData.name}
@@ -104,7 +104,7 @@ const UniversalBookingForm = ({
       </div>
       
       <div>
-        <label className="text-sm font-medium mb-2 block">Телефон *</label>
+        <label className="text-sm font-medium mb-1.5 block">Телефон *</label>
         <InputMask
           mask="+7 (999) 999-99-99"
           value={formData.phone}
@@ -122,7 +122,7 @@ const UniversalBookingForm = ({
       </div>
 
       <div>
-        <label className="text-sm font-medium mb-2 block">Email *</label>
+        <label className="text-sm font-medium mb-1.5 block">Email *</label>
         <Input
           type="email"
           placeholder="example@mail.ru"
@@ -133,7 +133,7 @@ const UniversalBookingForm = ({
       </div>
 
       <div>
-        <label className="text-sm font-medium mb-2 block">Выберите тур *</label>
+        <label className="text-sm font-medium mb-1.5 block">Выберите тур *</label>
         <Select 
           value={formData.tour} 
           onValueChange={(value) => setFormData({ ...formData, tour: value })}
@@ -153,19 +153,20 @@ const UniversalBookingForm = ({
       </div>
 
       <div>
-        <label className="text-sm font-medium mb-2 block">Комментарий</label>
+        <label className="text-sm font-medium mb-1.5 block">Комментарий</label>
         <Textarea
           placeholder="Дополнительная информация или вопросы..."
           value={formData.comment}
           onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-          rows={4}
+          rows={3}
+          className="min-h-[80px]"
         />
       </div>
 
       <Button 
         type="submit" 
         className="w-full hover:scale-105 transition-all duration-300 hover:shadow-lg" 
-        size="lg"
+        size="default"
         disabled={isSubmitting}
       >
         {isSubmitting ? (

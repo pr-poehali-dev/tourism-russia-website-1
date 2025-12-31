@@ -5,13 +5,13 @@ import UniversalBookingForm from "@/components/booking/UniversalBookingForm";
 const ContactsSection = () => {
   return (
     <>
-      <section id="contacts" className="py-20">
+      <section id="contacts" className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Свяжитесь с нами</h2>
             <p className="text-base md:text-lg text-muted-foreground">Мы ответим на все ваши вопросы</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 max-w-4xl mx-auto">
             <div className="space-y-6">
               <Card>
                 <CardHeader>
