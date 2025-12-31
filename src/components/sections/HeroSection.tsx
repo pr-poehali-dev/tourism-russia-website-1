@@ -15,26 +15,32 @@ const HeroSection = () => {
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-4 md:mb-6">Душевные туры по России</h1>
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-2xl mx-auto">Путешествия с Антоном и Эмилем</p>
         
-        <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 max-w-2xl mx-auto border border-white/20">
-          <h2 className="text-sm md:text-base font-bold mb-2">
-            КОМФОРТНАЯ СХЕМА ОПЛАТЫ
-          </h2>
-          
-          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-3 items-center">
-            <div className="bg-gradient-to-br from-green-300 to-green-400 rounded-full w-14 h-14 md:w-16 md:h-16 flex flex-col items-center justify-center shadow-lg mx-auto">
-              <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Взнос</div>
-              <div className="text-base md:text-lg font-bold">10%</div>
+        <div className="space-y-4 max-w-2xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 border border-white/20">
+            <h2 className="text-sm md:text-base font-bold mb-2">
+              КОМФОРТНАЯ СХЕМА ОПЛАТЫ
+            </h2>
+            
+            <div className="grid grid-cols-3 gap-3 md:gap-4 mb-3 items-center">
+              <div className="bg-gradient-to-br from-green-300 to-green-400 rounded-full w-14 h-14 md:w-16 md:h-16 flex flex-col items-center justify-center shadow-lg mx-auto">
+                <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Взнос</div>
+                <div className="text-base md:text-lg font-bold">10%</div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-green-400 to-green-500 rounded-full w-16 h-16 md:w-20 md:h-20 flex flex-col items-center justify-center shadow-lg mx-auto">
+                <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">30 дней до тура</div>
+                <div className="text-lg md:text-xl font-bold">30%</div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
+                <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">1-й день тура</div>
+                <div className="text-xl md:text-2xl font-bold">60%</div>
+              </div>
             </div>
             
-            <div className="bg-gradient-to-br from-green-400 to-green-500 rounded-full w-16 h-16 md:w-20 md:h-20 flex flex-col items-center justify-center shadow-lg mx-auto">
-              <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">30 дней до тура</div>
-              <div className="text-lg md:text-xl font-bold">30%</div>
-            </div>
-            
-            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto">
-              <div className="text-[9px] md:text-[10px] font-medium mb-0.5 uppercase text-center leading-tight px-1">1-й день тура</div>
-              <div className="text-xl md:text-2xl font-bold">60%</div>
-            </div>
+            <p className="text-xs md:text-sm text-center font-medium">
+              При 100% оплате тура Вы получаете сертификат на одежду и снаряжение на 5000р!
+            </p>
           </div>
           
           <button 
