@@ -1,7 +1,17 @@
 import Icon from "@/components/ui/icon";
+import React from "react";
+import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 const HeroSection = () => {
+  const [showBookingForm, setShowBookingForm] = React.useState(false);
+
   return (
+    <>
+      <UniversalBookingDialog 
+        open={showBookingForm} 
+        onOpenChange={setShowBookingForm}
+      />
+    
     <section id="home" className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -44,13 +54,17 @@ const HeroSection = () => {
             </p>
           </div>
           
-          <button className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2 text-xl font-extrabold" 
-            onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
+          <button 
+            onClick={() => setShowBookingForm(true)}
             className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full font-bold text-sm transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2"
-          >Забронировать тур и получить сертификат на 5 000р🎁</button>
+          >
+            <Icon name="Ticket" size={16} />
+            Оставить заявку на тур и получить сертификат на 5000р!
+          </button>
         </div>
       </div>
     </section>
+    </>
   );
 };
 
