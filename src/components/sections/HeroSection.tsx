@@ -38,12 +38,9 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-yellow-400/90 to-orange-400/90 rounded-lg p-2 md:p-3 flex items-center justify-center gap-2">
-              <Icon name="Gift" size={20} className="text-white flex-shrink-0" />
-              <p className="text-xs md:text-sm text-center font-bold text-white">
-                При 100% оплате тура Вы получаете сертификат на одежду и снаряжение на 5000р!
-              </p>
-            </div>
+            <p className="text-xs md:text-sm text-center font-medium">
+              При 100% оплате тура Вы получаете сертификат на одежду и снаряжение на 5000р!
+            </p>
           </div>
           
           <button 
