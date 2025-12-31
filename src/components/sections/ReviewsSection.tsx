@@ -328,7 +328,7 @@ const ReviewsSection = () => {
                   (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
                 }
               }}
-            >Забронировать тур и получить сертификат на 5 000р🎁</Button>
+            >Оставить заявку на тур и получить сертификат на 5 000р🎁</Button>
           </div>
         </div>
       </section>

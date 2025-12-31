@@ -338,7 +338,7 @@ const PhotoGallerySection = () => {
               size="lg" 
               className="text-lg px-8 py-6 hover:scale-105 hover:shadow-lg transition-all duration-300"
               onClick={() => setShowBookingForm(true)}
-            >Забронировать тур и получить сертификат на 5 000р🎁</Button>
+            >Оставить заявку на тур и получить сертификат на 5 000р🎁</Button>
           </div>
         </div>
       </section>
