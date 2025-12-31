@@ -183,7 +183,7 @@ const ToursSection = () => {
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300 text-lg px-8 py-6"
             onClick={() => setShowBookingForm(true)}
-          >Забронировать тур и получить сертификат на 5 000р</Button>
+          >Забронировать тур и получить сертификат на 5 000р🎁</Button>
         </div>
       </div>
 
