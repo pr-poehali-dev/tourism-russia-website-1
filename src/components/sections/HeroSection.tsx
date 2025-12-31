@@ -38,15 +38,21 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <p className="text-xs md:text-sm text-center font-medium">
-              При 100% оплате тура Вы получаете сертификат на одежду и снаряжение на 5000р!
-            </p>
+            <div className="bg-gradient-to-r from-yellow-400/90 to-orange-400/90 rounded-lg p-2 md:p-3 flex items-center justify-center gap-2">
+              <Icon name="Gift" size={20} className="text-white flex-shrink-0" />
+              <p className="text-xs md:text-sm text-center font-bold text-white">
+                При 100% оплате тура Вы получаете сертификат на одежду и снаряжение на 5000р!
+              </p>
+            </div>
           </div>
           
-          <button className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2 text-xl font-extrabold" 
+          <button 
             onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full font-bold text-sm transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2"
-          >Забронировать тур и получить сертификат на 5 000 р</button>
+          >
+            <Icon name="Ticket" size={16} />
+            Оставить заявку на тур и получить сертификат на 5000р!
+          </button>
         </div>
       </div>
     </section>
