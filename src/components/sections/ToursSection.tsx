@@ -208,12 +208,15 @@ const ToursSection = () => {
             </TabsContent>
           ))}
         </Tabs>
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 px-4">
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300 text-lg px-8 py-6"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300 text-base md:text-lg px-4 md:px-8 py-4 md:py-6 w-full sm:w-auto"
             onClick={() => setShowBookingForm(true)}
-          >Оставить заявку на тур и получить сертификат на 5 000р🎁</Button>
+          >
+            <span className="hidden sm:inline">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
+            <span className="sm:hidden">Оставить заявку 🎁</span>
+          </Button>
         </div>
       </div>
 

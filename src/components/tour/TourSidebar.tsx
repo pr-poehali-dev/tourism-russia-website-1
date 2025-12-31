@@ -38,11 +38,12 @@ const TourSidebar = ({ onBookingClick }: TourSidebarProps) => {
 
           <Button 
             onClick={onBookingClick}
-            className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
+            className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 md:py-6 text-sm md:text-lg leading-tight"
             size="lg"
           >
-            <Icon name="Ticket" size={20} className="mr-2" />
-            Оставить заявку на тур и получить сертификат на 5000р!
+            <Icon name="Ticket" size={20} className="mr-2 flex-shrink-0" />
+            <span className="hidden sm:inline">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
+            <span className="sm:hidden">Оставить заявку 🎁</span>
           </Button>
 
           <div className="border-t pt-4">

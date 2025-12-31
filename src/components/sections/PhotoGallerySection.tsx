@@ -336,9 +336,12 @@ const PhotoGallerySection = () => {
           <div className="text-center mt-12">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6 hover:scale-105 hover:shadow-lg transition-all duration-300"
+              className="text-base md:text-lg px-4 md:px-8 py-4 md:py-6 hover:scale-105 hover:shadow-lg transition-all duration-300"
               onClick={() => setShowBookingForm(true)}
-            >Оставить заявку на тур и получить сертификат на 5 000р🎁</Button>
+            >
+              <span className="hidden sm:inline">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
+              <span className="sm:hidden">Оставить заявку 🎁</span>
+            </Button>
           </div>
         </div>
       </section>
