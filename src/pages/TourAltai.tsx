@@ -440,64 +440,53 @@ const TourAltai = () => {
           </div>
 
           <div className="lg:col-span-1">
-            <Card className="lg:sticky lg:top-24">
-              <CardContent className="p-6 md:p-8 space-y-6">
-                <div>
-                  <div className="text-sm text-muted-foreground mb-2">Стоимость тура</div>
-                  <div className="text-4xl font-bold text-primary mb-4">78 800 ₽</div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <Icon name="Calendar" size={16} className="text-muted-foreground" />
-                      <span className="text-muted-foreground">5-16 июля 2026 года</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Icon name="Clock" size={16} className="text-muted-foreground" />
-                      <span className="text-muted-foreground">12 дней / 11 ночей</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Icon name="MapPin" size={16} className="text-muted-foreground" />
-                      <span className="text-muted-foreground">Горно-Алтайск</span>
-                    </div>
+            <div className="sticky top-24 space-y-6">
+              <Card className="border-2 border-primary">
+                <CardContent className="p-6">
+                  <div className="text-center mb-4">
+                    <div className="text-sm text-muted-foreground mb-2">Даты тура</div>
+                    <div className="font-bold text-lg">5-16 июля 2026 года</div>
                   </div>
-                </div>
+                  <div className="text-center mb-6">
+                    <div className="text-4xl font-bold text-primary mb-2">78 800 ₽</div>
+                    <div className="text-sm text-muted-foreground">за человека</div>
+                  </div>
+                  <Button
+                    size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:scale-105 hover:shadow-lg"
+                    onClick={() => {
+                      setShowBookingForm(true);
+                      if (typeof window !== 'undefined' && (window as any).ym) {
+                        (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
+                      }
+                    }}
+                  >
+                    <Icon name="Calendar" size={20} className="mr-2" />
+                    Забронировать место
+                  </Button>
+                  <div className="mt-4 text-center">
+                    <div className="text-sm text-muted-foreground">Предоплата всего 10%</div>
+                    <div className="font-bold text-lg text-primary">7 880 ₽</div>
+                  </div>
+                </CardContent>
+              </Card>
 
-                <Button 
-                  onClick={() => {
-                    console.log('🎯 Клик на кнопку бронирования');
-                    setShowBookingForm(true);
-                    if (typeof window !== 'undefined' && (window as any).ym) {
-                      console.log('✅ Отправка цели в Метрику: booking_button_click');
-                      (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
-                    } else {
-                      console.warn('⚠️ Яндекс.Метрика не загружена');
-                    }
-                  }}
-                  className="w-full transition-all hover:scale-105 hover:shadow-lg"
-                  size="lg"
-                >
-                  Забронировать тур
-                </Button>
-                <div className="text-center">
-                  <div className="text-sm text-muted-foreground">Предоплата всего 10%</div>
-                  <div className="font-bold text-lg text-primary">7 880 ₽</div>
-                </div>
-
-                <div className="border-t pt-6 space-y-3 text-sm">
-                  <div className="flex items-center gap-3">
-                    <Icon name="Phone" size={18} className="text-primary" />
-                    <a href="tel:+79655615153" className="hover:text-primary transition-colors">
-                      +7 965 561-51-53
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-bold text-lg mb-4">Контакты</h3>
+                  <div className="space-y-3">
+                    <a href="tel:+79655615153" className="flex items-center gap-3 hover:text-primary transition-colors">
+                      <Icon name="Phone" size={20} />
+                      <span>+7 965 561-51-53</span>
+                    </a>
+                    <a href="mailto:rukzaklife@mail.ru" className="flex items-center gap-3 hover:text-primary transition-colors">
+                      <Icon name="Mail" size={20} />
+                      <span>rukzaklife@mail.ru</span>
                     </a>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Icon name="Mail" size={18} className="text-primary" />
-                    <a href="mailto:rukzaklife@mail.ru" className="hover:text-primary transition-colors">
-                      rukzaklife@mail.ru
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

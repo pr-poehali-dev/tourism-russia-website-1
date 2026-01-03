@@ -226,13 +226,17 @@ const TourDagestan = () => {
                 <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">Программа тура</h2>
                 <div className="space-y-6">
                   {program.map((day, index) => (
-                    <div key={index} className="border-l-4 border-primary pl-4 py-2">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-                        <h3 className="font-heading font-bold text-lg md:text-xl">{day.day}</h3>
-                        <span className="text-sm text-muted-foreground">{day.distance}</span>
+                    <div key={index} className="border-l-4 border-primary pl-6 py-2">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="font-heading font-bold text-xl">{day.day}</h3>
+                        {day.distance && (
+                          <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
+                            {day.distance}
+                          </span>
+                        )}
                       </div>
                       <h4 className="font-semibold text-base mb-2">{day.title}</h4>
-                      <p className="text-sm md:text-base text-muted-foreground">{day.description}</p>
+                      <p className="text-muted-foreground leading-relaxed">{day.description}</p>
                     </div>
                   ))}
                 </div>
@@ -335,69 +339,48 @@ const TourDagestan = () => {
           </div>
 
           <div className="lg:col-span-1">
-            <Card className="sticky top-20">
-              <CardContent className="p-6">
-                <div className="space-y-6">
-                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border-2 border-primary/20">
-                    <div className="text-sm text-muted-foreground mb-2">Стоимость тура</div>
-                    <div className="text-4xl font-bold mb-4">45 600 ₽</div>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <Icon name="Calendar" size={16} className="text-muted-foreground" />
-                        <span className="text-muted-foreground">1-7 мая 2026 года</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Icon name="Clock" size={16} className="text-muted-foreground" />
-                        <span className="text-muted-foreground">7 дней / 6 ночей</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Icon name="MapPin" size={16} className="text-muted-foreground" />
-                        <span className="text-muted-foreground">Махачкала</span>
-                      </div>
-                    </div>
+            <div className="sticky top-24 space-y-6">
+              <Card className="border-2 border-primary">
+                <CardContent className="p-6">
+                  <div className="text-center mb-4">
+                    <div className="text-sm text-muted-foreground mb-2">Даты тура</div>
+                    <div className="font-bold text-lg">1-7 мая 2026 г</div>
                   </div>
-
-                  <div className="space-y-4">
-                    {tourInfo.map((info, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Icon name={info.icon as any} size={20} className="text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <p className="text-xs text-muted-foreground uppercase tracking-wide">{info.label}</p>
-                          <p className="text-sm font-medium mt-0.5">{info.value}</p>
-                        </div>
-                      </div>
-                    ))}
+                  <div className="text-center mb-6">
+                    <div className="text-4xl font-bold text-primary mb-2">45 600 ₽</div>
+                    <div className="text-sm text-muted-foreground">за человека</div>
                   </div>
-
-                  <Button 
-                    onClick={() => setShowBookingForm(true)}
-                    className="w-full transition-all hover:scale-105 hover:shadow-lg"
+                  <Button
                     size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:scale-105 hover:shadow-lg"
+                    onClick={() => setShowBookingForm(true)}
                   >
-                    Забронировать тур
+                    <Icon name="Calendar" size={20} className="mr-2" />
+                    Забронировать место
                   </Button>
-                  <div className="text-center">
+                  <div className="mt-4 text-center">
                     <div className="text-sm text-muted-foreground">Предоплата всего 10%</div>
                     <div className="font-bold text-lg text-primary">4 560 ₽</div>
                   </div>
+                </CardContent>
+              </Card>
 
-                  <div className="border-t pt-6 space-y-3 text-sm">
-                    <div className="flex items-center gap-3">
-                      <Icon name="Phone" size={18} className="text-primary" />
-                      <a href="tel:+79655615153" className="hover:text-primary transition-colors">
-                        +7 965 561-51-53
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Icon name="Mail" size={18} className="text-primary" />
-                      <a href="mailto:rukzaklife@mail.ru" className="hover:text-primary transition-colors">
-                        rukzaklife@mail.ru
-                      </a>
-                    </div>
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-bold text-lg mb-4">Контакты</h3>
+                  <div className="space-y-3">
+                    <a href="tel:+79655615153" className="flex items-center gap-3 hover:text-primary transition-colors">
+                      <Icon name="Phone" size={20} />
+                      <span>+7 965 561-51-53</span>
+                    </a>
+                    <a href="mailto:rukzaklife@mail.ru" className="flex items-center gap-3 hover:text-primary transition-colors">
+                      <Icon name="Mail" size={20} />
+                      <span>rukzaklife@mail.ru</span>
+                    </a>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
