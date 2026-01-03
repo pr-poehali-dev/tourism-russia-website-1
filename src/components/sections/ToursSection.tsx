@@ -15,6 +15,7 @@ interface Tour {
   price: string;
   difficulty: string;
   image: string;
+  url: string;
 }
 
 const ToursSection = () => {
@@ -31,6 +32,7 @@ const ToursSection = () => {
       price: "75 000 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/files/2z7a6771.jpg",
+      url: "/tour/baikal-skating",
     },
     {
       id: 2,
@@ -41,6 +43,7 @@ const ToursSection = () => {
       price: "61 000 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/files/IMG_5107.jpg",
+      url: "/tour/baikal-tents",
     },
     {
       id: 6,
@@ -51,6 +54,7 @@ const ToursSection = () => {
       price: "45 600 ₽",
       difficulty: "Средний",
       image: "https://cdn.poehali.dev/files/photo_2025-12-23_11-28-42.jpg",
+      url: "/tour/dagestan",
     },
     {
       id: 3,
@@ -61,6 +65,7 @@ const ToursSection = () => {
       price: "78 800 ₽",
       difficulty: "Средний",
       image: "https://cdn.poehali.dev/files/ozz-q6fkgwprn4f2igi58odrec2ov3kk0uj0u7w4k4es9c.jpg",
+      url: "/tour/altai-belukha",
     },
     {
       id: 4,
@@ -71,6 +76,7 @@ const ToursSection = () => {
       price: "83 200 ₽",
       difficulty: "Средний",
       image: "https://cdn.poehali.dev/files/photo_2025-12-23_11-41-12.jpg",
+      url: "/tour/kamchatka",
     },
     {
       id: 5,
@@ -81,6 +87,7 @@ const ToursSection = () => {
       price: "92 000 ₽",
       difficulty: "Сложный",
       image: "https://cdn.poehali.dev/files/IMG_4203.jpg",
+      url: "/tour/kolyma",
     },
   ];
 
@@ -182,21 +189,7 @@ const ToursSection = () => {
                       <Button 
                         variant="outline" 
                         className="w-full bg-white hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 border-2 border-primary"
-                        onClick={() => {
-                          if (tour.id === 1) {
-                            navigate('/tour/baikal-skating');
-                          } else if (tour.id === 2) {
-                            navigate('/tour/baikal-tents');
-                          } else if (tour.id === 3) {
-                            navigate('/tour/altai-belukha');
-                          } else if (tour.id === 4) {
-                            navigate('/tour/kamchatka');
-                          } else if (tour.id === 5) {
-                            navigate('/tour/kolyma');
-                          } else if (tour.id === 6) {
-                            navigate('/tour/dagestan');
-                          }
-                        }}
+                        onClick={() => navigate(tour.url)}
                       >
                         <Icon name="ArrowRight" size={16} className="mr-2" />
                         Подробнее
