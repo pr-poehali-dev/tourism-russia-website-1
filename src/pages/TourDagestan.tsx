@@ -298,14 +298,40 @@ const TourDagestan = () => {
             <Card>
               <CardContent className="p-6 md:p-8">
                 <h2 className="font-heading font-bold text-2xl md:text-3xl mb-4">Как забронировать</h2>
+                <div className="bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-lg p-6 mb-6">
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="bg-primary text-primary-foreground rounded-full p-2">
+                      <Icon name="Wallet" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">Предоплата для бронирования</h3>
+                      <p className="text-3xl font-bold text-primary">13 680 ₽</p>
+                      <p className="text-sm text-muted-foreground mt-1">30% от стоимости тура</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Icon name="CheckCircle" size={16} className="text-green-600" />
+                      <span>Остаток <strong>31 920 ₽</strong> оплачивается гиду в первый день похода</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Icon name="Shield" size={16} className="text-blue-600" />
+                      <span>Ваше место гарантировано после внесения предоплаты</span>
+                    </div>
+                  </div>
+                </div>
                 <ul className="space-y-3 text-sm md:text-base">
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                    <span>Для бронирования места нужно внести предоплату в размере <strong>30% от стоимости тура</strong>.</span>
+                    <span>Нажмите кнопку «Забронировать тур» и заполните форму</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                    <span>Остальная сумма оплачивается гиду в день начала тура.</span>
+                    <span>Мы свяжемся с вами для подтверждения и отправим реквизиты</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-0.5" />
+                    <span>После оплаты предоплаты вы получите подтверждение бронирования</span>
                   </li>
                 </ul>
               </CardContent>
@@ -343,6 +369,19 @@ const TourDagestan = () => {
                       <span className="text-3xl md:text-4xl font-bold">45 600 ₽</span>
                     </div>
                     <p className="text-sm text-muted-foreground">Стоимость тура на человека</p>
+                  </div>
+
+                  <div className="bg-green-50 border-l-4 border-green-500 p-4">
+                    <p className="text-sm font-semibold text-green-900 mb-2">
+                      <Icon name="Info" size={18} className="inline mr-2" />
+                      Для бронирования
+                    </p>
+                    <p className="text-sm text-green-800">
+                      Предоплата: <strong>13 680 ₽</strong> (30%)
+                    </p>
+                    <p className="text-xs text-green-700 mt-1">
+                      Остаток оплачивается гиду в первый день
+                    </p>
                   </div>
 
                   <div className="space-y-4">
