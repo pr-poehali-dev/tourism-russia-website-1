@@ -19,6 +19,7 @@ interface Review {
   images?: string[];
   link?: string;
   videoUrl?: string;
+  videoFile?: string;
 }
 
 const ReviewsSection = () => {
@@ -362,7 +363,19 @@ const ReviewsSection = () => {
                 <p className="text-base leading-relaxed text-muted-foreground italic">
                   "{selectedReview.text}"
                 </p>
-                {selectedReview.videoUrl && (
+                {selectedReview.videoFile && (
+                  <div className="w-full mt-4">
+                    <video 
+                      controls 
+                      className="w-full rounded-lg"
+                      preload="metadata"
+                    >
+                      <source src={selectedReview.videoFile} type="video/mp4" />
+                      Ваш браузер не поддерживает видео.
+                    </video>
+                  </div>
+                )}
+                {selectedReview.videoUrl && !selectedReview.videoFile && (
                   <Button 
                     asChild 
                     className="w-full mt-4" 
