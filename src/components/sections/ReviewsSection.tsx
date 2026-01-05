@@ -368,10 +368,16 @@ const ReviewsSection = () => {
                   <div className="w-full mt-4">
                     <video 
                       controls 
-                      className="w-full rounded-lg"
-                      preload="metadata"
+                      className="w-full rounded-lg bg-black"
+                      preload="auto"
+                      onError={(e) => {
+                        console.error('Ошибка загрузки видео:', selectedReview.videoFile);
+                        console.error('Детали:', e);
+                      }}
                     >
                       <source src={selectedReview.videoFile} type="video/mp4" />
+                      <source src={selectedReview.videoFile} type="video/webm" />
+                      <source src={selectedReview.videoFile} type="video/ogg" />
                       Ваш браузер не поддерживает видео.
                     </video>
                   </div>
