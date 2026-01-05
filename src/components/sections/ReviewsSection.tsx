@@ -290,8 +290,11 @@ const ReviewsSection = () => {
                             </div>
                           </>
                         )}
-                        {review.videoUrl && (
-                          <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">ВИДЕО С МЕДВЕДЕМ!!!</div>
+                        {(review.videoUrl || review.videoFile) && (
+                          <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">
+                            <Icon name="Video" size={16} />
+                            ВИДЕО
+                          </div>
                         )}
                       </div>
                     )}
@@ -334,13 +337,13 @@ const ReviewsSection = () => {
                           : review.text}
                         "
                       </p>
-                      {(review.text.length > 200 || review.videoUrl) && (
+                      {(review.text.length > 200 || review.videoUrl || review.videoFile) && (
                         <Button
                           variant="link"
                           className="mt-2 p-0 h-auto text-primary"
                           onClick={() => setSelectedReview(review)}
                         >
-                          {review.videoUrl
+                          {(review.videoUrl || review.videoFile)
                             ? "Читать отзыв и смотреть видео"
                             : "Читать весь отзыв"}
                         </Button>
