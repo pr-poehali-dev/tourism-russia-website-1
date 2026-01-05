@@ -26,6 +26,7 @@ interface Review {
   link?: string;
   videoUrl?: string;
   videoFile?: string;
+  videoLabel?: string;
 }
 
 const ReviewsSection = () => {
@@ -48,6 +49,7 @@ const ReviewsSection = () => {
       videoUrl: "https://youtu.be/sJ_FEqm1aZo",
       videoFile:
         "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/IMG_9288.MOV",
+      videoLabel: "ВИДЕО С МЕДВЕДЕМ",
       images: [
         "https://cdn.poehali.dev/files/photo_2025-12-22_16-06-33.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_16-06-57.jpg",
@@ -130,6 +132,7 @@ const ReviewsSection = () => {
       link: "https://vk.com/id1649113",
       videoFile:
         "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/IMG_9288.MOV",
+      videoLabel: "ПОЗНАВАТЕЛЬНОЕ ВИДЕО",
       images: [
         "https://cdn.poehali.dev/files/photo_2025-12-22_14-59-03.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_14-58-51.jpg",
@@ -291,7 +294,10 @@ const ReviewsSection = () => {
                           </>
                         )}
                         {(review.videoUrl || review.videoFile) && (
-                          <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">ПОЗНАВАТЕЛЬНОЕ ВИДЕО </div>
+                          <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">
+                            <Icon name="Video" size={16} />
+                            {review.videoLabel || "ВИДЕО"}
+                          </div>
                         )}
                       </div>
                     )}
