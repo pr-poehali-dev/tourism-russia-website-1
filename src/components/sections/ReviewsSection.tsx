@@ -289,10 +289,7 @@ const ReviewsSection = () => {
                           </>
                         )}
                         {review.videoUrl && (
-                          <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">
-                            <Icon name="Video" size={16} />
-                            ВИДЕО
-                          </div>
+                          <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">ВИДЕО С МЕДВЕДЕМ!!!</div>
                         )}
                       </div>
                     )}
