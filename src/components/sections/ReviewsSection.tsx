@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import React from "react";
 import {
@@ -23,8 +29,12 @@ interface Review {
 }
 
 const ReviewsSection = () => {
-  const [imageIndices, setImageIndices] = React.useState<{[key: number]: number}>({});
-  const [selectedReview, setSelectedReview] = React.useState<Review | null>(null);
+  const [imageIndices, setImageIndices] = React.useState<{
+    [key: number]: number;
+  }>({});
+  const [selectedReview, setSelectedReview] = React.useState<Review | null>(
+    null,
+  );
   const [reviewsStartIndex, setReviewsStartIndex] = React.useState(0);
   const [showBookingForm, setShowBookingForm] = React.useState(false);
 
@@ -36,7 +46,8 @@ const ReviewsSection = () => {
       text: "Ровно год назад с утра была эта песня, и мы еще не знали, что к нам в лагерь с крейсерской скоростью с соседней сопки несётся медведь, который изменит всю нашу дальнейшую жизнь. 😃😉 Медведя первой заметила я. Гляжу, по склону несётся коричневый шарик. О, какой прикольный шпиц, интересно, что он здесь делает, подумала я. Потом было три секунды оцепенения.. Но позвольте, какой к чёрту шпиц здесь на многие километры никого нет! Это же медведь, просто очень далеко, и кажется, что это маленькая собачка!!! На этом видео запечатлены самые красивые моменты. А дальше он пошёл прямиком в наши палатки и начал потрошить рюкзак)... Я снова и снова благодарю нашего гида и давно уже друга Антона Немчинова. Если бы не его хладнокровные и разумные действия, то эта история могла бы иметь совсем другой конец. Антон Антонович !!! Да хранит бог все твои пути! С нетерпением жду наших новых путешествий! 😊❤️",
       link: "https://vk.com/innuit",
       videoUrl: "https://youtu.be/sJ_FEqm1aZo",
-      videoFile: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/videos/20260105_112225_test.mp4",
+      videoFile:
+        "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/IMG_9288.MOV",
       images: [
         "https://cdn.poehali.dev/files/photo_2025-12-22_16-06-33.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_16-06-57.jpg",
@@ -220,86 +231,134 @@ const ReviewsSection = () => {
       <section id="reviews" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Отзывы </h2>
-            <p className="text-base md:text-lg text-muted-foreground">Что говорят наши путешественники</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">
+              Отзывы{" "}
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground">
+              Что говорят наши путешественники
+            </p>
           </div>
           <div className="relative">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {reviews.slice(reviewsStartIndex, reviewsStartIndex + 3).map((review, index) => (
-              <Card key={reviewsStartIndex + index} className="hover:shadow-lg transition-shadow overflow-hidden">
-                {review.images && review.images.length > 0 && (
-                  <div 
-                    className="relative h-64 w-full overflow-hidden cursor-pointer group"
-                    onClick={() => {
-                      if (review.images && review.images.length > 1) {
-                        const currentIndex = imageIndices[reviewsStartIndex + index] || 0;
-                        const nextIndex = (currentIndex + 1) % review.images.length;
-                        setImageIndices({...imageIndices, [reviewsStartIndex + index]: nextIndex});
-                      }
-                    }}
+              {reviews
+                .slice(reviewsStartIndex, reviewsStartIndex + 3)
+                .map((review, index) => (
+                  <Card
+                    key={reviewsStartIndex + index}
+                    className="hover:shadow-lg transition-shadow overflow-hidden"
                   >
-                    <img
-                      src={review.images[imageIndices[reviewsStartIndex + index] || 0]}
-                      alt={`${review.name} - ${review.tour}`}
-                      className="w-full h-full object-contain bg-muted transition-opacity duration-300"
-                    />
-                    {review.images.length > 1 && (
-                      <>
-                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <Icon name="ChevronRight" size={48} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
-                          {(imageIndices[reviewsStartIndex + index] || 0) + 1} / {review.images.length}
-                        </div>
-                      </>
-                    )}
-                    {review.videoUrl && (
-                      <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">
-                        <Icon name="Video" size={16} />
-                        ВИДЕО
+                    {review.images && review.images.length > 0 && (
+                      <div
+                        className="relative h-64 w-full overflow-hidden cursor-pointer group"
+                        onClick={() => {
+                          if (review.images && review.images.length > 1) {
+                            const currentIndex =
+                              imageIndices[reviewsStartIndex + index] || 0;
+                            const nextIndex =
+                              (currentIndex + 1) % review.images.length;
+                            setImageIndices({
+                              ...imageIndices,
+                              [reviewsStartIndex + index]: nextIndex,
+                            });
+                          }
+                        }}
+                      >
+                        <img
+                          src={
+                            review.images[
+                              imageIndices[reviewsStartIndex + index] || 0
+                            ]
+                          }
+                          alt={`${review.name} - ${review.tour}`}
+                          className="w-full h-full object-contain bg-muted transition-opacity duration-300"
+                        />
+                        {review.images.length > 1 && (
+                          <>
+                            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                              <Icon
+                                name="ChevronRight"
+                                size={48}
+                                className="text-white"
+                              />
+                            </div>
+                            <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                              {(imageIndices[reviewsStartIndex + index] || 0) +
+                                1}{" "}
+                              / {review.images.length}
+                            </div>
+                          </>
+                        )}
+                        {review.videoUrl && (
+                          <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">
+                            <Icon name="Video" size={16} />
+                            ВИДЕО
+                          </div>
+                        )}
                       </div>
                     )}
-                  </div>
-                )}
-                <CardHeader>
-                  <div className="flex items-center gap-1 sm:gap-2 mb-2">
-                    <CardTitle className="font-heading text-base sm:text-lg md:text-xl">{review.name}</CardTitle>
-                    {review.link && (
-                      <a href={review.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 transition-colors">
-                        {review.link.includes('vk.') ? (
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.15 14.63h-1.43c-.51 0-.67-.42-1.58-1.33-.8-.76-1.15-.86-1.35-.86-.28 0-.36.08-.36.46v1.21c0 .33-.1.52-1.01.52-1.49 0-3.14-.9-4.3-2.57-1.76-2.37-2.24-4.15-2.24-4.51 0-.2.08-.39.46-.39h1.43c.35 0 .48.16.61.53.71 2.05 1.91 3.85 2.4 3.85.18 0 .27-.09.27-.55v-2.14c-.06-.98-.57-1.06-.57-1.41 0-.16.13-.32.35-.32h2.24c.29 0 .4.16.4.5v2.89c0 .3.13.4.22.4.18 0 .33-.1.67-.44 1.04-1.17 1.79-2.97 1.79-2.97.1-.21.26-.39.61-.39h1.43c.43 0 .53.22.43.52-.16.73-1.97 3.44-1.97 3.44-.15.24-.2.35 0 .62.14.2.61.59 1.12 1.13.59.62.95 1.14 1.06 1.5.11.36-.08.54-.49.54z"/></svg>
-                        ) : (
-                          <Icon name="Send" size={20} />
+                    <CardHeader>
+                      <div className="flex items-center gap-1 sm:gap-2 mb-2">
+                        <CardTitle className="font-heading text-base sm:text-lg md:text-xl">
+                          {review.name}
+                        </CardTitle>
+                        {review.link && (
+                          <a
+                            href={review.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-700 transition-colors"
+                          >
+                            {review.link.includes("vk.") ? (
+                              <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                              >
+                                <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.15 14.63h-1.43c-.51 0-.67-.42-1.58-1.33-.8-.76-1.15-.86-1.35-.86-.28 0-.36.08-.36.46v1.21c0 .33-.1.52-1.01.52-1.49 0-3.14-.9-4.3-2.57-1.76-2.37-2.24-4.15-2.24-4.51 0-.2.08-.39.46-.39h1.43c.35 0 .48.16.61.53.71 2.05 1.91 3.85 2.4 3.85.18 0 .27-.09.27-.55v-2.14c-.06-.98-.57-1.06-.57-1.41 0-.16.13-.32.35-.32h2.24c.29 0 .4.16.4.5v2.89c0 .3.13.4.22.4.18 0 .33-.1.67-.44 1.04-1.17 1.79-2.97 1.79-2.97.1-.21.26-.39.61-.39h1.43c.43 0 .53.22.43.52-.16.73-1.97 3.44-1.97 3.44-.15.24-.2.35 0 .62.14.2.61.59 1.12 1.13.59.62.95 1.14 1.06 1.5.11.36-.08.54-.49.54z" />
+                              </svg>
+                            ) : (
+                              <Icon name="Send" size={20} />
+                            )}
+                          </a>
                         )}
-                      </a>
-                    )}
-                  </div>
-                  <CardDescription className="text-xs sm:text-sm">Тур: {review.tour}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm md:text-base text-muted-foreground italic">
-                    "{review.text.length > 200 ? review.text.substring(0, 200) + '...' : review.text}"
-                  </p>
-                  {(review.text.length > 200 || review.videoUrl) && (
-                    <Button 
-                      variant="link" 
-                      className="mt-2 p-0 h-auto text-primary"
-                      onClick={() => setSelectedReview(review)}
-                    >
-                      {review.videoUrl ? 'Читать отзыв и смотреть видео' : 'Читать весь отзыв'}
-                    </Button>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
+                      </div>
+                      <CardDescription className="text-xs sm:text-sm">
+                        Тур: {review.tour}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm md:text-base text-muted-foreground italic">
+                        "
+                        {review.text.length > 200
+                          ? review.text.substring(0, 200) + "..."
+                          : review.text}
+                        "
+                      </p>
+                      {(review.text.length > 200 || review.videoUrl) && (
+                        <Button
+                          variant="link"
+                          className="mt-2 p-0 h-auto text-primary"
+                          onClick={() => setSelectedReview(review)}
+                        >
+                          {review.videoUrl
+                            ? "Читать отзыв и смотреть видео"
+                            : "Читать весь отзыв"}
+                        </Button>
+                      )}
+                    </CardContent>
+                  </Card>
+                ))}
             </div>
-            
+
             {reviews.length > 3 && (
               <div className="flex justify-center mt-8 gap-4">
                 <Button
                   variant="outline"
                   size="lg"
-                  onClick={() => setReviewsStartIndex(Math.max(0, reviewsStartIndex - 3))}
+                  onClick={() =>
+                    setReviewsStartIndex(Math.max(0, reviewsStartIndex - 3))
+                  }
                   disabled={reviewsStartIndex === 0}
                   className="flex items-center gap-2"
                 >
@@ -309,7 +368,11 @@ const ReviewsSection = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  onClick={() => setReviewsStartIndex(Math.min(reviews.length - 3, reviewsStartIndex + 3))}
+                  onClick={() =>
+                    setReviewsStartIndex(
+                      Math.min(reviews.length - 3, reviewsStartIndex + 3),
+                    )
+                  }
                   disabled={reviewsStartIndex + 3 >= reviews.length}
                   className="flex items-center gap-2"
                 >
@@ -319,25 +382,34 @@ const ReviewsSection = () => {
               </div>
             )}
           </div>
-          
+
           <div className="text-center mt-12 px-4">
-            <button 
+            <button
               onClick={() => {
                 setShowBookingForm(true);
-                if (typeof window !== 'undefined' && (window as any).ym) {
-                  (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
+                if (typeof window !== "undefined" && (window as any).ym) {
+                  (window as any).ym(
+                    106027453,
+                    "reachGoal",
+                    "booking_button_click",
+                  );
                 }
               }}
               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2 mx-auto"
             >
               <Icon name="Ticket" size={16} className="flex-shrink-0" />
-              <span className="leading-tight">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
+              <span className="leading-tight">
+                Оставить заявку на тур и получить сертификат на 5 000₽ 🎁
+              </span>
             </button>
           </div>
         </div>
       </section>
 
-      <Dialog open={selectedReview !== null} onOpenChange={() => setSelectedReview(null)}>
+      <Dialog
+        open={selectedReview !== null}
+        onOpenChange={() => setSelectedReview(null)}
+      >
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
           {selectedReview && (
             <>
@@ -347,9 +419,21 @@ const ReviewsSection = () => {
                     {selectedReview.name}
                   </DialogTitle>
                   {selectedReview.link && (
-                    <a href={selectedReview.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 transition-colors">
-                      {selectedReview.link.includes('vk.') ? (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.15 14.63h-1.43c-.51 0-.67-.42-1.58-1.33-.8-.76-1.15-.86-1.35-.86-.28 0-.36.08-.36.46v1.21c0 .33-.1.52-1.01.52-1.49 0-3.14-.9-4.3-2.57-1.76-2.37-2.24-4.15-2.24-4.51 0-.2.08-.39.46-.39h1.43c.35 0 .48.16.61.53.71 2.05 1.91 3.85 2.4 3.85.18 0 .27-.09.27-.55v-2.14c-.06-.98-.57-1.06-.57-1.41 0-.16.13-.32.35-.32h2.24c.29 0 .4.16.4.5v2.89c0 .3.13.4.22.4.18 0 .33-.1.67-.44 1.04-1.17 1.79-2.97 1.79-2.97.1-.21.26-.39.61-.39h1.43c.43 0 .53.22.43.52-.16.73-1.97 3.44-1.97 3.44-.15.24-.2.35 0 .62.14.2.61.59 1.12 1.13.59.62.95 1.14 1.06 1.5.11.36-.08.54-.49.54z"/></svg>
+                    <a
+                      href={selectedReview.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 transition-colors"
+                    >
+                      {selectedReview.link.includes("vk.") ? (
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.15 14.63h-1.43c-.51 0-.67-.42-1.58-1.33-.8-.76-1.15-.86-1.35-.86-.28 0-.36.08-.36.46v1.21c0 .33-.1.52-1.01.52-1.49 0-3.14-.9-4.3-2.57-1.76-2.37-2.24-4.15-2.24-4.51 0-.2.08-.39.46-.39h1.43c.35 0 .48.16.61.53.71 2.05 1.91 3.85 2.4 3.85.18 0 .27-.09.27-.55v-2.14c-.06-.98-.57-1.06-.57-1.41 0-.16.13-.32.35-.32h2.24c.29 0 .4.16.4.5v2.89c0 .3.13.4.22.4.18 0 .33-.1.67-.44 1.04-1.17 1.79-2.97 1.79-2.97.1-.21.26-.39.61-.39h1.43c.43 0 .53.22.43.52-.16.73-1.97 3.44-1.97 3.44-.15.24-.2.35 0 .62.14.2.61.59 1.12 1.13.59.62.95 1.14 1.06 1.5.11.36-.08.54-.49.54z" />
+                        </svg>
                       ) : (
                         <Icon name="Send" size={24} />
                       )}
@@ -366,32 +450,38 @@ const ReviewsSection = () => {
                 </p>
                 {selectedReview.videoFile && (
                   <div className="w-full mt-4">
-                    <video 
-                      controls 
+                    <video
+                      controls
                       className="w-full rounded-lg bg-black"
                       preload="auto"
                       onError={(e) => {
-                        console.error('Ошибка загрузки видео:', selectedReview.videoFile);
-                        console.error('Детали:', e);
+                        console.error(
+                          "Ошибка загрузки видео:",
+                          selectedReview.videoFile,
+                        );
+                        console.error("Детали:", e);
                       }}
                     >
                       <source src={selectedReview.videoFile} type="video/mp4" />
-                      <source src={selectedReview.videoFile} type="video/webm" />
+                      <source
+                        src={selectedReview.videoFile}
+                        type="video/webm"
+                      />
                       <source src={selectedReview.videoFile} type="video/ogg" />
                       Ваш браузер не поддерживает видео.
                     </video>
                   </div>
                 )}
                 {selectedReview.videoUrl && !selectedReview.videoFile && (
-                  <Button 
-                    asChild 
-                    className="w-full mt-4" 
+                  <Button
+                    asChild
+                    className="w-full mt-4"
                     size="lg"
                     variant="default"
                   >
-                    <a 
-                      href={selectedReview.videoUrl} 
-                      target="_blank" 
+                    <a
+                      href={selectedReview.videoUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
                     >
