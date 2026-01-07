@@ -48,7 +48,7 @@ const ReviewsSection = () => {
       link: "https://vk.com/innuit",
       videoUrl: "https://youtu.be/sJ_FEqm1aZo",
       videoFile:
-        "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/IMG_9288.MOV",
+        "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/Нападение на медведя [get.gt] (1).mp4",
       videoLabel: "ВИДЕО С МЕДВЕДЕМ",
       images: [
         "https://cdn.poehali.dev/files/photo_2025-12-22_16-06-33.jpg",
@@ -340,13 +340,15 @@ const ReviewsSection = () => {
                           : review.text}
                         "
                       </p>
-                      {(review.text.length > 200 || review.videoUrl || review.videoFile) && (
+                      {(review.text.length > 200 ||
+                        review.videoUrl ||
+                        review.videoFile) && (
                         <Button
                           variant="link"
                           className="mt-2 p-0 h-auto text-primary"
                           onClick={() => setSelectedReview(review)}
                         >
-                          {(review.videoUrl || review.videoFile)
+                          {review.videoUrl || review.videoFile
                             ? "Читать отзыв и смотреть видео"
                             : "Читать весь отзыв"}
                         </Button>
