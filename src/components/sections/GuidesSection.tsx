@@ -135,6 +135,10 @@ const GuidesSection = () => {
       certificates: [
         "https://cdn.poehali.dev/files/04 Удостоверение 2.jpg",
         "https://cdn.poehali.dev/files/04 Удостоверение 1.jpg",
+        "https://cdn.poehali.dev/files/04 Удостоверение 3.jpg",
+        "https://cdn.poehali.dev/files/01.jpg|rotate-left",
+        "https://cdn.poehali.dev/files/02.jpg",
+        "https://cdn.poehali.dev/files/03.jpg|rotate-right",
         "https://cdn.poehali.dev/files/01 Удостоверение 1.jpg",
         "https://cdn.poehali.dev/files/01 Удостоверение 2.jpg",
       ],
