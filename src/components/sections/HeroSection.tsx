@@ -32,7 +32,12 @@ const HeroSection = () => {
               КОМФОРТНАЯ СХЕМА ОПЛАТЫ
             </h2>
             
-            <div className="grid grid-cols-3 gap-3 md:gap-4 mb-3 items-center">
+            <div className="grid grid-cols-4 gap-2 md:gap-3 mb-3 items-center">
+              <div className="bg-gradient-to-br from-white to-gray-100 text-gray-800 rounded-full w-16 h-16 md:w-20 md:h-20 flex flex-col items-center justify-center shadow-lg mx-auto border-4 border-primary">
+                <div className="text-[7px] md:text-[8px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Бронирование</div>
+                <div className="text-base md:text-lg font-bold">0₽</div>
+              </div>
+              
               <div className="bg-gradient-to-br from-green-300 to-green-400 rounded-full w-14 h-14 md:w-16 md:h-16 flex flex-col items-center justify-center shadow-lg mx-auto">
                 <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Взнос</div>
                 <div className="text-base md:text-lg font-bold">10%</div>
