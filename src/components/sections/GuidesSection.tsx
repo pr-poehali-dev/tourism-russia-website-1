@@ -158,7 +158,7 @@ const GuidesSection = () => {
       specialization: "1-й спортивный разряд (горный, лыжный, велотуризм). Алтай, Кавказ, Кольский, Киргизия, Казахстан, Эльбрус, Урал, Забайкалье, Саяны.",
       tours: "более 180",
       rating: 4.9,
-      image: "https://cdn.poehali.dev/files/IMG_9242.jpg",
+      image: "https://cdn.poehali.dev/files/IMG_0934.jpg",
       phone: "+7 987 255-84-99",
       achievements: [
         "Алтай велопоход 3 к.с. (2012 г.)",
@@ -178,6 +178,13 @@ const GuidesSection = () => {
         "https://cdn.poehali.dev/files/Диплом 3.jpg|rotate-right",
         "https://cdn.poehali.dev/files/Удостоверение 1.jpg",
         "https://cdn.poehali.dev/files/Удостоверение 2.jpg",
+      ],
+      photos: [
+        "https://cdn.poehali.dev/files/IMG_9242.jpg",
+        "https://cdn.poehali.dev/files/IMG_3762.jpg",
+        "https://cdn.poehali.dev/files/IMG_20220701_210006.jpg",
+        "https://cdn.poehali.dev/files/IMG_20230326_132238.jpg",
+        "https://cdn.poehali.dev/files/IMG_20240419_161027.jpg",
       ],
     },
   ];
