@@ -26,8 +26,8 @@ const HeroSection = () => {
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-2xl mx-auto">Путешествия по России с Антоном и Эмилем</p>
         <p className="text-sm sm:text-base md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto opacity-90">Без посредников </p>
         
-        <div className="space-y-4 max-w-2xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 border border-white/20">
+        <div className="space-y-4 max-w-6xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 md:p-7 border border-white/20">
             <h2 className="text-sm md:text-base font-bold mb-2">
               КОМФОРТНАЯ СХЕМА ОПЛАТЫ
             </h2>
