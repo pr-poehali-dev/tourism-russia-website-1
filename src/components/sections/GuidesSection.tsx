@@ -24,6 +24,7 @@ interface Guide {
   achievements: string[];
   phone: string;
   certificates?: string[];
+  photos?: string[];
 }
 
 const GuidesSection = () => {
@@ -31,6 +32,8 @@ const GuidesSection = () => {
   const [showContactForm, setShowContactForm] = React.useState(false);
   const [contactGuideIndex, setContactGuideIndex] = React.useState<number | null>(null);
   const [selectedCertificate, setSelectedCertificate] = React.useState<string | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = React.useState<string | null>(null);
+  const [photoGuideIndex, setPhotoGuideIndex] = React.useState<number | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [showSuccess, setShowSuccess] = React.useState(false);
   const [formData, setFormData] = React.useState({
@@ -112,6 +115,13 @@ const GuidesSection = () => {
         "https://cdn.poehali.dev/files/photo_2025-12-22_17-04-39.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_22-26-12.jpg",
       ],
+      photos: [
+        "https://cdn.poehali.dev/files/IMG_20250922_121202.jpg",
+        "https://cdn.poehali.dev/files/IMG_20250909_130301.jpg",
+        "https://cdn.poehali.dev/files/IMG_20231105_155911.jpg",
+        "https://cdn.poehali.dev/files/IMG_20230414_125550_494.jpg",
+        "https://cdn.poehali.dev/files/IMG_20250830_174455.jpg",
+      ],
     },
     {
       name: "Эмиль Газизов",
@@ -154,12 +164,27 @@ const GuidesSection = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {guides.map((guide, index) => (
               <Card key={index} className="hover:shadow-xl transition-shadow overflow-hidden">
-                <div className="relative h-80 overflow-hidden">
+                <div 
+                  className="relative h-80 overflow-hidden cursor-pointer group"
+                  onClick={() => {
+                    if (guide.photos && guide.photos.length > 0) {
+                      setPhotoGuideIndex(index);
+                      setSelectedPhoto(guide.photos[0]);
+                    }
+                  }}
+                >
                   <img
                     src={guide.image}
                     alt={guide.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
                   />
+                  {guide.photos && guide.photos.length > 0 && (
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 rounded-full p-3">
+                        <Icon name="Image" size={24} className="text-primary" />
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <CardHeader className="text-center pb-3">
                   <CardTitle className="font-heading text-xl md:text-2xl">{guide.name}</CardTitle>
@@ -376,6 +401,41 @@ const GuidesSection = () => {
                   />
                 );
               })()}
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={selectedPhoto !== null} onOpenChange={() => setSelectedPhoto(null)}>
+        <DialogContent className="max-w-6xl max-h-[90vh] p-2">
+          {selectedPhoto && photoGuideIndex !== null && (
+            <div className="space-y-4">
+              <div className="relative w-full flex items-center justify-center bg-black/95 rounded-lg overflow-hidden">
+                <img
+                  src={selectedPhoto}
+                  alt={`Фото ${guides[photoGuideIndex].name}`}
+                  className="max-w-full max-h-[70vh] object-contain"
+                />
+              </div>
+              {guides[photoGuideIndex].photos && guides[photoGuideIndex].photos!.length > 1 && (
+                <div className="grid grid-cols-5 gap-2">
+                  {guides[photoGuideIndex].photos!.map((photo, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedPhoto(photo)}
+                      className={`relative aspect-square overflow-hidden rounded-lg border-2 transition-all ${
+                        selectedPhoto === photo ? 'border-primary' : 'border-muted hover:border-primary/50'
+                      }`}
+                    >
+                      <img
+                        src={photo}
+                        alt={`Миниатюра ${idx + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </DialogContent>
