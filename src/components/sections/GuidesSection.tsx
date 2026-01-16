@@ -341,6 +341,15 @@ const GuidesSection = () => {
                     <div className="text-xs text-muted-foreground">Проведено туров</div>
                   </div>
                 </div>
+                
+                {selectedGuide === 0 && (
+                  <div className="bg-primary/5 border border-primary/10 rounded-lg p-4">
+                    <p className="text-sm leading-relaxed text-foreground/90">
+                      Антон — душа компании. Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив. Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...
+                    </p>
+                  </div>
+                )}
+                
                 <Button 
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300" 
                   size="lg" 
