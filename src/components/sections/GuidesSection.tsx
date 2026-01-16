@@ -255,9 +255,10 @@ const GuidesSection = () => {
                     </div>
                   )}
                   {index === 1 && (
-                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-3 my-3">
-                      <p className="text-xs leading-relaxed text-foreground/90">
-                        Эмиль — штатный психолог. Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.
+                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
+                      <p className="leading-relaxed text-foreground/90 text-sm text-center">
+                        <span className="block">Эмиль — штатный психолог.</span>
+                        <span className="block">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
                       </p>
                     </div>
                   )}
