@@ -194,7 +194,7 @@ const TourTents = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
           <div className="container mx-auto">
-            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">Тур "Байкал:Теплый лед"</h1>
+            <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">Тур "Дикий Байкал"</h1>
             <p className="text-lg md:text-xl text-white/90">комфортные отапливаемые палатки</p>
           </div>
         </div>
