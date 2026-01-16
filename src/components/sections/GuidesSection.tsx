@@ -18,7 +18,7 @@ interface Guide {
   name: string;
   experience: string;
   specialization: string;
-  tours: number;
+  tours: string;
   rating: number;
   image: string;
   achievements: string[];
@@ -93,7 +93,7 @@ const GuidesSection = () => {
       name: "Антон Немчинов",
       experience: "более 8 лет",
       specialization: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
-      tours: 150,
+      tours: "более 150",
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
       phone: "+7 996 083-71-57",
@@ -156,7 +156,7 @@ const GuidesSection = () => {
       name: "Эмиль Газизов",
       experience: "более 10 лет",
       specialization: "1-й спортивный разряд (горный, лыжный, велотуризм). Алтай, Кавказ, Кольский, Киргизия, Казахстан, Эльбрус, Урал, Забайкалье, Саяны.",
-      tours: 180,
+      tours: "более 180",
       rating: 4.9,
       image: "https://cdn.poehali.dev/files/IMG_9242.jpg",
       phone: "+7 987 255-84-99",
