@@ -32,8 +32,7 @@ const GuidesSection = () => {
   const [showContactForm, setShowContactForm] = React.useState(false);
   const [contactGuideIndex, setContactGuideIndex] = React.useState<number | null>(null);
   const [selectedCertificate, setSelectedCertificate] = React.useState<string | null>(null);
-  const [selectedPhoto, setSelectedPhoto] = React.useState<string | null>(null);
-  const [photoGuideIndex, setPhotoGuideIndex] = React.useState<number | null>(null);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = React.useState<{[key: number]: number}>({0: 0, 1: 0});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [showSuccess, setShowSuccess] = React.useState(false);
   const [formData, setFormData] = React.useState({
@@ -162,28 +161,44 @@ const GuidesSection = () => {
             <p className="text-base md:text-lg text-muted-foreground">Профессионалы с многолетним опытом</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {guides.map((guide, index) => (
+            {guides.map((guide, index) => {
+              const allPhotos = guide.photos && guide.photos.length > 0 ? [guide.image, ...guide.photos] : [guide.image];
+              const currentIdx = currentPhotoIndex[index] || 0;
+              
+              return (
               <Card key={index} className="hover:shadow-xl transition-shadow overflow-hidden">
-                <div 
-                  className="relative h-80 overflow-hidden cursor-pointer group"
-                  onClick={() => {
-                    if (guide.photos && guide.photos.length > 0) {
-                      setPhotoGuideIndex(index);
-                      setSelectedPhoto(guide.photos[0]);
-                    }
-                  }}
-                >
+                <div className="relative h-80 overflow-hidden">
                   <img
-                    src={guide.image}
+                    src={allPhotos[currentIdx]}
                     alt={guide.name}
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    className="w-full h-full object-cover transition-opacity duration-300"
                   />
-                  {guide.photos && guide.photos.length > 0 && (
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 rounded-full p-3">
-                        <Icon name="Image" size={24} className="text-primary" />
+                  {allPhotos.length > 1 && (
+                    <>
+                      <button
+                        onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: (currentIdx - 1 + allPhotos.length) % allPhotos.length}))}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-colors shadow-lg"
+                      >
+                        <Icon name="ChevronLeft" size={20} className="text-gray-800" />
+                      </button>
+                      <button
+                        onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: (currentIdx + 1) % allPhotos.length}))}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-colors shadow-lg"
+                      >
+                        <Icon name="ChevronRight" size={20} className="text-gray-800" />
+                      </button>
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        {allPhotos.map((_, photoIdx) => (
+                          <button
+                            key={photoIdx}
+                            onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: photoIdx}))}
+                            className={`w-2 h-2 rounded-full transition-colors ${
+                              currentIdx === photoIdx ? 'bg-white' : 'bg-white/50 hover:bg-white/75'
+                            }`}
+                          />
+                        ))}
                       </div>
-                    </div>
+                    </>
                   )}
                 </div>
                 <CardHeader className="text-center pb-3">
@@ -215,7 +230,8 @@ const GuidesSection = () => {
                   </div>
                 </CardContent>
               </Card>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
@@ -401,41 +417,6 @@ const GuidesSection = () => {
                   />
                 );
               })()}
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
-
-      <Dialog open={selectedPhoto !== null} onOpenChange={() => setSelectedPhoto(null)}>
-        <DialogContent className="max-w-6xl max-h-[90vh] p-2">
-          {selectedPhoto && photoGuideIndex !== null && (
-            <div className="space-y-4">
-              <div className="relative w-full flex items-center justify-center bg-black/95 rounded-lg overflow-hidden">
-                <img
-                  src={selectedPhoto}
-                  alt={`Фото ${guides[photoGuideIndex].name}`}
-                  className="max-w-full max-h-[70vh] object-contain"
-                />
-              </div>
-              {guides[photoGuideIndex].photos && guides[photoGuideIndex].photos!.length > 1 && (
-                <div className="grid grid-cols-5 gap-2">
-                  {guides[photoGuideIndex].photos!.map((photo, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedPhoto(photo)}
-                      className={`relative aspect-square overflow-hidden rounded-lg border-2 transition-all ${
-                        selectedPhoto === photo ? 'border-primary' : 'border-muted hover:border-primary/50'
-                      }`}
-                    >
-                      <img
-                        src={photo}
-                        alt={`Миниатюра ${idx + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
           )}
         </DialogContent>
