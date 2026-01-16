@@ -66,7 +66,7 @@ const HeroSection = () => {
             className="w-full bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-4 rounded-full font-bold text-xs md:text-sm transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2"
           >
             <Icon name="Ticket" size={16} className="flex-shrink-0" />
-            <span className="leading-tight">Оставить заявку на тур и получить сертификат на 5 000₽ 🎁</span>
+            <span className="leading-tight">Забронировать тур за 0р</span>
           </button>
         </div>
       </div>
