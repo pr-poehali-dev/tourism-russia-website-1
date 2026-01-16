@@ -236,6 +236,13 @@ const GuidesSection = () => {
                   <CardDescription className="text-xs md:text-sm">{guide.specialization}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
+                  {index === 0 && (
+                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-3 mb-3">
+                      <p className="text-xs leading-relaxed text-foreground/90">
+                        Антон — душа компании. Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив. Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...
+                      </p>
+                    </div>
+                  )}
                   <div className="flex items-center justify-between py-2 text-sm border-b">
                     <span className="text-muted-foreground text-xs">Опыт работы</span>
                     <span className="font-semibold text-sm">{guide.experience}</span>
@@ -341,14 +348,6 @@ const GuidesSection = () => {
                     <div className="text-xs text-muted-foreground">Проведено туров</div>
                   </div>
                 </div>
-                
-                {selectedGuide === 0 && (
-                  <div className="bg-primary/5 border border-primary/10 rounded-lg p-4">
-                    <p className="text-sm leading-relaxed text-foreground/90">
-                      Антон — душа компании. Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив. Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...
-                    </p>
-                  </div>
-                )}
                 
                 <Button 
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300" 
