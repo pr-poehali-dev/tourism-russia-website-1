@@ -243,6 +243,13 @@ const GuidesSection = () => {
                       </p>
                     </div>
                   )}
+                  {index === 1 && (
+                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-3 mb-3">
+                      <p className="text-xs leading-relaxed text-foreground/90">
+                        Эмиль — штатный психолог. Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.
+                      </p>
+                    </div>
+                  )}
                   <div className="flex items-center justify-between py-2 text-sm border-b">
                     <span className="text-muted-foreground text-xs">Опыт работы</span>
                     <span className="font-semibold text-sm">{guide.experience}</span>
