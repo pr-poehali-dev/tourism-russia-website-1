@@ -33,7 +33,7 @@ const HeroSection = () => {
             </h2>
             
             <div className="grid grid-cols-4 gap-2 md:gap-3 mb-3 items-center">
-              <div className="from-green-200 to-green-300 rounded-full w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center shadow-lg mx-auto border-4 border-primary bg-orange-500">
+              <div className="bg-gradient-to-br from-green-200 to-green-300 rounded-full w-24 h-24 md:w-28 md:h-28 flex flex-col items-center justify-center shadow-lg mx-auto border-4 border-orange-500">
                 <div className="text-[7px] md:text-[8px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Предварительное бронирование</div>
                 <div className="text-xl md:text-2xl font-bold">0₽</div>
               </div>
