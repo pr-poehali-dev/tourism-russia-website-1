@@ -258,6 +258,7 @@ const GuidesSection = () => {
                     <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
                       <p className="leading-relaxed text-foreground/90 text-sm text-center">
                         <span className="block">Эмиль — штатный психолог.</span>
+                        <span className="block">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
                         <span className="block">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
                       </p>
                     </div>
