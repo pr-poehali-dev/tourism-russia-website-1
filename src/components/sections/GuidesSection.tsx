@@ -236,20 +236,6 @@ const GuidesSection = () => {
                   <CardDescription className="text-xs md:text-sm">{guide.specialization}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  {index === 0 && (
-                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-3 mb-3">
-                      <p className="text-xs leading-relaxed text-foreground/90">
-                        Антон — душа компании. Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив. Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...
-                      </p>
-                    </div>
-                  )}
-                  {index === 1 && (
-                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-3 mb-3">
-                      <p className="text-xs leading-relaxed text-foreground/90">
-                        Эмиль — штатный психолог. Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.
-                      </p>
-                    </div>
-                  )}
                   <div className="flex items-center justify-between py-2 text-sm border-b">
                     <span className="text-muted-foreground text-xs">Опыт работы</span>
                     <span className="font-semibold text-sm">{guide.experience}</span>
@@ -258,6 +244,22 @@ const GuidesSection = () => {
                     <span className="text-muted-foreground text-xs">Проведено туров</span>
                     <span className="font-semibold text-sm">{guide.tours}</span>
                   </div>
+                  
+                  {index === 0 && (
+                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-3 my-3">
+                      <p className="text-xs leading-relaxed text-foreground/90">
+                        Антон — душа компании. Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив. Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...
+                      </p>
+                    </div>
+                  )}
+                  {index === 1 && (
+                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-3 my-3">
+                      <p className="text-xs leading-relaxed text-foreground/90">
+                        Эмиль — штатный психолог. Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.
+                      </p>
+                    </div>
+                  )}
+                  
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
                     <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm">Достижения, документы</Button>
                     <Button 
