@@ -247,16 +247,16 @@ const GuidesSection = () => {
                   
                   {index === 0 && (
                     <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
-                      <p className="leading-relaxed text-foreground/90 text-sm text-center">
-                        <span className="block indent-4">Антон — душа компании.</span>
-                        <span className="block indent-4">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
-                        <span className="block indent-4">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
+                      <p className="leading-relaxed text-foreground/90 text-sm text-left">
+                        <span className="block">Антон — душа компании.</span>
+                        <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
+                        <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
                       </p>
                     </div>
                   )}
                   {index === 1 && (
                     <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
-                      <p className="leading-relaxed text-foreground/90 text-sm text-center">
+                      <p className="leading-relaxed text-foreground/90 text-sm text-left">
                         <span className="block">Эмиль — штатный психолог.</span>
                         <span className="block">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
                         <span className="block">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
