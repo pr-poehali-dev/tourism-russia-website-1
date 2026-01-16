@@ -125,6 +125,11 @@ const GuidesSection = () => {
         "https://cdn.poehali.dev/files/_DSC6150.JPEG",
         "https://cdn.poehali.dev/files/_DSC6264.JPEG",
         "https://cdn.poehali.dev/files/cp0yCYWD-lY.jpg",
+        "https://cdn.poehali.dev/files/DSCF8036.jpg",
+        "https://cdn.poehali.dev/files/DSCF8329.jpg",
+        "https://cdn.poehali.dev/files/IaeE_y74cms.jpg",
+        "https://cdn.poehali.dev/files/IMG_20220430_172036_251.jpg",
+        "https://cdn.poehali.dev/files/IMG_20220501_072715_590.jpg",
       ],
     },
     {
