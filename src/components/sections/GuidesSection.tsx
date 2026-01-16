@@ -245,10 +245,7 @@ const GuidesSection = () => {
                     <span className="font-semibold text-sm">{guide.tours}</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
-                    <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm">
-                      <Icon name="FileText" size={14} className="mr-1" />
-                      Достижения
-                    </Button>
+                    <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm">Достижения, документы</Button>
                     <Button 
                       size="sm" 
                       onClick={() => handleContactClick(index)} 
