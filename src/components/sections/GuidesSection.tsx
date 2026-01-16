@@ -91,9 +91,9 @@ const GuidesSection = () => {
   const guides: Guide[] = [
     {
       name: "Антон Немчинов",
-      experience: "15 лет",
+      experience: "более 8 лет",
       specialization: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
-      tours: 200,
+      tours: 150,
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
       phone: "+7 996 083-71-57",
@@ -154,7 +154,7 @@ const GuidesSection = () => {
     },
     {
       name: "Эмиль Газизов",
-      experience: "14 лет",
+      experience: "более 10 лет",
       specialization: "1-й спортивный разряд (горный, лыжный, велотуризм). Алтай, Кавказ, Кольский, Киргизия, Казахстан, Эльбрус, Урал, Забайкалье, Саяны.",
       tours: 180,
       rating: 4.9,
