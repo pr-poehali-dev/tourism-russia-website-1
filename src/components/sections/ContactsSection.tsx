@@ -53,7 +53,7 @@ const ContactsSection = () => {
             </div>
             <Card>
               <CardHeader>
-                <CardTitle className="font-heading">Оставить заявку на тур</CardTitle>
+                <CardTitle className="font-heading">Забронировать тур за 0₽</CardTitle>
               </CardHeader>
               <CardContent>
                 <UniversalBookingForm />
