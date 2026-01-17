@@ -5,8 +5,8 @@ import ContactsSection from "./ContactsSection";
 const ReviewsGallerySection = () => {
   return (
     <>
-      <ReviewsSection />
       <PhotoGallerySection />
+      <ReviewsSection />
       <ContactsSection />
     </>
   );
