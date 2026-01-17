@@ -57,8 +57,7 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <p className="text-xs md:text-sm text-center font-medium flex items-center justify-center gap-2">При 100% оплате тура Вы получаете сертификат на одежду и снаряжение в фирменном магазине на 5000р! <Icon name="Gift" size={18} className="text-red-600" />
-</p>
+            <p className="text-xs md:text-sm text-center font-medium flex items-center justify-center gap-2">При 100% оплате тура Вы получаете сертификат на одежду и снаряжение в фирменном магазине на 5000р! 🎁</p>
           </div>
           
           <button 
