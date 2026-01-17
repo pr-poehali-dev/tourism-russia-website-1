@@ -42,7 +42,7 @@ const HeroSection = () => {
               </div>
               
               <div className="bg-gradient-to-br from-green-300 to-green-400 rounded-full w-14 h-14 md:w-16 md:h-16 flex flex-col items-center justify-center shadow-lg mx-auto">
-                <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">Взнос</div>
+                <div className="text-[8px] md:text-[9px] font-medium mb-0.5 uppercase text-center leading-tight px-1">бронь</div>
                 <div className="text-base md:text-lg font-bold">10%</div>
               </div>
               
