@@ -338,7 +338,7 @@ const PhotoGallerySection = () => {
               onClick={() => setShowBookingForm(true)}
               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2 mx-auto"
             >
-              <span className="leading-tight font-extrabold">Забронировать тур за <span className="text-red-600 text-xl md:text-2xl font-extrabold">0₽</span></span>
+              <span className="leading-tight font-extrabold">Забронировать тур за <span className="text-red-600 font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
             </button>
           </div>
         </div>
