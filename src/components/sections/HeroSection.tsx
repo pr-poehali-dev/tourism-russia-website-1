@@ -38,7 +38,6 @@ const HeroSection = () => {
                 <div className="font-bold text-red-600 flex items-baseline">
                   <span className="text-3xl md:text-4xl">0</span>
                   <span className="text-base md:text-lg">₽</span>
-                  <span className="text-3xl md:text-4xl">!</span>
                 </div>
               </div>
               
