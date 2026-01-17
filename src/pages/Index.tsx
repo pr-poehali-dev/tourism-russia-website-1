@@ -3,6 +3,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import GuidesSection from "@/components/sections/GuidesSection";
 import ToursSection from "@/components/sections/ToursSection";
 import ReviewsGallerySection from "@/components/sections/ReviewsGallerySection";
+import BenefitsSection from "@/components/sections/BenefitsSection";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -100,6 +101,7 @@ const Index = () => {
 
       <HeroSection />
       <GuidesSection />
+      <BenefitsSection />
       <ToursSection />
       <ReviewsGallerySection />
     </div>
