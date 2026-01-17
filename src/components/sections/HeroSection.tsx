@@ -37,7 +37,8 @@ const HeroSection = () => {
                 <div className="text-[7px] md:text-[8px] font-medium mb-0.5 uppercase text-center leading-tight px-1 text-red-600">Предварительное бронирование</div>
                 <div className="font-bold text-red-600 flex items-baseline">
                   <span className="text-3xl md:text-4xl">0</span>
-                  <span className="text-base md:text-lg">₽!</span>
+                  <span className="text-base md:text-lg">₽</span>
+                  <span className="text-3xl md:text-4xl">!</span>
                 </div>
               </div>
               
