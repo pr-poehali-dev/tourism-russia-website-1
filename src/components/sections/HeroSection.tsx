@@ -64,7 +64,7 @@ const HeroSection = () => {
             onClick={() => setShowBookingForm(true)}
             className="bg-primary hover:bg-primary/90 text-white px-6 py-4 md:px-8 md:py-5 rounded-full font-bold text-sm md:text-base transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2 mx-auto"
           >
-            <span className="leading-tight font-extrabold">Забронировать тур за <span className="text-red-600 font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
+            <span className="font-extrabold text-[#ffffff]">Забронировать тур за <span className="text-red-600 font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
           </button>
         </div>
       </div>
