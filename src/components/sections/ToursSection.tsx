@@ -200,12 +200,20 @@ const ToursSection = () => {
           ))}
         </Tabs>
         <div className="text-center mt-12 px-4">
-          <button 
-            onClick={() => setShowBookingForm(true)}
-            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2 mx-auto"
-          >
-            <span className="leading-tight font-extrabold">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button 
+              onClick={() => setShowBookingForm(true)}
+              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2"
+            >
+              <span className="leading-tight font-extrabold">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
+            </button>
+            <button 
+              onClick={() => setShowBookingForm(true)}
+              className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg"
+            >
+              Предложить свой вариант тура
+            </button>
+          </div>
         </div>
       </div>
 
