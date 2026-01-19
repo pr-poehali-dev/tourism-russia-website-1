@@ -53,7 +53,7 @@ const UniversalBookingDialog = ({
           phone: '',
           email: '',
           tour: 'Предложить свой вариант тура',
-          comment: 'место, время и продолжительность желаемого тура'
+          comment: ''
         });
       } else if (defaultTour) {
         setFormData({
@@ -176,28 +176,34 @@ const UniversalBookingDialog = ({
 
           <div>
             <label className="text-sm font-medium mb-1.5 block">Выберите *</label>
-            <Select 
-              value={formData.tour} 
-              onValueChange={(value) => setFormData({ ...formData, tour: value })}
-              required
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Выберите тур из списка" />
-              </SelectTrigger>
-              <SelectContent>
-                {tours.map((tour) => (
-                  <SelectItem key={tour} value={tour}>
-                    {tour}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {isCustomTour ? (
+              <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
+                <span className="font-bold text-green-600">Предложить свой вариант тура</span>
+              </div>
+            ) : (
+              <Select 
+                value={formData.tour} 
+                onValueChange={(value) => setFormData({ ...formData, tour: value })}
+                required
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Выберите тур из списка" />
+                </SelectTrigger>
+                <SelectContent>
+                  {tours.map((tour) => (
+                    <SelectItem key={tour} value={tour}>
+                      {tour}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
           </div>
 
           <div>
             <label className="text-sm font-medium mb-1.5 block">Комментарий</label>
             <Textarea
-              placeholder="Дополнительная информация или вопросы..."
+              placeholder={isCustomTour ? "место, время и продолжительность желаемого тура" : "Дополнительная информация или вопросы..."}
               value={formData.comment}
               onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
               rows={2}
