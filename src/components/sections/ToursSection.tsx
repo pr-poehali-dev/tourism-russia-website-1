@@ -21,6 +21,7 @@ interface Tour {
 const ToursSection = () => {
   const navigate = useNavigate();
   const [showBookingForm, setShowBookingForm] = React.useState(false);
+  const [isCustomTour, setIsCustomTour] = React.useState(false);
 
   const tours: Tour[] = [
     {
@@ -202,13 +203,19 @@ const ToursSection = () => {
         <div className="text-center mt-12 px-4">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
-              onClick={() => setShowBookingForm(true)}
+              onClick={() => {
+                setIsCustomTour(false);
+                setShowBookingForm(true);
+              }}
               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-base transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2"
             >
               <span className="leading-tight font-extrabold">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
             </button>
             <button 
-              onClick={() => setShowBookingForm(true)}
+              onClick={() => {
+                setIsCustomTour(true);
+                setShowBookingForm(true);
+              }}
               className="w-full sm:w-auto bg-white hover:bg-green-600 text-black hover:text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-base transition-all hover:scale-105 shadow-lg border-2 border-green-600"
             >
               Предложить свой вариант тура
@@ -220,6 +227,7 @@ const ToursSection = () => {
       <UniversalBookingDialog 
         open={showBookingForm} 
         onOpenChange={setShowBookingForm}
+        isCustomTour={isCustomTour}
       />
     </section>
   );

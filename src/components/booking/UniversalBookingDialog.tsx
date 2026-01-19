@@ -25,12 +25,14 @@ interface UniversalBookingDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   defaultTour?: string;
+  isCustomTour?: boolean;
 }
 
 const UniversalBookingDialog = ({ 
   open, 
   onOpenChange,
-  defaultTour = ''
+  defaultTour = '',
+  isCustomTour = false
 }: UniversalBookingDialogProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,8 +41,8 @@ const UniversalBookingDialog = ({
     name: '',
     phone: '',
     email: '',
-    tour: defaultTour,
-    comment: ''
+    tour: isCustomTour ? 'Предложить свой вариант тура' : defaultTour,
+    comment: isCustomTour ? 'место, время и продолжительность желаемого тура' : ''
   });
 
   const tours = [
@@ -49,7 +51,8 @@ const UniversalBookingDialog = ({
     "Поход к горе Белухе - 78 800 ₽",
     "Камчатка — три вулкана - 83 200 ₽",
     "Путешествие за золотом Колымы - 92 000 ₽",
-    "Дагестан: Кавказская тропа по краю башен - 54 900 ₽"
+    "Дагестан: Кавказская тропа по краю башен - 54 900 ₽",
+    "Предложить свой вариант тура"
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -73,8 +76,8 @@ const UniversalBookingDialog = ({
           name: '',
           phone: '',
           email: '',
-          tour: defaultTour,
-          comment: ''
+          tour: isCustomTour ? 'Предложить свой вариант тура' : defaultTour,
+          comment: isCustomTour ? 'место, время и продолжительность желаемого тура' : ''
         });
         setShowSuccess(true);
       } else {
