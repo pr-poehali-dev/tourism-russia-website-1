@@ -209,7 +209,7 @@ const ToursSection = () => {
             </button>
             <button 
               onClick={() => setShowBookingForm(true)}
-              className="w-full sm:w-auto bg-white hover:bg-green-600 text-black hover:text-white px-3 py-2 md:px-8 md:py-6 rounded-lg font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg"
+              className="w-full sm:w-auto bg-white hover:bg-green-600 text-black hover:text-white px-3 py-2 md:px-8 md:py-6 rounded-lg font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg border-2 border-green-600"
             >
               Предложить свой вариант тура
             </button>
