@@ -4,11 +4,22 @@ import GuidesSection from "@/components/sections/GuidesSection";
 import ToursSection from "@/components/sections/ToursSection";
 import ReviewsGallerySection from "@/components/sections/ReviewsGallerySection";
 import BenefitsSection from "@/components/sections/BenefitsSection";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(window.location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
 
   const menuItems = [
     { href: "#home", label: "Главная" },

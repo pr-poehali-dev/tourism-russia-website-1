@@ -10,15 +10,7 @@ const TourHeader = () => {
       <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
         <Button
           variant="ghost"
-          onClick={() => {
-            navigate('/#tours');
-            setTimeout(() => {
-              const toursSection = document.getElementById('tours');
-              if (toursSection) {
-                toursSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }, 100);
-          }}
+          onClick={() => navigate('/#tours')}
           className="flex items-center gap-2"
         >
           <Icon name="ArrowLeft" size={20} />
