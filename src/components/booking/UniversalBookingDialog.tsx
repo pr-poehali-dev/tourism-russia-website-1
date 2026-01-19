@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import SuccessDialog from "./SuccessDialog";
 import InputMask from "react-input-mask";
@@ -41,9 +41,39 @@ const UniversalBookingDialog = ({
     name: '',
     phone: '',
     email: '',
-    tour: isCustomTour ? 'Предложить свой вариант тура' : defaultTour,
-    comment: isCustomTour ? 'место, время и продолжительность желаемого тура' : ''
+    tour: '',
+    comment: ''
   });
+
+  useEffect(() => {
+    if (open) {
+      if (isCustomTour) {
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          tour: 'Предложить свой вариант тура',
+          comment: 'место, время и продолжительность желаемого тура'
+        });
+      } else if (defaultTour) {
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          tour: defaultTour,
+          comment: ''
+        });
+      } else {
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          tour: '',
+          comment: ''
+        });
+      }
+    }
+  }, [open, isCustomTour, defaultTour]);
 
   const tours = [
     "Коньковый поход по зимнему Байкалу - 75 000 ₽",
@@ -76,8 +106,8 @@ const UniversalBookingDialog = ({
           name: '',
           phone: '',
           email: '',
-          tour: isCustomTour ? 'Предложить свой вариант тура' : defaultTour,
-          comment: isCustomTour ? 'место, время и продолжительность желаемого тура' : ''
+          tour: '',
+          comment: ''
         });
         setShowSuccess(true);
       } else {
