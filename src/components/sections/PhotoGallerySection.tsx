@@ -336,7 +336,7 @@ const PhotoGallerySection = () => {
           <div className="text-center mt-12 px-4">
             <button 
               onClick={() => setShowBookingForm(true)}
-              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-full font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2 mx-auto"
+              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-8 md:py-6 rounded-lg font-bold text-xs md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2 mx-auto"
             >
               <span className="leading-tight font-extrabold">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
             </button>
@@ -356,7 +356,7 @@ const PhotoGallerySection = () => {
                 
                 <button
                   onClick={closeGallery}
-                  className="absolute top-4 right-4 z-50 bg-white hover:bg-gray-100 p-2 rounded-full transition-all shadow-lg"
+                  className="absolute top-4 right-4 z-50 bg-white hover:bg-gray-100 p-2 rounded-lg transition-all shadow-lg"
                   aria-label="Закрыть галерею"
                 >
                   <Icon name="X" size={24} className="text-black" />
@@ -374,7 +374,7 @@ const PhotoGallerySection = () => {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg z-20"
                         aria-label="Предыдущее фото"
                       >
                         <Icon name="ChevronLeft" size={36} className="text-black" />
@@ -382,7 +382,7 @@ const PhotoGallerySection = () => {
                       
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full transition-all shadow-lg z-20"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg z-20"
                         aria-label="Следующее фото"
                       >
                         <Icon name="ChevronRight" size={36} className="text-black" />
