@@ -217,9 +217,7 @@ const ToursSection = () => {
                 setShowBookingForm(true);
               }}
               className="w-full sm:w-auto bg-white hover:bg-green-600 text-black hover:text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-base transition-all hover:scale-105 shadow-lg border-2 border-green-600"
-            >
-              Предложить свой вариант тура
-            </button>
+            >Предложить свой вариант тура, если не нашли подходящий</button>
           </div>
         </div>
       </div>
