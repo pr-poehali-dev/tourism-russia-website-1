@@ -2,7 +2,7 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-ken-burns"
         style={{
           backgroundImage: `url('https://cdn.poehali.dev/files/ahFddRW4KWcWkKlNvnq3MY7pWuo-960.jpg')`,
         }}
