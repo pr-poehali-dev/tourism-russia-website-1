@@ -96,7 +96,7 @@ const GuidesSection = () => {
       specialization: "Основатель проекта \"Жизнь с рюкзаком\", организатор туров, гид",
       tours: "более 150",
       rating: 5.0,
-      image: "https://cdn.poehali.dev/files/DSCF8329.jpg",
+      image: "https://cdn.poehali.dev/files/cp0yCYWD-lY.jpg",
       phone: "+7 996 083-71-57",
       expeditions: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
       achievements: [
