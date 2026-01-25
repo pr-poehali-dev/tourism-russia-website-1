@@ -17,7 +17,8 @@ const TourSidebar = ({ onBookingClick }: TourSidebarProps) => {
       <Card className="border-2 border-primary shadow-lg">
         <CardContent className="p-6 space-y-6">
           <div className="text-center">
-            <p className="text-3xl font-bold text-primary mb-2">75 000 ₽</p>
+            <p className="text-2xl line-through text-red-600 mb-1">75 000 ₽</p>
+            <p className="text-3xl font-bold text-primary mb-2">67 500 ₽</p>
             <p className="text-muted-foreground text-sm">за человека</p>
           </div>
 

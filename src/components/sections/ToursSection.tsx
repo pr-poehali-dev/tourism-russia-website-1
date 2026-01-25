@@ -13,6 +13,8 @@ interface Tour {
   description: string;
   duration: string;
   price: string;
+  oldPrice?: string;
+  newPrice?: string;
   difficulty: string;
   image: string;
   url: string;
@@ -31,6 +33,8 @@ const ToursSection = () => {
       description: "16-22 февраля<br>6-12 марта",
       duration: "За 7 дней мы преодолеем несколько десятков километров по льду и познакомимся с достопримечательностями острова <strong>Ольхон</strong>: мысом <strong>Хобой</strong>, скалами <strong>Три Брата</strong> и <strong>Шаманка</strong>, буддийской ступой на острове <strong>Огой</strong> и многим другим!\n\n<strong>Передвигаться будем на коньках, пешком и автомобилях повышенной проходимости. Все ночёвки запланированы на тёплых турбазах.</strong>",
       price: "75 000 ₽",
+      oldPrice: "75 000 ₽",
+      newPrice: "67 500 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/files/2z7a6771.jpg",
       url: "/tour/baikal-skating",
@@ -42,6 +46,8 @@ const ToursSection = () => {
       description: "25 февраля – 4 марта 2026 года",
       duration: "За 8 дней мы совершим путешествие вокруг острова <strong>Ольхон</strong> по льду Байкала: увидим мыс <strong>Хобой</strong>, скалу <strong>Шаманка</strong>, ледяные гроты и байкальские сокуи!\n\n<strong>Будем перемещаться пешком и на коньках, помогая себе специальными палками. Ночевать будем в отапливаемых палатках с печкой прямо на льду Байкала!</strong>",
       price: "61 000 ₽",
+      oldPrice: "61 000 ₽",
+      newPrice: "59 400 ₽",
       difficulty: "Легкий",
       image: "https://cdn.poehali.dev/files/IMG_5107.jpg",
       url: "/tour/baikal-tents",
@@ -177,7 +183,14 @@ const ToursSection = () => {
                       <div className="flex items-start justify-between mt-2">
                         <CardDescription className="text-sm md:text-base text-left" dangerouslySetInnerHTML={{ __html: tour.description }} />
                         <div className="text-primary font-bold text-xl md:text-2xl whitespace-nowrap ml-4">
-                          {tour.price}
+                          {tour.oldPrice && tour.newPrice ? (
+                            <div className="flex flex-col items-end">
+                              <span className="text-lg line-through text-red-600">{tour.oldPrice}</span>
+                              <span>{tour.newPrice}</span>
+                            </div>
+                          ) : (
+                            tour.price
+                          )}
                         </div>
                       </div>
                     </CardHeader>

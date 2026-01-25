@@ -246,7 +246,8 @@ const TourTents = () => {
               <CardContent className="p-6 md:p-8">
                 <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6">Стоимость тура</h2>
                 <div className="bg-primary/5 p-6 rounded-lg mb-6">
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">61 000 ₽</div>
+                  <div className="text-3xl line-through text-red-600 mb-1">61 000 ₽</div>
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">59 400 ₽</div>
                   <p className="text-muted-foreground">за человека</p>
                 </div>
 
@@ -426,7 +427,8 @@ const TourTents = () => {
                     <div className="font-bold text-lg">25 февраля – 4 марта 2026</div>
                   </div>
                   <div className="text-center mb-6">
-                    <div className="text-4xl font-bold text-primary mb-2">61 000 ₽</div>
+                    <div className="text-2xl line-through text-red-600 mb-1">61 000 ₽</div>
+                    <div className="text-4xl font-bold text-primary mb-2">59 400 ₽</div>
                     <div className="text-sm text-muted-foreground">за человека</div>
                   </div>
                   <Button
@@ -444,7 +446,7 @@ const TourTents = () => {
                   </Button>
                   <div className="mt-4 text-center">
                     <div className="text-sm text-muted-foreground">Предоплата всего 10%</div>
-                    <div className="font-bold text-lg text-primary">6 100 ₽</div>
+                    <div className="font-bold text-lg text-primary">5 940 ₽</div>
                   </div>
                 </CardContent>
               </Card>
@@ -472,7 +474,7 @@ const TourTents = () => {
       <UniversalBookingDialog
         open={showBookingForm}
         onOpenChange={setShowBookingForm}
-        defaultTour="Байкал в палатках - 61 000 ₽"
+        defaultTour="Байкал в палатках - 59 400 ₽"
       />
     </div>
   );
