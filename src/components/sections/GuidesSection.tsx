@@ -92,7 +92,7 @@ const GuidesSection = () => {
     {
       name: "Антон",
       experience: "более 8 лет",
-      specialization: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
+      specialization: "Основатель проекта \"Жизнь с рюкзаком\", организатор туров, гид",
       tours: "более 150",
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
@@ -237,7 +237,7 @@ const GuidesSection = () => {
               return (
               <div key={index} className="flex flex-col md:flex-row gap-6">
                 {/* Текстовый блок */}
-                <div className="md:w-1/2 bg-white/40 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg p-6 md:p-8">
+                <div className="md:w-1/2 bg-white/5 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg p-6 md:p-8">
                   <CardHeader className="text-center pb-4 p-0">
                     <CardTitle className="font-heading text-2xl md:text-3xl mb-2">{guide.name}</CardTitle>
                     <CardDescription className="text-sm md:text-base">{guide.specialization}</CardDescription>
