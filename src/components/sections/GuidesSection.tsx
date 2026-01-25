@@ -229,7 +229,7 @@ const GuidesSection = () => {
     <>
       <section id="guides" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="flex flex-col gap-8 max-w-4xl mx-auto">
             {guides.map((guide, index) => {
               const allPhotos = guide.photos && guide.photos.length > 0 ? [guide.image, ...guide.photos] : [guide.image];
               const currentIdx = currentPhotoIndex[index] || 0;
