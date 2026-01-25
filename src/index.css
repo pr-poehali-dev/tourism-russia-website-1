@@ -129,3 +129,16 @@
 .animate-ken-burns {
   animation: ken-burns 16s ease-in-out infinite;
 }
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+.shine-effect {
+  animation: shine 2s infinite;
+}
