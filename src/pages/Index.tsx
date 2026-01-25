@@ -34,7 +34,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 z-50 w-full bg-white/60 backdrop-blur-md border-b border-white/20">
+      <header className="fixed top-0 z-50 w-full bg-white/40 backdrop-blur-md border-b border-white/20">
         <div className="container mx-auto px-4 py-2 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
@@ -50,7 +50,7 @@ const Index = () => {
               </a>
             ))}
           </nav>
-          <div className="hidden lg:flex gap-4 items-center text-sm">
+          <div className="hidden lg:flex flex-col gap-1 text-sm">
             <a href="tel:+79655615153" className="flex items-center gap-2 hover:text-primary transition-colors text-gray-800 font-semibold">
               <Icon name="Phone" size={16} />
               +7 965 561-51-53
