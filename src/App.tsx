@@ -12,6 +12,7 @@ import TourKamchatka from "./pages/TourKamchatka";
 import TourKolyma from "./pages/TourKolyma";
 import TourDagestan from "./pages/TourDagestan";
 import AdminReviews from "./pages/AdminReviews";
+import BenefitsPreview from "./pages/BenefitsPreview";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/tour/kolyma" element={<TourKolyma />} />
           <Route path="/tour/dagestan" element={<TourDagestan />} />
           <Route path="/admin/reviews" element={<AdminReviews />} />
+          <Route path="/preview/benefits" element={<BenefitsPreview />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
