@@ -253,14 +253,21 @@ const GuidesSection = () => {
                     </div>
                     
                     {index === 0 && (
-                      <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
-                        <p className="leading-relaxed text-white text-sm text-left">
-                          <span className="block">Антон — душа компании.</span>
-                          <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
-                          <span className="block">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
-                          <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
-                        </p>
-                      </div>
+                      <>
+                        <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
+                          <p className="leading-relaxed text-white text-sm text-left">
+                            Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров
+                          </p>
+                        </div>
+                        <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
+                          <p className="leading-relaxed text-white text-sm text-left">
+                            <span className="block">Антон — душа компании.</span>
+                            <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
+                            <span className="block">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
+                            <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
+                          </p>
+                        </div>
+                      </>
                     )}
                     {index === 1 && (
                       <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
