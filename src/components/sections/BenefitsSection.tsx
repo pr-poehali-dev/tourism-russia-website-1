@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import React from "react";
 import {
@@ -14,31 +14,98 @@ interface Benefit {
   icon: string;
   title: string;
   description: string;
+  photos: string[];
 }
 
 const BenefitsSection = () => {
   const [selectedBenefit, setSelectedBenefit] = React.useState<number | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = React.useState<string | null>(null);
 
   const benefits: Benefit[] = [
     { 
+      icon: "Camera", 
+      title: "Фото на профессиональный фотоаппарат и дрон", 
+      description: "Лучшие моменты вашего путешествия запечатлены профессиональным оборудованием на всем маршруте",
+      photos: [
+        "https://cdn.poehali.dev/files/_DSC5718.JPEG",
+        "https://cdn.poehali.dev/files/_DSC5996.JPEG",
+        "https://cdn.poehali.dev/files/_DSC6150.JPEG",
+        "https://cdn.poehali.dev/files/_DSC6264.JPEG",
+        "https://cdn.poehali.dev/files/DJI_20250922140843_0409_D.jpg",
+      ]
+    },
+    { 
+      icon: "Film", 
+      title: "Фильм о походе - вы в главных ролях", 
+      description: "Профессиональный видеоотчет о вашем приключении",
+      photos: [
+        "https://cdn.poehali.dev/files/IMG_20220516_165857_171.jpg",
+        "https://cdn.poehali.dev/files/IMG_20220516_165906_582.jpg",
+        "https://cdn.poehali.dev/files/IMG_20230318_112921.jpg",
+      ]
+    },
+    { 
+      icon: "Coffee", 
+      title: "Душевные посиделки у костра с фирменными чаями", 
+      description: "Атмосфера уюта и тепла после дня в походе",
+      photos: [
+        "https://cdn.poehali.dev/files/IMG_20220430_172036_251.jpg",
+        "https://cdn.poehali.dev/files/IMG_20220501_072715_590.jpg",
+        "https://cdn.poehali.dev/files/IMG_20220502_091531.jpg",
+      ]
+    },
+    { 
       icon: "Users", 
-      title: "Тёплая, почти семейная атмосфера", 
-      description: "Мы создаём дружескую обстановку, где каждый участник чувствует себя частью команды. Вечерние посиделки у костра, общие песни и истории делают путешествие незабываемым." 
+      title: "Невыгоревшие гиды", 
+      description: "Мы ходим по одному маршруту только 1 раз в году - каждый раз свежие эмоции и энергия",
+      photos: [
+        "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
+        "https://cdn.poehali.dev/files/IMG_0934.jpg",
+        "https://cdn.poehali.dev/files/IMG_20220823_120648.jpg",
+        "https://cdn.poehali.dev/files/IMG_20230414_125550_494.jpg",
+      ]
     },
     { 
-      icon: "Shield", 
-      title: "Гиды, которым можно доверять на все 100%", 
-      description: "Работаем без посредников и туроператоров. Все общение от заявки или звонка до последнего дня похода только с нами, Антоном и Эмилем. Мы знаем все предоставляемые туры и походы как свои пять пальцев, но каждый раз испытываем новые эмоции от общения с людьми и природы." 
-    },
-    { 
-      icon: "Heart", 
-      title: "Индивидуальный подход к каждому", 
-      description: "Небольшие группы 8-16 человек для комфортных путешествий и общения с природой. Мы учитываем физическую подготовку и пожелания каждого участника. Никого не оставим позади, всегда поможем и поддержим." 
+      icon: "Mountain", 
+      title: "Дикий Байкал", 
+      description: "Идем по маршрутам, где нет толпы - только вы и природа",
+      photos: [
+        "https://cdn.poehali.dev/files/IMG_20250922_121202.jpg",
+        "https://cdn.poehali.dev/files/IMG_20250909_130301.jpg",
+        "https://cdn.poehali.dev/files/IMG_20231105_155911.jpg",
+        "https://cdn.poehali.dev/files/cp0yCYWD-lY.jpg",
+        "https://cdn.poehali.dev/files/DSCF8036.jpg",
+      ]
     },
     { 
       icon: "ShieldCheck", 
-      title: "Безопасность", 
-      description: "Мы заключаем договор на оказание наших услуг и оформляем медицинскую страховку на каждого участника группы. Проверенное оборудование, качественное снаряжение и наш огромный опыт помогут вам получить незабываемые эмоции." 
+      title: "Опытные гиды с удостоверениями", 
+      description: "Медицинская подготовка и официальные сертификаты - ваша безопасность в надежных руках",
+      photos: [
+        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-39.jpg",
+        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-44.jpg",
+        "https://cdn.poehali.dev/files/Диплом 1.jpg",
+        "https://cdn.poehali.dev/files/Удостоверение 1.jpg",
+      ]
+    },
+    { 
+      icon: "Handshake", 
+      title: "Без посредников, без переплат", 
+      description: "Все общение напрямую с Антоном и Эмилем - от заявки до последнего дня похода",
+      photos: [
+        "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
+        "https://cdn.poehali.dev/files/IMG_0934.jpg",
+      ]
+    },
+    { 
+      icon: "Heart", 
+      title: "Небольшие группы 8-16 человек", 
+      description: "Уделяем внимание каждому участнику - никто не останется без поддержки",
+      photos: [
+        "https://cdn.poehali.dev/files/IMG_20220509_215659_999.jpg",
+        "https://cdn.poehali.dev/files/IMG_20220904_151101_258.JPG",
+        "https://cdn.poehali.dev/files/IMG_20220910_081817_752.jpg",
+      ]
     },
   ];
 
@@ -52,22 +119,31 @@ const BenefitsSection = () => {
               То, что делает наши туры особенными
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {benefits.map((benefit, index) => (
               <Card 
                 key={index} 
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up" 
+                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up cursor-pointer group" 
                 style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => setSelectedBenefit(index)}
               >
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-start gap-4">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Icon name={benefit.icon} size={32} className="text-green-600" />
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-start gap-3">
+                    <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 transition-colors">
+                      <Icon name={benefit.icon} size={28} className="text-green-600" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-xl mb-3">{benefit.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+                      <h3 className="font-bold text-lg mb-2 group-hover:text-green-600 transition-colors">{benefit.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
                     </div>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="mt-2 text-green-600 hover:text-green-700 hover:bg-green-50 p-0 h-auto"
+                    >
+                      <Icon name="Image" size={16} className="mr-1.5" />
+                      Посмотреть фото
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -77,13 +153,13 @@ const BenefitsSection = () => {
       </section>
 
       <Dialog open={selectedBenefit !== null} onOpenChange={() => setSelectedBenefit(null)}>
-        <DialogContent className="max-w-2xl w-[95vw] sm:w-full max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-4xl w-[95vw] sm:w-full max-h-[90vh] overflow-y-auto">
           {selectedBenefit !== null && (
             <>
               <DialogHeader>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Icon name={benefits[selectedBenefit].icon} size={32} className="text-primary" />
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                    <Icon name={benefits[selectedBenefit].icon} size={32} className="text-green-600" />
                   </div>
                   <div>
                     <DialogTitle className="text-2xl font-heading">
@@ -95,107 +171,40 @@ const BenefitsSection = () => {
                   </div>
                 </div>
               </DialogHeader>
-              <div className="space-y-4">
-                {selectedBenefit === 0 && (
-                  <div className="space-y-3">
-                    <p className="text-muted-foreground">
-                      Ваша безопасность - наш главный приоритет. Мы гарантируем:
-                    </p>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Проверенные и безопасные маршруты</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Сертифицированные гиды с медицинской подготовкой</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Полное снаряжение и аптечка первой помощи</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Связь и GPS-трекинг во время походов</span>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-                {selectedBenefit === 1 && (
-                  <div className="space-y-3">
-                    <p className="text-muted-foreground">
-                      Малые группы обеспечивают максимальный комфорт:
-                    </p>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>До 12 человек - внимание каждому участнику</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Индивидуальный подход к темпу движения</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Дружеская атмосфера и новые знакомства</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Возможность задать любые вопросы гиду</span>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-                {selectedBenefit === 2 && (
-                  <div className="space-y-3">
-                    <p className="text-muted-foreground">
-                      15 лет успешной работы и довольные клиенты:
-                    </p>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Более 5000 туристов выбрали наши туры</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Средняя оценка 4.9 из 5 звезд</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>80% клиентов возвращаются снова</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span>Партнерство с ведущими турклубами России</span>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-                {selectedBenefit === 3 && (
-                  <div className="space-y-3">
-                    <p className="text-muted-foreground">
-                      Смотрите видео с наших походов и экспедиций:
-                    </p>
-                    <div className="bg-muted rounded-lg p-6 text-center">
-                      <Icon name="Youtube" size={48} className="text-primary mx-auto mb-3" />
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Интересные моменты, впечатления участников и красота природы
-                      </p>
-                      <Button asChild className="w-full">
-                        <a href="https://youtube.com/@antturist" target="_blank" rel="noopener noreferrer">
-                          <Icon name="Youtube" size={18} className="mr-2" />
-                          Смотреть на YouTube
-                        </a>
-                      </Button>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+                {benefits[selectedBenefit].photos.map((photo, idx) => (
+                  <div 
+                    key={idx} 
+                    className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
+                    onClick={() => setSelectedPhoto(photo)}
+                  >
+                    <img 
+                      src={photo} 
+                      alt={`${benefits[selectedBenefit].title} ${idx + 1}`}
+                      className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <Icon name="ZoomIn" size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </div>
-                )}
-                <Button className="w-full mt-4" size="lg" onClick={() => setSelectedBenefit(null)}>
-                  Закрыть
-                </Button>
+                ))}
               </div>
             </>
           )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={selectedPhoto !== null} onOpenChange={() => setSelectedPhoto(null)}>
+        <DialogContent className="max-w-6xl w-[95vw] sm:w-full p-0 bg-black/95">
+          <div className="relative w-full h-[80vh] flex items-center justify-center">
+            {selectedPhoto && (
+              <img 
+                src={selectedPhoto} 
+                alt="Полноразмерное фото"
+                className="max-w-full max-h-full object-contain"
+              />
+            )}
+          </div>
         </DialogContent>
       </Dialog>
     </>
