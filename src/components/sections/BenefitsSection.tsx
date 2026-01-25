@@ -123,27 +123,31 @@ const BenefitsSection = () => {
             {benefits.map((benefit, index) => (
               <Card 
                 key={index} 
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up cursor-pointer group" 
+                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up cursor-pointer group overflow-hidden" 
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => setSelectedBenefit(index)}
               >
-                <CardContent className="p-6">
-                  <div className="flex flex-col items-start gap-3">
-                    <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 transition-colors">
-                      <Icon name={benefit.icon} size={28} className="text-green-600" />
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={benefit.photos[0]} 
+                    alt={benefit.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center mb-2">
+                      <Icon name={benefit.icon} size={20} className="text-green-600" />
                     </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 group-hover:text-green-600 transition-colors">{benefit.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <div className="flex flex-col gap-2">
+                    <h3 className="font-bold text-base mb-1 group-hover:text-green-600 transition-colors line-clamp-2">{benefit.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{benefit.description}</p>
+                    <div className="flex items-center gap-1 text-green-600 text-sm mt-1">
+                      <Icon name="Image" size={14} />
+                      <span>{benefit.photos.length} фото</span>
                     </div>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="mt-2 text-green-600 hover:text-green-700 hover:bg-green-50 p-0 h-auto"
-                    >
-                      <Icon name="Image" size={16} className="mr-1.5" />
-                      Посмотреть фото
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
