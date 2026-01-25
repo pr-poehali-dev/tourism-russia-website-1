@@ -96,7 +96,7 @@ const GuidesSection = () => {
       specialization: "Основатель проекта \"Жизнь с рюкзаком\", организатор туров, гид",
       tours: "более 150",
       rating: 5.0,
-      image: "https://cdn.poehali.dev/files/cp0yCYWD-lY.jpg",
+      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7ba1b441-2c55-4e90-910f-74d8ba83d4da.jpg",
       phone: "+7 996 083-71-57",
       expeditions: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
       achievements: [
@@ -255,7 +255,6 @@ const GuidesSection = () => {
                       src={allPhotos[currentIdx]}
                       alt={guide.name}
                       className="w-full h-full object-cover transition-opacity duration-300"
-                      style={index === 0 ? { objectPosition: 'center 35%' } : {}}
                     />
                     {allPhotos.length > 1 && (
                       <>
