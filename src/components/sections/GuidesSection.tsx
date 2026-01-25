@@ -162,10 +162,10 @@ const GuidesSection = () => {
               return (
               <div key={index} className={`flex flex-col gap-6 ${index === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 {/* Текстовый блок */}
-                <div className={`rounded-3xl shadow-lg p-6 md:p-8 flex flex-col ${index === 0 ? 'md:w-[58%] bg-cyan-600 border border-cyan-500' : 'md:w-[62%] bg-white border border-gray-200'}`}>
+                <div className={`bg-cyan-600 rounded-3xl border border-cyan-500 shadow-lg p-6 md:p-8 flex flex-col ${index === 0 ? 'md:w-[58%]' : 'md:w-[62%]'}`}>
                   <CardHeader className="text-center pb-4 p-0">
-                    <CardTitle className={`font-heading text-2xl md:text-3xl mb-2 ${index === 0 ? 'text-white' : 'text-cyan-600'}`}>{guide.name}</CardTitle>
-                    <CardDescription className={`text-sm md:text-base ${index === 0 ? 'text-white/90' : 'text-cyan-600'}`}>{guide.specialization}</CardDescription>
+                    <CardTitle className="font-heading text-2xl md:text-3xl mb-2 text-white">{guide.name}</CardTitle>
+                    <CardDescription className="text-sm md:text-base text-white/90">{guide.specialization}</CardDescription>
                   </CardHeader>
                   <CardContent className="p-0 mt-4 flex-1 flex flex-col">
                     <div className="flex-1">
@@ -178,7 +178,7 @@ const GuidesSection = () => {
                         </p>
                       )}
                       {index === 1 && (
-                        <p className="leading-relaxed text-cyan-600 text-base md:text-lg text-left space-y-4">
+                        <p className="leading-relaxed text-white text-base md:text-lg text-left space-y-4">
                           <span className="block">Эмиль — штатный психолог.</span>
                           <span className="block">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
                           <span className="block">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
@@ -190,7 +190,7 @@ const GuidesSection = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-6">
                       <button
                         onClick={() => setSelectedGuide(index)}
-                        className={`inline-flex items-center justify-center font-bold text-xs md:text-sm px-4 py-2 rounded-full transition-all hover:scale-105 shadow-lg ${index === 0 ? 'bg-white text-cyan-600 border border-white' : 'bg-cyan-600 text-white border border-cyan-600'}`}
+                        className="inline-flex items-center justify-center bg-white text-cyan-600 border border-white font-bold text-xs md:text-sm px-4 py-2 rounded-full transition-all hover:scale-105 shadow-lg"
                       >
                         Достижения
                       </button>
