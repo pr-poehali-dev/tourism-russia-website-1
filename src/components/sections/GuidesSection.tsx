@@ -202,9 +202,9 @@ const GuidesSection = () => {
               const currentIdx = currentPhotoIndex[index] || 0;
               
               return (
-              <div key={index} className="flex flex-col md:flex-row gap-6">
+              <div key={index} className={`flex flex-col gap-6 ${index === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 {/* Текстовый блок */}
-                <div className="md:w-1/2 bg-cyan-600 rounded-3xl border border-cyan-500 shadow-lg p-6 md:p-8 flex flex-col">
+                <div className={`bg-cyan-600 rounded-3xl border border-cyan-500 shadow-lg p-6 md:p-8 flex flex-col ${index === 0 ? 'md:w-[58%]' : 'md:w-[62%]'}`}>
                   <CardHeader className="text-center pb-4 p-0">
                     <CardTitle className="font-heading text-2xl md:text-3xl mb-2 text-white">{guide.name}</CardTitle>
                     <CardDescription className="text-sm md:text-base text-white/90">{guide.specialization}</CardDescription>
@@ -251,7 +251,7 @@ const GuidesSection = () => {
                 </div>
 
                 {/* Блок с галереей */}
-                <div className="md:w-1/2 bg-white/40 backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 shadow-lg">
+                <div className={`bg-white/40 backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 shadow-lg ${index === 0 ? 'md:w-[42%]' : 'md:w-[38%]'}`}>
                   <div className="relative h-96 md:h-full overflow-hidden">
                     <img
                       src={allPhotos[currentIdx]}
