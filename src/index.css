@@ -117,14 +117,15 @@
 }
 
 @keyframes ken-burns {
-  0% {
+  0%,
+  100% {
     transform: scale(1) translateX(0);
   }
-  100% {
+  50% {
     transform: scale(1.1) translateX(3%);
   }
 }
 
 .animate-ken-burns {
-  animation: ken-burns 8s ease-in-out infinite;
+  animation: ken-burns 16s ease-in-out infinite;
 }
