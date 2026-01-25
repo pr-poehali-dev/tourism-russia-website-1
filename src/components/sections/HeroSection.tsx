@@ -10,8 +10,8 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30" />
       </div>
       <div className="relative z-10 text-center text-white px-4 animate-fade-in max-w-6xl mx-auto -mt-24">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 md:mb-6 leading-tight">Зимние туры<br />на Дикий Байкал</h1>
-        <p className="text-xl sm:text-2xl md:text-3xl mb-2 max-w-4xl mx-auto font-semibold">Путешествия по России с Антоном и Эмилем</p>
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-bold mb-6 md:mb-8 leading-tight">Зимние туры<br />на Дикий Байкал</h1>
+        <p className="text-xl sm:text-2xl md:text-3xl mb-4 max-w-4xl mx-auto font-semibold">Путешествия по России с Антоном и Эмилём</p>
         <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto opacity-90">Без посредников и переплат</p>
       </div>
     </section>
