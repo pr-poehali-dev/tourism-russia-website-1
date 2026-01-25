@@ -92,15 +92,13 @@ const GuidesSection = () => {
     {
       name: "Антон",
       experience: "более 8 лет",
-      specialization: "Основатель проекта \"Жизнь с рюкзаком\", организатор туров, гид",
+      specialization: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
       tours: "более 150",
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
       phone: "+7 996 083-71-57",
       achievements: [
-        "Опыт работы более 8 лет",
-        "Проведено более 150 туров",
-        "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
+        "Основатель проекта \"Жизнь с рюкзаком\", организатор туров, гид",
         "Восхождение на г. Эльбрус 2017 и 2023 годы",
         "Восхождение на г. Демавенд",
         "Восхождением на г. Пабаку в 2023 и 2024 годах",
@@ -391,25 +389,16 @@ const GuidesSection = () => {
                     </div>
                   </div>
                 )}
-                <div className="grid grid-cols-2 gap-4 pt-4 border-t">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary">{guides[selectedGuide].experience}</div>
-                    <div className="text-xs text-muted-foreground">Опыт работы</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary">{guides[selectedGuide].tours}</div>
-                    <div className="text-xs text-muted-foreground">Проведено туров</div>
-                  </div>
-                </div>
-                
-                <Button 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300" 
-                  size="lg" 
+                <button
                   onClick={() => handleContactClick(selectedGuide)}
+                  className="relative w-full inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
                 >
-                  <Icon name="MessageCircle" size={18} className="mr-2" />
-                  Связаться с гидом
-                </Button>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Icon name="MessageCircle" size={18} />
+                    Связаться с гидом
+                  </span>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                </button>
               </div>
             </>
           )}
