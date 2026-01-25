@@ -23,7 +23,7 @@ const HeroSection = () => {
       </div>
       <div className="relative z-10 text-center text-white px-4 animate-fade-in max-w-6xl mx-auto">
         <h1 className="sm:text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-4 md:mb-6 text-6xl">Зимние туры на Дикий Байкал</h1>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-2xl mx-auto">Путешествия по России с Антоном и Эмилем</p>
+        <p className="sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-2xl mx-auto text-3xl">Путешествия по России с Антоном и Эмилем</p>
         <p className="text-sm sm:text-base md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto opacity-90">Без посредников и переплат</p>
         
         <div className="space-y-4 max-w-6xl mx-auto">
