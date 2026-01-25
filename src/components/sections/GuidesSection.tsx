@@ -25,6 +25,7 @@ interface Guide {
   phone: string;
   certificates?: string[];
   photos?: string[];
+  expeditions?: string;
 }
 
 const GuidesSection = () => {
@@ -92,13 +93,15 @@ const GuidesSection = () => {
     {
       name: "Антон",
       experience: "более 8 лет",
-      specialization: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
+      specialization: "Основатель проекта \"Жизнь с рюкзаком\", организатор туров, гид",
       tours: "более 150",
       rating: 5.0,
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
       phone: "+7 996 083-71-57",
+      expeditions: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
       achievements: [
-        "Основатель проекта \"Жизнь с рюкзаком\", организатор туров, гид",
+        "Опыт работы более 8 лет",
+        "Проведено туров более 150",
         "Восхождение на г. Эльбрус 2017 и 2023 годы",
         "Восхождение на г. Демавенд",
         "Восхождением на г. Пабаку в 2023 и 2024 годах",
@@ -337,7 +340,7 @@ const GuidesSection = () => {
                       {guides[selectedGuide].name}
                     </DialogTitle>
                     <DialogDescription className="text-base">
-                      {guides[selectedGuide].specialization}
+                      {guides[selectedGuide].expeditions || guides[selectedGuide].specialization}
                     </DialogDescription>
                   </div>
                 </div>
