@@ -247,24 +247,20 @@ const GuidesSection = () => {
                   </CardHeader>
                   <CardContent className="space-y-3 p-0 mt-4">
                     {index === 0 && (
-                      <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
-                        <p className="leading-relaxed text-white text-sm text-left">
-                          <span className="block">Антон — душа компании.</span>
-                          <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
-                          <span className="block">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
-                          <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
-                        </p>
-                      </div>
+                      <p className="leading-relaxed text-white text-sm text-left">
+                        <span className="block mb-2">Антон — душа компании.</span>
+                        <span className="block mb-2">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
+                        <span className="block mb-2">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
+                        <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
+                      </p>
                     )}
                     {index === 1 && (
-                      <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
-                        <p className="leading-relaxed text-white text-sm text-left">
-                          <span className="block">Эмиль — штатный психолог.</span>
-                          <span className="block">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
-                          <span className="block">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
-                          <span className="block">Настоящий руководитель похода, подскажет и поможет в любой ситуации.</span>
-                        </p>
-                      </div>
+                      <p className="leading-relaxed text-white text-sm text-left">
+                        <span className="block mb-2">Эмиль — штатный психолог.</span>
+                        <span className="block mb-2">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
+                        <span className="block mb-2">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
+                        <span className="block">Настоящий руководитель похода, подскажет и поможет в любой ситуации.</span>
+                      </p>
                     )}
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
