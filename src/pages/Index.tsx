@@ -1,6 +1,7 @@
 import Icon from "@/components/ui/icon";
 import HeroSection from "@/components/sections/HeroSection";
 import GuidesSection from "@/components/sections/GuidesSection";
+import PaymentSection from "@/components/sections/PaymentSection";
 import ToursSection from "@/components/sections/ToursSection";
 import ReviewsGallerySection from "@/components/sections/ReviewsGallerySection";
 import BenefitsSection from "@/components/sections/BenefitsSection";
@@ -112,6 +113,7 @@ const Index = () => {
 
       <HeroSection />
       <GuidesSection />
+      <PaymentSection />
       <BenefitsSection />
       <ToursSection />
       <ReviewsGallerySection />
