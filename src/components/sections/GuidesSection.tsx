@@ -237,24 +237,24 @@ const GuidesSection = () => {
               return (
               <div key={index} className="flex flex-col md:flex-row gap-6">
                 {/* Текстовый блок */}
-                <div className="md:w-1/2 bg-white/5 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg p-6 md:p-8">
+                <div className="md:w-1/2 bg-cyan-600 rounded-3xl border border-cyan-500 shadow-lg p-6 md:p-8">
                   <CardHeader className="text-center pb-4 p-0">
-                    <CardTitle className="font-heading text-2xl md:text-3xl mb-2">{guide.name}</CardTitle>
-                    <CardDescription className="text-sm md:text-base">{guide.specialization}</CardDescription>
+                    <CardTitle className="font-heading text-2xl md:text-3xl mb-2 text-white">{guide.name}</CardTitle>
+                    <CardDescription className="text-sm md:text-base text-white/90">{guide.specialization}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-3 p-0 mt-4">
-                    <div className="flex items-center justify-between py-2 text-sm border-b">
-                      <span className="text-muted-foreground text-sm">Опыт работы</span>
-                      <span className="font-semibold text-sm">{guide.experience}</span>
+                    <div className="flex items-center justify-between py-2 text-sm border-b border-white/20">
+                      <span className="text-white/80 text-sm">Опыт работы</span>
+                      <span className="font-semibold text-sm text-white">{guide.experience}</span>
                     </div>
                     <div className="flex items-center justify-between py-2 text-sm">
-                      <span className="text-muted-foreground text-sm">Проведено туров</span>
-                      <span className="font-semibold text-sm">{guide.tours}</span>
+                      <span className="text-white/80 text-sm">Проведено туров</span>
+                      <span className="font-semibold text-sm text-white">{guide.tours}</span>
                     </div>
                     
                     {index === 0 && (
-                      <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
-                        <p className="leading-relaxed text-foreground/90 text-sm text-left">
+                      <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
+                        <p className="leading-relaxed text-white text-sm text-left">
                           <span className="block">Антон — душа компании.</span>
                           <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
                           <span className="block">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
@@ -263,8 +263,8 @@ const GuidesSection = () => {
                       </div>
                     )}
                     {index === 1 && (
-                      <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
-                        <p className="leading-relaxed text-foreground/90 text-sm text-left">
+                      <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
+                        <p className="leading-relaxed text-white text-sm text-left">
                           <span className="block">Эмиль — штатный психолог.</span>
                           <span className="block">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
                           <span className="block">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
@@ -274,7 +274,7 @@ const GuidesSection = () => {
                     )}
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
-                      <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm">Достижения, документы</Button>
+                      <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm bg-white text-cyan-600 hover:bg-white/90 border-white">Достижения, документы</Button>
                       <Button 
                         size="sm" 
                         onClick={() => handleContactClick(index)} 
