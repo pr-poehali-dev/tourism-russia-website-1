@@ -229,94 +229,101 @@ const GuidesSection = () => {
     <>
       <section id="guides" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-col gap-8 max-w-6xl mx-auto">
             {guides.map((guide, index) => {
               const allPhotos = guide.photos && guide.photos.length > 0 ? [guide.image, ...guide.photos] : [guide.image];
               const currentIdx = currentPhotoIndex[index] || 0;
               
               return (
-              <div key={index} className="bg-white/40 backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="relative h-80 overflow-hidden">
-                  <img
-                    src={allPhotos[currentIdx]}
-                    alt={guide.name}
-                    className="w-full h-full object-cover transition-opacity duration-300"
-                  />
-                  {allPhotos.length > 1 && (
-                    <>
-                      <button
-                        onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: (currentIdx - 1 + allPhotos.length) % allPhotos.length}))}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-colors shadow-lg"
-                      >
-                        <Icon name="ChevronLeft" size={20} className="text-gray-800" />
-                      </button>
-                      <button
-                        onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: (currentIdx + 1) % allPhotos.length}))}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-colors shadow-lg"
-                      >
-                        <Icon name="ChevronRight" size={20} className="text-gray-800" />
-                      </button>
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-                        {allPhotos.map((_, photoIdx) => (
-                          <button
-                            key={photoIdx}
-                            onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: photoIdx}))}
-                            className={`w-2 h-2 rounded-full transition-colors ${
-                              currentIdx === photoIdx ? 'bg-white' : 'bg-white/50 hover:bg-white/75'
-                            }`}
-                          />
-                        ))}
+              <div key={index} className="flex flex-col md:flex-row gap-6">
+                {/* Текстовый блок */}
+                <div className="md:w-1/2 bg-white/40 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg p-6 md:p-8">
+                  <CardHeader className="text-center pb-4 p-0">
+                    <CardTitle className="font-heading text-2xl md:text-3xl mb-2">{guide.name}</CardTitle>
+                    <CardDescription className="text-sm md:text-base">{guide.specialization}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3 p-0 mt-4">
+                    <div className="flex items-center justify-between py-2 text-sm border-b">
+                      <span className="text-muted-foreground text-sm">Опыт работы</span>
+                      <span className="font-semibold text-sm">{guide.experience}</span>
+                    </div>
+                    <div className="flex items-center justify-between py-2 text-sm">
+                      <span className="text-muted-foreground text-sm">Проведено туров</span>
+                      <span className="font-semibold text-sm">{guide.tours}</span>
+                    </div>
+                    
+                    {index === 0 && (
+                      <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
+                        <p className="leading-relaxed text-foreground/90 text-sm text-left">
+                          <span className="block">Антон — душа компании.</span>
+                          <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
+                          <span className="block">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
+                          <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
+                        </p>
                       </div>
-                    </>
-                  )}
+                    )}
+                    {index === 1 && (
+                      <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
+                        <p className="leading-relaxed text-foreground/90 text-sm text-left">
+                          <span className="block">Эмиль — штатный психолог.</span>
+                          <span className="block">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
+                          <span className="block">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
+                          <span className="block">Настоящий руководитель похода, подскажет и поможет в любой ситуации.</span>
+                        </p>
+                      </div>
+                    )}
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
+                      <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm">Достижения, документы</Button>
+                      <Button 
+                        size="sm" 
+                        onClick={() => handleContactClick(index)} 
+                        className="text-xs md:text-sm bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300"
+                      >
+                        <Icon name="MessageCircle" size={14} className="mr-1" />
+                        Связаться с {guide.name.split(' ')[0] === 'Эмиль' ? 'Эмилем' : guide.name.split(' ')[0] + 'ом'}
+                      </Button>
+                    </div>
+                  </CardContent>
                 </div>
-                <CardHeader className="text-center pb-3">
-                  <CardTitle className="font-heading text-xl md:text-2xl">{guide.name}</CardTitle>
-                  <CardDescription className="text-xs md:text-sm">{guide.specialization}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <div className="flex items-center justify-between py-2 text-sm border-b">
-                    <span className="text-muted-foreground text-xs">Опыт работы</span>
-                    <span className="font-semibold text-sm">{guide.experience}</span>
+
+                {/* Блок с галереей */}
+                <div className="md:w-1/2 bg-white/40 backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 shadow-lg">
+                  <div className="relative h-96 md:h-full overflow-hidden">
+                    <img
+                      src={allPhotos[currentIdx]}
+                      alt={guide.name}
+                      className="w-full h-full object-cover transition-opacity duration-300"
+                    />
+                    {allPhotos.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: (currentIdx - 1 + allPhotos.length) % allPhotos.length}))}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-colors shadow-lg"
+                        >
+                          <Icon name="ChevronLeft" size={20} className="text-gray-800" />
+                        </button>
+                        <button
+                          onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: (currentIdx + 1) % allPhotos.length}))}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-colors shadow-lg"
+                        >
+                          <Icon name="ChevronRight" size={20} className="text-gray-800" />
+                        </button>
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                          {allPhotos.map((_, photoIdx) => (
+                            <button
+                              key={photoIdx}
+                              onClick={() => setCurrentPhotoIndex(prev => ({...prev, [index]: photoIdx}))}
+                              className={`w-2 h-2 rounded-full transition-colors ${
+                                currentIdx === photoIdx ? 'bg-white' : 'bg-white/50 hover:bg-white/75'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
-                  <div className="flex items-center justify-between py-2 text-sm">
-                    <span className="text-muted-foreground text-xs">Проведено туров</span>
-                    <span className="font-semibold text-sm">{guide.tours}</span>
-                  </div>
-                  
-                  {index === 0 && (
-                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
-                      <p className="leading-relaxed text-foreground/90 text-sm text-left">
-                        <span className="block">Антон — душа компании.</span>
-                        <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
-                        <span className="block">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
-                        <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
-                      </p>
-                    </div>
-                  )}
-                  {index === 1 && (
-                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 my-3">
-                      <p className="leading-relaxed text-foreground/90 text-sm text-left">
-                        <span className="block">Эмиль — штатный психолог.</span>
-                        <span className="block">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
-                        <span className="block">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
-                        <span className="block">Настоящий руководитель похода, подскажет и поможет в любой ситуации.</span>
-                      </p>
-                    </div>
-                  )}
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
-                    <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm">Достижения, документы</Button>
-                    <Button 
-                      size="sm" 
-                      onClick={() => handleContactClick(index)} 
-                      className="text-xs md:text-sm bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300"
-                    >
-                      <Icon name="MessageCircle" size={14} className="mr-1" />
-                      Связаться с {guide.name.split(' ')[0] === 'Эмиль' ? 'Эмилем' : guide.name.split(' ')[0] + 'ом'}
-                    </Button>
-                  </div>
-                </CardContent>
+                </div>
               </div>
             );
             })}
