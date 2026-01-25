@@ -106,7 +106,6 @@ const GuidesSection = () => {
         "Организация и проведение автотуров в Дагестане, Сочи, Кольском полуострове, Урале в 2020-2025 годах",
       ],
       certificates: [
-        "https://cdn.poehali.dev/files/04 Удостоверение 3.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-39.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-44.jpg",
         "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-47.jpg",
