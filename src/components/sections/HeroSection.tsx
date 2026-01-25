@@ -15,7 +15,13 @@ const HeroSection = () => {
           <span className="block">на Дикий Байкал</span>
         </h1>
         <p className="text-xl sm:text-2xl md:text-3xl mb-6 max-w-4xl mx-auto font-semibold">Путешествия по России с Антоном и Эмилем</p>
-        <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto opacity-90"></p>
+        <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto opacity-90 mb-8"></p>
+        <a 
+          href="#tours" 
+          className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg md:text-xl px-10 py-4 md:px-12 md:py-5 rounded-full transition-all hover:scale-105 shadow-2xl"
+        >
+          Выбери свои приключения
+        </a>
       </div>
     </section>
   );
