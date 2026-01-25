@@ -109,14 +109,7 @@ const GuidesSection = () => {
         "Организация и проведение походов на Камчатке, Приполярном Урале, зимнем Байкале, Алтае, зимнем Урале, Магадане в 2017-2025 годах",
         "Организация и проведение автотуров в Дагестане, Сочи, Кольском полуострове, Урале в 2020-2025 годах",
       ],
-      certificates: [
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-39.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-44.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-47.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-51.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-04-39.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_22-26-12.jpg",
-      ],
+
     },
     {
       name: "Эмиль",
@@ -138,14 +131,7 @@ const GuidesSection = () => {
         "Забайкалье, лыжный поход 4 к.с. с первопрохождением (2019 г.)",
         "Западные Саяны, лыжный поход 4 к.с. с первопрохождениями (2020 г.)",
       ],
-      certificates: [
-        "https://cdn.poehali.dev/files/04 Удостоверение 3.jpg",
-        "https://cdn.poehali.dev/files/Диплом 1.jpg",
-        "https://cdn.poehali.dev/files/Диплом2.jpg",
-        "https://cdn.poehali.dev/files/Диплом 3.jpg|rotate-right",
-        "https://cdn.poehali.dev/files/Удостоверение 1.jpg",
-        "https://cdn.poehali.dev/files/Удостоверение 2.jpg",
-      ],
+
 
     },
   ];
