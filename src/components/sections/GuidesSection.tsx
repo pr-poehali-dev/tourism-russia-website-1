@@ -90,7 +90,7 @@ const GuidesSection = () => {
 
   const guides: Guide[] = [
     {
-      name: "Антон Немчинов",
+      name: "Антон",
       experience: "более 8 лет",
       specialization: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
       tours: "более 150",
@@ -152,7 +152,7 @@ const GuidesSection = () => {
       ],
     },
     {
-      name: "Эмиль Газизов",
+      name: "Эмиль",
       experience: "более 10 лет",
       specialization: "1-й спортивный разряд (горный, лыжный, велотуризм). Алтай, Кавказ, Кольский, Киргизия, Казахстан, Эльбрус, Урал, Забайкалье, Саяны.",
       tours: "более 180",
@@ -227,19 +227,15 @@ const GuidesSection = () => {
 
   return (
     <>
-      <section id="guides" className="py-20 bg-muted/30">
+      <section id="guides" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">С кем вы пойдёте в поход или тур</h2>
-            <p className="text-base md:text-lg text-muted-foreground">Профессионалы с многолетним опытом</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {guides.map((guide, index) => {
               const allPhotos = guide.photos && guide.photos.length > 0 ? [guide.image, ...guide.photos] : [guide.image];
               const currentIdx = currentPhotoIndex[index] || 0;
               
               return (
-              <Card key={index} className="hover:shadow-xl transition-shadow overflow-hidden">
+              <div key={index} className="bg-white/40 backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-80 overflow-hidden">
                   <img
                     src={allPhotos[currentIdx]}
@@ -321,7 +317,7 @@ const GuidesSection = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
+              </div>
             );
             })}
           </div>
