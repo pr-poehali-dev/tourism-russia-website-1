@@ -255,6 +255,7 @@ const GuidesSection = () => {
                       src={allPhotos[currentIdx]}
                       alt={guide.name}
                       className="w-full h-full object-cover transition-opacity duration-300"
+                      style={index === 0 ? { objectPosition: 'center 35%' } : {}}
                     />
                     {allPhotos.length > 1 && (
                       <>
