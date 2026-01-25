@@ -118,13 +118,13 @@
 
 @keyframes ken-burns {
   0% {
-    transform: scale(1) translateX(-2%);
+    transform: scale(1) translateX(0);
   }
   100% {
-    transform: scale(1.1) translateX(2%);
+    transform: scale(1.1) translateX(3%);
   }
 }
 
 .animate-ken-burns {
-  animation: ken-burns 5s ease-in-out infinite alternate;
+  animation: ken-burns 8s ease-in-out infinite;
 }
