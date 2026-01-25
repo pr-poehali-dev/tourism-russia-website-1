@@ -265,14 +265,16 @@ const GuidesSection = () => {
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
                       <Button variant="outline" size="sm" onClick={() => setSelectedGuide(index)} className="text-xs md:text-sm bg-white text-cyan-600 hover:bg-white/90 border-white">Достижения, документы</Button>
-                      <Button 
-                        size="sm" 
-                        onClick={() => handleContactClick(index)} 
-                        className="text-xs md:text-sm bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300"
+                      <button
+                        onClick={() => handleContactClick(index)}
+                        className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-xs md:text-sm px-4 py-2 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
                       >
-                        <Icon name="MessageCircle" size={14} className="mr-1" />
-                        Связаться с {guide.name.split(' ')[0] === 'Эмиль' ? 'Эмилем' : guide.name.split(' ')[0] + 'ом'}
-                      </Button>
+                        <span className="relative z-10 flex items-center gap-1">
+                          <Icon name="MessageCircle" size={14} />
+                          Связаться с {guide.name.split(' ')[0] === 'Эмиль' ? 'Эмилем' : guide.name.split(' ')[0] + 'ом'}
+                        </span>
+                        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                      </button>
                     </div>
                   </CardContent>
                 </div>
