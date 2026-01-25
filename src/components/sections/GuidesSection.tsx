@@ -246,15 +246,6 @@ const GuidesSection = () => {
                     <CardDescription className="text-sm md:text-base text-white/90">{guide.specialization}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-3 p-0 mt-4">
-                    <div className="flex items-center justify-between py-2 text-sm border-b border-white/20">
-                      <span className="text-white/80 text-sm">Опыт работы</span>
-                      <span className="font-semibold text-sm text-white">{guide.experience}</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 text-sm">
-                      <span className="text-white/80 text-sm">Проведено туров</span>
-                      <span className="font-semibold text-sm text-white">{guide.tours}</span>
-                    </div>
-                    
                     {index === 0 && (
                       <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
                         <p className="leading-relaxed text-white text-sm text-left">
