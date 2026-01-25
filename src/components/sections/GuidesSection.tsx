@@ -98,6 +98,9 @@ const GuidesSection = () => {
       image: "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
       phone: "+7 996 083-71-57",
       achievements: [
+        "Опыт работы более 8 лет",
+        "Проведено более 150 туров",
+        "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
         "Восхождение на г. Эльбрус 2017 и 2023 годы",
         "Восхождение на г. Демавенд",
         "Восхождением на г. Пабаку в 2023 и 2024 годах",
@@ -253,21 +256,14 @@ const GuidesSection = () => {
                     </div>
                     
                     {index === 0 && (
-                      <>
-                        <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
-                          <p className="leading-relaxed text-white text-sm text-left">
-                            Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров
-                          </p>
-                        </div>
-                        <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
-                          <p className="leading-relaxed text-white text-sm text-left">
-                            <span className="block">Антон — душа компании.</span>
-                            <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
-                            <span className="block">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
-                            <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
-                          </p>
-                        </div>
-                      </>
+                      <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
+                        <p className="leading-relaxed text-white text-sm text-left">
+                          <span className="block">Антон — душа компании.</span>
+                          <span className="block">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
+                          <span className="block">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
+                          <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
+                        </p>
+                      </div>
                     )}
                     {index === 1 && (
                       <div className="bg-white/10 border border-white/20 rounded-lg p-4 my-3">
