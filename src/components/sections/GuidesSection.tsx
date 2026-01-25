@@ -204,30 +204,32 @@ const GuidesSection = () => {
               return (
               <div key={index} className="flex flex-col md:flex-row gap-6">
                 {/* Текстовый блок */}
-                <div className="md:w-1/2 bg-cyan-600 rounded-3xl border border-cyan-500 shadow-lg p-6 md:p-8">
+                <div className="md:w-1/2 bg-cyan-600 rounded-3xl border border-cyan-500 shadow-lg p-6 md:p-8 flex flex-col">
                   <CardHeader className="text-center pb-4 p-0">
                     <CardTitle className="font-heading text-2xl md:text-3xl mb-2 text-white">{guide.name}</CardTitle>
                     <CardDescription className="text-sm md:text-base text-white/90">{guide.specialization}</CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-3 p-0 mt-4">
-                    {index === 0 && (
-                      <p className="leading-relaxed text-white text-sm text-left">
-                        <span className="block mb-2">Антон — душа компании.</span>
-                        <span className="block mb-2">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
-                        <span className="block mb-2">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
-                        <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
-                      </p>
-                    )}
-                    {index === 1 && (
-                      <p className="leading-relaxed text-white text-sm text-left">
-                        <span className="block mb-2">Эмиль — штатный психолог.</span>
-                        <span className="block mb-2">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
-                        <span className="block mb-2">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
-                        <span className="block">Настоящий руководитель похода, подскажет и поможет в любой ситуации.</span>
-                      </p>
-                    )}
+                  <CardContent className="p-0 mt-4 flex-1 flex flex-col">
+                    <div className="flex-1">
+                      {index === 0 && (
+                        <p className="leading-relaxed text-white text-base md:text-lg text-left">
+                          <span className="block mb-3">Антон — душа компании.</span>
+                          <span className="block mb-3">Вечерние посиделки у костра с весёлыми и познавательными историями, дружеская атмосфера, юмор и позитив.</span>
+                          <span className="block mb-3">Завтраки, обеды и ужины, приготовленные с Антоном, вы не забудете никогда.</span>
+                          <span className="block">Крылатые выражения Антона запомнятся на всю жизнь, захочется возвращаться в его компанию снова и снова...</span>
+                        </p>
+                      )}
+                      {index === 1 && (
+                        <p className="leading-relaxed text-white text-base md:text-lg text-left">
+                          <span className="block mb-3">Эмиль — штатный психолог.</span>
+                          <span className="block mb-3">Спокойствие, медитации, ранние восходы с авторскими чаями, душевные беседы обеспечены.</span>
+                          <span className="block mb-3">Прагматичность и надёжность, обустройство быта, атмосферы в лагере и переходах, ощущение спокойствия гарантированы...</span>
+                          <span className="block">Настоящий руководитель похода, подскажет и поможет в любой ситуации.</span>
+                        </p>
+                      )}
+                    </div>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-6">
                       <button
                         onClick={() => setSelectedGuide(index)}
                         className="inline-flex items-center justify-center bg-white text-cyan-600 border border-white font-bold text-xs md:text-sm px-4 py-2 rounded-full transition-all hover:scale-105 shadow-lg"
