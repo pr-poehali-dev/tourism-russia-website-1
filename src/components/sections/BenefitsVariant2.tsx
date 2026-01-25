@@ -109,45 +109,45 @@ const BenefitsVariant2 = () => {
 
   return (
     <>
-      <section id="about" className="py-24 bg-white">
+      <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-24 animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6">Почему выбирают нас</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Почему выбирают нас</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               То, что делает наши туры особенными
             </p>
           </div>
           
-          <div className="max-w-7xl mx-auto space-y-32">
+          <div className="max-w-6xl mx-auto space-y-20">
             {benefits.map((benefit, index) => (
               <div 
                 key={index}
                 className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center cursor-pointer group`}
                 onClick={() => setSelectedBenefit(index)}
               >
-                <div className="flex-1 space-y-6">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full group-hover:bg-green-600 transition-colors duration-300">
-                    <Icon name={benefit.icon} size={40} className="text-green-600 group-hover:text-white transition-colors duration-300" />
+                <div className="flex-1 space-y-4">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full group-hover:bg-green-600 transition-colors duration-300">
+                    <Icon name={benefit.icon} size={32} className="text-green-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-bold leading-tight group-hover:text-green-600 transition-colors duration-300">
+                  <h3 className="text-2xl md:text-3xl font-bold leading-tight group-hover:text-green-600 transition-colors duration-300">
                     {benefit.title}
                   </h3>
-                  <p className="text-xl text-muted-foreground leading-relaxed">
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                     {benefit.description}
                   </p>
-                  <div className="flex items-center gap-2 text-green-600 text-lg pt-4">
-                    <Icon name="Image" size={20} />
+                  <div className="flex items-center gap-2 text-green-600 text-base pt-2">
+                    <Icon name="Image" size={18} />
                     <span className="font-medium">Смотреть {benefit.photos.length} фото</span>
-                    <Icon name="ArrowRight" size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
+                    <Icon name="ArrowRight" size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
                 
                 <div className="flex-1">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:scale-105">
+                  <div className="relative rounded-2xl overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
                     <img 
                       src={benefit.photos[0]} 
                       alt={benefit.title}
-                      className="w-full h-96 object-cover"
+                      className="w-full h-72 object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
