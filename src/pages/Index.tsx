@@ -39,23 +39,23 @@ const Index = () => {
           <div className="flex items-center gap-2">
             <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
             <div className="flex flex-col">
-              <span className="font-heading font-bold text-gray-800 text-xs sm:text-sm md:text-base leading-tight">Жизнь с рюкзаком</span>
-              <span className="text-gray-700 text-[10px] sm:text-xs leading-tight">авторские туры</span>
+              <span className="font-heading font-bold text-white text-xs sm:text-sm md:text-base leading-tight">Жизнь с рюкзаком</span>
+              <span className="text-white/90 text-[10px] sm:text-xs leading-tight">авторские туры</span>
             </div>
           </div>
           <nav className="hidden md:flex gap-6 lg:gap-8 items-center">
             {menuItems.map((item) => (
-              <a key={item.href} href={item.href} className="text-sm hover:text-primary transition-colors text-gray-800 font-medium">
+              <a key={item.href} href={item.href} className="text-sm hover:text-primary transition-colors text-white font-medium">
                 {item.label}
               </a>
             ))}
           </nav>
           <div className="hidden lg:flex flex-col gap-1 text-sm">
-            <a href="tel:+79655615153" className="flex items-center gap-2 hover:text-primary transition-colors text-gray-800 font-semibold">
+            <a href="tel:+79655615153" className="flex items-center gap-2 hover:text-primary transition-colors text-white font-semibold">
               <Icon name="Phone" size={16} />
               +7 965 561-51-53
             </a>
-            <a href="mailto:rukzaklife@mail.ru" className="flex items-center gap-2 hover:text-primary transition-colors text-gray-800">
+            <a href="mailto:rukzaklife@mail.ru" className="flex items-center gap-2 hover:text-primary transition-colors text-white">
               <Icon name="Mail" size={16} />
               rukzaklife@mail.ru
             </a>
