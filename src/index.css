@@ -127,7 +127,7 @@
 }
 
 .animate-ken-burns {
-  animation: ken-burns 16s ease-in-out infinite;
+  animation: ken-burns 10s ease-in-out infinite;
 }
 
 @keyframes shine {
