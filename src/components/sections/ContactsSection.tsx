@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import UniversalBookingForm from "@/components/booking/UniversalBookingForm";
+import { Button } from "@/components/ui/button";
 
 const ContactsSection = () => {
   return (
@@ -8,57 +8,44 @@ const ContactsSection = () => {
       <section id="contacts" className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Свяжитесь с нами</h2>
-            <p className="text-base md:text-lg text-muted-foreground">Мы ответим на все ваши вопросы</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold">Контакты</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-12 max-w-4xl mx-auto">
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 font-heading">
-                    <Icon name="Phone" size={24} className="text-primary" />
-                    Телефон
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <a href="tel:+79655615153" className="text-lg hover:text-primary transition-colors">
-                    +7 965 561-51-53
-                  </a>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 font-heading">
-                    <Icon name="Mail" size={24} className="text-primary" />
-                    Email
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <a href="mailto:rukzaklife@mail.ru" className="text-lg hover:text-primary transition-colors">
-                    rukzaklife@mail.ru
-                  </a>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 font-heading">
-                    <Icon name="MapPin" size={24} className="text-primary" />
-                    Адрес
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-lg">г. Пермь, ул. Монастырская 117-28</p>
-                </CardContent>
-              </Card>
+          <div className="max-w-4xl mx-auto border border-gray-200 rounded-lg p-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-12">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <Icon name="Phone" size={24} className="text-primary" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Телефон</p>
+                    <a href="tel:+79655615153" className="text-lg hover:text-primary transition-colors">
+                      +7 965 561-51-53
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Mail" size={24} className="text-primary" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Email</p>
+                    <a href="mailto:rukzaklife@mail.ru" className="text-lg hover:text-primary transition-colors">
+                      rukzaklife@mail.ru
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="MapPin" size={24} className="text-primary" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Адрес</p>
+                    <p className="text-lg">г. Пермь, ул. Монастырская 117-28</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-center items-center gap-4">
+                <p className="text-center text-muted-foreground">Бронирование без предоплаты.<br />Заплатите на месте за день до выезда</p>
+                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold">
+                  Забронировать тур за 0 ₽
+                </Button>
+              </div>
             </div>
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading">Забронировать тур за 0 руб.</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <UniversalBookingForm />
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
