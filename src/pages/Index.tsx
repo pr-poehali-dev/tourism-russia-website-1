@@ -5,13 +5,11 @@ import PaymentSection from "@/components/sections/PaymentSection";
 import ToursSection from "@/components/sections/ToursSection";
 import ReviewsGallerySection from "@/components/sections/ReviewsGallerySection";
 import BenefitsSection from "@/components/sections/BenefitsSection";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [headerVisible, setHeaderVisible] = useState(true);
-  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -22,20 +20,6 @@ const Index = () => {
         }
       }, 100);
     }
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!heroRef.current) return;
-      
-      const heroBottom = heroRef.current.getBoundingClientRect().bottom;
-      setHeaderVisible(heroBottom > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const menuItems = [
@@ -50,7 +34,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <header className={`fixed top-0 z-50 w-full bg-cyan-600/95 backdrop-blur-sm border-b border-cyan-500/50 transition-transform duration-300 ${headerVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+      <header className="absolute top-0 z-50 w-full bg-cyan-600/95 backdrop-blur-sm border-b border-cyan-500/50">
         <div className="container mx-auto px-4 py-2 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
@@ -120,9 +104,7 @@ const Index = () => {
         </div>
       </header>
 
-      <div ref={heroRef}>
-        <HeroSection />
-      </div>
+      <HeroSection />
       <GuidesSection />
       <PaymentSection />
       <BenefitsSection />
