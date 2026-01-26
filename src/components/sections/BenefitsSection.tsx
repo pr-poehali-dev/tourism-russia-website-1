@@ -179,7 +179,10 @@ const BenefitsSection = () => {
             "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/b2b88638-ce09-4316-a7e7-47ccee71aa26.jpg",
             "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/17dfe64f-b5b2-42a6-bb2e-d49951024c76.jpg",
             "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/c8d9619e-2fca-4368-93d6-ea56a0d020dd.jpg",
-            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/34081a0a-b324-4492-ab64-abd2b772146c.jpg"
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/34081a0a-b324-4492-ab64-abd2b772146c.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/278c01a3-48e4-4035-8f6e-84ff90449db0.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/d9c8bd99-7f64-480e-85fa-bbd8db685aef.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/b8ea1d8b-11c2-49da-aa51-b6e926524085.jpg"
           ]
         }
       ]
