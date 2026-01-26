@@ -198,6 +198,14 @@ const ToursSection = () => {
                                }}>Осталось 6 мест</div>
                         </div>
                       )}
+                      {tour.id === 7 && (
+                        <div className="absolute top-0 left-0 z-10">
+                          <div className="relative text-white px-4 py-2 font-bold text-sm uppercase shadow-lg bg-orange-500"
+                               style={{
+                                 clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)'
+                               }}>ХИТ ПРОДАЖ</div>
+                        </div>
+                      )}
                     </div>
                     <CardHeader>
                       <CardTitle className="font-heading text-xl md:text-2xl">{tour.title}</CardTitle>
