@@ -18,6 +18,10 @@ interface Benefit {
 const BenefitsSection = () => {
   const [selectedBenefit, setSelectedBenefit] = React.useState<number | null>(null);
   const [selectedPhoto, setSelectedPhoto] = React.useState<string | null>(null);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [startX, setStartX] = React.useState(0);
+  const [scrollLeft, setScrollLeft] = React.useState(0);
 
   const benefits: Benefit[] = [
     { 
@@ -190,54 +194,45 @@ const BenefitsSection = () => {
             Что делает наши туры особенными
           </p>
           
-          <div className="overflow-x-auto scrollbar-hide">
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-auto scrollbar-hide"
+            onMouseDown={(e) => {
+              setIsDragging(true);
+              setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
+              setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
+            }}
+            onMouseLeave={() => setIsDragging(false)}
+            onMouseUp={() => setIsDragging(false)}
+            onMouseMove={(e) => {
+              if (!isDragging || !scrollContainerRef.current) return;
+              e.preventDefault();
+              const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
+              const walk = (x - startX) * 2;
+              scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+            }}
+          >
             <div 
-              className="flex gap-6 px-4 pb-4 cursor-grab active:cursor-grabbing"
-              style={{ 
-                width: 'max-content',
-                WebkitOverflowScrolling: 'touch'
-              }}
-              onMouseDown={(e) => {
-                const slider = e.currentTarget;
-                const startX = e.pageX - slider.offsetLeft;
-                const scrollLeft = slider.scrollLeft;
-                
-                const handleMouseMove = (e: MouseEvent) => {
-                  const x = e.pageX - slider.offsetLeft;
-                  const walk = (x - startX) * 2;
-                  slider.scrollLeft = scrollLeft - walk;
-                };
-                
-                const handleMouseUp = () => {
-                  document.removeEventListener('mousemove', handleMouseMove);
-                  document.removeEventListener('mouseup', handleMouseUp);
-                };
-                
-                document.addEventListener('mousemove', handleMouseMove);
-                document.addEventListener('mouseup', handleMouseUp);
-              }}
+              className="flex gap-4 px-4 pb-4"
+              style={{ width: 'max-content' }}
             >
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-cyan-600 rounded-3xl p-8 flex flex-col items-start shadow-xl"
-                  style={{ minWidth: '350px', maxWidth: '350px' }}
+                  className="bg-cyan-600 rounded-2xl p-6 flex flex-col items-start shadow-lg"
+                  style={{ minWidth: '280px', maxWidth: '280px', height: '200px' }}
                 >
-                  <div className="bg-white/20 rounded-full p-4 mb-6">
-                    <Icon name={benefit.icon as any} size={40} className="text-white" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-heading font-bold mb-4 text-white">
+                  <h3 className="text-xl font-heading font-bold mb-3 text-white leading-tight">
                     {benefit.title}
                   </h3>
                   
-                  <p className="text-white/90 mb-6 flex-1 text-lg">
+                  <p className="text-white/90 mb-4 flex-1 text-sm leading-snug">
                     {benefit.description}
                   </p>
                   
                   <Button
                     onClick={() => setSelectedBenefit(index)}
-                    className="w-full bg-white text-cyan-600 hover:bg-white/90 font-bold text-lg py-6"
+                    className="w-full bg-white text-cyan-600 hover:bg-white/90 font-bold text-sm py-3"
                   >
                     Смотреть подробнее
                   </Button>
