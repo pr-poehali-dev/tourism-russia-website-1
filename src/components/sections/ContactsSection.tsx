@@ -49,18 +49,18 @@ const ContactsSection = () => {
                 </div>
               </div>
               <div className="flex flex-col justify-center items-center relative">
-                <div className="flex flex-col items-center gap-8 w-full">
-                  <div className="text-cyan-600 font-bold text-xl text-center">
+                <div className="flex flex-col gap-8 w-full">
+                  <div className="text-cyan-600 font-bold text-xl text-center w-full">
                     Давай начнем с простого!
                   </div>
-                  <div className="flex items-center justify-center gap-8">
-                    <svg className="w-20 h-20 text-gray-600" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <div className="flex items-center justify-center gap-6 w-full">
+                    <svg className="w-16 h-16 text-gray-600 flex-shrink-0" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M 10 15 Q 20 40, 50 40" strokeLinecap="round"/>
                       <path d="M 50 40 L 42 35 M 50 40 L 42 45" strokeLinecap="round"/>
                     </svg>
                     <button 
                       onClick={() => setShowBookingForm(true)}
-                      className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold px-10 py-4 text-lg rounded-full transition-all hover:scale-105 shadow-md overflow-hidden"
+                      className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold px-10 py-4 text-lg rounded-full transition-all hover:scale-105 shadow-md overflow-hidden flex-shrink-0"
                     >
                       <span className="relative z-10">Забронировать за 0 р</span>
                       <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
