@@ -10,7 +10,7 @@ const ContactsSection = () => {
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold">Контакты</h2>
           </div>
-          <div className="max-w-4xl mx-auto border border-gray-200 rounded-lg p-8">
+          <div className="max-w-4xl mx-auto border-4 border-cyan-500 rounded-lg p-8">
             <div className="grid md:grid-cols-2 gap-6 md:gap-12">
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
@@ -39,11 +39,21 @@ const ContactsSection = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col justify-center items-center gap-4">
-                <p className="text-center text-muted-foreground">Бронирование без предоплаты.<br />Заплатите на месте за день до выезда</p>
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold">
-                  Забронировать тур за 0 ₽
-                </Button>
+              <div className="flex flex-col justify-center items-center gap-6 relative">
+                <div className="relative">
+                  <div className="bg-cyan-600 text-white px-6 py-3 rounded font-bold text-lg text-center mb-4">
+                    Давай начнем с простого!
+                  </div>
+                  <svg className="absolute -bottom-12 left-8 w-16 h-16 text-gray-600" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3">
+                    <path d="M 20 10 Q 10 50 30 80" strokeLinecap="round"/>
+                    <path d="M 30 80 L 20 75 M 30 80 L 35 70" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <button className="relative overflow-hidden bg-gradient-to-r from-pink-500 via-red-500 to-pink-600 text-white px-12 py-5 rounded-full text-xl font-bold uppercase tracking-wide shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group mt-8">
+                  <span className="relative z-10">Связаться с нами</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-600 via-red-600 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-white opacity-20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
+                </button>
               </div>
             </div>
           </div>
