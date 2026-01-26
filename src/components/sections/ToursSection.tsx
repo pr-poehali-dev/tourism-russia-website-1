@@ -228,7 +228,7 @@ const ToursSection = () => {
                           }}
                           className="flex-1 relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md overflow-hidden"
                         >
-                          <span className="relative z-10">Забронировать за 0₽</span>
+                          <span className="relative z-10">Забронировать за 0 р</span>
                           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
                         </button>
                       </div>
