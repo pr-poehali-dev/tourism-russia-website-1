@@ -1,10 +1,19 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
+import React from "react";
+import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 const ContactsSection = () => {
+  const [showBookingForm, setShowBookingForm] = React.useState(false);
+
   return (
     <>
+      <UniversalBookingDialog 
+        open={showBookingForm} 
+        onOpenChange={setShowBookingForm}
+      />
+      
       <section id="contacts" className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
@@ -39,20 +48,23 @@ const ContactsSection = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col justify-center items-center gap-6 relative">
-                <div className="relative">
-                  <div className="text-cyan-600 font-bold text-xl text-center mb-4">
-                    Давай начнем с простого!
-                  </div>
-                  <svg className="absolute -bottom-16 -left-4 w-24 h-24 text-gray-600" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M 15 5 Q 5 35, 15 55 T 35 85" strokeLinecap="round"/>
-                    <path d="M 35 85 L 25 82 M 35 85 L 38 75" strokeLinecap="round"/>
-                  </svg>
+              <div className="flex flex-col justify-center items-center relative">
+                <div className="text-cyan-600 font-bold text-xl text-center mb-8">
+                  Давай начнем с простого!
                 </div>
-                <button className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-lg transition-all hover:scale-105 shadow-md overflow-hidden mt-12">
-                  <span className="relative z-10">Забронировать за 0 р</span>
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
-                </button>
+                <div className="relative flex items-center gap-8">
+                  <svg className="w-20 h-20 text-gray-600" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M 10 15 Q 20 40, 50 40" strokeLinecap="round"/>
+                    <path d="M 50 40 L 42 35 M 50 40 L 42 45" strokeLinecap="round"/>
+                  </svg>
+                  <button 
+                    onClick={() => setShowBookingForm(true)}
+                    className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold px-10 py-4 text-lg rounded-full transition-all hover:scale-105 shadow-md overflow-hidden"
+                  >
+                    <span className="relative z-10">Забронировать за 0 р</span>
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
