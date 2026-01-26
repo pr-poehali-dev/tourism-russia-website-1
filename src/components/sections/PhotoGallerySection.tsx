@@ -344,8 +344,8 @@ const PhotoGallerySection = () => {
                 <h3 className="font-heading font-bold text-xl text-gray-800 mb-3">
                   {gallery.title}
                 </h3>
-                <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="relative aspect-square overflow-hidden">
+                <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 h-80">
+                  <div className="relative h-64 overflow-hidden">
                     <img
                       src={gallery.coverImage}
                       alt={gallery.title}
