@@ -209,22 +209,22 @@ const ToursSection = () => {
                     </CardHeader>
                     <CardContent className="space-y-4 flex-1 flex flex-col">
                       <div className="text-sm leading-relaxed flex-1" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
-                      <div className="flex gap-2 mt-auto">
-                        <button
-                          onClick={() => navigate(tour.url)}
-                          className="flex-1 bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md"
-                        >
-                          Подробнее
-                        </button>
+                      <div className="flex flex-col gap-2 mt-auto">
                         <button
                           onClick={() => {
                             setIsCustomTour(false);
                             setShowBookingForm(true);
                           }}
-                          className="flex-1 relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md overflow-hidden"
+                          className="w-full relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md overflow-hidden"
                         >
                           <span className="relative z-10">Забронировать за 0 р</span>
                           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                        </button>
+                        <button
+                          onClick={() => navigate(tour.url)}
+                          className="w-full bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md"
+                        >
+                          Подробнее
                         </button>
                       </div>
                     </CardContent>
