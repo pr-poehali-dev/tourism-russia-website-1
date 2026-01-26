@@ -243,8 +243,7 @@ const TourPermWeekend = () => {
 
         <div className="container mx-auto px-4 py-12 md:py-20">
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="md:col-span-2 space-y-8">
-            <Card>
+            <Card className="md:col-span-2">
               <CardContent className="p-6 md:p-8">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6">О туре</h2>
                 <div className="prose prose-lg max-w-none space-y-4 text-gray-700">
@@ -264,22 +263,8 @@ const TourPermWeekend = () => {
               </CardContent>
             </Card>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-                {tourInfo.map((info, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6 text-center">
-                      <Icon name={info.icon as any} size={32} className="mx-auto mb-3 text-primary" />
-                      <p className="text-xs text-muted-foreground mb-2">{info.label}</p>
-                      <p className="font-semibold text-sm">{info.value}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-            </div>
-            </div>
-
-            <div className="md:col-span-1">
-              <Card className="border-2 border-primary md:sticky md:top-20">
-                <CardContent className="p-6 md:p-8">
+            <Card className="border-2 border-primary">
+              <CardContent className="p-6 md:p-8">
                 <div className="text-center mb-4">
                   <div className="text-sm text-muted-foreground mb-2">Даты тура</div>
                   <div className="font-bold text-lg">По запросу</div>
@@ -315,14 +300,33 @@ const TourPermWeekend = () => {
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
                   </button>
                 </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            {tourInfo.map((info, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 text-center">
+                  <Icon name={info.icon as any} size={32} className="mx-auto mb-3 text-primary" />
+                  <p className="text-xs text-muted-foreground mb-2">{info.label}</p>
+                  <p className="font-semibold text-sm">{info.value}</p>
                 </CardContent>
               </Card>
-            <Card>
+            ))}
+          </div>
+
+          <Card className="mb-16">
             <CardContent className="p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Программа тура</h2>
               <div className="space-y-8">
                 {program.map((day, index) => (
-                  <div key={index}>
+                  <div key={index} className="flex gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg">
+                        {index + 1}
+                      </div>
+                    </div>
                     <div className="flex-1">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                         <h3 className="text-xl font-heading font-bold">{day.day}</h3>
@@ -340,7 +344,7 @@ const TourPermWeekend = () => {
             </CardContent>
           </Card>
 
-          <div className="grid gap-4">
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
             <Card className="border-2 border-green-500">
               <CardContent className="p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-6">
@@ -374,10 +378,6 @@ const TourPermWeekend = () => {
                 </ul>
               </CardContent>
             </Card>
-          </div>
-            </div>
-
-            <div className="hidden md:block"></div>
           </div>
 
           <div className="mb-16">
