@@ -131,7 +131,7 @@ const ToursSection = () => {
     <>
       <section id="tours" className="py-20 bg-cyan-600">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-center mb-12">Приключения, которые вас ждут</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-center mb-16 md:mb-20">Приключения, которые вас ждут</h2>
         
         <div 
           ref={scrollContainerRef}

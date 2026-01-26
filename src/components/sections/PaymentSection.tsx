@@ -15,7 +15,7 @@ const PaymentSection = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto space-y-8">
             <div className="bg-white shadow-xl rounded-xl p-5 md:p-7 border-2 border-cyan-600">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-gray-800 mb-6">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-gray-800 mb-12 md:mb-16">
                 Комфортная схема оплаты
               </h2>
               
