@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className="relative z-10 flex-1 flex items-center justify-center w-full">
         <a 
           href="#tours" 
-          className="group relative inline-block bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-lg md:text-xl px-10 py-4 md:px-12 md:py-5 rounded-xl transition-all hover:scale-105 shadow-2xl overflow-hidden animate-shine"
+          className="group relative inline-block bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-lg md:text-xl px-10 py-4 md:px-12 md:py-5 rounded-full transition-all hover:scale-105 shadow-2xl overflow-hidden animate-shine"
         >
           <span className="relative z-10">Выбери свои приключения</span>
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
