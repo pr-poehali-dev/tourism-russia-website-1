@@ -267,13 +267,13 @@ const TourDetails = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-                      <Icon name="Check" className="text-green-600" size={20} />
+                      <Icon name="Check" className="text-cyan-600" size={20} />
                       В стоимость входит:
                     </h3>
                     <ul className="space-y-2">
                       {included.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm">
-                          <span className="text-green-600 mt-1">✅</span>
+                          <span className="text-cyan-600 mt-1">✅</span>
                           <span>{item}</span>
                         </li>
                       ))}
