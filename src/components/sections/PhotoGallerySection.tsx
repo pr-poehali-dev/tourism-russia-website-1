@@ -309,13 +309,13 @@ const PhotoGallerySection = () => {
     <>
       <section id="gallery" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-16 md:mb-20 text-center">
             Незабываемые впечатления
           </h2>
 
           <div 
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none scroll-smooth"
+            className="flex gap-8 md:gap-10 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none scroll-smooth"
             onMouseDown={(e) => {
               e.preventDefault();
               setIsDragging(true);

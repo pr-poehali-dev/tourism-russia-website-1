@@ -142,13 +142,13 @@ const GuidesSection = () => {
     <>
       <section id="guides" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-8 max-w-6xl mx-auto">
+          <div className="flex flex-col gap-12 md:gap-16 max-w-6xl mx-auto">
             {guides.map((guide, index) => {
               const allPhotos = guide.photos && guide.photos.length > 0 ? [guide.image, ...guide.photos] : [guide.image];
               const currentIdx = currentPhotoIndex[index] || 0;
               
               return (
-              <div key={index} className={`flex flex-col gap-6 ${index === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+              <div key={index} className={`flex flex-col gap-8 md:gap-10 ${index === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 {/* Текстовый блок */}
                 <div className={`bg-cyan-600 rounded-3xl border border-cyan-500 shadow-lg p-6 md:p-8 flex flex-col ${index === 0 ? 'md:w-[58%]' : 'md:w-[62%]'}`}>
                   <CardHeader className="text-center pb-4 p-0">
