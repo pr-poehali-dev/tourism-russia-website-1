@@ -404,7 +404,7 @@ const TourPermWeekend = () => {
             </div>
           </div>
 
-          <Card className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+          <Card className="bg-gradient-to-r from-cyan-600 to-cyan-700 text-white">
             <CardContent className="p-8 md:p-12 text-center">
               <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
                 Готовы к незабываемому выходному?
@@ -412,24 +412,17 @@ const TourPermWeekend = () => {
               <p className="text-lg mb-8 opacity-90">
                 Забронируйте тур прямо сейчас и получите 5% скидку при раннем бронировании!
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
+              <div className="flex justify-center">
+                <button
                   onClick={() => setShowBookingForm(true)}
-                  size="lg"
-                  className="bg-white text-orange-600 hover:bg-gray-100 font-bold text-lg px-8 py-6"
+                  className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-lg px-8 py-4 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden"
                 >
-                  <Icon name="Calendar" size={20} className="mr-2" />
-                  Забронировать тур
-                </Button>
-                <Button
-                  onClick={() => window.location.href = 'tel:+79655615153'}
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white/20 font-bold text-lg px-8 py-6"
-                >
-                  <Icon name="Phone" size={20} className="mr-2" />
-                  +7 965 561-51-53
-                </Button>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Icon name="Calendar" size={20} />
+                    Забронировать тур
+                  </span>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                </button>
               </div>
             </CardContent>
           </Card>
