@@ -26,8 +26,8 @@ const BenefitsSection = () => {
   const benefits: Benefit[] = [
     { 
       icon: "Camera", 
-      title: "Фото на профессиональный фотоаппарат и дрон", 
-      description: "Лучшие моменты вашего путешествия запечатлены профессиональным оборудованием на всем маршруте",
+      title: "Фото", 
+      description: "Профессиональный фотоаппарат и дрон для лучших моментов",
       photos: [
         "https://cdn.poehali.dev/files/_DSC5718.JPEG",
         "https://cdn.poehali.dev/files/_DSC5996.JPEG",
@@ -218,7 +218,7 @@ const BenefitsSection = () => {
                 <div
                   key={index}
                   className="bg-cyan-600 rounded-2xl p-5 flex flex-col items-start shadow-lg"
-                  style={{ minWidth: '240px', maxWidth: '240px', height: '180px' }}
+                  style={{ minWidth: '320px', maxWidth: '320px', height: '160px' }}
                 >
                   <h3 className="text-lg font-heading font-bold mb-2 text-white leading-tight">
                     {benefit.title}
@@ -230,7 +230,7 @@ const BenefitsSection = () => {
                   
                   <Button
                     onClick={() => setSelectedBenefit(index)}
-                    className="w-full bg-white text-cyan-600 hover:bg-white hover:text-cyan-600 font-semibold text-xs py-2"
+                    className="bg-white text-cyan-600 hover:bg-white hover:text-cyan-600 font-semibold text-xs px-4 py-1.5 h-auto"
                   >
                     Подробнее
                   </Button>
