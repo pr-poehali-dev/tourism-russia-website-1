@@ -301,15 +301,35 @@ const PhotoGallerySection = () => {
     <>
       <section id="gallery" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Фотогалерея</h2>
-            <p className="text-base md:text-lg text-muted-foreground">Путешествия в фотографиях</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 mb-8 text-center">
+            Незабываемые впечатления
+          </h2>
+
+          <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory" style={{ cursor: 'grab' }} onMouseDown={(e) => {
+            const slider = e.currentTarget;
+            slider.style.cursor = 'grabbing';
+            const startX = e.pageX - slider.offsetLeft;
+            const scrollLeft = slider.scrollLeft;
+            
+            const handleMouseMove = (moveEvent: MouseEvent) => {
+              const x = moveEvent.pageX - slider.offsetLeft;
+              const walk = (x - startX) * 2;
+              slider.scrollLeft = scrollLeft - walk;
+            };
+            
+            const handleMouseUp = () => {
+              slider.style.cursor = 'grab';
+              document.removeEventListener('mousemove', handleMouseMove);
+              document.removeEventListener('mouseup', handleMouseUp);
+            };
+            
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+          }}>
             {photoGalleries.map((gallery) => (
               <Card
                 key={gallery.id}
-                className="cursor-pointer group overflow-hidden hover:shadow-xl transition-all duration-300"
+                className="cursor-pointer group overflow-hidden hover:shadow-xl transition-all duration-300 flex-shrink-0 w-80 snap-start"
                 onClick={() => openGallery(gallery)}
               >
                 <div className="relative h-64 overflow-hidden">
@@ -317,6 +337,7 @@ const PhotoGallerySection = () => {
                     src={gallery.coverImage}
                     alt={gallery.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    draggable="false"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
