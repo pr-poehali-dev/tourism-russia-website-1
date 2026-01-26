@@ -236,12 +236,9 @@ const ReviewsSection = () => {
       <section id="reviews" className="py-20 bg-cyan-600">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4 text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white">
               Настоящие эмоции
             </h2>
-            <p className="text-base md:text-lg text-white/90">
-              Что говорят наши путешественники
-            </p>
           </div>
           <div className="relative mb-12">
             <div className="flex items-center justify-center">
@@ -256,7 +253,7 @@ const ReviewsSection = () => {
                     {review.images && review.images.length > 0 && (
                       <div className="md:w-2/5 flex-shrink-0">
                         <div
-                          className="relative h-64 md:h-80 overflow-hidden rounded-xl cursor-pointer group"
+                          className="relative h-auto overflow-hidden rounded-xl cursor-pointer group"
                           onClick={() => {
                             if (review.images && review.images.length > 1) {
                               const currentIndex =
