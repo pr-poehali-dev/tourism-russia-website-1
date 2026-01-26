@@ -129,6 +129,26 @@ const TourPermWeekend = () => {
     {
       url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/4409aee7-8bf4-4730-b674-174516d4c3c9.jpg",
       aspectRatio: 16/9
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/c8cfc2b5-9055-49e2-a837-d84937328c30.jpg",
+      aspectRatio: 9/16
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/2f08bd14-ed2d-4a95-8960-40bcb5a5485f.jpg",
+      aspectRatio: 16/9
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/e311f381-8618-4814-8d3d-25ea84a189ba.jpg",
+      aspectRatio: 16/9
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/1bf8d865-091e-4677-a1a4-98439fbce040.jpg",
+      aspectRatio: 16/9
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/0c3ecb27-6e6f-463c-befa-361c72e68a2b.jpg",
+      aspectRatio: 16/9
     }
   ];
 
@@ -321,7 +341,7 @@ const TourPermWeekend = () => {
           </div>
 
           <div className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Галерея</h2>
+            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Фото</h2>
             <div
               ref={scrollContainerRef}
               className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
