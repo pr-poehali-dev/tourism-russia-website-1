@@ -42,6 +42,12 @@ const PhotoGallerySection = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const { toast } = useToast();
   
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [startX, setStartX] = React.useState(0);
+  const [scrollLeft, setScrollLeft] = React.useState(0);
+  const [hasDragged, setHasDragged] = React.useState(false);
+  
   const [formData, setFormData] = React.useState({
     name: '',
     phone: '',
@@ -305,32 +311,38 @@ const PhotoGallerySection = () => {
             Незабываемые впечатления
           </h2>
 
-          <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory" style={{ cursor: 'grab' }} onMouseDown={(e) => {
-            const slider = e.currentTarget;
-            slider.style.cursor = 'grabbing';
-            const startX = e.pageX - slider.offsetLeft;
-            const scrollLeft = slider.scrollLeft;
-            
-            const handleMouseMove = (moveEvent: MouseEvent) => {
-              const x = moveEvent.pageX - slider.offsetLeft;
+          <div 
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none"
+            onMouseDown={(e) => {
+              e.preventDefault();
+              setIsDragging(true);
+              setHasDragged(false);
+              setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
+              setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
+            }}
+            onMouseLeave={() => setIsDragging(false)}
+            onMouseUp={() => setIsDragging(false)}
+            onMouseMove={(e) => {
+              if (!isDragging || !scrollContainerRef.current) return;
+              e.preventDefault();
+              const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
               const walk = (x - startX) * 2;
-              slider.scrollLeft = scrollLeft - walk;
-            };
-            
-            const handleMouseUp = () => {
-              slider.style.cursor = 'grab';
-              document.removeEventListener('mousemove', handleMouseMove);
-              document.removeEventListener('mouseup', handleMouseUp);
-            };
-            
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', handleMouseUp);
-          }}>
+              scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+              if (Math.abs(walk) > 5) {
+                setHasDragged(true);
+              }
+            }}
+          >
             {photoGalleries.map((gallery) => (
               <Card
                 key={gallery.id}
                 className="cursor-pointer group overflow-hidden hover:shadow-xl transition-all duration-300 flex-shrink-0 w-80 snap-start"
-                onClick={() => openGallery(gallery)}
+                onClick={(e) => {
+                  if (!hasDragged) {
+                    openGallery(gallery);
+                  }
+                }}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
