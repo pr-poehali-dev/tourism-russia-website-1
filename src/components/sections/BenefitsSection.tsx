@@ -174,7 +174,13 @@ const BenefitsSection = () => {
         },
         {
           title: "Документы Эмиля",
-          photos: []
+          photos: [
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/d27c6ccf-8695-4da2-9c1a-b289b256ce07.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/b2b88638-ce09-4316-a7e7-47ccee71aa26.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/17dfe64f-b5b2-42a6-bb2e-d49951024c76.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/c8d9619e-2fca-4368-93d6-ea56a0d020dd.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/34081a0a-b324-4492-ab64-abd2b772146c.jpg"
+          ]
         }
       ]
     },
