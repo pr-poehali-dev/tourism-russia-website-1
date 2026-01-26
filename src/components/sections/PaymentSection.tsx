@@ -45,16 +45,18 @@ const PaymentSection = () => {
                 </div>
               </div>
               
-              <p className="text-xs md:text-sm text-center font-medium text-gray-700">При 100% оплате тура Вы получаете сертификат на профессиональную одежду и снаряжение в магазине-партнере на 5000р</p>
+              <p className="text-xs md:text-sm text-center font-medium text-gray-700 mb-6">При 100% оплате тура Вы получаете сертификат на профессиональную одежду и снаряжение в магазине-партнере на 5000₽ 🎁</p>
+              
+              <div className="flex justify-center">
+                <button 
+                  onClick={() => setShowBookingForm(true)}
+                  className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
+                >
+                  <span className="relative z-10 font-extrabold">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                </button>
+              </div>
             </div>
-            
-            <button 
-              onClick={() => setShowBookingForm(true)}
-              className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden mx-auto"
-            >
-              <span className="relative z-10 font-extrabold">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
-            </button>
           </div>
         </div>
       </section>
