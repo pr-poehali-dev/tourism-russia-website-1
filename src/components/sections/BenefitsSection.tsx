@@ -38,8 +38,8 @@ const BenefitsSection = () => {
     },
     { 
       icon: "Film", 
-      title: "Фильм о походе - вы в главных ролях", 
-      description: "Профессиональный видеоотчет о вашем приключении",
+      title: "Фильм - вы главные герои", 
+      description: "Дарим готовый фильм о ваших приключениях после каждого похода",
       photos: [
         "https://cdn.poehali.dev/files/IMG_20220516_165857_171.jpg",
         "https://cdn.poehali.dev/files/IMG_20220516_165906_582.jpg",
