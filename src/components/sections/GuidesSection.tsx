@@ -390,10 +390,17 @@ const GuidesSection = () => {
                 disabled={isSubmitting}
               />
             </div>
-            <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-              <Icon name="Phone" size={18} className="mr-2" />
-              {isSubmitting ? 'Отправка...' : 'Заказать звонок'}
-            </Button>
+            <button 
+              type="submit" 
+              className="w-full relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed" 
+              disabled={isSubmitting}
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <Icon name="Phone" size={18} />
+                {isSubmitting ? 'Отправка...' : 'Заказать звонок'}
+              </span>
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+            </button>
           </form>
         </DialogContent>
       </Dialog>
