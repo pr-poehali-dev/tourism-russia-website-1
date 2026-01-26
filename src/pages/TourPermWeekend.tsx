@@ -426,9 +426,7 @@ const TourPermWeekend = () => {
 
           <Card className="bg-gradient-to-r from-cyan-600 to-cyan-700 text-white">
             <CardContent className="p-8 md:p-12 text-center">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
-                Готовы к незабываемому выходному?
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">Готовы к незабываемым выходным?</h2>
               <p className="text-lg mb-8 opacity-90">
                 Забронируйте тур прямо сейчас и получите 5% скидку при раннем бронировании!
               </p>
