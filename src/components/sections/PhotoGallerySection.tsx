@@ -337,37 +337,37 @@ const PhotoGallerySection = () => {
             }}
           >
             {photoGalleries.map((gallery, index) => (
-              <div
+              <Card
                 key={gallery.id}
-                className={`flex-shrink-0 snap-start ${galleryWidths[index % galleryWidths.length]}`}
+                className={`flex-shrink-0 snap-start group overflow-hidden hover:shadow-xl transition-all duration-300 h-80 ${galleryWidths[index % galleryWidths.length]}`}
               >
-                <h3 className="font-heading font-bold text-xl text-gray-800 mb-3">
-                  {gallery.title}
-                </h3>
-                <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 h-80">
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={gallery.coverImage}
-                      alt={gallery.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      draggable="false"
-                    />
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={gallery.coverImage}
+                    alt={gallery.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    draggable="false"
+                  />
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 to-transparent p-4">
+                    <h3 className="font-heading font-bold text-xl text-white">
+                      {gallery.title}
+                    </h3>
                   </div>
-                  <div className="p-4">
-                    <button
-                      onClick={(e) => {
-                        if (!hasDragged) {
-                          openGallery(gallery);
-                        }
-                      }}
-                      className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
-                    >
-                      <Icon name="Eye" size={18} />
-                      Смотреть
-                    </button>
-                  </div>
-                </Card>
-              </div>
+                </div>
+                <div className="p-4">
+                  <button
+                    onClick={(e) => {
+                      if (!hasDragged) {
+                        openGallery(gallery);
+                      }
+                    }}
+                    className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
+                  >
+                    <Icon name="Eye" size={18} />
+                    Смотреть
+                  </button>
+                </div>
+              </Card>
             ))}
           </div>
           
