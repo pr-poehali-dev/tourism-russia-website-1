@@ -161,26 +161,12 @@ const BenefitsSection = () => {
       photos: [],
       sections: [
         {
-          title: "Сертификаты Антона",
-          photos: [
-            "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-39.jpg",
-            "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-44.jpg",
-            "https://cdn.poehali.dev/files/Диплом 1.jpg",
-            "https://cdn.poehali.dev/files/Удостоверение 1.jpg",
-          ]
+          title: "Документы Антона",
+          photos: []
         },
         {
-          title: "Сертификаты Эмиля",
-          photos: [
-            "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-47.jpg",
-            "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-51.jpg",
-            "https://cdn.poehali.dev/files/photo_2025-12-22_17-04-39.jpg",
-            "https://cdn.poehali.dev/files/photo_2025-12-22_22-26-12.jpg",
-            "https://cdn.poehali.dev/files/04 Удостоверение 3.jpg",
-            "https://cdn.poehali.dev/files/Диплом2.jpg",
-            "https://cdn.poehali.dev/files/Диплом 3.jpg",
-            "https://cdn.poehali.dev/files/Удостоверение 2.jpg",
-          ]
+          title: "Документы Эмиля",
+          photos: []
         }
       ]
     },
