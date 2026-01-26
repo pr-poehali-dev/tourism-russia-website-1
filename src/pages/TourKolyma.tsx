@@ -422,7 +422,7 @@ const TourKolyma = () => {
                     <div className="text-sm text-muted-foreground">за человека</div>
                   </div>
                   <button
-                    className="relative w-full inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
+                    className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden mx-auto"
                     onClick={() => {
                       setShowBookingForm(true);
                       if (typeof window !== 'undefined' && (window as any).ym) {
@@ -430,8 +430,7 @@ const TourKolyma = () => {
                       }
                     }}
                   >
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      <Icon name="Calendar" size={20} />
+                    <span className="relative z-10 whitespace-nowrap">
                       Забронировать место
                     </span>
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
