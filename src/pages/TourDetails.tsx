@@ -445,9 +445,8 @@ const TourDetails = () => {
                     <div className="text-4xl font-bold text-primary mb-2">67 500 ₽</div>
                     <div className="text-sm text-muted-foreground">за человека</div>
                   </div>
-                  <Button
-                    size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:scale-105 hover:shadow-lg"
+                  <button
+                    className="relative w-full inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
                     onClick={() => {
                       setShowBookingForm(true);
                       if (typeof window !== 'undefined' && (window as any).ym) {
@@ -455,9 +454,12 @@ const TourDetails = () => {
                       }
                     }}
                   >
-                    <Icon name="Calendar" size={20} className="mr-2" />
-                    Забронировать место
-                  </Button>
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      <Icon name="Calendar" size={20} />
+                      Забронировать место
+                    </span>
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                  </button>
                   <div className="mt-4 text-center">
                     <div className="text-sm text-muted-foreground">Предоплата всего 10%</div>
                     <div className="font-bold text-lg text-primary">6 750 ₽</div>
