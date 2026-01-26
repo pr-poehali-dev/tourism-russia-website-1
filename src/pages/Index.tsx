@@ -106,9 +106,9 @@ const Index = () => {
 
       <HeroSection />
       <GuidesSection />
-      <PaymentSection />
       <BenefitsSection />
       <ToursSection />
+      <PaymentSection />
       <ReviewsGallerySection />
     </div>
   );
