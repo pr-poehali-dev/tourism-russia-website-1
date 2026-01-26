@@ -243,20 +243,20 @@ const ReviewsSection = () => {
               Что говорят наши путешественники
             </p>
           </div>
-          <div className="relative">
+          <div className="relative mb-12">
             <div className="flex items-center justify-center">
               {reviews
                 .slice(reviewsStartIndex, reviewsStartIndex + 1)
                 .map((review, index) => (
                   <div
                     key={reviewsStartIndex + index}
-                    className="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto px-4"
+                    className="flex flex-col md:flex-row gap-6 max-w-4xl mx-auto px-4 items-start"
                   >
                     {/* Фотогалерея слева */}
                     {review.images && review.images.length > 0 && (
-                      <div className="md:w-1/2">
+                      <div className="md:w-2/5 flex-shrink-0">
                         <div
-                          className="relative h-96 md:h-[500px] overflow-hidden rounded-2xl cursor-pointer group"
+                          className="relative h-64 md:h-80 overflow-hidden rounded-xl cursor-pointer group"
                           onClick={() => {
                             if (review.images && review.images.length > 1) {
                               const currentIndex =
@@ -284,11 +284,11 @@ const ReviewsSection = () => {
                               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                 <Icon
                                   name="ChevronRight"
-                                  size={48}
+                                  size={36}
                                   className="text-white"
                                 />
                               </div>
-                              <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm font-semibold">
+                              <div className="absolute bottom-3 right-3 bg-black/70 text-white px-2 py-1 rounded text-xs font-semibold">
                                 {(imageIndices[reviewsStartIndex + index] || 0) +
                                   1}{" "}
                                 / {review.images.length}
@@ -296,8 +296,8 @@ const ReviewsSection = () => {
                             </>
                           )}
                           {(review.videoUrl || review.videoFile) && (
-                            <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 z-10 shadow-lg">
-                              <Icon name="Video" size={18} />
+                            <div className="absolute top-3 right-3 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 z-10 shadow-lg">
+                              <Icon name="Video" size={14} />
                               {review.videoLabel || "ВИДЕО"}
                             </div>
                           )}
@@ -306,9 +306,9 @@ const ReviewsSection = () => {
                     )}
                     
                     {/* Текст справа */}
-                    <div className="md:w-1/2 flex flex-col justify-center">
-                      <div className="flex items-center gap-2 mb-3">
-                        <h3 className="font-heading text-2xl md:text-3xl font-bold text-white">
+                    <div className="md:w-3/5 flex flex-col">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="font-heading text-xl md:text-2xl font-bold text-white">
                           {review.name}
                         </h3>
                         {review.link && (
@@ -320,35 +320,35 @@ const ReviewsSection = () => {
                           >
                             {review.link.includes("vk.") ? (
                               <svg
-                                width="24"
-                                height="24"
+                                width="20"
+                                height="20"
                                 viewBox="0 0 24 24"
                                 fill="currentColor"
                               >
                                 <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.15 14.63h-1.43c-.51 0-.67-.42-1.58-1.33-.8-.76-1.15-.86-1.35-.86-.28 0-.36.08-.36.46v1.21c0 .33-.1.52-1.01.52-1.49 0-3.14-.9-4.3-2.57-1.76-2.37-2.24-4.15-2.24-4.51 0-.2.08-.39.46-.39h1.43c.35 0 .48.16.61.53.71 2.05 1.91 3.85 2.4 3.85.18 0 .27-.09.27-.55v-2.14c-.06-.98-.57-1.06-.57-1.41 0-.16.13-.32.35-.32h2.24c.29 0 .4.16.4.5v2.89c0 .3.13.4.22.4.18 0 .33-.1.67-.44 1.04-1.17 1.79-2.97 1.79-2.97.1-.21.26-.39.61-.39h1.43c.43 0 .53.22.43.52-.16.73-1.97 3.44-1.97 3.44-.15.24-.2.35 0 .62.14.2.61.59 1.12 1.13.59.62.95 1.14 1.06 1.5.11.36-.08.54-.49.54z" />
                               </svg>
                             ) : (
-                              <Icon name="Send" size={24} />
+                              <Icon name="Send" size={20} />
                             )}
                           </a>
                         )}
                       </div>
-                      <p className="text-white/90 text-sm md:text-base mb-4">
+                      <p className="text-white/90 text-xs md:text-sm mb-3">
                         Тур: {review.tour}
                       </p>
-                      <p className="text-white text-base md:text-lg leading-relaxed italic">
+                      <p className="text-white text-sm md:text-base leading-relaxed italic">
                         "
-                        {review.text.length > 300
-                          ? review.text.substring(0, 300) + "..."
+                        {review.text.length > 250
+                          ? review.text.substring(0, 250) + "..."
                           : review.text}
                         "
                       </p>
-                      {(review.text.length > 300 ||
+                      {(review.text.length > 250 ||
                         review.videoUrl ||
                         review.videoFile) && (
                         <button
                           onClick={() => setSelectedReview(review)}
-                          className="mt-4 text-white underline hover:text-white/80 transition-colors text-left font-semibold"
+                          className="mt-3 text-white underline hover:text-white/80 transition-colors text-left text-sm font-semibold"
                         >
                           {review.videoUrl || review.videoFile
                             ? "Читать отзыв и смотреть видео"
@@ -387,6 +387,24 @@ const ReviewsSection = () => {
               </>
             )}
           </div>
+          
+          {/* Индикатор отзывов */}
+          {reviews.length > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-8">
+              {reviews.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setReviewsStartIndex(idx)}
+                  className={`transition-all ${
+                    idx === reviewsStartIndex
+                      ? 'w-8 h-2 bg-white rounded-full'
+                      : 'w-2 h-2 bg-white/50 rounded-full hover:bg-white/75'
+                  }`}
+                  aria-label={`Перейти к отзыву ${idx + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
