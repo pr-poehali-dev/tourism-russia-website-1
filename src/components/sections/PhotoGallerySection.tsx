@@ -339,9 +339,9 @@ const PhotoGallerySection = () => {
             {photoGalleries.map((gallery, index) => (
               <Card
                 key={gallery.id}
-                className={`flex-shrink-0 snap-start overflow-hidden hover:shadow-xl transition-shadow duration-300 h-80 ${galleryWidths[index % galleryWidths.length]}`}
+                className={`flex-shrink-0 snap-start overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[420px] ${galleryWidths[index % galleryWidths.length]}`}
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-[360px] overflow-hidden">
                   <img
                     src={gallery.coverImage}
                     alt={gallery.title}
