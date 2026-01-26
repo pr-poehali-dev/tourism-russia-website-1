@@ -242,8 +242,9 @@ const TourPermWeekend = () => {
         </div>
 
         <div className="container mx-auto px-4 py-12 md:py-20">
-          <div className="grid md:grid-cols-3 gap-8 mb-16 relative">
-            <Card className="md:col-span-2">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="md:col-span-2 space-y-8">
+            <Card>
               <CardContent className="p-6 md:p-8">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6">О туре</h2>
                 <div className="prose prose-lg max-w-none space-y-4 text-gray-700">
@@ -262,6 +263,19 @@ const TourPermWeekend = () => {
                 </div>
               </CardContent>
             </Card>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+                {tourInfo.map((info, index) => (
+                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6 text-center">
+                      <Icon name={info.icon as any} size={32} className="mx-auto mb-3 text-primary" />
+                      <p className="text-xs text-muted-foreground mb-2">{info.label}</p>
+                      <p className="font-semibold text-sm">{info.value}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+            </div>
+            </div>
 
             <div className="md:col-span-1">
               <Card className="border-2 border-primary md:sticky md:top-20">
@@ -304,23 +318,6 @@ const TourPermWeekend = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="md:col-span-2">
-              <div className="grid sm:grid-cols-2 gap-4">
-                {tourInfo.map((info, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6 text-center">
-                      <Icon name={info.icon as any} size={32} className="mx-auto mb-3 text-primary" />
-                      <p className="text-xs text-muted-foreground mb-2">{info.label}</p>
-                      <p className="font-semibold text-sm">{info.value}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-            <div className="hidden md:block"></div>
           </div>
 
           <Card className="mb-16">
