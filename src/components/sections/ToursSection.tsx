@@ -211,6 +211,12 @@ const ToursSection = () => {
                       <div className="text-sm leading-relaxed flex-1" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
                       <div className="flex flex-col gap-2 mt-auto">
                         <button
+                          onClick={() => navigate(tour.url)}
+                          className="w-full bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md"
+                        >
+                          Подробнее
+                        </button>
+                        <button
                           onClick={() => {
                             setIsCustomTour(false);
                             setShowBookingForm(true);
@@ -219,12 +225,6 @@ const ToursSection = () => {
                         >
                           <span className="relative z-10">Забронировать за 0 р</span>
                           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
-                        </button>
-                        <button
-                          onClick={() => navigate(tour.url)}
-                          className="w-full bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md"
-                        >
-                          Подробнее
                         </button>
                       </div>
                     </CardContent>
