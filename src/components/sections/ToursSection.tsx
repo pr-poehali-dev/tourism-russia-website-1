@@ -128,11 +128,15 @@ const ToursSection = () => {
   const [scrollLeft, setScrollLeft] = React.useState(0);
 
   return (
-    <section id="tours" className="py-20 bg-cyan-600">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">Приключения, которые вас ждут</h2>
+    <>
+      <div className="bg-gray-50 py-8">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-800 text-center">Приключения, которые вас ждут</h2>
         </div>
+      </div>
+      
+      <section id="tours" className="py-20 bg-cyan-600">
+        <div className="container mx-auto px-4">
         
         <div 
           ref={scrollContainerRef}
@@ -250,6 +254,7 @@ const ToursSection = () => {
         isCustomTour={isCustomTour}
       />
     </section>
+    </>
   );
 };
 
