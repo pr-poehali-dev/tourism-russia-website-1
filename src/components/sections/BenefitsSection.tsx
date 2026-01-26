@@ -48,8 +48,8 @@ const BenefitsSection = () => {
     },
     { 
       icon: "Coffee", 
-      title: "Душевные посиделки у костра с фирменными чаями", 
-      description: "Атмосфера уюта и тепла после дня в походе",
+      title: "Посиделки у костра", 
+      description: "Фирменные чаи от Эмиля, незабываемые истории от Антона",
       photos: [
         "https://cdn.poehali.dev/files/IMG_20220430_172036_251.jpg",
         "https://cdn.poehali.dev/files/IMG_20220501_072715_590.jpg",
