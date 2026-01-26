@@ -37,7 +37,7 @@ const Index = () => {
       <header className="absolute top-0 z-50 w-full bg-cyan-600/95 backdrop-blur-sm border-b border-cyan-500/50">
         <div className="container mx-auto px-4 py-2 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+            <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-8 h-8 md:w-10 md:h-10 object-contain rounded-full" />
             <div className="flex flex-col">
               <span className="font-heading font-bold text-white text-xs sm:text-sm md:text-base leading-tight">Жизнь с рюкзаком</span>
               <span className="text-white/90 text-[10px] sm:text-xs leading-tight">авторские туры</span>
