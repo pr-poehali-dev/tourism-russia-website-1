@@ -162,7 +162,13 @@ const BenefitsSection = () => {
       sections: [
         {
           title: "Документы Антона",
-          photos: []
+          photos: [
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/2539392a-801e-41c9-aad1-41756fe3fea3.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/282ccf9d-6306-48b0-ac9f-7dfd870d4e1f.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/947c2c6d-25e0-44ab-8494-e1f350fb04bd.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/b3d6d30b-5e2e-4554-bc41-8cbc9cef1e99.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7a8ab521-ae4d-419c-8d00-1e7a6ea13521.jpg"
+          ]
         },
         {
           title: "Документы Эмиля",
