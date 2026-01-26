@@ -150,36 +150,39 @@ const TourPermWeekend = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-500">
+            <Card className="border-2 border-primary">
               <CardContent className="p-6 md:p-8">
+                <div className="text-center mb-4">
+                  <div className="text-sm text-muted-foreground mb-2">Даты тура</div>
+                  <div className="font-bold text-lg">По запросу</div>
+                </div>
                 <div className="text-center mb-6">
-                  <p className="text-sm text-gray-600 mb-2">Стоимость тура</p>
-                  <p className="text-4xl md:text-5xl font-bold text-orange-600">от 4 000 ₽</p>
-                  <p className="text-sm text-gray-600 mt-2">1 день / 28 000 ₽ за 4 дня</p>
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">от 4 000 ₽</div>
+                  <div className="text-sm text-muted-foreground">1 день / 28 000 ₽ за 4 дня</div>
                 </div>
                 
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-center gap-3 text-sm">
-                    <Icon name="Calendar" size={20} className="text-orange-500" />
-                    <span>Даты по запросу</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <Icon name="Users" size={20} className="text-orange-500" />
+                <div className="space-y-3 mb-6 text-sm">
+                  <div className="flex items-center gap-3">
+                    <Icon name="Users" size={20} className="text-primary" />
                     <span>Группы от 4 человек</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <Icon name="Shield" size={20} className="text-orange-500" />
+                  <div className="flex items-center gap-3">
+                    <Icon name="Shield" size={20} className="text-primary" />
                     <span>Легкий уровень сложности</span>
                   </div>
                 </div>
 
-                <Button
-                  onClick={() => setShowBookingForm(true)}
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-6"
-                  size="lg"
-                >
-                  Забронировать
-                </Button>
+                <div className="flex justify-center">
+                  <button
+                    className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden"
+                    onClick={() => setShowBookingForm(true)}
+                  >
+                    <span className="relative z-10 whitespace-nowrap">
+                      Забронировать место
+                    </span>
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                  </button>
+                </div>
               </CardContent>
             </Card>
           </div>
