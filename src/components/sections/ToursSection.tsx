@@ -159,7 +159,7 @@ const ToursSection = () => {
                       <img
                         src={tour.image}
                         alt={tour.title}
-                        className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
                       {tour.id === 1 && (
                         <div className="absolute top-0 left-0 flex flex-col gap-2 z-10">
