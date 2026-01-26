@@ -10,7 +10,7 @@ const ContactsSection = () => {
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold">Контакты</h2>
           </div>
-          <div className="max-w-4xl mx-auto border-4 border-cyan-500 rounded-lg p-8">
+          <div className="max-w-4xl mx-auto border-2 border-cyan-600 rounded-xl p-8">
             <div className="grid md:grid-cols-2 gap-6 md:gap-12">
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
@@ -41,15 +41,15 @@ const ContactsSection = () => {
               </div>
               <div className="flex flex-col justify-center items-center gap-6 relative">
                 <div className="relative">
-                  <div className="bg-cyan-600 text-white px-6 py-3 rounded font-bold text-lg text-center mb-4">
+                  <div className="text-cyan-600 font-bold text-xl text-center mb-4">
                     Давай начнем с простого!
                   </div>
-                  <svg className="absolute -bottom-12 left-8 w-16 h-16 text-gray-600" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3">
-                    <path d="M 20 10 Q 10 50 30 80" strokeLinecap="round"/>
-                    <path d="M 30 80 L 20 75 M 30 80 L 35 70" strokeLinecap="round"/>
+                  <svg className="absolute -bottom-16 -left-4 w-24 h-24 text-gray-600" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M 15 5 Q 5 35, 15 55 T 35 85" strokeLinecap="round"/>
+                    <path d="M 35 85 L 25 82 M 35 85 L 38 75" strokeLinecap="round"/>
                   </svg>
                 </div>
-                <button className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-lg transition-all hover:scale-105 shadow-md overflow-hidden mt-8">
+                <button className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-lg transition-all hover:scale-105 shadow-md overflow-hidden mt-12">
                   <span className="relative z-10">Забронировать за 0 р</span>
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
                 </button>
