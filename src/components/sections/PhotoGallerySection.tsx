@@ -56,7 +56,7 @@ const PhotoGallerySection = () => {
     comment: ''
   });
 
-  const galleryWidths = ['w-96', 'w-80', 'w-[440px]', 'w-80', 'w-96', 'w-[440px]'];
+  const galleryWidths = ['w-[90vw]', 'w-80', 'w-[50vw]', 'w-96', 'w-[70vw]', 'w-72'];
   
   const photoGalleries: PhotoGallery[] = [
     {
@@ -315,7 +315,7 @@ const PhotoGallerySection = () => {
 
           <div 
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none"
+            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none scroll-smooth"
             onMouseDown={(e) => {
               e.preventDefault();
               setIsDragging(true);
@@ -329,7 +329,7 @@ const PhotoGallerySection = () => {
               if (!isDragging || !scrollContainerRef.current) return;
               e.preventDefault();
               const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
-              const walk = (x - startX) * 2;
+              const walk = (x - startX) * 1.5;
               scrollContainerRef.current.scrollLeft = scrollLeft - walk;
               if (Math.abs(walk) > 5) {
                 setHasDragged(true);
@@ -339,13 +339,13 @@ const PhotoGallerySection = () => {
             {photoGalleries.map((gallery, index) => (
               <Card
                 key={gallery.id}
-                className={`flex-shrink-0 snap-start group overflow-hidden hover:shadow-xl transition-all duration-300 h-80 ${galleryWidths[index % galleryWidths.length]}`}
+                className={`flex-shrink-0 snap-start overflow-hidden hover:shadow-xl transition-shadow duration-300 h-80 ${galleryWidths[index % galleryWidths.length]}`}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={gallery.coverImage}
                     alt={gallery.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover"
                     draggable="false"
                   />
                   <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 to-transparent p-4">
@@ -354,16 +354,16 @@ const PhotoGallerySection = () => {
                     </h3>
                   </div>
                 </div>
-                <div className="p-4">
+                <div className="p-4 flex justify-center">
                   <button
                     onClick={(e) => {
                       if (!hasDragged) {
                         openGallery(gallery);
                       }
                     }}
-                    className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
+                    className="bg-primary hover:bg-primary/90 text-white font-semibold py-1.5 px-4 rounded-lg transition-colors flex items-center gap-2 text-sm"
                   >
-                    <Icon name="Eye" size={18} />
+                    <Icon name="Eye" size={16} />
                     Смотреть
                   </button>
                 </div>
