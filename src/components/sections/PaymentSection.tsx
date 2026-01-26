@@ -14,11 +14,10 @@ const PaymentSection = () => {
       <section className="py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto space-y-8">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-gray-800">
-              Комфортная схема оплаты
-            </h2>
-            
             <div className="bg-white shadow-xl rounded-xl p-5 md:p-7 border-2 border-cyan-600">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-gray-800 mb-6">
+                Комфортная схема оплаты
+              </h2>
               
               <div className="grid grid-cols-4 gap-2 md:gap-3 mb-4 items-center">
                 <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-full w-24 h-24 md:w-28 md:h-28 flex flex-col items-center justify-center shadow-lg mx-auto border-4 border-orange-600 animate-pulse">
