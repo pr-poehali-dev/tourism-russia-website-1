@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
@@ -122,26 +122,40 @@ const ToursSection = () => {
     return tours;
   };
 
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [startX, setStartX] = React.useState(0);
+  const [scrollLeft, setScrollLeft] = React.useState(0);
+
   return (
     <section id="tours" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">Наши туры</h2>
-          <p className="text-base md:text-lg text-muted-foreground">Выберите своё следующее приключение</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold">Приключения, которые вас ждут</h2>
         </div>
-        <Tabs defaultValue="baikal" className="w-full mb-12">
-          <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-5 border-2 border-primary">
-            <TabsTrigger value="baikal" className="text-xs sm:text-sm">Байкал</TabsTrigger>
-            <TabsTrigger value="dagestan" className="text-xs sm:text-sm">Дагестан</TabsTrigger>
-            <TabsTrigger value="altai" className="text-xs sm:text-sm">Алтай</TabsTrigger>
-            <TabsTrigger value="kamchatka" className="text-xs sm:text-sm">Камчатка</TabsTrigger>
-            <TabsTrigger value="kolyma" className="text-xs sm:text-sm">Колыма</TabsTrigger>
-          </TabsList>
-          {["baikal", "dagestan", "altai", "kamchatka", "kolyma"].map((tab) => (
-            <TabsContent key={tab} value={tab} className="mt-8">
-              <div className="grid md:grid-cols-2 gap-6">
-                {filterTours(tab).map((tour) => (
-                  <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+        
+        <div 
+          ref={scrollContainerRef}
+          className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none pb-4"
+          onMouseDown={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
+            setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
+            setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
+          }}
+          onMouseLeave={() => setIsDragging(false)}
+          onMouseUp={() => setIsDragging(false)}
+          onMouseMove={(e) => {
+            if (!isDragging || !scrollContainerRef.current) return;
+            e.preventDefault();
+            const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
+            const walk = (x - startX) * 2;
+            scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+          }}
+        >
+          <div className="flex gap-6" style={{ width: 'max-content' }}>
+            {tours.map((tour) => (
+              <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden" style={{ minWidth: '400px', maxWidth: '400px' }}>
                     <div className="relative h-48 overflow-hidden">
                       <img
                         src={tour.image}
@@ -206,11 +220,9 @@ const ToursSection = () => {
                       </Button>
                     </CardContent>
                   </Card>
-                ))}
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
+            ))}
+          </div>
+        </div>
         <div className="text-center mt-12 px-4">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
