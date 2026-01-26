@@ -217,7 +217,7 @@ const PhotoGallerySection = () => {
     {
       id: "kolyma",
       title: "Путешествие за золотом Колымы",
-      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_11-45-08.jpg",
+      coverImage: "https://cdn.poehali.dev/files/photo_2025-12-23_11-44-56.jpg",
       images: [
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-45-08.jpg", alt: "Селфи группы на вершине с геодезическим знаком" },
         { url: "https://cdn.poehali.dev/files/photo_2025-12-23_11-44-56.jpg", alt: "Утренний туман над замерзшим озером и горами" },
