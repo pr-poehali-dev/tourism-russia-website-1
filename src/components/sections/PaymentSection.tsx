@@ -45,7 +45,7 @@ const PaymentSection = () => {
                 </div>
               </div>
               
-              <p className="text-xs md:text-sm text-center font-medium text-gray-700 mb-6">При 100% оплате тура Вы получаете сертификат на профессиональную одежду и снаряжение в магазине-партнере на 5000₽ <span className="text-3xl md:text-4xl">🎁</span></p>
+              <p className="text-xs md:text-sm text-center font-medium text-gray-700 mb-6">При 100% оплате тура Вы получаете сертификат на профессиональную одежду и снаряжение в магазине-партнере на 5000₽ <span className="text-3xl md:text-4xl animate-swing">🎁</span></p>
               
               <div className="flex justify-center">
                 <button 
