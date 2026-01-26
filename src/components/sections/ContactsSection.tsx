@@ -49,10 +49,9 @@ const ContactsSection = () => {
                     <path d="M 30 80 L 20 75 M 30 80 L 35 70" strokeLinecap="round"/>
                   </svg>
                 </div>
-                <button className="relative overflow-hidden bg-gradient-to-r from-pink-500 via-red-500 to-pink-600 text-white px-12 py-5 rounded-full text-xl font-bold uppercase tracking-wide shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group mt-8">
-                  <span className="relative z-10">Связаться с нами</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-600 via-red-600 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute inset-0 bg-white opacity-20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
+                <button className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-lg transition-all hover:scale-105 shadow-md overflow-hidden mt-8">
+                  <span className="relative z-10">Забронировать за 0 р</span>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
                 </button>
               </div>
             </div>
