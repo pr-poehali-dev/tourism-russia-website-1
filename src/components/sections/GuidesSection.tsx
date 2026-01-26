@@ -96,7 +96,7 @@ const GuidesSection = () => {
       specialization: "Основатель проекта \"Жизнь с рюкзаком\", организатор туров, гид",
       tours: "более 150",
       rating: 5.0,
-      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/bf68895e-e82b-4f1b-ae5c-b87ef3bac464.jpg",
+      image: "https://cdn.poehali.dev/files/IMG_5061.jpg",
       phone: "+7 996 083-71-57",
       expeditions: "Экспедиции на Алтай, Байкал, Кавказ, Иран, Приполярный Урал, Кольский полуостров",
       achievements: [
@@ -117,7 +117,7 @@ const GuidesSection = () => {
       specialization: "Руководитель походов \"Жизнь с рюкзаком\", организатор, гид",
       tours: "более 180",
       rating: 4.9,
-      image: "https://cdn.poehali.dev/files/IMG_0934.jpg",
+      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/84cc1f7f-6580-4295-9975-22479b6920db.jpg",
       phone: "+7 987 255-84-99",
       expeditions: "1-й спортивный разряд (горный, лыжный, велотуризм). Алтай, Кавказ, Кольский, Киргизия, Казахстан, Эльбрус, Урал, Забайкалье, Саяны.",
       achievements: [
