@@ -341,7 +341,7 @@ const PhotoGallerySection = () => {
                 key={gallery.id}
                 className={`flex-shrink-0 snap-start overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[420px] ${galleryWidths[index % galleryWidths.length]}`}
               >
-                <div className="relative h-[360px] overflow-hidden">
+                <div className="relative h-full overflow-hidden">
                   <img
                     src={gallery.coverImage}
                     alt={gallery.title}
@@ -353,19 +353,19 @@ const PhotoGallerySection = () => {
                       {gallery.title}
                     </h3>
                   </div>
-                </div>
-                <div className="p-4">
-                  <button
-                    onClick={(e) => {
-                      if (!hasDragged) {
-                        openGallery(gallery);
-                      }
-                    }}
-                    className="bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md flex items-center gap-1.5"
-                  >
-                    <Icon name="Eye" size={14} />
-                    Смотреть
-                  </button>
+                  <div className="absolute bottom-4 left-4">
+                    <button
+                      onClick={(e) => {
+                        if (!hasDragged) {
+                          openGallery(gallery);
+                        }
+                      }}
+                      className="bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md flex items-center gap-1.5"
+                    >
+                      <Icon name="Eye" size={14} />
+                      Смотреть
+                    </button>
+                  </div>
                 </div>
               </Card>
             ))}
