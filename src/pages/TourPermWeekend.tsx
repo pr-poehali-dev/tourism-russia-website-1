@@ -317,10 +317,7 @@ const TourPermWeekend = () => {
                 </div>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-
-          <Card className="mb-16">
+            <Card>
             <CardContent className="p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Программа тура</h2>
               <div className="space-y-8">
@@ -343,7 +340,7 @@ const TourPermWeekend = () => {
             </CardContent>
           </Card>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid gap-4">
             <Card className="border-2 border-green-500">
               <CardContent className="p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-6">
@@ -377,6 +374,10 @@ const TourPermWeekend = () => {
                 </ul>
               </CardContent>
             </Card>
+          </div>
+            </div>
+
+            <div className="hidden md:block"></div>
           </div>
 
           <div className="mb-16">
