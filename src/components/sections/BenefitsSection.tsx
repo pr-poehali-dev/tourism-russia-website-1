@@ -245,7 +245,7 @@ const BenefitsSection = () => {
                   
                   <Button
                     onClick={() => setSelectedBenefit(index)}
-                    className="bg-white text-cyan-600 hover:bg-white hover:text-cyan-600 font-semibold text-xs px-4 py-1.5 h-auto"
+                    className="bg-white text-cyan-600 hover:bg-white hover:text-cyan-600 font-semibold text-xs px-4 py-1.5 h-auto rounded-lg"
                   >
                     Подробнее
                   </Button>

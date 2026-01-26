@@ -178,13 +178,13 @@ const GuidesSection = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-6">
                       <button
                         onClick={() => setSelectedGuide(index)}
-                        className="inline-flex items-center justify-center bg-white text-cyan-600 border border-white font-bold text-xs md:text-sm px-4 py-2 rounded-full transition-all hover:scale-105 shadow-lg"
+                        className="inline-flex items-center justify-center bg-white text-cyan-600 border border-white font-bold text-xs md:text-sm px-4 py-2 rounded-lg transition-all hover:scale-105 shadow-lg"
                       >
                         Достижения
                       </button>
                       <button
                         onClick={() => handleContactClick(index)}
-                        className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-xs md:text-sm px-4 py-2 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
+                        className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-xs md:text-sm px-4 py-2 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden"
                       >
                         <span className="relative z-10 flex items-center gap-1">
                           <Icon name="MessageCircle" size={14} />
@@ -310,7 +310,7 @@ const GuidesSection = () => {
                 )}
                 <button
                   onClick={() => handleContactClick(selectedGuide)}
-                  className="relative w-full inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
+                  className="relative w-full inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <Icon name="MessageCircle" size={18} />
