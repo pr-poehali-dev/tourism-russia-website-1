@@ -233,20 +233,20 @@ const ReviewsSection = () => {
 
   return (
     <>
-      <section id="reviews" className="py-20 bg-muted/30">
+      <section id="reviews" className="py-20 bg-cyan-600">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4">
-              Отзывы{" "}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4 text-white">
+              Настоящие эмоции
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground">
+            <p className="text-base md:text-lg text-white/90">
               Что говорят наши путешественники
             </p>
           </div>
-          <div className="relative">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="relative max-w-2xl mx-auto">
+            <div className="flex items-center justify-center">
               {reviews
-                .slice(reviewsStartIndex, reviewsStartIndex + 3)
+                .slice(reviewsStartIndex, reviewsStartIndex + 1)
                 .map((review, index) => (
                   <Card
                     key={reviewsStartIndex + index}
@@ -358,35 +358,31 @@ const ReviewsSection = () => {
                 ))}
             </div>
 
-            {reviews.length > 3 && (
-              <div className="flex justify-center mt-8 gap-4">
-                <Button
-                  variant="outline"
-                  size="lg"
+            {reviews.length > 1 && (
+              <>
+                <button
                   onClick={() =>
-                    setReviewsStartIndex(Math.max(0, reviewsStartIndex - 3))
+                    setReviewsStartIndex(Math.max(0, reviewsStartIndex - 1))
                   }
                   disabled={reviewsStartIndex === 0}
-                  className="flex items-center gap-2"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed z-10"
+                  aria-label="Предыдущий отзыв"
                 >
-                  <Icon name="ChevronLeft" size={20} />
-                  Предыдущие
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
+                  <Icon name="ChevronLeft" size={32} className="text-cyan-600" />
+                </button>
+                <button
                   onClick={() =>
                     setReviewsStartIndex(
-                      Math.min(reviews.length - 3, reviewsStartIndex + 3),
+                      Math.min(reviews.length - 1, reviewsStartIndex + 1),
                     )
                   }
-                  disabled={reviewsStartIndex + 3 >= reviews.length}
-                  className="flex items-center gap-2"
+                  disabled={reviewsStartIndex >= reviews.length - 1}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed z-10"
+                  aria-label="Следующий отзыв"
                 >
-                  Следующие
-                  <Icon name="ChevronRight" size={20} />
-                </Button>
-              </div>
+                  <Icon name="ChevronRight" size={32} className="text-cyan-600" />
+                </button>
+              </>
             )}
           </div>
         </div>
