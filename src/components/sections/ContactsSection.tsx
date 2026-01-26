@@ -54,7 +54,7 @@ const ContactsSection = () => {
                     Давай начнем с простого!
                   </div>
                   <div className="flex items-center justify-center gap-6 w-full">
-                    <svg className="w-16 h-16 text-gray-600 flex-shrink-0" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg className="w-16 h-16 text-cyan-600 flex-shrink-0" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M 10 15 Q 20 40, 50 40" strokeLinecap="round"/>
                       <path d="M 50 40 L 42 35 M 50 40 L 42 45" strokeLinecap="round"/>
                     </svg>
