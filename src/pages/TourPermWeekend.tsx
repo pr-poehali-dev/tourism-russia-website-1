@@ -87,46 +87,43 @@ const TourPermWeekend = () => {
       />
 
       <div className="min-h-screen bg-background">
+        <header className="bg-white border-b sticky top-0 z-50">
+          <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+            <div className="flex items-start gap-2 md:gap-3">
+              <img src="https://cdn.poehali.dev/files/11-1.png" alt="Логотип" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+              <div className="flex flex-col">
+                <span className="font-heading font-bold text-black text-sm sm:text-base md:text-lg leading-tight">Жизнь с рюкзаком</span>
+                <span className="text-black text-xs leading-tight">авторские туры</span>
+              </div>
+            </div>
+            <Button
+              variant="ghost"
+              onClick={() => navigate('/#tours')}
+              className="flex items-center gap-2"
+            >
+              <Icon name="ArrowLeft" size={20} />
+              <span className="hidden sm:inline">На главную</span>
+            </Button>
+          </div>
+        </header>
+
         <div 
-          className="relative h-[50vh] md:h-[70vh] bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/f4de9d1f-567d-4892-ad15-de6664c8c99c.jpg')"
-          }}
+          className="relative h-[40vh] md:h-[60vh] overflow-hidden"
         >
-          <div className="absolute inset-0 bg-black/40" />
-          <button
-            onClick={() => navigate("/")}
-            className="absolute top-6 left-6 bg-white/90 hover:bg-white p-3 rounded-full transition-all shadow-lg z-10"
-          >
-            <Icon name="ArrowLeft" size={24} />
-          </button>
-          
-          <div className="relative h-full flex flex-col items-center justify-center text-white px-4">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-center mb-4">
-              Тур выходного дня
-            </h1>
-            <p className="text-xl md:text-3xl font-heading text-center mb-6">
-              "Сказки Пермского Края"
-            </p>
-            <p className="text-lg md:text-xl text-center max-w-2xl mb-8">
-              Каменный город • Усьвинские столбы • Ветлан и Полюд • Колчимский камень
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={() => setShowBookingForm(true)}
-                size="lg"
-                className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-8 py-6"
-              >
-                Забронировать тур
-              </Button>
-              <Button
-                onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-                size="lg"
-                variant="outline"
-                className="bg-white/20 hover:bg-white/30 text-white border-white font-bold text-lg px-8 py-6"
-              >
-                Узнать подробнее
-              </Button>
+          <img
+            src="https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/f4de9d1f-567d-4892-ad15-de6664c8c99c.jpg"
+            alt="Тур выходного дня Сказки Пермского Края"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+            <div className="container mx-auto">
+              <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-2">
+                Тур выходного дня "Сказки Пермского Края"
+              </h1>
+              <p className="text-lg md:text-xl text-white/90">
+                Каменный город • Усьвинские столбы • Ветлан и Полюд • Колчимский камень
+              </p>
             </div>
           </div>
         </div>
