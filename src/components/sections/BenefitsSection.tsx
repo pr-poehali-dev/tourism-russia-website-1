@@ -13,6 +13,7 @@ interface Benefit {
   title: string;
   description: string;
   photos: string[];
+  sections?: { title: string; photos: string[] }[];
 }
 
 const BenefitsSection = () => {
@@ -157,19 +158,30 @@ const BenefitsSection = () => {
       icon: "ShieldCheck", 
       title: "Опытные гиды с удостоверениями", 
       description: "Медицинская подготовка и официальные сертификаты - ваша безопасность в надежных руках",
-      photos: [
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-39.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-44.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-47.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-51.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_17-04-39.jpg",
-        "https://cdn.poehali.dev/files/photo_2025-12-22_22-26-12.jpg",
-        "https://cdn.poehali.dev/files/04 Удостоверение 3.jpg",
-        "https://cdn.poehali.dev/files/Диплом 1.jpg",
-        "https://cdn.poehali.dev/files/Диплом2.jpg",
-        "https://cdn.poehali.dev/files/Диплом 3.jpg",
-        "https://cdn.poehali.dev/files/Удостоверение 1.jpg",
-        "https://cdn.poehali.dev/files/Удостоверение 2.jpg",
+      photos: [],
+      sections: [
+        {
+          title: "Сертификаты Антона",
+          photos: [
+            "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-39.jpg",
+            "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-44.jpg",
+            "https://cdn.poehali.dev/files/Диплом 1.jpg",
+            "https://cdn.poehali.dev/files/Удостоверение 1.jpg",
+          ]
+        },
+        {
+          title: "Сертификаты Эмиля",
+          photos: [
+            "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-47.jpg",
+            "https://cdn.poehali.dev/files/photo_2025-12-22_17-01-51.jpg",
+            "https://cdn.poehali.dev/files/photo_2025-12-22_17-04-39.jpg",
+            "https://cdn.poehali.dev/files/photo_2025-12-22_22-26-12.jpg",
+            "https://cdn.poehali.dev/files/04 Удостоверение 3.jpg",
+            "https://cdn.poehali.dev/files/Диплом2.jpg",
+            "https://cdn.poehali.dev/files/Диплом 3.jpg",
+            "https://cdn.poehali.dev/files/Удостоверение 2.jpg",
+          ]
+        }
       ]
     },
     { 
@@ -250,20 +262,45 @@ const BenefitsSection = () => {
           </DialogHeader>
           
           {selectedBenefit !== null && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4">
-              {benefits[selectedBenefit].photos.map((photo, photoIndex) => (
-                <div
-                  key={photoIndex}
-                  className="aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
-                  onClick={() => setSelectedPhoto(photo)}
-                >
-                  <img
-                    src={photo}
-                    alt={`${benefits[selectedBenefit].title} ${photoIndex + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+            <div className="mt-4">
+              {benefits[selectedBenefit].sections ? (
+                benefits[selectedBenefit].sections!.map((section, sectionIndex) => (
+                  <div key={sectionIndex} className="mb-8">
+                    <h3 className="text-xl font-heading font-bold mb-4">{section.title}</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                      {section.photos.map((photo, photoIndex) => (
+                        <div
+                          key={photoIndex}
+                          className="aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
+                          onClick={() => setSelectedPhoto(photo)}
+                        >
+                          <img
+                            src={photo}
+                            alt={`${section.title} ${photoIndex + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                  {benefits[selectedBenefit].photos.map((photo, photoIndex) => (
+                    <div
+                      key={photoIndex}
+                      className="aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
+                      onClick={() => setSelectedPhoto(photo)}
+                    >
+                      <img
+                        src={photo}
+                        alt={`${benefits[selectedBenefit].title} ${photoIndex + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
           )}
         </DialogContent>
