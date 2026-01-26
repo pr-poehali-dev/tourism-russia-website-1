@@ -321,23 +321,16 @@ const TourPermWeekend = () => {
               <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Программа тура</h2>
               <div className="space-y-8">
                 {program.map((day, index) => (
-                  <div key={index} className="flex gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg">
-                        {index + 1}
-                      </div>
+                  <div key={index}>
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                      <h3 className="text-xl font-heading font-bold">{day.day}</h3>
+                      <span className="text-sm text-muted-foreground">{day.distance}</span>
                     </div>
-                    <div className="flex-1">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h3 className="text-xl font-heading font-bold">{day.day}</h3>
-                        <span className="text-sm text-muted-foreground">{day.distance}</span>
-                      </div>
-                      <h4 className="text-lg font-semibold text-primary mb-3">{day.title}</h4>
-                      <p 
-                        className="text-gray-700 leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: day.description }}
-                      />
-                    </div>
+                    <h4 className="text-lg font-semibold text-primary mb-3">{day.title}</h4>
+                    <p 
+                      className="text-gray-700 leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: day.description }}
+                    />
                   </div>
                 ))}
               </div>
