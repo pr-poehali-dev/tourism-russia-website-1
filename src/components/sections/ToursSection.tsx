@@ -155,7 +155,7 @@ const ToursSection = () => {
         >
           <div className="flex gap-6" style={{ width: 'max-content' }}>
             {tours.map((tour) => (
-              <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl" style={{ minWidth: '400px', maxWidth: '400px' }}>
+              <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl flex flex-col" style={{ minWidth: '400px', maxWidth: '400px' }}>
                     <div className="relative h-48 overflow-hidden">
                       <img
                         src={tour.image}
@@ -208,9 +208,9 @@ const ToursSection = () => {
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
-                      <div className="flex gap-2">
+                    <CardContent className="space-y-4 flex-1 flex flex-col">
+                      <div className="text-sm leading-relaxed flex-1" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
+                      <div className="flex gap-2 mt-auto">
                         <button
                           onClick={() => navigate(tour.url)}
                           className="flex-1 bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md"
