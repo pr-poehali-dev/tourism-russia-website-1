@@ -130,8 +130,8 @@ const ToursSection = () => {
   return (
     <>
       <section id="tours" className="py-20 bg-cyan-600">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-center mb-16 md:mb-20">Приключения, которые вас ждут</h2>
+        <div className="container mx-auto px-0 md:px-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-center mb-16 md:mb-20 px-4">Приключения, которые вас ждут</h2>
         
         <div 
           ref={scrollContainerRef}
@@ -152,8 +152,8 @@ const ToursSection = () => {
             scrollContainerRef.current.scrollLeft = scrollLeft - walk;
           }}
         >
-          <div className="flex gap-3 md:gap-8 pl-2 pr-2 md:px-4" style={{ width: 'max-content' }}>
-            {tours.map((tour) => (
+          <div className="flex gap-2 md:gap-8 pl-2 pr-2 md:px-4" style={{ width: 'max-content' }}>
+            {tours.map((tour, index) => (
               <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl flex flex-col" style={{ minWidth: '280px', maxWidth: '280px' }}>
                     <div className="relative h-48 overflow-hidden bg-gray-100">
                       <img
