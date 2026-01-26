@@ -2,12 +2,16 @@ import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 const TourPermWeekend = () => {
   const navigate = useNavigate();
   const [showBookingForm, setShowBookingForm] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   const tourInfo = [
     { icon: "Calendar", label: "Длительность тура", value: "ОТ 1 ДНЯ ДО 4 ДНЕЙ" },
@@ -61,23 +65,32 @@ const TourPermWeekend = () => {
     "Дополнительные экскурсии по желанию"
   ];
 
-  const equipment = {
-    clothes: [
-      "Тёплая куртка и штаны",
-      "Шапка, перчатки, шарф",
-      "Удобная обувь для прогулок (зимой – тёплые ботинки)",
-      "Термобельё (зимой)",
-      "Сменная обувь для базы"
-    ],
-    other: [
-      "Небольшой рюкзак для дневного выхода",
-      "Термос (по желанию)",
-      "Солнцезащитные очки",
-      "Фотоаппарат/телефон",
-      "Личные лекарства",
-      "Документы, деньги"
-    ]
-  };
+  const galleryImages = [
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/f4de9d1f-567d-4892-ad15-de6664c8c99c.jpg",
+      aspectRatio: 16/9
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/c1b59aa2-06d8-47af-bd95-56560d586cc7.jpg",
+      aspectRatio: 4/3
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/a87ea35c-f95b-42a2-b434-621da3a95ad5.jpg",
+      aspectRatio: 4/3
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/8346eb2e-c85f-4784-bfe8-71e3a694cf83.jpg",
+      aspectRatio: 3/4
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/77b2f3e3-fef5-4f2c-9e36-34e7892780d8.jpg",
+      aspectRatio: 9/16
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/6f789975-c7b2-43eb-ad17-2b52df5034c3.jpg",
+      aspectRatio: 9/16
+    }
+  ];
 
   return (
     <>
@@ -267,41 +280,49 @@ const TourPermWeekend = () => {
             </Card>
           </div>
 
-          <Card className="mb-16 bg-gradient-to-br from-blue-50 to-cyan-50">
-            <CardContent className="p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Что взять с собой</h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-heading font-semibold mb-4 flex items-center gap-2">
-                    <Icon name="ShirtIcon" size={24} className="text-primary" />
-                    Одежда и обувь
-                  </h3>
-                  <ul className="space-y-2">
-                    {equipment.clothes.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <Icon name="Dot" size={20} className="text-primary flex-shrink-0 mt-1" />
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xl font-heading font-semibold mb-4 flex items-center gap-2">
-                    <Icon name="Backpack" size={24} className="text-primary" />
-                    Прочее
-                  </h3>
-                  <ul className="space-y-2">
-                    {equipment.other.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <Icon name="Dot" size={20} className="text-primary flex-shrink-0 mt-1" />
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Галерея</h2>
+            <div
+              ref={scrollContainerRef}
+              className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
+              onMouseDown={(e) => {
+                e.preventDefault();
+                setIsDragging(true);
+                setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
+                setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
+              }}
+              onMouseLeave={() => setIsDragging(false)}
+              onMouseUp={() => setIsDragging(false)}
+              onMouseMove={(e) => {
+                if (!isDragging || !scrollContainerRef.current) return;
+                e.preventDefault();
+                const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
+                const walk = (x - startX) * 2;
+                scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+              }}
+            >
+              <div className="flex gap-4" style={{ width: 'max-content' }}>
+                {galleryImages.map((image, index) => {
+                  const height = 400;
+                  const width = height * image.aspectRatio;
+                  return (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
+                      style={{ height: `${height}px`, width: `${width}px` }}
+                    >
+                      <img
+                        src={image.url}
+                        alt={`Фото тура ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        draggable={false}
+                      />
+                    </div>
+                  );
+                })}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
           <Card className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
             <CardContent className="p-8 md:p-12 text-center">
