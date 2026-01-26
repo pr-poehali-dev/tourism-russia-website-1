@@ -155,7 +155,7 @@ const ToursSection = () => {
         >
           <div className="flex gap-6" style={{ width: 'max-content' }}>
             {tours.map((tour) => (
-              <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden" style={{ minWidth: '400px', maxWidth: '400px' }}>
+              <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl" style={{ minWidth: '400px', maxWidth: '400px' }}>
                     <div className="relative h-48 overflow-hidden">
                       <img
                         src={tour.image}
@@ -210,14 +210,24 @@ const ToursSection = () => {
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
-                      <Button 
-                        variant="outline" 
-                        className="w-full bg-white hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 border-2 border-primary"
-                        onClick={() => navigate(tour.url)}
-                      >
-                        <Icon name="ArrowRight" size={16} className="mr-2" />
-                        Подробнее
-                      </Button>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => {
+                            setIsCustomTour(false);
+                            setShowBookingForm(true);
+                          }}
+                          className="flex-1 relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-sm px-4 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
+                        >
+                          <span className="relative z-10">Забронировать за 0₽</span>
+                          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                        </button>
+                        <button
+                          onClick={() => navigate(tour.url)}
+                          className="flex-1 bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-bold text-sm px-4 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg"
+                        >
+                          Подробнее
+                        </button>
+                      </div>
                     </CardContent>
                   </Card>
             ))}
