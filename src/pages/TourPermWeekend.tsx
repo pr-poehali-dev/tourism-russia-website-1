@@ -89,6 +89,26 @@ const TourPermWeekend = () => {
     {
       url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/6f789975-c7b2-43eb-ad17-2b52df5034c3.jpg",
       aspectRatio: 9/16
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/ee33f798-c7fb-4a22-b705-55301e3371e7.jpg",
+      aspectRatio: 9/16
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/6efa0fe2-c8f1-473d-be04-b86c4ad28f29.jpg",
+      aspectRatio: 9/16
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/82b1bf83-37dc-4278-877b-188faa5a6d90.jpg",
+      aspectRatio: 9/16
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/3b1b1185-2e56-48e6-b285-1b5dbdfcd3ea.jpg",
+      aspectRatio: 9/16
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/98e65736-f397-41c0-82ac-d1e5e95b7459.jpg",
+      aspectRatio: 9/16
     }
   ];
 
