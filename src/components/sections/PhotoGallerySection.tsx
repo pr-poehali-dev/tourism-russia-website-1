@@ -56,6 +56,8 @@ const PhotoGallerySection = () => {
     comment: ''
   });
 
+  const galleryWidths = ['w-96', 'w-80', 'w-[440px]', 'w-80', 'w-96', 'w-[440px]'];
+  
   const photoGalleries: PhotoGallery[] = [
     {
       id: "baikal-skating",
@@ -334,35 +336,38 @@ const PhotoGallerySection = () => {
               }
             }}
           >
-            {photoGalleries.map((gallery) => (
-              <Card
+            {photoGalleries.map((gallery, index) => (
+              <div
                 key={gallery.id}
-                className="cursor-pointer group overflow-hidden hover:shadow-xl transition-all duration-300 flex-shrink-0 w-80 snap-start"
-                onClick={(e) => {
-                  if (!hasDragged) {
-                    openGallery(gallery);
-                  }
-                }}
+                className={`flex-shrink-0 snap-start ${galleryWidths[index % galleryWidths.length]}`}
               >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={gallery.coverImage}
-                    alt={gallery.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    draggable="false"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="font-heading font-bold text-xl text-white mb-1">
-                      {gallery.title}
-                    </h3>
-                    <div className="flex items-center gap-2 text-white/80 text-sm">
-                      <Icon name="Images" size={16} />
-                      <span>{gallery.images.length} фото</span>
-                    </div>
+                <h3 className="font-heading font-bold text-xl text-gray-800 mb-3">
+                  {gallery.title}
+                </h3>
+                <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div className="relative aspect-square overflow-hidden">
+                    <img
+                      src={gallery.coverImage}
+                      alt={gallery.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      draggable="false"
+                    />
                   </div>
-                </div>
-              </Card>
+                  <div className="p-4">
+                    <button
+                      onClick={(e) => {
+                        if (!hasDragged) {
+                          openGallery(gallery);
+                        }
+                      }}
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
+                    >
+                      <Icon name="Eye" size={18} />
+                      Смотреть
+                    </button>
+                  </div>
+                </Card>
+              </div>
             ))}
           </div>
           
