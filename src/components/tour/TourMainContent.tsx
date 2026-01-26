@@ -100,14 +100,14 @@ const TourMainContent = ({ tourInfo, reasons, program, included, notIncluded, eq
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           <Card className="border-2 border-green-500">
             <CardContent className="p-6">
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-green-700">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-cyan-600">
                 <Icon name="Check" size={24} />
                 Включено в стоимость
               </h3>
               <ul className="space-y-2">
                 {included.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <Icon name="Plus" size={16} className="text-green-600 mt-1 flex-shrink-0" />
+                    <Icon name="Plus" size={16} className="text-cyan-600 mt-1 flex-shrink-0" />
                     <span className="text-sm text-gray-700">{item}</span>
                   </li>
                 ))}

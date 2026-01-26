@@ -178,7 +178,7 @@ const UniversalBookingDialog = ({
             <label className="text-sm font-medium mb-1.5 block">Выберите *</label>
             {isCustomTour ? (
               <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
-                <span className="font-bold text-green-600">Предложить свой вариант тура</span>
+                <span className="font-bold text-cyan-600">Предложить свой вариант тура</span>
               </div>
             ) : (
               <Select 
