@@ -53,6 +53,17 @@ const ToursSection = () => {
       url: "/tour/baikal-tents",
     },
     {
+      id: 7,
+      title: "Тур выходного дня \"Сказки Пермского Края\"",
+      subtitle: "плато Маньпупунёр и скалы Столбы Выветривания",
+      description: "Круглый год по выходным",
+      duration: "За 2-3 дня увидим легендарное <strong>плато Маньпупунёр</strong> со знаменитыми <strong>Столбами Выветривания</strong>, посетим живописные скалы и насладимся зимними пейзажами Северного Урала!\n\n<strong>Идеальный вариант для тех, кто хочет за выходные погрузиться в сказочную атмосферу уральской природы. Ночёвка на тёплой базе, транспорт и питание включены!</strong>",
+      price: "от 15 000 ₽",
+      difficulty: "Легкий",
+      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/f4de9d1f-567d-4892-ad15-de6664c8c99c.jpg",
+      url: "/tour/perm-weekend",
+    },
+    {
       id: 6,
       title: "Дагестан: Кавказская тропа по краю башен",
       subtitle: "Пеший поход с палатками",
@@ -118,7 +129,7 @@ const ToursSection = () => {
     if (tab === "kamchatka") return tours.filter(t => t.id === 4);
     if (tab === "kolyma") return tours.filter(t => t.id === 5);
     if (tab === "dagestan") return tours.filter(t => t.id === 6);
-    if (tab === "ural") return tours.filter(t => false);
+    if (tab === "ural") return tours.filter(t => t.id === 7);
     return tours;
   };
 

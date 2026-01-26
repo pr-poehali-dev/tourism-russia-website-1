@@ -11,6 +11,7 @@ import TourAltai from "./pages/TourAltai";
 import TourKamchatka from "./pages/TourKamchatka";
 import TourKolyma from "./pages/TourKolyma";
 import TourDagestan from "./pages/TourDagestan";
+import TourPermWeekend from "./pages/TourPermWeekend";
 import AdminReviews from "./pages/AdminReviews";
 import BenefitsPreview from "./pages/BenefitsPreview";
 import NotFound from "./pages/NotFound";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/tour/kamchatka" element={<TourKamchatka />} />
           <Route path="/tour/kolyma" element={<TourKolyma />} />
           <Route path="/tour/dagestan" element={<TourDagestan />} />
+          <Route path="/tour/perm-weekend" element={<TourPermWeekend />} />
           <Route path="/admin/reviews" element={<AdminReviews />} />
           <Route path="/preview/benefits" element={<BenefitsPreview />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
