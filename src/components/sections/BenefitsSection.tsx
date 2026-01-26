@@ -226,7 +226,7 @@ const BenefitsSection = () => {
             }}
           >
             <div 
-              className="flex gap-4 px-4 pb-4"
+              className="flex gap-4 pl-4 pr-20 pb-4"
               style={{ width: 'max-content' }}
             >
               {benefits.map((benefit, index) => (
