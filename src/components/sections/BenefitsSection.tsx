@@ -187,12 +187,9 @@ const BenefitsSection = () => {
     <>
       <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-4 text-gray-800">
-            Почему мы?
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-8 text-gray-800">
+            Особенности путешествий с нами
           </h2>
-          <p className="text-center text-gray-600 mb-12 text-lg">
-            Что делает наши туры особенными
-          </p>
           
           <div 
             ref={scrollContainerRef}
