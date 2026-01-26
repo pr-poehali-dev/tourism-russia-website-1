@@ -357,49 +357,49 @@ const ReviewsSection = () => {
                 ))}
             </div>
 
-            {reviews.length > 1 && (
-              <>
-                <button
-                  onClick={() =>
-                    setReviewsStartIndex(Math.max(0, reviewsStartIndex - 1))
-                  }
-                  disabled={reviewsStartIndex === 0}
-                  className="absolute left-4 top-1/2 md:top-1/2 md:-translate-y-1/2 bottom-4 md:bottom-auto translate-y-0 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed z-20"
-                  aria-label="Предыдущий отзыв"
-                >
-                  <Icon name="ChevronLeft" size={32} className="text-cyan-600" />
-                </button>
-                <button
-                  onClick={() =>
-                    setReviewsStartIndex(
-                      Math.min(reviews.length - 1, reviewsStartIndex + 1),
-                    )
-                  }
-                  disabled={reviewsStartIndex >= reviews.length - 1}
-                  className="absolute right-4 top-1/2 md:top-1/2 md:-translate-y-1/2 bottom-4 md:bottom-auto translate-y-0 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed z-20"
-                  aria-label="Следующий отзыв"
-                >
-                  <Icon name="ChevronRight" size={32} className="text-cyan-600" />
-                </button>
-              </>
-            )}
           </div>
           
-          {/* Индикатор отзывов */}
+          {/* Индикатор отзывов и навигация */}
           {reviews.length > 1 && (
-            <div className="flex justify-center items-center gap-2 mt-8">
-              {reviews.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setReviewsStartIndex(idx)}
-                  className={`transition-all ${
-                    idx === reviewsStartIndex
-                      ? 'w-8 h-2 bg-white rounded-full'
-                      : 'w-2 h-2 bg-white/50 rounded-full hover:bg-white/75'
-                  }`}
-                  aria-label={`Перейти к отзыву ${idx + 1}`}
-                />
-              ))}
+            <div className="flex justify-center items-center gap-4 mt-8">
+              <button
+                onClick={() =>
+                  setReviewsStartIndex(Math.max(0, reviewsStartIndex - 1))
+                }
+                disabled={reviewsStartIndex === 0}
+                className="bg-white hover:bg-gray-100 p-2 rounded-lg transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Предыдущий отзыв"
+              >
+                <Icon name="ChevronLeft" size={20} className="text-cyan-600" />
+              </button>
+              
+              <div className="flex items-center gap-2">
+                {reviews.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setReviewsStartIndex(idx)}
+                    className={`transition-all ${
+                      idx === reviewsStartIndex
+                        ? 'w-8 h-2 bg-white rounded-full'
+                        : 'w-2 h-2 bg-white/50 rounded-full hover:bg-white/75'
+                    }`}
+                    aria-label={`Перейти к отзыву ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <button
+                onClick={() =>
+                  setReviewsStartIndex(
+                    Math.min(reviews.length - 1, reviewsStartIndex + 1),
+                  )
+                }
+                disabled={reviewsStartIndex >= reviews.length - 1}
+                className="bg-white hover:bg-gray-100 p-2 rounded-lg transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Следующий отзыв"
+              >
+                <Icon name="ChevronRight" size={20} className="text-cyan-600" />
+              </button>
             </div>
           )}
         </div>
