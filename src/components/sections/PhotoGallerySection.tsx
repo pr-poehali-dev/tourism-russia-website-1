@@ -354,16 +354,16 @@ const PhotoGallerySection = () => {
                     </h3>
                   </div>
                 </div>
-                <div className="p-4 flex justify-center">
+                <div className="p-4">
                   <button
                     onClick={(e) => {
                       if (!hasDragged) {
                         openGallery(gallery);
                       }
                     }}
-                    className="bg-primary hover:bg-primary/90 text-white font-semibold py-1.5 px-4 rounded-lg transition-colors flex items-center gap-2 text-sm"
+                    className="bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md flex items-center gap-1.5"
                   >
-                    <Icon name="Eye" size={16} />
+                    <Icon name="Eye" size={14} />
                     Смотреть
                   </button>
                 </div>
