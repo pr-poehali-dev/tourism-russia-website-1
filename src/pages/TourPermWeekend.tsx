@@ -159,7 +159,7 @@ const TourPermWeekend = () => {
                 <div className="text-center mb-6">
                   <div className="flex flex-col items-center gap-1">
                     <div className="text-3xl md:text-4xl font-bold text-primary">
-                      от 4 000 р<span className="text-xs text-black font-normal ml-1">/1 день</span>
+                      от 4 000 р <span className="text-lg font-bold text-primary">за 1 день</span>
                     </div>
                     <div className="text-lg font-bold text-primary">28 000 р за 4 дня</div>
                   </div>
