@@ -167,7 +167,9 @@ const BenefitsSection = () => {
             "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/282ccf9d-6306-48b0-ac9f-7dfd870d4e1f.jpg",
             "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/947c2c6d-25e0-44ab-8494-e1f350fb04bd.jpg",
             "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/b3d6d30b-5e2e-4554-bc41-8cbc9cef1e99.jpg",
-            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7a8ab521-ae4d-419c-8d00-1e7a6ea13521.jpg"
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7a8ab521-ae4d-419c-8d00-1e7a6ea13521.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/832bb06f-75c7-49ec-bda2-7de42398b47a.jpg",
+            "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/b9b4ae47-fe11-4ef3-b759-70339cbcb591.jpg"
           ]
         },
         {
