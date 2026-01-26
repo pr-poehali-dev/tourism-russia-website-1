@@ -196,7 +196,7 @@ const BenefitsSection = () => {
           
           <div 
             ref={scrollContainerRef}
-            className="overflow-x-auto scrollbar-hide"
+            className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
             onMouseDown={(e) => {
               setIsDragging(true);
               setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
