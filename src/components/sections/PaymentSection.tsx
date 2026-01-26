@@ -50,9 +50,10 @@ const PaymentSection = () => {
             
             <button 
               onClick={() => setShowBookingForm(true)}
-              className="bg-primary hover:bg-primary/90 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-bold text-base md:text-lg transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2 mx-auto"
+              className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden mx-auto"
             >
-              <span className="font-extrabold text-[#ffffff]">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
+              <span className="relative z-10 font-extrabold">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
             </button>
           </div>
         </div>

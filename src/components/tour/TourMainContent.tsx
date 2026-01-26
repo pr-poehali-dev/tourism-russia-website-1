@@ -53,7 +53,7 @@ const TourMainContent = ({ tourInfo, reasons, program, included, notIncluded, eq
       </section>
 
       <section>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary flex items-center gap-3">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-cyan-600 flex items-center gap-3">
           <Icon name="Heart" size={28} />
           Зачем ехать на зимний Байкал?
         </h2>
@@ -68,7 +68,7 @@ const TourMainContent = ({ tourInfo, reasons, program, included, notIncluded, eq
       </section>
 
       <section>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary flex items-center gap-3">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-cyan-600 flex items-center gap-3">
           <Icon name="Map" size={28} />
           Программа тура
         </h2>
@@ -92,13 +92,13 @@ const TourMainContent = ({ tourInfo, reasons, program, included, notIncluded, eq
       </section>
 
       <section>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary flex items-center gap-3">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-cyan-600 flex items-center gap-3">
           <Icon name="DollarSign" size={28} />
           Стоимость тура
         </h2>
         
         <div className="grid md:grid-cols-2 gap-6 mb-8">
-          <Card className="border-2 border-green-500">
+          <Card className="border-2 border-cyan-600">
             <CardContent className="p-6">
               <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-cyan-600">
                 <Icon name="Check" size={24} />
@@ -133,16 +133,16 @@ const TourMainContent = ({ tourInfo, reasons, program, included, notIncluded, eq
           </Card>
         </div>
 
-        <Card className="bg-primary/5 border-2 border-primary">
+        <Card className="bg-cyan-50 border-2 border-cyan-600">
           <CardContent className="p-6 text-center">
-            <p className="text-3xl font-bold text-primary mb-2">75 000 ₽</p>
+            <p className="text-3xl font-bold text-cyan-600 mb-2">75 000 ₽</p>
             <p className="text-muted-foreground">за человека</p>
           </CardContent>
         </Card>
       </section>
 
       <section>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-primary flex items-center gap-3">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-cyan-600 flex items-center gap-3">
           <Icon name="Backpack" size={28} />
           Список снаряжения
         </h2>
