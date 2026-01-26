@@ -19,7 +19,7 @@ const ContactsSection = () => {
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold">Контакты</h2>
           </div>
-          <div className="max-w-4xl mx-auto border-2 border-cyan-600 rounded-xl p-8">
+          <div className="max-w-6xl mx-auto border-2 border-cyan-600 rounded-xl p-8">
             <div className="grid md:grid-cols-2 gap-6 md:gap-12">
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
