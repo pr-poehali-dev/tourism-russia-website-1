@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import React from "react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -175,122 +173,118 @@ const BenefitsSection = () => {
       title: "Без посредников, без переплат", 
       description: "Все общение напрямую с Антоном и Эмилем - от заявки до последнего дня похода",
       photos: [
-        "https://cdn.poehali.dev/files/IMG_20231018_104134.jpg",
-        "https://cdn.poehali.dev/files/IMG_0934.jpg",
-      ]
-    },
-    { 
-      icon: "Heart", 
-      title: "Небольшие группы 8-16 человек", 
-      description: "Уделяем внимание каждому участнику - никто не останется без поддержки",
-      photos: [
-        "https://cdn.poehali.dev/files/IMG_20220509_215659_999.jpg",
-        "https://cdn.poehali.dev/files/IMG_20220904_151101_258.JPG",
-        "https://cdn.poehali.dev/files/IMG_20220910_081817_752.jpg",
+        "https://cdn.poehali.dev/files/IMG_20230414_125550_494.jpg",
+        "https://cdn.poehali.dev/files/IMG_20250830_174455.jpg",
       ]
     },
   ];
 
   return (
     <>
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16 animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4">Почему выбирают нас</h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              То, что делает наши туры особенными
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <Card 
-                key={index} 
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up cursor-pointer group overflow-hidden" 
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedBenefit(index)}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={benefit.photos[0]} 
-                    alt={benefit.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center mb-2">
-                      <Icon name={benefit.icon} size={20} className="text-green-600" />
-                    </div>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-4 text-gray-800">
+            Почему мы?
+          </h2>
+          <p className="text-center text-gray-600 mb-12 text-lg">
+            Что делает наши туры особенными
+          </p>
+          
+          <div className="overflow-x-auto scrollbar-hide">
+            <div 
+              className="flex gap-6 px-4 pb-4 cursor-grab active:cursor-grabbing"
+              style={{ 
+                width: 'max-content',
+                WebkitOverflowScrolling: 'touch'
+              }}
+              onMouseDown={(e) => {
+                const slider = e.currentTarget;
+                const startX = e.pageX - slider.offsetLeft;
+                const scrollLeft = slider.scrollLeft;
+                
+                const handleMouseMove = (e: MouseEvent) => {
+                  const x = e.pageX - slider.offsetLeft;
+                  const walk = (x - startX) * 2;
+                  slider.scrollLeft = scrollLeft - walk;
+                };
+                
+                const handleMouseUp = () => {
+                  document.removeEventListener('mousemove', handleMouseMove);
+                  document.removeEventListener('mouseup', handleMouseUp);
+                };
+                
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+              }}
+            >
+              {benefits.map((benefit, index) => (
+                <div
+                  key={index}
+                  className="bg-cyan-600 rounded-3xl p-8 flex flex-col items-start shadow-xl"
+                  style={{ minWidth: '350px', maxWidth: '350px' }}
+                >
+                  <div className="bg-white/20 rounded-full p-4 mb-6">
+                    <Icon name={benefit.icon as any} size={40} className="text-white" />
                   </div>
+                  
+                  <h3 className="text-2xl font-heading font-bold mb-4 text-white">
+                    {benefit.title}
+                  </h3>
+                  
+                  <p className="text-white/90 mb-6 flex-1 text-lg">
+                    {benefit.description}
+                  </p>
+                  
+                  <Button
+                    onClick={() => setSelectedBenefit(index)}
+                    className="w-full bg-white text-cyan-600 hover:bg-white/90 font-bold text-lg py-6"
+                  >
+                    Смотреть подробнее
+                  </Button>
                 </div>
-                <CardContent className="p-4">
-                  <div className="flex flex-col gap-2">
-                    <h3 className="font-bold text-base mb-1 group-hover:text-green-600 transition-colors line-clamp-2">{benefit.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{benefit.description}</p>
-                    <div className="flex items-center gap-1 text-green-600 text-sm mt-1">
-                      <Icon name="Image" size={14} />
-                      <span>{benefit.photos.length} фото</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <Dialog open={selectedBenefit !== null} onOpenChange={() => setSelectedBenefit(null)}>
-        <DialogContent className="max-w-4xl w-[95vw] sm:w-full max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-heading">
+              {selectedBenefit !== null && benefits[selectedBenefit].title}
+            </DialogTitle>
+          </DialogHeader>
+          
           {selectedBenefit !== null && (
-            <>
-              <DialogHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                    <Icon name={benefits[selectedBenefit].icon} size={32} className="text-green-600" />
-                  </div>
-                  <div>
-                    <DialogTitle className="text-2xl font-heading">
-                      {benefits[selectedBenefit].title}
-                    </DialogTitle>
-                    <DialogDescription className="text-base">
-                      {benefits[selectedBenefit].description}
-                    </DialogDescription>
-                  </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4">
+              {benefits[selectedBenefit].photos.map((photo, photoIndex) => (
+                <div
+                  key={photoIndex}
+                  className="aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => setSelectedPhoto(photo)}
+                >
+                  <img
+                    src={photo}
+                    alt={`${benefits[selectedBenefit].title} ${photoIndex + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </DialogHeader>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-                {benefits[selectedBenefit].photos.map((photo, idx) => (
-                  <div 
-                    key={idx} 
-                    className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
-                    onClick={() => setSelectedPhoto(photo)}
-                  >
-                    <img 
-                      src={photo} 
-                      alt={`${benefits[selectedBenefit].title} ${idx + 1}`}
-                      className="w-full h-full object-cover transition-transform group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                      <Icon name="ZoomIn" size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </>
+              ))}
+            </div>
           )}
         </DialogContent>
       </Dialog>
 
       <Dialog open={selectedPhoto !== null} onOpenChange={() => setSelectedPhoto(null)}>
-        <DialogContent className="max-w-6xl w-[95vw] sm:w-full p-0 bg-black/95">
-          <div className="relative w-full h-[80vh] flex items-center justify-center">
-            {selectedPhoto && (
-              <img 
-                src={selectedPhoto} 
-                alt="Полноразмерное фото"
-                className="max-w-full max-h-full object-contain"
-              />
-            )}
-          </div>
+        <DialogContent className="max-w-6xl max-h-[95vh] p-2">
+          {selectedPhoto && (
+            <img
+              src={selectedPhoto}
+              alt="Полноэкранное фото"
+              className="w-full h-full object-contain"
+            />
+          )}
         </DialogContent>
       </Dialog>
     </>
