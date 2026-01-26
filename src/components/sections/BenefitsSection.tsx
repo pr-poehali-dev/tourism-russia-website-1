@@ -226,14 +226,14 @@ const BenefitsSection = () => {
             }}
           >
             <div 
-              className="flex gap-4 pl-4 pr-20 pb-4"
+              className="flex gap-4 pl-4 pr-4 pb-4"
               style={{ width: 'max-content' }}
             >
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
                   className="bg-cyan-600 rounded-2xl p-5 flex flex-col items-start shadow-lg"
-                  style={{ minWidth: '320px', maxWidth: '320px', height: '160px' }}
+                  style={{ minWidth: '280px', maxWidth: '280px', height: '160px' }}
                 >
                   <h3 className="text-lg font-heading font-bold mb-2 text-white leading-tight">
                     {benefit.title}
