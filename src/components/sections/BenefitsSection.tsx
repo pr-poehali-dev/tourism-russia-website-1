@@ -189,7 +189,7 @@ const BenefitsSection = () => {
     },
     { 
       icon: "Handshake", 
-      title: "Без посредников, без переплат", 
+      title: "Без посредников", 
       description: "Все общение напрямую с Антоном и Эмилем - от заявки до последнего дня похода",
       photos: [
         "https://cdn.poehali.dev/files/IMG_20230414_125550_494.jpg",
