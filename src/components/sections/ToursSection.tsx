@@ -36,7 +36,7 @@ const ToursSection = () => {
       oldPrice: "75 000 ₽",
       newPrice: "67 500 ₽",
       difficulty: "Легкий",
-      image: "https://cdn.poehali.dev/files/2z7a6771.jpg",
+      image: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/747dbb8c-5cf9-4166-ba99-710715df67fa.jpg",
       url: "/tour/baikal-skating",
     },
     {
