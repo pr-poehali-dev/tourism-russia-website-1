@@ -253,7 +253,7 @@ const ReviewsSection = () => {
                     {review.images && review.images.length > 0 && (
                       <div className="md:w-2/5 flex-shrink-0">
                         <div
-                          className="relative h-64 md:h-96 overflow-hidden rounded-xl cursor-pointer group"
+                          className="relative h-32 md:h-48 overflow-hidden rounded-xl cursor-pointer group"
                           onClick={() => {
                             if (review.images && review.images.length > 1) {
                               const currentIndex =
