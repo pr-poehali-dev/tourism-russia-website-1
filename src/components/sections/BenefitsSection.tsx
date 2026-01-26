@@ -219,22 +219,22 @@ const BenefitsSection = () => {
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-cyan-600 rounded-2xl p-6 flex flex-col items-start shadow-lg"
-                  style={{ minWidth: '280px', maxWidth: '280px', height: '200px' }}
+                  className="bg-cyan-600 rounded-2xl p-5 flex flex-col items-start shadow-lg"
+                  style={{ minWidth: '240px', maxWidth: '240px', height: '180px' }}
                 >
-                  <h3 className="text-xl font-heading font-bold mb-3 text-white leading-tight">
+                  <h3 className="text-lg font-heading font-bold mb-2 text-white leading-tight">
                     {benefit.title}
                   </h3>
                   
-                  <p className="text-white/90 mb-4 flex-1 text-sm leading-snug">
+                  <p className="text-white/90 mb-3 flex-1 text-xs leading-snug overflow-hidden">
                     {benefit.description}
                   </p>
                   
                   <Button
                     onClick={() => setSelectedBenefit(index)}
-                    className="w-full bg-white text-cyan-600 hover:bg-white/90 font-bold text-sm py-3"
+                    className="w-full bg-white text-cyan-600 hover:bg-white hover:text-cyan-600 font-semibold text-xs py-2"
                   >
-                    Смотреть подробнее
+                    Подробнее
                   </Button>
                 </div>
               ))}
