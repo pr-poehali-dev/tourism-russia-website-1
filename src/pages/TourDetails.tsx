@@ -445,20 +445,22 @@ const TourDetails = () => {
                     <div className="text-4xl font-bold text-primary mb-2">67 500 ₽</div>
                     <div className="text-sm text-muted-foreground">за человека</div>
                   </div>
-                  <button
-                    className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden mx-auto"
-                    onClick={() => {
-                      setShowBookingForm(true);
-                      if (typeof window !== 'undefined' && (window as any).ym) {
-                        (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
-                      }
-                    }}
-                  >
-                    <span className="relative z-10 whitespace-nowrap">
-                      Забронировать место
-                    </span>
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
-                  </button>
+                  <div className="flex justify-center">
+                    <button
+                      className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden"
+                      onClick={() => {
+                        setShowBookingForm(true);
+                        if (typeof window !== 'undefined' && (window as any).ym) {
+                          (window as any).ym(106027453, 'reachGoal', 'booking_button_click');
+                        }
+                      }}
+                    >
+                      <span className="relative z-10 whitespace-nowrap">
+                        Забронировать место
+                      </span>
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
+                    </button>
+                  </div>
                   <div className="mt-4 text-center">
                     <div className="text-sm text-muted-foreground">Предоплата всего 10%</div>
                     <div className="font-bold text-lg text-primary">6 750 ₽</div>
