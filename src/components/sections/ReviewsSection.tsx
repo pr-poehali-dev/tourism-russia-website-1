@@ -233,7 +233,7 @@ const ReviewsSection = () => {
 
   return (
     <>
-      <section id="reviews" className="py-20 bg-cyan-600">
+      <section id="reviews" className="py-20 bg-cyan-600 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 md:mb-20">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">
@@ -364,7 +364,7 @@ const ReviewsSection = () => {
                     setReviewsStartIndex(Math.max(0, reviewsStartIndex - 1))
                   }
                   disabled={reviewsStartIndex === 0}
-                  className="fixed left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed z-20"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed z-20"
                   aria-label="Предыдущий отзыв"
                 >
                   <Icon name="ChevronLeft" size={32} className="text-cyan-600" />
@@ -376,7 +376,7 @@ const ReviewsSection = () => {
                     )
                   }
                   disabled={reviewsStartIndex >= reviews.length - 1}
-                  className="fixed right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed z-20"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-lg transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed z-20"
                   aria-label="Следующий отзыв"
                 >
                   <Icon name="ChevronRight" size={32} className="text-cyan-600" />
