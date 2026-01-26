@@ -56,7 +56,7 @@ const PhotoGallerySection = () => {
     comment: ''
   });
 
-  const galleryWidths = ['w-[90vw]', 'w-80', 'w-[50vw]', 'w-96', 'w-[70vw]', 'w-72'];
+  const galleryWidths = ['w-[75vw]', 'w-80', 'w-[50vw]', 'w-96', 'w-[70vw]', 'w-72'];
   
   const photoGalleries: PhotoGallery[] = [
     {
@@ -376,7 +376,7 @@ const PhotoGallerySection = () => {
               onClick={() => setShowBookingForm(true)}
               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-base transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-1 md:gap-2 mx-auto"
             >
-              <span className="leading-tight font-extrabold">Забронировать тур за  <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span>₽</span></span>
+              <span className="leading-tight font-extrabold">Забронировать тур за <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span> р</span></span>
             </button>
           </div>
         </div>
