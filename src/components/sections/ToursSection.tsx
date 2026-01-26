@@ -152,9 +152,9 @@ const ToursSection = () => {
             scrollContainerRef.current.scrollLeft = scrollLeft - walk;
           }}
         >
-          <div className="flex gap-4 md:gap-8 px-4" style={{ width: 'max-content' }}>
+          <div className="flex gap-3 md:gap-8 pl-2 pr-2 md:px-4" style={{ width: 'max-content' }}>
             {tours.map((tour) => (
-              <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl flex flex-col" style={{ minWidth: '300px', maxWidth: '300px' }}>
+              <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl flex flex-col" style={{ minWidth: '280px', maxWidth: '280px' }}>
                     <div className="relative h-48 overflow-hidden bg-gray-100">
                       <img
                         src={tour.image}
