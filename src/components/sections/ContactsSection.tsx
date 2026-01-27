@@ -78,7 +78,7 @@ const ContactsSection = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <h3 className="font-heading font-bold text-xl mb-4">Жизнь с рюкзаком</h3>
-              <p className="text-sm opacity-90">Авторские туры по России с 2010 года</p>
+              <p className="text-sm opacity-90">Авторские туры по России с 2019 года</p>
             </div>
             <div>
               <h4 className="font-heading font-semibold mb-4">Контакты</h4>
