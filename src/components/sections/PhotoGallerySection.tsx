@@ -339,13 +339,19 @@ const PhotoGallerySection = () => {
             {photoGalleries.map((gallery, index) => (
               <Card
                 key={gallery.id}
-                className={`flex-shrink-0 snap-start overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[420px] ${galleryWidths[index % galleryWidths.length]}`}
+                className={`flex-shrink-0 snap-start overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-cyan-600 cursor-pointer group h-[420px] ${galleryWidths[index % galleryWidths.length]}`}
+                onClick={() => {
+                  if (!hasDragged) {
+                    setSelectedGallery(gallery);
+                    setCurrentImageIndex(0);
+                  }
+                }}
               >
                 <div className="relative h-full overflow-hidden">
                   <img
                     src={gallery.coverImage}
                     alt={gallery.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     draggable="false"
                   />
                   <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 to-transparent p-4">
@@ -356,6 +362,7 @@ const PhotoGallerySection = () => {
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                     <button
                       onClick={(e) => {
+                        e.stopPropagation();
                         if (!hasDragged) {
                           openGallery(gallery);
                         }
