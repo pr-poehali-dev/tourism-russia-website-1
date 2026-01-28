@@ -167,7 +167,7 @@ const ToursSection = () => {
             {tours.map((tour, index) => (
               <Card 
                 key={tour.id} 
-                className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl flex flex-col cursor-pointer" 
+                className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-cyan-600 overflow-hidden rounded-3xl flex flex-col cursor-pointer group" 
                 style={{ minWidth: '280px', maxWidth: '280px' }}
                 onClick={() => navigate(tour.url)}
               >
