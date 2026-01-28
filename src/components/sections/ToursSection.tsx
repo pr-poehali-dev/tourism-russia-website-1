@@ -165,7 +165,12 @@ const ToursSection = () => {
         >
           <div className="flex gap-2 md:gap-8 pl-2 pr-2 md:px-4" style={{ width: 'max-content' }}>
             {tours.map((tour, index) => (
-              <Card key={tour.id} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl flex flex-col" style={{ minWidth: '280px', maxWidth: '280px' }}>
+              <Card 
+                key={tour.id} 
+                className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden rounded-3xl flex flex-col cursor-pointer" 
+                style={{ minWidth: '280px', maxWidth: '280px' }}
+                onClick={() => navigate(tour.url)}
+              >
                     <div className="relative h-48 overflow-hidden bg-gray-100">
                       <img
                         src={tour.image}
@@ -230,13 +235,17 @@ const ToursSection = () => {
                       <div className="text-sm leading-relaxed flex-1" dangerouslySetInnerHTML={{ __html: tour.duration.replace(/\n/g, '<br>') }} />
                       <div className="flex flex-col gap-2 mt-auto">
                         <button
-                          onClick={() => navigate(tour.url)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(tour.url);
+                          }}
                           className="w-full bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-semibold text-xs px-3 py-2 rounded-lg transition-all hover:scale-105 shadow-md"
                         >
                           Подробнее
                         </button>
                         <button
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.stopPropagation();
                             setIsCustomTour(false);
                             setShowBookingForm(true);
                           }}
