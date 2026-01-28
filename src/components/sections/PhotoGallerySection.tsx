@@ -358,6 +358,10 @@ const PhotoGallerySection = () => {
                     <h3 className="font-heading font-bold text-xl text-white">
                       {gallery.title}
                     </h3>
+                    <div className="flex items-center gap-1.5 text-white/90 text-sm mt-2">
+                      <Icon name="Images" size={16} />
+                      <span>{gallery.images.length} фото</span>
+                    </div>
                   </div>
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                     <button
