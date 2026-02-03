@@ -188,7 +188,7 @@ const GuidesSection = () => {
                       >
                         <span className="relative z-10 flex items-center gap-1">
                           <Icon name="MessageCircle" size={14} />
-                          Связаться с {guide.name.split(' ')[0] === 'Эмиль' ? 'Эмилем' : guide.name.split(' ')[0] + 'ом'}
+                          Связаться с {guide.name === 'Эмиль' ? 'Эмилем' : 'Антоном'}
                         </span>
                         <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
                       </button>
