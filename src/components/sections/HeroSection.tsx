@@ -14,7 +14,7 @@ const HeroSection = () => {
           <span className="block mb-4 md:mb-6">Зимние туры</span>
           <span className="block">на Дикий Байкал</span>
         </h1>
-        <p className="text-xl sm:text-2xl md:text-3xl mb-4 max-w-4xl mx-auto font-semibold">Путешествия по России с Антоном и Эмилём</p>
+        <p className="text-xl sm:text-2xl md:text-3xl mb-4 max-w-4xl mx-auto font-semibold">Путешествия с Эмилем и Антоном</p>
         <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto font-medium text-white/90">Без посредников и переплат</p>
       </div>
     </section>
