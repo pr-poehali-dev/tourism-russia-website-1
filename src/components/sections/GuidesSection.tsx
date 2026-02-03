@@ -312,7 +312,7 @@ const GuidesSection = () => {
                   onClick={() => handleContactClick(selectedGuide)}
                   className="relative w-full inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden"
                 >
-                  <span className="relative z-10 flex items-center gap-2">Связаться с Антоном</span>
+                  <span className="relative z-10 flex items-center gap-2">Связаться с {guides[selectedGuide].name === 'Эмиль' ? 'Эмилем' : 'Антоном'}</span>
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
                 </button>
               </div>
