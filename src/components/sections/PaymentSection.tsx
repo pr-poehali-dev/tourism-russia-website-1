@@ -24,7 +24,7 @@ const PaymentSection = () => {
                   <div className="text-[6px] md:text-[8px] font-medium mb-0.5 uppercase text-center leading-tight px-0.5 md:px-1 text-white">Предварительное бронирование</div>
                   <div className="font-bold text-white flex items-baseline">
                     <span className="text-2xl md:text-4xl">0</span>
-                    <span className="text-sm md:text-lg"> р</span>
+                    <span className="text-sm md:text-lg"> рублей</span>
                   </div>
                 </div>
                 
@@ -51,7 +51,7 @@ const PaymentSection = () => {
                   onClick={() => setShowBookingForm(true)}
                   className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-full transition-all hover:scale-105 shadow-lg overflow-hidden"
                 >
-                  <span className="relative z-10 font-extrabold">Забронировать тур за <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span> р</span></span>
+                  <span className="relative z-10 font-extrabold">Забронировать тур за <span className="text-white font-extrabold"><span className="text-xl md:text-2xl">0</span> рублей</span></span>
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent shine-effect"></span>
                 </button>
               </div>
