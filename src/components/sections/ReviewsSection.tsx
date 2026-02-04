@@ -236,9 +236,7 @@ const ReviewsSection = () => {
       <section id="reviews" className="py-20 bg-cyan-600 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 md:mb-20">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">
-              Настоящие эмоции
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">Настоящие эмоции туристов</h2>
           </div>
           <div className="relative mb-12">
             <div className="flex items-center justify-center">
