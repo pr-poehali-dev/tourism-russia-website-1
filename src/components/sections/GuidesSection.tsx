@@ -179,7 +179,7 @@ const GuidesSection = () => {
                       <button
                         onClick={() => setSelectedGuide(index)}
                         className="inline-flex items-center justify-center bg-white text-cyan-600 border border-white font-bold text-xs md:text-sm px-4 py-2 rounded-lg transition-all hover:scale-105 shadow-lg"
-                      >Узнать Антона поближе</button>
+                      >Узнать {guide.name === 'Эмиль' ? 'Эмиля' : 'Антона'} поближе</button>
                       <button
                         onClick={() => handleContactClick(index)}
                         className="relative inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-xs md:text-sm px-4 py-2 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden"
