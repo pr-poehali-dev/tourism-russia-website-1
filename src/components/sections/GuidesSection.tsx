@@ -294,12 +294,12 @@ const GuidesSection = () => {
                   </ul>
                 </div>
                 
-                {guides[selectedGuide].certificates && guides[selectedGuide].certificates!.length > 0 && (
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                      <Icon name="FileCheck" size={20} className="text-primary" />
-                      Сертификаты и документы
-                    </h3>
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                    <Icon name="FileCheck" size={20} className="text-primary" />
+                    Сертификаты и документы
+                  </h3>
+                  {guides[selectedGuide].certificates && guides[selectedGuide].certificates.length > 0 ? (
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {guides[selectedGuide].certificates!.map((certData, idx) => {
                         const [certUrl, rotation] = certData.split('|');
@@ -323,8 +323,10 @@ const GuidesSection = () => {
                         );
                       })}
                     </div>
-                  </div>
-                )}
+                  ) : (
+                    <p className="text-muted-foreground text-sm">Сертификаты отсутствуют</p>
+                  )}
+                </div>
                 <button
                   onClick={() => handleContactClick(selectedGuide)}
                   className="relative w-full inline-flex items-center justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-600 hover:via-orange-500 hover:to-orange-600 text-white font-bold text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg overflow-hidden"
