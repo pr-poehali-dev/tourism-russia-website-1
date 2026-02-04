@@ -116,6 +116,7 @@ const GuidesSection = () => {
         "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/b3d6d30b-5e2e-4554-bc41-8cbc9cef1e99.jpg",
         "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7a8ab521-ae4d-419c-8d00-1e7a6ea13521.jpg",
         "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/832bb06f-75c7-49ec-bda2-7de42398b47a.jpg",
+        "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/3a582647-d66d-49bc-b8ce-70e67264370d.jpg",
       ],
     },
     {
