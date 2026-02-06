@@ -30,10 +30,11 @@ const BenefitsSection = () => {
   ];
 
   const photosColumn2 = [
-    "https://cdn.poehali.dev/files/_DSC5996.JPEG",
-    "https://cdn.poehali.dev/files/_DSC6264.JPEG",
-    "https://cdn.poehali.dev/files/IMG_20220516_165857_171.jpg",
-    "https://cdn.poehali.dev/files/IMG_20230318_112921.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/5fde691a-1135-483a-a14a-44511e5a18cc.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/287df3f4-300f-4c57-acd9-6a2b29fd3898.JPG",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/2d94b074-129a-4768-a212-f3f837cd4b8d.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/24840e64-8fd5-4958-82d7-89be946ac156.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/3e46be2c-ca28-4731-960a-4c39c903fbf6.JPG",
   ];
 
   const videos = [
