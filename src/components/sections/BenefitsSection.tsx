@@ -80,8 +80,8 @@ const BenefitsSection = () => {
             Особенности путешествий с нами
           </h2>
           
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="relative h-[500px] overflow-hidden rounded-2xl bg-cyan-600">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-stretch">
+            <div className="relative h-[500px] md:h-auto overflow-hidden rounded-2xl bg-cyan-600">
               <div className="absolute inset-0 flex gap-3">
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up">
@@ -121,7 +121,7 @@ const BenefitsSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col space-y-6 bg-white p-8 rounded-2xl shadow-lg">
+            <div className="flex flex-col space-y-6 bg-white p-8 rounded-2xl shadow-lg min-h-[500px]">
               <div>
                 <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фото</h3>
                 <p className="text-gray-600 text-base leading-relaxed">
