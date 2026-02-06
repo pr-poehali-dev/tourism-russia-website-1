@@ -112,18 +112,14 @@ const BenefitsSection = () => {
 
             <div className="flex flex-col justify-center space-y-6 bg-white p-8 rounded-2xl shadow-lg">
               <div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">
-                  Фото и видео-контент
-                </h3>
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фото</h3>
                 <p className="text-gray-600 text-base leading-relaxed">
                   Профессиональный фотоаппарат и дрон для съемки лучших моментов вашего путешествия
                 </p>
               </div>
               
               <div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">
-                  Фильм о вашем приключении
-                </h3>
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фильм - вы в главных ролях</h3>
                 <p className="text-gray-600 text-base leading-relaxed">
                   Дарим готовый фильм о ваших приключениях после каждого похода - вы главные герои
                 </p>
