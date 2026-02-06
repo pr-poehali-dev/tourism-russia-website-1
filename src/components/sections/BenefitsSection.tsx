@@ -160,9 +160,7 @@ const BenefitsSection = () => {
                 </div>
                 <div ref={videoScrollRef} className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                   {[
-                    "https://www.w3schools.com/html/mov_bbb.mp4",
-                    "https://www.w3schools.com/html/movie.mp4",
-                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7bb12129-0af0-4993-8e0c-c6c7b61a542e.MOV"
                   ].map((video, index) => (
                     <div
                       key={index}
