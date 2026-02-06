@@ -18,6 +18,7 @@ interface Benefit {
 
 const BenefitsSection = () => {
   const [selectedPhoto, setSelectedPhoto] = React.useState<string | null>(null);
+  const [selectedVideo, setSelectedVideo] = React.useState<{url: string; title: string} | null>(null);
   const videoScrollRef = React.useRef<HTMLDivElement>(null);
 
   const photosColumn1 = [
@@ -32,6 +33,13 @@ const BenefitsSection = () => {
     "https://cdn.poehali.dev/files/_DSC6264.JPEG",
     "https://cdn.poehali.dev/files/IMG_20220516_165857_171.jpg",
     "https://cdn.poehali.dev/files/IMG_20230318_112921.jpg",
+  ];
+
+  const videos = [
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7bb12129-0af0-4993-8e0c-c6c7b61a542e.MOV",
+      title: "Шавлинские озера 2022г"
+    }
   ];
 
   const scrollVideos = (direction: 'left' | 'right') => {
@@ -159,22 +167,29 @@ const BenefitsSection = () => {
                   </div>
                 </div>
                 <div ref={videoScrollRef} className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                  {[
-                    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7bb12129-0af0-4993-8e0c-c6c7b61a542e.MOV"
-                  ].map((video, index) => (
+                  {videos.map((video, index) => (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-48 h-36 rounded-lg overflow-hidden bg-gray-200"
+                      className="flex-shrink-0 w-48 rounded-lg overflow-hidden bg-gray-200 cursor-pointer"
+                      onClick={() => setSelectedVideo(video)}
                     >
-                      <video
-                        className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
-                        loop
-                        muted
-                        playsInline
-                        controls
-                      >
-                        <source src={video} type="video/mp4" />
-                      </video>
+                      <div className="relative h-36">
+                        <video
+                          className="w-full h-full object-cover"
+                          loop
+                          muted
+                          playsInline
+                          autoPlay
+                        >
+                          <source src={video.url} type="video/mp4" />
+                        </video>
+                        <div className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-colors flex items-center justify-center">
+                          <Icon name="Play" size={32} className="text-white" />
+                        </div>
+                      </div>
+                      <div className="p-2 bg-white">
+                        <p className="text-xs font-semibold text-gray-800 text-center">{video.title}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -192,6 +207,27 @@ const BenefitsSection = () => {
               alt="Полноэкранное фото"
               className="w-full h-full object-contain"
             />
+          )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={selectedVideo !== null} onOpenChange={() => setSelectedVideo(null)}>
+        <DialogContent className="max-w-5xl max-h-[95vh] p-2">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-heading">
+              {selectedVideo?.title}
+            </DialogTitle>
+          </DialogHeader>
+          {selectedVideo && (
+            <div className="mt-4">
+              <video
+                className="w-full rounded-lg"
+                controls
+                autoPlay
+              >
+                <source src={selectedVideo.url} type="video/mp4" />
+              </video>
+            </div>
           )}
         </DialogContent>
       </Dialog>
