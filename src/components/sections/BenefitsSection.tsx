@@ -202,12 +202,12 @@ const BenefitsSection = () => {
       </section>
 
       <Dialog open={selectedPhoto !== null} onOpenChange={() => setSelectedPhoto(null)}>
-        <DialogContent className="max-w-6xl max-h-[95vh] p-2">
+        <DialogContent className="max-w-6xl max-h-[95vh] p-2 flex items-center justify-center">
           {selectedPhoto && (
             <img
               src={selectedPhoto}
               alt="Полноэкранное фото"
-              className="w-full h-full object-contain"
+              className="max-w-full max-h-full object-contain"
             />
           )}
         </DialogContent>
