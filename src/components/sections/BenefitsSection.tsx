@@ -110,7 +110,7 @@ const BenefitsSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col justify-center space-y-6 bg-white p-8 rounded-2xl shadow-lg">
+            <div className="flex flex-col space-y-6 bg-white p-8 rounded-2xl shadow-lg">
               <div>
                 <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фото</h3>
                 <p className="text-gray-600 text-base leading-relaxed">
@@ -126,12 +126,31 @@ const BenefitsSection = () => {
               </div>
 
               <div className="pt-4">
-                <Button
-                  className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-6 py-3"
-                  onClick={() => document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Выбрать тур
-                </Button>
+                <h4 className="text-xl font-heading font-bold mb-4 text-gray-800">
+                  Примеры фильмов
+                </h4>
+                <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                  {[
+                    "https://www.w3schools.com/html/mov_bbb.mp4",
+                    "https://www.w3schools.com/html/movie.mp4",
+                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                  ].map((video, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-48 h-36 rounded-lg overflow-hidden bg-gray-200"
+                    >
+                      <video
+                        className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                        loop
+                        muted
+                        playsInline
+                        controls
+                      >
+                        <source src={video} type="video/mp4" />
+                      </video>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
