@@ -81,7 +81,7 @@ const BenefitsSection = () => {
           </h2>
           
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="relative h-[500px] overflow-hidden rounded-2xl">
+            <div className="relative h-[500px] overflow-hidden rounded-2xl bg-cyan-600">
               <div className="absolute inset-0 flex gap-3">
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up">
