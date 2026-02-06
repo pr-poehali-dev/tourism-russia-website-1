@@ -37,6 +37,16 @@ const BenefitsSection = () => {
     "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/3e46be2c-ca28-4731-960a-4c39c903fbf6.JPG",
   ];
 
+  const allPhotos = [...photosColumn1, ...photosColumn2];
+
+  const handlePhotoClick = () => {
+    if (selectedPhoto) {
+      const currentIndex = allPhotos.indexOf(selectedPhoto);
+      const nextIndex = (currentIndex + 1) % allPhotos.length;
+      setSelectedPhoto(allPhotos[nextIndex]);
+    }
+  };
+
   const videos = [
     {
       url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7bb12129-0af0-4993-8e0c-c6c7b61a542e.MOV",
@@ -203,11 +213,19 @@ const BenefitsSection = () => {
 
       <Dialog open={selectedPhoto !== null} onOpenChange={() => setSelectedPhoto(null)}>
         <DialogContent className="max-w-6xl max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center">
+          <button
+            onClick={() => setSelectedPhoto(null)}
+            className="absolute top-4 right-4 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white transition-colors shadow-lg"
+            aria-label="Закрыть"
+          >
+            <Icon name="X" size={24} className="text-gray-800" />
+          </button>
           {selectedPhoto && (
             <img
               src={selectedPhoto}
               alt="Полноэкранное фото"
-              className="max-w-full max-h-[95vh] object-contain rounded-lg"
+              className="max-w-full max-h-[95vh] object-contain rounded-lg cursor-pointer"
+              onClick={handlePhotoClick}
             />
           )}
         </DialogContent>
