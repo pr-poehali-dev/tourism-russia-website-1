@@ -18,6 +18,7 @@ interface Benefit {
 
 const BenefitsSection = () => {
   const [selectedPhoto, setSelectedPhoto] = React.useState<string | null>(null);
+  const videoScrollRef = React.useRef<HTMLDivElement>(null);
 
   const photosColumn1 = [
     "https://cdn.poehali.dev/files/_DSC5718.JPEG",
@@ -32,6 +33,16 @@ const BenefitsSection = () => {
     "https://cdn.poehali.dev/files/IMG_20220516_165857_171.jpg",
     "https://cdn.poehali.dev/files/IMG_20230318_112921.jpg",
   ];
+
+  const scrollVideos = (direction: 'left' | 'right') => {
+    if (videoScrollRef.current) {
+      const scrollAmount = 200;
+      videoScrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <>
@@ -126,10 +137,28 @@ const BenefitsSection = () => {
               </div>
 
               <div className="pt-4">
-                <h4 className="text-xl font-heading font-bold mb-4 text-gray-800">
-                  Примеры фильмов
-                </h4>
-                <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-xl font-heading font-bold text-gray-800">
+                    Примеры фильмов
+                  </h4>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => scrollVideos('left')}
+                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
+                      aria-label="Прокрутить влево"
+                    >
+                      <Icon name="ChevronLeft" size={20} className="text-gray-700" />
+                    </button>
+                    <button
+                      onClick={() => scrollVideos('right')}
+                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
+                      aria-label="Прокрутить вправо"
+                    >
+                      <Icon name="ChevronRight" size={20} className="text-gray-700" />
+                    </button>
+                  </div>
+                </div>
+                <div ref={videoScrollRef} className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                   {[
                     "https://www.w3schools.com/html/mov_bbb.mp4",
                     "https://www.w3schools.com/html/movie.mp4",
