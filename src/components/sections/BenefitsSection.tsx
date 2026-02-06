@@ -22,10 +22,11 @@ const BenefitsSection = () => {
   const videoScrollRef = React.useRef<HTMLDivElement>(null);
 
   const photosColumn1 = [
-    "https://cdn.poehali.dev/files/_DSC5718.JPEG",
-    "https://cdn.poehali.dev/files/_DSC6150.JPEG",
-    "https://cdn.poehali.dev/files/DJI_20250922140843_0409_D.jpg",
-    "https://cdn.poehali.dev/files/IMG_20220516_165906_582.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/e3797cb5-bb89-4ab8-97f7-f0bfe6199054.JPEG",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/79760431-d75c-4a5b-b555-436afd98c4ea.JPEG",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/97cc0080-f487-462d-ab61-0a2ebb3c2fd3.JPEG",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/bf152e18-b0c5-4a72-b371-a1c0b9455717.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/b10e4cc0-6e94-4eba-99f4-f98cd7dfda02.jpg",
   ];
 
   const photosColumn2 = [
