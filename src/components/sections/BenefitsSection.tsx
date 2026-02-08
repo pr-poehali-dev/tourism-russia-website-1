@@ -56,8 +56,14 @@ const BenefitsSection = () => {
 
   const videos = [
     {
+      url: "https://vkvideo.ru/video-121364865_456239017",
+      title: "Шавлинские озера 2025г",
+      isEmbed: true
+    },
+    {
       url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7bb12129-0af0-4993-8e0c-c6c7b61a542e.MOV",
-      title: "Шавлинские озера 2022г"
+      title: "Шавлинские озера 2022г",
+      isEmbed: false
     }
   ];
 
@@ -193,15 +199,21 @@ const BenefitsSection = () => {
                       onClick={() => setSelectedVideo(video)}
                     >
                       <div className="relative h-36">
-                        <video
-                          className="w-full h-full object-cover"
-                          loop
-                          muted
-                          playsInline
-                          autoPlay
-                        >
-                          <source src={video.url} type="video/mp4" />
-                        </video>
+                        {video.isEmbed ? (
+                          <div className="w-full h-full bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center">
+                            <Icon name="Video" size={48} className="text-white/80" />
+                          </div>
+                        ) : (
+                          <video
+                            className="w-full h-full object-cover"
+                            loop
+                            muted
+                            playsInline
+                            autoPlay
+                          >
+                            <source src={video.url} type="video/mp4" />
+                          </video>
+                        )}
                         <div className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-colors flex items-center justify-center">
                           <Icon name="Play" size={32} className="text-white" />
                         </div>
@@ -247,13 +259,25 @@ const BenefitsSection = () => {
           </DialogHeader>
           {selectedVideo && (
             <div className="mt-4">
-              <video
-                className="w-full rounded-lg"
-                controls
-                autoPlay
-              >
-                <source src={selectedVideo.url} type="video/mp4" />
-              </video>
+              {selectedVideo.isEmbed ? (
+                <iframe
+                  src={`https://vk.com/video_ext.php?oid=-121364865&id=456239017&hd=2`}
+                  width="100%"
+                  height="500"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
+              ) : (
+                <video
+                  className="w-full rounded-lg"
+                  controls
+                  autoPlay
+                >
+                  <source src={selectedVideo.url} type="video/mp4" />
+                </video>
+              )}
             </div>
           )}
         </DialogContent>
