@@ -134,21 +134,19 @@ const ToursSection = () => {
   };
 
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = React.useState(false);
-  const [startX, setStartX] = React.useState(0);
-  const [scrollLeft, setScrollLeft] = React.useState(0);
   const [autoScrollDirection, setAutoScrollDirection] = React.useState<'right' | 'left'>('right');
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = React.useState(false);
   const autoScrollRef = React.useRef<number | null>(null);
 
   React.useEffect(() => {
     const startAutoScroll = () => {
-      if (!scrollContainerRef.current || isDragging) return;
+      if (!scrollContainerRef.current || isAutoScrollPaused) return;
       
       const container = scrollContainerRef.current;
       const maxScroll = container.scrollWidth - container.clientWidth;
       
       autoScrollRef.current = window.setInterval(() => {
-        if (!container || isDragging) return;
+        if (!container || isAutoScrollPaused) return;
         
         if (autoScrollDirection === 'right') {
           container.scrollLeft += 1;
@@ -171,7 +169,7 @@ const ToursSection = () => {
         clearInterval(autoScrollRef.current);
       }
     };
-  }, [autoScrollDirection, isDragging]);
+  }, [autoScrollDirection, isAutoScrollPaused]);
 
   const scrollTours = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -185,31 +183,31 @@ const ToursSection = () => {
 
   return (
     <>
-      <section id="tours" className="py-20 bg-cyan-600">
+      <section id="tours" className="py-20 bg-cyan-600 relative">
         <div className="container mx-auto px-0 md:px-4">
-          <div className="flex items-center justify-center gap-4 mb-16 md:mb-20 px-4">
-            <button
-              onClick={() => scrollTours('left')}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors flex-shrink-0"
-              aria-label="Прокрутить влево"
-            >
-              <Icon name="ChevronLeft" size={24} className="text-white" />
-            </button>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-center">Приключения, которые вас ждут</h2>
-            <button
-              onClick={() => scrollTours('right')}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors flex-shrink-0"
-              aria-label="Прокрутить вправо"
-            >
-              <Icon name="ChevronRight" size={24} className="text-white" />
-            </button>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-center mb-16 md:mb-20 px-4">Приключения, которые вас ждут</h2>
+        
+        <button
+          onClick={() => scrollTours('left')}
+          className="fixed left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors shadow-lg"
+          style={{ top: '50%' }}
+          aria-label="Прокрутить влево"
+        >
+          <Icon name="ChevronLeft" size={28} className="text-white" />
+        </button>
+        
+        <button
+          onClick={() => scrollTours('right')}
+          className="fixed right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors shadow-lg"
+          style={{ top: '50%' }}
+          aria-label="Прокрутить вправо"
+        >
+          <Icon name="ChevronRight" size={28} className="text-white" />
+        </button>
         
         <div 
           ref={scrollContainerRef}
           className="overflow-x-auto scrollbar-hide select-none pb-4"
-          onMouseEnter={() => setIsDragging(true)}
-          onMouseLeave={() => setIsDragging(false)}
         >
           <div className="flex gap-2 md:gap-8 pl-2 pr-2 md:px-4" style={{ width: 'max-content' }}>
             {tours.map((tour, index) => (
@@ -217,7 +215,10 @@ const ToursSection = () => {
                 key={tour.id} 
                 className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-cyan-600 overflow-hidden rounded-3xl flex flex-col cursor-pointer group" 
                 style={{ minWidth: '280px', maxWidth: '280px' }}
-                onClick={() => navigate(tour.url)}
+                onClick={() => {
+                  setIsAutoScrollPaused(true);
+                  navigate(tour.url);
+                }}
               >
                     <div className="relative h-48 overflow-hidden bg-gray-100">
                       <img
