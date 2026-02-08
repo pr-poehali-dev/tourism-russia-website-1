@@ -118,15 +118,20 @@ const BenefitsSection = () => {
         
         .animate-scroll-up {
           animation: scrollUp 20s linear infinite;
+          transition: animation-duration 0.5s ease;
         }
         
         .animate-scroll-down {
           animation: scrollDown 20s linear infinite;
+          transition: animation-duration 0.5s ease;
         }
         
-        .photo-gallery:hover .animate-scroll-up,
+        .photo-gallery:hover .animate-scroll-up {
+          animation: scrollUp 60s linear infinite;
+        }
+        
         .photo-gallery:hover .animate-scroll-down {
-          animation-play-state: paused;
+          animation: scrollDown 60s linear infinite;
         }
       `}</style>
 
