@@ -4,6 +4,7 @@ import boto3
 import base64
 from datetime import datetime
 
+
 def handler(event: dict, context) -> dict:
     """API для загрузки видео файлов в облачное хранилище"""
     method = event.get('httpMethod', 'GET')
