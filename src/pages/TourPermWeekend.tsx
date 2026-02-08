@@ -78,7 +78,8 @@ const TourPermWeekend = () => {
         const speed = isHovering ? slowSpeed : normalSpeed;
         container.scrollLeft += speed;
         
-        if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+        const halfWidth = container.scrollWidth / 2;
+        if (container.scrollLeft >= halfWidth) {
           container.scrollLeft = 0;
         }
       }
@@ -327,22 +328,23 @@ const TourPermWeekend = () => {
                   onMouseLeave={() => setIsHovering(false)}
                 >
                   <div className="flex gap-4" style={{ width: 'max-content' }}>
-                    {galleryImages.map((image, index) => {
+                    {[...galleryImages, ...galleryImages].map((image, index) => {
                       const height = 400;
                       const width = height * image.aspectRatio;
+                      const originalIndex = index % galleryImages.length;
                       return (
                         <div
                           key={index}
                           className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer hover:scale-105"
                           style={{ height: `${height}px`, width: `${width}px` }}
                           onClick={() => {
-                            setCurrentImageIndex(index);
+                            setCurrentImageIndex(originalIndex);
                             setLightboxOpen(true);
                           }}
                         >
                           <img
                             src={image.url}
-                            alt={`Фото тура ${index + 1}`}
+                            alt={`Фото тура ${originalIndex + 1}`}
                             className="w-full h-full object-cover"
                             draggable={false}
                           />
