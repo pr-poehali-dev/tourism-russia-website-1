@@ -161,7 +161,7 @@ const BenefitsSection = () => {
             <div className="flex flex-col space-y-6 bg-white p-8 rounded-2xl shadow-lg min-h-[500px]">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <Icon name="Camera" size={28} className="text-cyan-600" />
+                  <Icon name="Camera" size={32} className="text-cyan-600 flex-shrink-0" />
                   <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-800">Фото</h3>
                 </div>
                 <p className="text-gray-600 text-base leading-relaxed">
