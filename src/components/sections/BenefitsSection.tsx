@@ -22,6 +22,8 @@ const BenefitsSection = () => {
   const videoScrollRef = React.useRef<HTMLDivElement>(null);
 
   const photosColumn1 = [
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7c9e491b-a08c-4d61-abbd-5afbd1802624.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/89266a94-1049-43c7-82a7-8a473df1c1e9.jpg",
     "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/e3797cb5-bb89-4ab8-97f7-f0bfe6199054.JPEG",
     "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/79760431-d75c-4a5b-b555-436afd98c4ea.JPEG",
     "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/97cc0080-f487-462d-ab61-0a2ebb3c2fd3.JPEG",
@@ -30,6 +32,9 @@ const BenefitsSection = () => {
   ];
 
   const photosColumn2 = [
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/1e468d7e-a78a-4006-8df7-adb639ceb008.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/8f961262-d412-4a18-b0b9-3be457f8d020.jpg",
+    "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/9da71f36-2275-46cf-81e4-203b9842f085.jpg",
     "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/5fde691a-1135-483a-a14a-44511e5a18cc.jpg",
     "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/287df3f4-300f-4c57-acd9-6a2b29fd3898.JPG",
     "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/2d94b074-129a-4768-a212-f3f837cd4b8d.jpg",
@@ -142,68 +147,16 @@ const BenefitsSection = () => {
             </div>
 
             <div className="flex flex-col space-y-6 bg-white p-8 rounded-2xl shadow-lg min-h-[500px]">
-              <div className="space-y-4">
-                <div className="flex gap-3">
-                  <Icon name="Heart" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-base text-gray-800">Индивидуальный подход</h4>
-                    <p className="text-sm text-gray-600">Адаптируем маршрут под ваши пожелания</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3">
-                  <Icon name="Camera" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-base text-gray-800">Лучшие фотолокации</h4>
-                    <p className="text-sm text-gray-600">Знаем все секретные места для кадров</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3">
-                  <Icon name="Coffee" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-base text-gray-800">Уютная атмосфера</h4>
-                    <p className="text-sm text-gray-600">Тёплая база, вкусная еда, дружная компания</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3">
-                  <Icon name="Shield" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-base text-gray-800">Безопасность</h4>
-                    <p className="text-sm text-gray-600">Опытный гид, проверенные маршруты</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3">
-                  <Icon name="Smile" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-base text-gray-800">Без суеты</h4>
-                    <p className="text-sm text-gray-600">Комфортный темп, время на отдых и фото</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3">
-                  <Icon name="Sparkles" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-base text-gray-800">Яркие эмоции</h4>
-                    <p className="text-sm text-gray-600">Незабываемые впечатления гарантированы</p>
-                  </div>
-                </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фото</h3>
+                <p className="text-gray-600 text-base leading-relaxed">
+                  Профессиональный фотоаппарат и дрон для съемки лучших моментов вашего путешествия
+                </p>
               </div>
               
-              <div className="border-t pt-4 mt-auto">
-                <div>
-                  <h3 className="text-xl font-heading font-bold mb-2 text-gray-800">Фото</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    Профессиональный фотоаппарат и дрон для съемки лучших моментов вашего путешествия
-                  </p>
-                </div>
-              </div>
-              
-              <div className="border-t pt-4">
-                <h3 className="text-xl font-heading font-bold mb-2 text-gray-800">Фильм - вы в главных ролях</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фильм - вы в главных ролях</h3>
+                <p className="text-gray-600 text-base leading-relaxed">
                   Дарим готовый фильм о ваших приключениях после каждого похода - вы главные герои
                 </p>
               </div>
