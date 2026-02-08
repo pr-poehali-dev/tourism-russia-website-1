@@ -154,18 +154,18 @@ const ToursSection = () => {
         <div className="relative">
           <button
             onClick={() => scrollTours('left')}
-            className="absolute left-0 md:-left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-700 hover:bg-cyan-800 transition-colors shadow-lg"
+            className="absolute left-0 md:-left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-white hover:bg-gray-100 transition-colors shadow-lg"
             aria-label="Прокрутить влево"
           >
-            <Icon name="ChevronLeft" size={28} className="text-white" />
+            <Icon name="ChevronLeft" size={28} className="text-cyan-600" />
           </button>
           
           <button
             onClick={() => scrollTours('right')}
-            className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-700 hover:bg-cyan-800 transition-colors shadow-lg"
+            className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-white hover:bg-gray-100 transition-colors shadow-lg"
             aria-label="Прокрутить вправо"
           >
-            <Icon name="ChevronRight" size={28} className="text-white" />
+            <Icon name="ChevronRight" size={28} className="text-cyan-600" />
           </button>
           
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-cyan-600 to-transparent z-10 pointer-events-none"></div>
