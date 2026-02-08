@@ -196,12 +196,19 @@ const BenefitsSection = () => {
                     <div
                       key={index}
                       className="flex-shrink-0 w-48 rounded-lg overflow-hidden bg-gray-200 cursor-pointer"
-                      onClick={() => setSelectedVideo(video)}
+                      onClick={() => {
+                        if (video.isEmbed) {
+                          window.open(video.url, '_blank');
+                        } else {
+                          setSelectedVideo(video);
+                        }
+                      }}
                     >
                       <div className="relative h-36">
                         {video.isEmbed ? (
-                          <div className="w-full h-full bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center">
-                            <Icon name="Video" size={48} className="text-white/80" />
+                          <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-700 flex flex-col items-center justify-center gap-2">
+                            <Icon name="ExternalLink" size={24} className="text-white/90" />
+                            <span className="text-xs text-white/80 font-semibold">VK Видео</span>
                           </div>
                         ) : (
                           <video
