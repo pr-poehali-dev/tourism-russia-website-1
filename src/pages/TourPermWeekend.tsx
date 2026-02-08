@@ -323,10 +323,9 @@ const TourPermWeekend = () => {
               <div className="flex-1 w-full lg:w-auto">
                 <div
                   ref={scrollContainerRef}
-                  className="overflow-x-hidden scrollbar-hide select-none"
+                  className="overflow-x-scroll scrollbar-hide select-none"
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
-                  style={{ overflowX: 'hidden' }}
                 >
                   <div className="flex gap-4" style={{ width: 'max-content' }}>
                     {[...galleryImages, ...galleryImages].map((image, index) => {
