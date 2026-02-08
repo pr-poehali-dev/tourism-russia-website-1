@@ -134,42 +134,6 @@ const ToursSection = () => {
   };
 
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-  const [autoScrollDirection, setAutoScrollDirection] = React.useState<'right' | 'left'>('right');
-  const [isAutoScrollPaused, setIsAutoScrollPaused] = React.useState(false);
-  const autoScrollRef = React.useRef<number | null>(null);
-
-  React.useEffect(() => {
-    const startAutoScroll = () => {
-      if (!scrollContainerRef.current || isAutoScrollPaused) return;
-      
-      const container = scrollContainerRef.current;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      autoScrollRef.current = window.setInterval(() => {
-        if (!container || isAutoScrollPaused) return;
-        
-        if (autoScrollDirection === 'right') {
-          container.scrollLeft += 1;
-          if (container.scrollLeft >= maxScroll - 5) {
-            setAutoScrollDirection('left');
-          }
-        } else {
-          container.scrollLeft -= 1;
-          if (container.scrollLeft <= 5) {
-            setAutoScrollDirection('right');
-          }
-        }
-      }, 30);
-    };
-
-    startAutoScroll();
-
-    return () => {
-      if (autoScrollRef.current) {
-        clearInterval(autoScrollRef.current);
-      }
-    };
-  }, [autoScrollDirection, isAutoScrollPaused]);
 
   const scrollTours = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -184,13 +148,12 @@ const ToursSection = () => {
   return (
     <>
       <section id="tours" className="py-20 bg-cyan-600 relative">
-        <div className="container mx-auto px-0 md:px-4">
+        <div className="container mx-auto px-0 md:px-4 relative">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-center mb-16 md:mb-20 px-4">Приключения, которые вас ждут</h2>
         
         <button
           onClick={() => scrollTours('left')}
-          className="fixed left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors shadow-lg"
-          style={{ top: '50%' }}
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors shadow-lg"
           aria-label="Прокрутить влево"
         >
           <Icon name="ChevronLeft" size={28} className="text-white" />
@@ -198,8 +161,7 @@ const ToursSection = () => {
         
         <button
           onClick={() => scrollTours('right')}
-          className="fixed right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors shadow-lg"
-          style={{ top: '50%' }}
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors shadow-lg"
           aria-label="Прокрутить вправо"
         >
           <Icon name="ChevronRight" size={28} className="text-white" />
@@ -213,12 +175,9 @@ const ToursSection = () => {
             {tours.map((tour, index) => (
               <Card 
                 key={tour.id} 
-                className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-cyan-600 overflow-hidden rounded-3xl flex flex-col cursor-pointer group" 
+                className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-cyan-600 overflow-hidden rounded-3xl flex flex-col cursor-pointer group" 
                 style={{ minWidth: '280px', maxWidth: '280px' }}
-                onClick={() => {
-                  setIsAutoScrollPaused(true);
-                  navigate(tour.url);
-                }}
+                onClick={() => navigate(tour.url)}
               >
                     <div className="relative h-48 overflow-hidden bg-gray-100">
                       <img
