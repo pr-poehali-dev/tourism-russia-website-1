@@ -136,12 +136,12 @@ const BenefitsSection = () => {
       `}</style>
 
       <section id="about" className="pt-8 pb-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4 md:px-8 lg:px-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12 md:mb-16 text-gray-800">
             Особенности путешествий с нами
           </h2>
           
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-stretch">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-stretch">
             <div className="relative h-[500px] md:h-auto overflow-hidden rounded-2xl bg-cyan-600 p-3 photo-gallery">
               <div className="absolute inset-3 flex gap-3">
                 <div className="flex-1 overflow-hidden">
