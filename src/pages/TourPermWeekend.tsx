@@ -12,7 +12,6 @@ const TourPermWeekend = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
-  const currentSpeedRef = useRef(1);
 
   const tourInfo = [
     { icon: "Calendar", label: "Длительность тура", value: "ОТ 1 ДНЯ ДО 4 ДНЕЙ" },
@@ -66,38 +65,7 @@ const TourPermWeekend = () => {
     "Дополнительные экскурсии по желанию"
   ];
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
 
-    let animationId: number;
-    const normalSpeed = 1;
-    const slowSpeed = 0.25;
-    const transitionSpeed = 0.08;
-
-    const animate = () => {
-      if (container) {
-        const targetSpeed = isHovering ? slowSpeed : normalSpeed;
-        currentSpeedRef.current += (targetSpeed - currentSpeedRef.current) * transitionSpeed;
-        
-        container.scrollLeft += currentSpeedRef.current;
-        
-        const halfWidth = container.scrollWidth / 2;
-        if (container.scrollLeft >= halfWidth) {
-          container.scrollLeft = 0;
-        }
-      }
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-  }, [isHovering]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -274,6 +242,26 @@ const TourPermWeekend = () => {
 
   return (
     <>
+      <style>{`
+        @keyframes scrollHorizontal {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-scroll-gallery {
+          animation: scrollHorizontal 40s linear infinite;
+          transition: animation-duration 0.5s ease;
+        }
+        
+        .photo-gallery-horizontal:hover .animate-scroll-gallery {
+          animation: scrollHorizontal 120s linear infinite;
+        }
+      `}</style>
+
       <UniversalBookingDialog 
         open={showBookingForm} 
         onOpenChange={setShowBookingForm}
@@ -322,38 +310,31 @@ const TourPermWeekend = () => {
         </div>
 
         <div className="bg-gradient-to-r from-cyan-600 to-cyan-700 py-12 md:py-20">
-          <div className="w-full">
-            <div
-              ref={scrollContainerRef}
-              className="overflow-x-scroll scrollbar-hide select-none"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              <div className="flex gap-4 px-4" style={{ width: 'max-content' }}>
-                {[...galleryImages, ...galleryImages].map((image, index) => {
-                  const height = 400;
-                  const width = height * image.aspectRatio;
-                  const originalIndex = index % galleryImages.length;
-                  return (
-                    <div
-                      key={index}
-                      className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer hover:scale-105"
-                      style={{ height: `${height}px`, width: `${width}px` }}
-                      onClick={() => {
-                        setCurrentImageIndex(originalIndex);
-                        setLightboxOpen(true);
-                      }}
-                    >
-                      <img
-                        src={image.url}
-                        alt={`Фото тура ${originalIndex + 1}`}
-                        className="w-full h-full object-cover"
-                        draggable={false}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
+          <div className="w-full overflow-hidden photo-gallery-horizontal">
+            <div className="flex gap-4 px-4 animate-scroll-gallery" style={{ width: 'max-content' }}>
+              {[...galleryImages, ...galleryImages].map((image, index) => {
+                const height = 400;
+                const width = height * image.aspectRatio;
+                const originalIndex = index % galleryImages.length;
+                return (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer hover:scale-105"
+                    style={{ height: `${height}px`, width: `${width}px` }}
+                    onClick={() => {
+                      setCurrentImageIndex(originalIndex);
+                      setLightboxOpen(true);
+                    }}
+                  >
+                    <img
+                      src={image.url}
+                      alt={`Фото тура ${originalIndex + 1}`}
+                      className="w-full h-full object-cover"
+                      draggable={false}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
