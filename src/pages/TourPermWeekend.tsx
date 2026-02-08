@@ -339,7 +339,7 @@ const TourPermWeekend = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-12 md:py-20">
+        <div className="w-full px-4 md:px-8 lg:px-12 py-12 md:py-20">
 
           {lightboxOpen && (
             <div 
