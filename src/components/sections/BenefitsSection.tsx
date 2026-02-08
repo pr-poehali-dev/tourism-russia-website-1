@@ -160,14 +160,20 @@ const BenefitsSection = () => {
 
             <div className="flex flex-col space-y-6 bg-white p-8 rounded-2xl shadow-lg min-h-[500px]">
               <div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фото</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <Icon name="Camera" size={28} className="text-cyan-600" />
+                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-800">Фото</h3>
+                </div>
                 <p className="text-gray-600 text-base leading-relaxed">
                   Профессиональный фотоаппарат и дрон для съемки лучших моментов вашего путешествия
                 </p>
               </div>
               
               <div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фильм - вы в главных ролях</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <Icon name="Video" size={28} className="text-cyan-600" />
+                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-800">Фильм - вы в главных ролях</h3>
+                </div>
                 <p className="text-gray-600 text-base leading-relaxed">
                   Дарим готовый фильм о ваших приключениях после каждого похода - вы главные герои
                 </p>
