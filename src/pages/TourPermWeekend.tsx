@@ -12,6 +12,7 @@ const TourPermWeekend = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const currentSpeedRef = useRef(1);
 
   const tourInfo = [
     { icon: "Calendar", label: "Длительность тура", value: "ОТ 1 ДНЯ ДО 4 ДНЕЙ" },
@@ -71,16 +72,15 @@ const TourPermWeekend = () => {
 
     let animationId: number;
     const normalSpeed = 1;
-    const slowSpeed = 0.2;
-    let currentSpeed = normalSpeed;
-    const transitionSpeed = 0.05;
+    const slowSpeed = 0.25;
+    const transitionSpeed = 0.08;
 
     const animate = () => {
       if (container) {
         const targetSpeed = isHovering ? slowSpeed : normalSpeed;
-        currentSpeed += (targetSpeed - currentSpeed) * transitionSpeed;
+        currentSpeedRef.current += (targetSpeed - currentSpeedRef.current) * transitionSpeed;
         
-        container.scrollLeft += currentSpeed;
+        container.scrollLeft += currentSpeedRef.current;
         
         const halfWidth = container.scrollWidth / 2;
         if (container.scrollLeft >= halfWidth) {
