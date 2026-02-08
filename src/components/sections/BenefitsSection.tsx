@@ -181,9 +181,7 @@ const BenefitsSection = () => {
                 <p className="text-gray-600 text-base leading-relaxed mb-3">
                   Профессиональный фотоаппарат и дрон для съемки лучших моментов вашего путешествия
                 </p>
-                <p className="text-gray-600 text-base leading-relaxed">
-                  Комфортный темп передвижений и лучшие места для максимально удачных фото
-                </p>
+                <p className="text-gray-600 text-base leading-relaxed">Комфортный темп передвижений и идеальные места для максимально удачных фото</p>
               </div>
               
               <div>
