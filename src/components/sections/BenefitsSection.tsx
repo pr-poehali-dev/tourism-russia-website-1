@@ -67,7 +67,7 @@ const BenefitsSection = () => {
       title: "Шавлинские озера 2022г",
       isEmbed: true,
       isRutube: true,
-      thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/126218a1-7c97-4ca9-8ac8-e997bc20ba72.jpg"
+      thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/a65103b5-7a63-4991-b221-01254067ef19.jpg"
     }
   ];
 
