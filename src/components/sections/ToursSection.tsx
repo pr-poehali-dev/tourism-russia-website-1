@@ -148,29 +148,33 @@ const ToursSection = () => {
   return (
     <>
       <section id="tours" className="py-20 bg-cyan-600 relative">
-        <div className="container mx-auto px-0 md:px-4 relative">
+        <div className="container mx-auto px-0 md:px-4">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white text-center mb-16 md:mb-20 px-4">Приключения, которые вас ждут</h2>
         
-        <button
-          onClick={() => scrollTours('left')}
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors shadow-lg"
-          aria-label="Прокрутить влево"
-        >
-          <Icon name="ChevronLeft" size={28} className="text-white" />
-        </button>
-        
-        <button
-          onClick={() => scrollTours('right')}
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors shadow-lg"
-          aria-label="Прокрутить вправо"
-        >
-          <Icon name="ChevronRight" size={28} className="text-white" />
-        </button>
-        
-        <div 
-          ref={scrollContainerRef}
-          className="overflow-x-auto scrollbar-hide select-none pb-4"
-        >
+        <div className="relative">
+          <button
+            onClick={() => scrollTours('left')}
+            className="absolute left-0 md:-left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-700 hover:bg-cyan-800 transition-colors shadow-lg"
+            aria-label="Прокрутить влево"
+          >
+            <Icon name="ChevronLeft" size={28} className="text-white" />
+          </button>
+          
+          <button
+            onClick={() => scrollTours('right')}
+            className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-cyan-700 hover:bg-cyan-800 transition-colors shadow-lg"
+            aria-label="Прокрутить вправо"
+          >
+            <Icon name="ChevronRight" size={28} className="text-white" />
+          </button>
+          
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-cyan-600 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-cyan-600 to-transparent z-10 pointer-events-none"></div>
+          
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-auto scrollbar-hide select-none pb-4"
+          >
           <div className="flex gap-2 md:gap-8 pl-2 pr-2 md:px-4" style={{ width: 'max-content' }}>
             {tours.map((tour, index) => (
               <Card 
@@ -267,7 +271,9 @@ const ToursSection = () => {
                   </Card>
             ))}
           </div>
+          </div>
         </div>
+        
         <div className="text-center mt-12 px-4">
           <button 
             onClick={() => {
@@ -277,7 +283,7 @@ const ToursSection = () => {
             className="bg-white text-cyan-600 border-2 border-cyan-600 hover:bg-cyan-50 font-bold text-sm md:text-base px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg"
           >Предложите свой вариант тура, если не нашли подходящий</button>
         </div>
-      </div>
+        </div>
 
       <UniversalBookingDialog 
         open={showBookingForm} 
