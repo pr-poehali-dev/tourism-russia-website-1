@@ -177,8 +177,11 @@ const BenefitsSection = () => {
                   <Icon name="Video" size={32} className="text-cyan-600 flex-shrink-0 mt-1" />
                   <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-800">Фильм - вы в главных ролях</h3>
                 </div>
-                <p className="text-gray-600 text-base leading-relaxed">
+                <p className="text-gray-600 text-base leading-relaxed mb-3">
                   Дарим готовый фильм о ваших приключениях после каждого похода - вы главные герои
+                </p>
+                <p className="text-gray-600 text-base leading-relaxed">
+                  Незабываемые впечатления останутся с вами навсегда
                 </p>
               </div>
 
