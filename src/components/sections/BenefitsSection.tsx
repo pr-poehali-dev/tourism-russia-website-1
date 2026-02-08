@@ -197,7 +197,11 @@ const BenefitsSection = () => {
                       key={index}
                       className="flex-shrink-0 w-48 rounded-lg overflow-hidden bg-gray-200 cursor-pointer"
                       onClick={() => {
-                        setSelectedVideo(video);
+                        if (video.isEmbed) {
+                          window.open(video.url, '_blank');
+                        } else {
+                          setSelectedVideo(video);
+                        }
                       }}
                     >
                       <div className="relative h-36">
