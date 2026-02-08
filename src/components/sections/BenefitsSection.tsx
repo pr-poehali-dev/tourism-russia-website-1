@@ -170,8 +170,8 @@ const BenefitsSection = () => {
               </div>
               
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <Icon name="Video" size={32} className="text-cyan-600 flex-shrink-0" />
+                <div className="flex items-start gap-3 mb-4">
+                  <Icon name="Video" size={32} className="text-cyan-600 flex-shrink-0 mt-1" />
                   <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-800">Фильм - вы в главных ролях</h3>
                 </div>
                 <p className="text-gray-600 text-base leading-relaxed">
