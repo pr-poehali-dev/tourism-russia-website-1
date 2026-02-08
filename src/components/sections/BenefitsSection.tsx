@@ -63,6 +63,13 @@ const BenefitsSection = () => {
       thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/940dab8d-213d-4671-ac22-04f9fbe159e9.jpg"
     },
     {
+      url: "https://rutube.ru/play/embed/6e2fdf59548b28d5815232382abb08dd/?p=2pS-Ay_ATGKaWibsdG5_ng",
+      title: "Озеро Джека Лондона 2025г (2 часть)",
+      isEmbed: true,
+      isRutube: true,
+      thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/3957a026-5a49-40a5-aa5e-52ef497e2232.jpg"
+    },
+    {
       url: "https://rutube.ru/play/embed/f2a3d83a234efbf818c43a1e8b938172",
       title: "Шавлинские озера 2025г",
       isEmbed: true,
