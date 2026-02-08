@@ -190,7 +190,7 @@ const ToursSection = () => {
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                       />
                       {tour.id === 1 && (
-                        <div className="absolute top-0 left-0 flex flex-col gap-2 z-10">
+                        <div className="absolute top-4 left-0 flex flex-col gap-2 z-10">
                           <div className="relative text-white px-4 py-2 font-bold text-sm uppercase shadow-lg bg-orange-500"
                                style={{
                                  clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)'
@@ -204,7 +204,7 @@ const ToursSection = () => {
                         </div>
                       )}
                       {tour.id === 2 && (
-                        <div className="absolute top-0 left-0 flex flex-col gap-2 z-10">
+                        <div className="absolute top-4 left-0 flex flex-col gap-2 z-10">
                           <div className="relative text-white px-4 py-2 font-bold text-sm uppercase shadow-lg bg-orange-500"
                                style={{
                                  clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)'
@@ -216,7 +216,7 @@ const ToursSection = () => {
                         </div>
                       )}
                       {tour.id === 7 && (
-                        <div className="absolute top-0 left-0 z-10">
+                        <div className="absolute top-4 left-0 z-10">
                           <div className="relative text-white px-4 py-2 font-bold text-sm uppercase shadow-lg bg-orange-500"
                                style={{
                                  clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)'
