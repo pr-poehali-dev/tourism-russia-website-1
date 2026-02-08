@@ -56,9 +56,10 @@ const BenefitsSection = () => {
 
   const videos = [
     {
-      url: "https://vkvideo.ru/video-121364865_456239017",
+      url: "https://rutube.ru/play/embed/f2a3d83a234efbf818c43a1e8b938172",
       title: "Шавлинские озера 2025г",
-      isEmbed: true
+      isEmbed: true,
+      isRutube: true
     },
     {
       url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7bb12129-0af0-4993-8e0c-c6c7b61a542e.MOV",
@@ -197,18 +198,14 @@ const BenefitsSection = () => {
                       key={index}
                       className="flex-shrink-0 w-48 rounded-lg overflow-hidden bg-gray-200 cursor-pointer"
                       onClick={() => {
-                        if (video.isEmbed) {
-                          window.open(video.url, '_blank');
-                        } else {
-                          setSelectedVideo(video);
-                        }
+                        setSelectedVideo(video);
                       }}
                     >
                       <div className="relative h-36">
                         {video.isEmbed ? (
-                          <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-700 flex flex-col items-center justify-center gap-2">
-                            <Icon name="ExternalLink" size={24} className="text-white/90" />
-                            <span className="text-xs text-white/80 font-semibold">VK Видео</span>
+                          <div className="w-full h-full bg-gradient-to-br from-red-500 to-red-700 flex flex-col items-center justify-center gap-2">
+                            <Icon name="Play" size={24} className="text-white/90" />
+                            <span className="text-xs text-white/80 font-semibold">Rutube</span>
                           </div>
                         ) : (
                           <video
@@ -268,10 +265,10 @@ const BenefitsSection = () => {
             <div className="mt-4">
               {selectedVideo.isEmbed ? (
                 <iframe
-                  src={`https://vk.com/video_ext.php?oid=-121364865&id=456239017&hd=2`}
+                  src={selectedVideo.url}
                   width="100%"
                   height="500"
-                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; clipboard-write;"
                   frameBorder="0"
                   allowFullScreen
                   className="rounded-lg"
