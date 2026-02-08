@@ -284,14 +284,13 @@ const TourPermWeekend = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-12 md:py-20">
-          <div className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Фото</h2>
+        <div className="bg-gradient-to-r from-cyan-600 to-cyan-700 py-12 md:py-20">
+          <div className="w-full">
             <div
               ref={scrollContainerRef}
               className="overflow-x-auto scrollbar-hide select-none"
             >
-              <div className="flex gap-4" style={{ width: 'max-content' }}>
+              <div className="flex gap-4 px-4" style={{ width: 'max-content' }}>
                 {galleryImages.map((image, index) => {
                   const height = 400;
                   const width = height * image.aspectRatio;
@@ -317,6 +316,9 @@ const TourPermWeekend = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="container mx-auto px-4 py-12 md:py-20">
 
           {lightboxOpen && (
             <div 
