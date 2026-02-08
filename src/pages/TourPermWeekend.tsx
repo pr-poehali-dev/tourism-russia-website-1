@@ -2,16 +2,15 @@ import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import UniversalBookingDialog from "@/components/booking/UniversalBookingDialog";
 
 const TourPermWeekend = () => {
   const navigate = useNavigate();
   const [showBookingForm, setShowBookingForm] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const tourInfo = [
     { icon: "Calendar", label: "Длительность тура", value: "ОТ 1 ДНЯ ДО 4 ДНЕЙ" },
@@ -64,6 +63,50 @@ const TourPermWeekend = () => {
     "Личные расходы",
     "Дополнительные экскурсии по желанию"
   ];
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let animationId: number;
+    const scrollSpeed = 0.5;
+
+    const animate = () => {
+      if (container) {
+        container.scrollLeft += scrollSpeed;
+        
+        if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+          container.scrollLeft = 0;
+        }
+      }
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      
+      if (e.key === 'Escape') {
+        setLightboxOpen(false);
+      } else if (e.key === 'ArrowLeft') {
+        setCurrentImageIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+      } else if (e.key === 'ArrowRight') {
+        setCurrentImageIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen]);
 
   const galleryImages = [
     {
@@ -246,22 +289,7 @@ const TourPermWeekend = () => {
             <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Фото</h2>
             <div
               ref={scrollContainerRef}
-              className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
-              onMouseDown={(e) => {
-                e.preventDefault();
-                setIsDragging(true);
-                setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
-                setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
-              }}
-              onMouseLeave={() => setIsDragging(false)}
-              onMouseUp={() => setIsDragging(false)}
-              onMouseMove={(e) => {
-                if (!isDragging || !scrollContainerRef.current) return;
-                e.preventDefault();
-                const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
-                const walk = (x - startX) * 2;
-                scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-              }}
+              className="overflow-x-auto scrollbar-hide select-none"
             >
               <div className="flex gap-4" style={{ width: 'max-content' }}>
                 {galleryImages.map((image, index) => {
@@ -270,8 +298,12 @@ const TourPermWeekend = () => {
                   return (
                     <div
                       key={index}
-                      className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
+                      className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer hover:scale-105"
                       style={{ height: `${height}px`, width: `${width}px` }}
+                      onClick={() => {
+                        setCurrentImageIndex(index);
+                        setLightboxOpen(true);
+                      }}
                     >
                       <img
                         src={image.url}
@@ -285,6 +317,55 @@ const TourPermWeekend = () => {
               </div>
             </div>
           </div>
+
+          {lightboxOpen && (
+            <div 
+              className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+              onClick={() => setLightboxOpen(false)}
+            >
+              <button
+                className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+                onClick={() => setLightboxOpen(false)}
+              >
+                <Icon name="X" size={32} />
+              </button>
+              
+              <button
+                className="absolute left-4 text-white hover:text-gray-300 transition-colors z-10 p-2"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentImageIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+                }}
+              >
+                <Icon name="ChevronLeft" size={48} />
+              </button>
+
+              <div 
+                className="max-w-[90vw] max-h-[90vh] flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={galleryImages[currentImageIndex].url}
+                  alt={`Фото тура ${currentImageIndex + 1}`}
+                  className="max-w-full max-h-[90vh] object-contain"
+                />
+              </div>
+
+              <button
+                className="absolute right-4 text-white hover:text-gray-300 transition-colors z-10 p-2"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentImageIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+                }}
+              >
+                <Icon name="ChevronRight" size={48} />
+              </button>
+
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm">
+                {currentImageIndex + 1} / {galleryImages.length}
+              </div>
+            </div>
+          )}
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <Card className="md:col-span-2">
@@ -352,7 +433,7 @@ const TourPermWeekend = () => {
             {tourInfo.map((info, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 text-center">
-                  <Icon name={info.icon as any} size={32} className="mx-auto mb-3 text-primary" />
+                  <Icon name={info.icon} size={32} className="mx-auto mb-3 text-primary" />
                   <p className="text-xs text-muted-foreground mb-2">{info.label}</p>
                   <p className="font-semibold text-sm">{info.value}</p>
                 </CardContent>
