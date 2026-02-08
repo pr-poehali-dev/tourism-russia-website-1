@@ -242,6 +242,50 @@ const TourPermWeekend = () => {
         </div>
 
         <div className="container mx-auto px-4 py-12 md:py-20">
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Фото</h2>
+            <div
+              ref={scrollContainerRef}
+              className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
+              onMouseDown={(e) => {
+                e.preventDefault();
+                setIsDragging(true);
+                setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
+                setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
+              }}
+              onMouseLeave={() => setIsDragging(false)}
+              onMouseUp={() => setIsDragging(false)}
+              onMouseMove={(e) => {
+                if (!isDragging || !scrollContainerRef.current) return;
+                e.preventDefault();
+                const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
+                const walk = (x - startX) * 2;
+                scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+              }}
+            >
+              <div className="flex gap-4" style={{ width: 'max-content' }}>
+                {galleryImages.map((image, index) => {
+                  const height = 400;
+                  const width = height * image.aspectRatio;
+                  return (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
+                      style={{ height: `${height}px`, width: `${width}px` }}
+                    >
+                      <img
+                        src={image.url}
+                        alt={`Фото тура ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        draggable={false}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <Card className="md:col-span-2">
               <CardContent className="p-6 md:p-8">
@@ -371,50 +415,6 @@ const TourPermWeekend = () => {
                 </ul>
               </CardContent>
             </Card>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">Фото</h2>
-            <div
-              ref={scrollContainerRef}
-              className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
-              onMouseDown={(e) => {
-                e.preventDefault();
-                setIsDragging(true);
-                setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
-                setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
-              }}
-              onMouseLeave={() => setIsDragging(false)}
-              onMouseUp={() => setIsDragging(false)}
-              onMouseMove={(e) => {
-                if (!isDragging || !scrollContainerRef.current) return;
-                e.preventDefault();
-                const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0);
-                const walk = (x - startX) * 2;
-                scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-              }}
-            >
-              <div className="flex gap-4" style={{ width: 'max-content' }}>
-                {galleryImages.map((image, index) => {
-                  const height = 400;
-                  const width = height * image.aspectRatio;
-                  return (
-                    <div
-                      key={index}
-                      className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
-                      style={{ height: `${height}px`, width: `${width}px` }}
-                    >
-                      <img
-                        src={image.url}
-                        alt={`Фото тура ${index + 1}`}
-                        className="w-full h-full object-cover"
-                        draggable={false}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
           </div>
 
           <Card className="bg-gradient-to-r from-cyan-600 to-cyan-700 text-white">
