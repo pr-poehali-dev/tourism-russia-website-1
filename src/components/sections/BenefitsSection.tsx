@@ -207,17 +207,17 @@ const BenefitsSection = () => {
                   <div className="flex gap-2">
                     <button
                       onClick={() => scrollVideos('left')}
-                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
+                      className="w-8 h-8 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors"
                       aria-label="Прокрутить влево"
                     >
-                      <Icon name="ChevronLeft" size={20} className="text-gray-700" />
+                      <Icon name="ChevronLeft" size={20} className="text-white" />
                     </button>
                     <button
                       onClick={() => scrollVideos('right')}
-                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
+                      className="w-8 h-8 flex items-center justify-center rounded-full bg-cyan-600 hover:bg-cyan-700 transition-colors"
                       aria-label="Прокрутить вправо"
                     >
-                      <Icon name="ChevronRight" size={20} className="text-gray-700" />
+                      <Icon name="ChevronRight" size={20} className="text-white" />
                     </button>
                   </div>
                 </div>
