@@ -218,7 +218,7 @@ const BenefitsSection = () => {
                   {videos.map((video, index) => (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-48 rounded-lg overflow-hidden bg-gray-200 cursor-pointer"
+                      className="flex-shrink-0 w-48 rounded-lg overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow"
                       onClick={() => {
                         setSelectedVideo(video);
                       }}
