@@ -59,7 +59,8 @@ const BenefitsSection = () => {
       url: "https://rutube.ru/play/embed/f2a3d83a234efbf818c43a1e8b938172",
       title: "Шавлинские озера 2025г",
       isEmbed: true,
-      isRutube: true
+      isRutube: true,
+      thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1901fbed-aab3-4bf9-95be-25f040d022d7.jpg"
     },
     {
       url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7bb12129-0af0-4993-8e0c-c6c7b61a542e.MOV",
@@ -202,7 +203,9 @@ const BenefitsSection = () => {
                       }}
                     >
                       <div className="relative h-36">
-                        {video.isEmbed ? (
+                        {video.isEmbed && video.thumbnail ? (
+                          <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
+                        ) : video.isEmbed ? (
                           <div className="w-full h-full bg-gradient-to-br from-red-500 to-red-700 flex flex-col items-center justify-center gap-2">
                             <Icon name="Play" size={24} className="text-white/90" />
                             <span className="text-xs text-white/80 font-semibold">Rutube</span>
