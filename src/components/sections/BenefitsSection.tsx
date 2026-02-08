@@ -66,7 +66,8 @@ const BenefitsSection = () => {
       url: "https://rutube.ru/play/embed/0f69abb346ad8912ab6ee013bfcf6b37/?p=L2LFQNee7hMNJxWdP9ntEw",
       title: "Шавлинские озера 2022г",
       isEmbed: true,
-      isRutube: true
+      isRutube: true,
+      thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/126218a1-7c97-4ca9-8ac8-e997bc20ba72.jpg"
     }
   ];
 
