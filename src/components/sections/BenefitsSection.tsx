@@ -142,16 +142,68 @@ const BenefitsSection = () => {
             </div>
 
             <div className="flex flex-col space-y-6 bg-white p-8 rounded-2xl shadow-lg min-h-[500px]">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фото</h3>
-                <p className="text-gray-600 text-base leading-relaxed">
-                  Профессиональный фотоаппарат и дрон для съемки лучших моментов вашего путешествия
-                </p>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <Icon name="Heart" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-base text-gray-800">Индивидуальный подход</h4>
+                    <p className="text-sm text-gray-600">Адаптируем маршрут под ваши пожелания</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-3">
+                  <Icon name="Camera" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-base text-gray-800">Лучшие фотолокации</h4>
+                    <p className="text-sm text-gray-600">Знаем все секретные места для кадров</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-3">
+                  <Icon name="Coffee" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-base text-gray-800">Уютная атмосфера</h4>
+                    <p className="text-sm text-gray-600">Тёплая база, вкусная еда, дружная компания</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-3">
+                  <Icon name="Shield" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-base text-gray-800">Безопасность</h4>
+                    <p className="text-sm text-gray-600">Опытный гид, проверенные маршруты</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-3">
+                  <Icon name="Smile" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-base text-gray-800">Без суеты</h4>
+                    <p className="text-sm text-gray-600">Комфортный темп, время на отдых и фото</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-3">
+                  <Icon name="Sparkles" size={24} className="text-cyan-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-base text-gray-800">Яркие эмоции</h4>
+                    <p className="text-sm text-gray-600">Незабываемые впечатления гарантированы</p>
+                  </div>
+                </div>
               </div>
               
-              <div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-800">Фильм - вы в главных ролях</h3>
-                <p className="text-gray-600 text-base leading-relaxed">
+              <div className="border-t pt-4 mt-auto">
+                <div>
+                  <h3 className="text-xl font-heading font-bold mb-2 text-gray-800">Фото</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Профессиональный фотоаппарат и дрон для съемки лучших моментов вашего путешествия
+                  </p>
+                </div>
+              </div>
+              
+              <div className="border-t pt-4">
+                <h3 className="text-xl font-heading font-bold mb-2 text-gray-800">Фильм - вы в главных ролях</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
                   Дарим готовый фильм о ваших приключениях после каждого похода - вы главные герои
                 </p>
               </div>
