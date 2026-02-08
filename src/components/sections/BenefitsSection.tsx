@@ -60,12 +60,13 @@ const BenefitsSection = () => {
       title: "Шавлинские озера 2025г",
       isEmbed: true,
       isRutube: true,
-      thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/1901fbed-aab3-4bf9-95be-25f040d022d7.jpg"
+      thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/143d941c-8b49-4089-8f4c-199409e54412.jpg"
     },
     {
-      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7bb12129-0af0-4993-8e0c-c6c7b61a542e.MOV",
+      url: "https://rutube.ru/play/embed/0f69abb346ad8912ab6ee013bfcf6b37/?p=L2LFQNee7hMNJxWdP9ntEw",
       title: "Шавлинские озера 2022г",
-      isEmbed: false
+      isEmbed: true,
+      isRutube: true
     }
   ];
 
