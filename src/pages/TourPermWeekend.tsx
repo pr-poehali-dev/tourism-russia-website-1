@@ -108,7 +108,36 @@ const TourPermWeekend = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxOpen]);
 
+  const travelFeatures = [
+    { icon: "Heart", title: "Индивидуальный подход", description: "Адаптируем маршрут под ваши пожелания" },
+    { icon: "Camera", title: "Лучшие фотолокации", description: "Знаем все секретные места для кадров" },
+    { icon: "Coffee", title: "Уютная атмосфера", description: "Тёплая база, вкусная еда, дружная компания" },
+    { icon: "Shield", title: "Безопасность", description: "Опытный гид, проверенные маршруты" },
+    { icon: "Smile", title: "Без суеты", description: "Комфортный темп, время на отдых и фото" },
+    { icon: "Sparkles", title: "Яркие эмоции", description: "Незабываемые впечатления гарантированы" }
+  ];
+
   const galleryImages = [
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/7c9e491b-a08c-4d61-abbd-5afbd1802624.jpg",
+      aspectRatio: 3/4
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/89266a94-1049-43c7-82a7-8a473df1c1e9.jpg",
+      aspectRatio: 3/4
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/1e468d7e-a78a-4006-8df7-adb639ceb008.jpg",
+      aspectRatio: 16/9
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/8f961262-d412-4a18-b0b9-3be457f8d020.jpg",
+      aspectRatio: 3/4
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/9da71f36-2275-46cf-81e4-203b9842f085.jpg",
+      aspectRatio: 3/4
+    },
     {
       url: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/bucket/f4de9d1f-567d-4892-ad15-de6664c8c99c.jpg",
       aspectRatio: 16/9
@@ -285,34 +314,57 @@ const TourPermWeekend = () => {
         </div>
 
         <div className="bg-gradient-to-r from-cyan-600 to-cyan-700 py-12 md:py-20">
-          <div className="w-full">
-            <div
-              ref={scrollContainerRef}
-              className="overflow-x-auto scrollbar-hide select-none"
-            >
-              <div className="flex gap-4 px-4" style={{ width: 'max-content' }}>
-                {galleryImages.map((image, index) => {
-                  const height = 400;
-                  const width = height * image.aspectRatio;
-                  return (
-                    <div
-                      key={index}
-                      className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer hover:scale-105"
-                      style={{ height: `${height}px`, width: `${width}px` }}
-                      onClick={() => {
-                        setCurrentImageIndex(index);
-                        setLightboxOpen(true);
-                      }}
-                    >
-                      <img
-                        src={image.url}
-                        alt={`Фото тура ${index + 1}`}
-                        className="w-full h-full object-cover"
-                        draggable={false}
-                      />
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col lg:flex-row gap-8 items-start">
+              <div className="flex-1 w-full lg:w-auto">
+                <div
+                  ref={scrollContainerRef}
+                  className="overflow-x-auto scrollbar-hide select-none"
+                >
+                  <div className="flex gap-4" style={{ width: 'max-content' }}>
+                    {galleryImages.map((image, index) => {
+                      const height = 400;
+                      const width = height * image.aspectRatio;
+                      return (
+                        <div
+                          key={index}
+                          className="flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer hover:scale-105"
+                          style={{ height: `${height}px`, width: `${width}px` }}
+                          onClick={() => {
+                            setCurrentImageIndex(index);
+                            setLightboxOpen(true);
+                          }}
+                        >
+                          <img
+                            src={image.url}
+                            alt={`Фото тура ${index + 1}`}
+                            className="w-full h-full object-cover"
+                            draggable={false}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+              
+              <div className="lg:w-80 flex-shrink-0">
+                <Card className="bg-white/95 backdrop-blur sticky top-24">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-heading font-bold mb-4 text-primary">Особенности путешествий с нами</h3>
+                    <div className="space-y-4">
+                      {travelFeatures.map((feature, index) => (
+                        <div key={index} className="flex gap-3">
+                          <Icon name={feature.icon} size={24} className="text-primary flex-shrink-0 mt-1" />
+                          <div>
+                            <p className="font-semibold text-sm">{feature.title}</p>
+                            <p className="text-xs text-muted-foreground">{feature.description}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  );
-                })}
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
