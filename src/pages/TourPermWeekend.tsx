@@ -11,6 +11,7 @@ const TourPermWeekend = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
 
   const tourInfo = [
     { icon: "Calendar", label: "Длительность тура", value: "ОТ 1 ДНЯ ДО 4 ДНЕЙ" },
@@ -69,11 +70,13 @@ const TourPermWeekend = () => {
     if (!container) return;
 
     let animationId: number;
-    const scrollSpeed = 0.5;
+    const normalSpeed = 0.5;
+    const slowSpeed = 0.15;
 
     const animate = () => {
       if (container) {
-        container.scrollLeft += scrollSpeed;
+        const speed = isHovering ? slowSpeed : normalSpeed;
+        container.scrollLeft += speed;
         
         if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
           container.scrollLeft = 0;
@@ -89,7 +92,7 @@ const TourPermWeekend = () => {
         cancelAnimationFrame(animationId);
       }
     };
-  }, []);
+  }, [isHovering]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -320,6 +323,8 @@ const TourPermWeekend = () => {
                 <div
                   ref={scrollContainerRef}
                   className="overflow-x-auto scrollbar-hide select-none"
+                  onMouseEnter={() => setIsHovering(true)}
+                  onMouseLeave={() => setIsHovering(false)}
                 >
                   <div className="flex gap-4" style={{ width: 'max-content' }}>
                     {galleryImages.map((image, index) => {
