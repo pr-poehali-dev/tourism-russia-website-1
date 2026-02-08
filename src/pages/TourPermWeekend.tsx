@@ -70,13 +70,17 @@ const TourPermWeekend = () => {
     if (!container) return;
 
     let animationId: number;
-    const normalSpeed = 0.5;
-    const slowSpeed = 0.15;
+    const normalSpeed = 1;
+    const slowSpeed = 0.2;
+    let currentSpeed = normalSpeed;
+    const transitionSpeed = 0.05;
 
     const animate = () => {
       if (container) {
-        const speed = isHovering ? slowSpeed : normalSpeed;
-        container.scrollLeft += speed;
+        const targetSpeed = isHovering ? slowSpeed : normalSpeed;
+        currentSpeed += (targetSpeed - currentSpeed) * transitionSpeed;
+        
+        container.scrollLeft += currentSpeed;
         
         const halfWidth = container.scrollWidth / 2;
         if (container.scrollLeft >= halfWidth) {
