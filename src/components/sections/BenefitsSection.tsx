@@ -57,7 +57,7 @@ const BenefitsSection = () => {
   const videos = [
     {
       url: "https://rutube.ru/play/embed/146c34578366068aaabcbfe6a91079e5/?p=huFtqVC23kvBUJ7IQp2qbg",
-      title: "Озеро Джека Лондона 2025г",
+      title: "Озеро Джека Лондона 2025г (1 часть)",
       isEmbed: true,
       isRutube: true,
       thumbnail: "https://cdn.poehali.dev/projects/8e902b9d-d84f-4d31-8776-8a9de0dee401/files/abbc6d7a-cea3-4662-9a1b-384762af32c9.jpg"
