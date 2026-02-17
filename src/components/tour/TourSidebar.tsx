@@ -8,7 +8,6 @@ interface TourSidebarProps {
 
 const TourSidebar = ({ onBookingClick }: TourSidebarProps) => {
   const tourDates = [
-    "16-22 февраля",
     "6-12 марта"
   ];
 

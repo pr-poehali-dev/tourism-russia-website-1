@@ -424,7 +424,7 @@ const TourTents = () => {
                 <CardContent className="p-6">
                   <div className="text-center mb-4">
                     <div className="text-sm text-muted-foreground mb-2">Даты тура</div>
-                    <div className="font-bold text-lg">25 февраля – 4 марта 2026</div>
+                    <div className="font-bold text-lg">6-12 марта 2026</div>
                   </div>
                   <div className="text-center mb-6">
                     <div className="text-2xl line-through text-red-600 mb-1">61 000 ₽</div>
